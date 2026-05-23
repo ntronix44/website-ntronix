@@ -503,13 +503,104 @@
         /* ========== Responsive Design ========== */
         @media (max-width: 768px) {
             .hero-content h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
+                line-height: 1.15;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
             }
             
             .fab {
                 width: 56px;
                 height: 56px;
                 font-size: 1.25rem;
+            }
+            
+            /* Stats cards */
+            .stats-number {
+                font-size: 1.8rem;
+            }
+            
+            .stats-card {
+                padding: 1rem !important;
+            }
+            
+            /* Section headings */
+            h2 {
+                font-size: 1.75rem !important;
+            }
+            
+            /* Cards */
+            .card {
+                padding: 1.25rem;
+            }
+            
+            /* Product cards grid fix */
+            .product-card .p-6 {
+                padding: 1rem;
+            }
+            
+            /* Chart containers */
+            .chart-container {
+                padding: 1rem;
+            }
+            
+            /* Contact cards */
+            .card.p-6 {
+                padding: 1rem;
+            }
+            
+            /* Floating info card on hero */
+            .glass.rounded-2xl.p-6 {
+                padding: 0.75rem;
+                max-width: 200px;
+            }
+            
+            .glass.rounded-2xl.p-5 {
+                padding: 0.75rem;
+                max-width: 180px;
+            }
+            
+            .glass.rounded-2xl p.font-bold,
+            .glass.rounded-2xl p.font-semibold {
+                font-size: 0.8rem;
+            }
+            
+            .glass.rounded-2xl p.text-sm {
+                font-size: 0.7rem;
+            }
+            
+            /* Navigation header padding */
+            header .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            /* Footer grid */
+            footer .grid {
+                gap: 2rem;
+            }
+            
+            /* Live chat height */
+            #chatMessages {
+                height: 180px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.65rem;
+            }
+            
+            .stats-number {
+                font-size: 1.4rem;
+            }
+            
+            /* Stack CTA buttons full width */
+            .btn {
+                font-size: 0.875rem;
+                padding: 0.625rem 1.25rem;
             }
         }
         
@@ -763,7 +854,7 @@
                         </div>
                         
                         <!-- Stats Grid -->
-                        <div class="grid grid-cols-3 gap-6 mt-12">
+                        <div class="grid grid-cols-3 gap-3 sm:gap-6 mt-8 sm:mt-12">
                             <div class="stats-card glass rounded-xl p-6 text-center">
                                 <div class="stats-number">4</div>
                                 <div class="text-white/80 text-sm font-medium">Product Models</div>
@@ -828,9 +919,9 @@
                 </div>
                 
                 <!-- Problem Cards Grid -->
-                <div class="grid lg:grid-cols-3 gap-8">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                     <!-- Card 1 -->
-                    <div class="card p-8 reveal stagger-1">
+                    <div class="card p-6 sm:p-8 reveal stagger-1">
                         <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-100 to-orange-100 dark:from-red-900/30 dark:to-orange-900/30 flex items-center justify-center mb-6">
                             <i class="ri-flashlight-line text-red-600 dark:text-red-300 text-3xl" aria-hidden="true"></i>
                         </div>
@@ -842,7 +933,7 @@
                     </div>
                     
                     <!-- Card 2 -->
-                    <div class="card p-8 reveal stagger-2">
+                    <div class="card p-6 sm:p-8 reveal stagger-2">
                         <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-100 to-amber-100 dark:from-yellow-900/30 dark:to-amber-900/30 flex items-center justify-center mb-6">
                             <i class="ri-money-dollar-circle-line text-yellow-600 dark:text-yellow-300 text-3xl" aria-hidden="true"></i>
                         </div>
@@ -854,7 +945,7 @@
                     </div>
                     
                     <!-- Card 3 -->
-                    <div class="card p-8 reveal stagger-3">
+                    <div class="card p-6 sm:p-8 reveal stagger-3">
                         <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 flex items-center justify-center mb-6">
                             <i class="ri-cpu-line text-primary-600 dark:text-primary-300 text-3xl" aria-hidden="true"></i>
                         </div>
@@ -896,7 +987,7 @@
                 </div>
                 
                 <!-- Products Grid -->
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8" id="productsGrid">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8" id="productsGrid">
                     <!-- VC-500 -->
                     <article class="product-card card" data-category="volta">
                         <div class="relative">
@@ -1108,8 +1199,8 @@
                 </div>
                 
                 <!-- App Features Grid -->
-                <div class="grid lg:grid-cols-3 gap-8 mb-16">
-                    <div class="card p-8 text-center">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
+                    <div class="card p-6 sm:p-8 text-center">
                         <div class="w-16 h-16 mx-auto flex items-center justify-center bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 rounded-2xl mb-6">
                             <i class="ri-bluetooth-line text-3xl text-primary-600 dark:text-primary-300" aria-hidden="true"></i>
                         </div>
@@ -1136,7 +1227,7 @@
                         </a>
                     </div>
                     
-                    <div class="card p-8 text-center">
+                    <div class="card p-6 sm:p-8 text-center">
                         <div class="w-16 h-16 mx-auto flex items-center justify-center bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 rounded-2xl mb-6">
                             <i class="ri-robot-2-line text-3xl text-primary-600 dark:text-primary-300" aria-hidden="true"></i>
                         </div>
@@ -1163,7 +1254,7 @@
                         </a>
                     </div>
                     
-                    <div class="card p-8 text-center">
+                    <div class="card p-6 sm:p-8 text-center">
                         <div class="w-16 h-16 mx-auto flex items-center justify-center bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 rounded-2xl mb-6">
                             <i class="ri-bar-chart-box-line text-3xl text-primary-600 dark:text-primary-300" aria-hidden="true"></i>
                         </div>
@@ -1349,8 +1440,8 @@
                 </div>
                 
                 <!-- Tech Features Grid -->
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="card p-6 text-center">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                    <div class="card p-4 sm:p-6 text-center">
                         <div class="w-12 h-12 mx-auto rounded-xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mb-4">
                             <i class="ri-cpu-line text-primary-600 dark:text-primary-300 text-xl" aria-hidden="true"></i>
                         </div>
@@ -1579,7 +1670,7 @@
                     </div>
                     
                     <!-- Contact Methods -->
-                    <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-12">
                         <div class="card p-6 text-center">
                             <div class="w-16 h-16 mx-auto flex items-center justify-center bg-primary-100 dark:bg-primary-900/30 rounded-2xl mb-4">
                                 <i class="ri-map-pin-line text-2xl text-primary-600 dark:text-primary-300" aria-hidden="true"></i>
@@ -1693,7 +1784,7 @@
     -->
     <footer class="bg-gray-900 dark:bg-black text-white py-16">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-10">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10">
                 <!-- Company Info -->
                 <div>
                     <div class="flex items-center gap-3 mb-6">
@@ -1784,16 +1875,14 @@
             </div>
             
             <!-- Footer Bottom -->
-            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-gray-400 text-sm mb-4 md:mb-0">
                     &copy; 2024-2026 Ntronix Systems. All rights reserved.
                 </p>
                 
-                <div class="flex gap-6">
+                <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
                     <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
                     <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
-                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
-                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Sitemap</a>
                 </div>
             </div>
         </div>
