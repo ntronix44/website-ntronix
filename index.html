@@ -761,6 +761,38 @@
         Skip to main content
     </a>
     
+    <!-- Video Modal -->
+    <div id="videoModal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center" onclick="closeVideoModal(event)">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <!-- Modal Content -->
+        <div class="relative w-full max-w-sm sm:max-w-md md:max-w-lg mx-4" onclick="event.stopPropagation()">
+            <!-- Close Button -->
+            <button onclick="closeVideoModal()" class="absolute -top-12 right-0 text-white hover:text-primary-400 transition-colors flex items-center gap-2 text-sm font-medium">
+                <span>Close</span>
+                <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                    <i class="ri-close-line text-lg" aria-hidden="true"></i>
+                </div>
+            </button>
+            <!-- Video Container (9:16 for YouTube Short) -->
+            <div class="rounded-2xl overflow-hidden shadow-2xl bg-black" style="aspect-ratio: 9/16; max-height: 80vh;">
+                <iframe id="videoFrame" 
+                        width="100%" 
+                        height="100%" 
+                        src="" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+            <!-- Video Title -->
+            <div class="text-center mt-4">
+                <p class="text-white font-semibold text-lg">Ntronix Volta Demo</p>
+                <p class="text-white/60 text-sm">See our powerwall in action</p>
+            </div>
+        </div>
+    </div>
+    
     <!-- 
         ============================================================================
         FLOATING ACTION BUTTON
@@ -977,7 +1009,7 @@
                                 Explore Products
                                 <i class="ri-arrow-right-line" aria-hidden="true"></i>
                             </a>
-                            <button class="btn btn-secondary bg-white/10 backdrop-blur-sm border-2 border-white text-white px-8 py-4 text-lg rounded-button hover:bg-white/20">
+                            <button onclick="document.getElementById('videoModal').classList.remove('hidden')" class="btn btn-secondary bg-white/10 backdrop-blur-sm border-2 border-white text-white px-8 py-4 text-lg rounded-button hover:bg-white/20">
                                 <i class="ri-play-circle-line mr-2" aria-hidden="true"></i>
                                 Watch Demo
                             </button>
@@ -3023,6 +3055,34 @@
          * Send quick message in chat
          * @param {string} message - Message to send
          */
+        /**
+         * Video modal controls
+         */
+        function closeVideoModal(event) {
+            const modal = document.getElementById('videoModal');
+            modal.classList.add('hidden');
+            document.getElementById('videoFrame').src = '';
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('videoModal');
+            const observer = new MutationObserver(() => {
+                if (!modal.classList.contains('hidden')) {
+                    document.getElementById('videoFrame').src = 'https://www.youtube.com/embed/fyfutOcVXLo?autoplay=1&rel=0';
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            observer.observe(modal, { attributes: true, attributeFilter: ['class'] });
+            
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeVideoModal();
+                }
+            });
+        });
+        
         function sendQuickMessage(message) {
             const chatInput = document.getElementById('chatInput');
             const sendButton = document.getElementById('sendChat');
