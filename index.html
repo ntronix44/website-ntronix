@@ -57,7 +57,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Tailwind Configuration -->
     <script>
@@ -503,105 +503,228 @@
         
         /* ========== Responsive Design ========== */
         @media (max-width: 768px) {
+            /* Hero */
             .hero-content h1 {
                 font-size: 2rem;
                 line-height: 1.15;
             }
             
             .hero-content p {
-                font-size: 1rem;
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+            
+            /* Hero image & floating card */
+            .hero-content + div {
+                margin-top: 2rem;
+            }
+            
+            .absolute.-bottom-6.-left-6 {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                margin-top: 1rem;
             }
             
             .fab {
-                width: 56px;
-                height: 56px;
-                font-size: 1.25rem;
+                width: 48px;
+                height: 48px;
+                font-size: 1.1rem;
+                bottom: 1rem;
+                right: 1rem;
             }
             
             /* Stats cards */
             .stats-number {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
             
             .stats-card {
-                padding: 1rem !important;
+                padding: 0.75rem !important;
+            }
+            
+            .stats-card .text-sm {
+                font-size: 0.65rem;
             }
             
             /* Section headings */
             h2 {
-                font-size: 1.75rem !important;
+                font-size: 1.6rem !important;
             }
             
-            /* Cards */
-            .card {
-                padding: 1.25rem;
+            /* Section subtitles */
+            .text-xl.text-gray-600,
+            .text-xl.text-gray-300 {
+                font-size: 0.95rem !important;
             }
             
-            /* Product cards grid fix */
-            .product-card .p-6 {
-                padding: 1rem;
+            /* Section padding */
+            .py-20 {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
             }
             
-            /* Chart containers */
-            .chart-container {
-                padding: 1rem;
-            }
-            
-            /* Contact cards */
-            .card.p-6 {
-                padding: 1rem;
-            }
-            
-            /* Floating info card on hero */
-            .glass.rounded-2xl.p-6 {
-                padding: 0.75rem;
-                max-width: 200px;
-            }
-            
-            .glass.rounded-2xl.p-5 {
-                padding: 0.75rem;
-                max-width: 180px;
-            }
-            
-            .glass.rounded-2xl p.font-bold,
-            .glass.rounded-2xl p.font-semibold {
-                font-size: 0.8rem;
-            }
-            
-            .glass.rounded-2xl p.text-sm {
-                font-size: 0.7rem;
-            }
-            
-            /* Navigation header padding */
-            header .container {
+            /* Container padding */
+            .container {
                 padding-left: 1rem;
                 padding-right: 1rem;
             }
             
-            /* Footer grid */
-            footer .grid {
+            /* Cards */
+            .card {
+                padding: 1rem;
+            }
+            
+            .card h3 {
+                font-size: 1.15rem;
+            }
+            
+            .card p {
+                font-size: 0.875rem;
+            }
+            
+            /* Product cards */
+            .product-card .p-6 {
+                padding: 1rem;
+            }
+            
+            .product-card h3 {
+                font-size: 1.1rem;
+            }
+            
+            .product-card .text-sm {
+                font-size: 0.8rem;
+            }
+            
+            .product-card ul {
+                margin-bottom: 0.75rem;
+            }
+            
+            .product-card .h-56 {
+                height: 10rem;
+            }
+            
+            /* Chart containers */
+            .chart-container {
+                padding: 0.75rem;
+            }
+            
+            .chart-container .h-\[400px\] {
+                height: 250px !important;
+            }
+            
+            /* Floating glass cards on images */
+            .glass.rounded-2xl {
+                padding: 0.75rem !important;
+            }
+            
+            .glass.rounded-2xl .w-12 {
+                width: 2rem;
+                height: 2rem;
+            }
+            
+            .glass.rounded-2xl p.font-bold,
+            .glass.rounded-2xl p.font-semibold {
+                font-size: 0.75rem;
+            }
+            
+            .glass.rounded-2xl p.text-sm {
+                font-size: 0.65rem;
+            }
+            
+            /* Navigation header */
+            header .container {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+                padding-top: 0.75rem;
+                padding-bottom: 0.75rem;
+            }
+            
+            header img {
+                height: 2rem;
+            }
+            
+            header span {
+                font-size: 1.25rem;
+            }
+            
+            /* Theme toggle - move out of way */
+            #themeToggle {
+                width: 2.5rem;
+                height: 2.5rem;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            /* Two-col sections stack */
+            .grid.lg\:grid-cols-2 {
                 gap: 2rem;
             }
             
-            /* Live chat height */
+            /* About section */
+            .flex.gap-5 {
+                gap: 0.75rem;
+            }
+            
+            .flex.gap-5 .w-12 {
+                width: 2.5rem;
+                height: 2.5rem;
+                min-width: 2.5rem;
+            }
+            
+            .flex.gap-5 h4 {
+                font-size: 1.1rem;
+            }
+            
+            /* Contact form */
+            .card.p-8 {
+                padding: 1rem;
+            }
+            
+            /* Footer */
+            footer .grid {
+                gap: 1.5rem;
+            }
+            
+            footer h4 {
+                font-size: 1rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            /* Live chat */
             #chatMessages {
-                height: 180px;
+                height: 150px;
+            }
+            
+            /* Buttons */
+            .btn {
+                font-size: 0.875rem;
+                padding: 0.6rem 1.2rem;
+            }
+            
+            /* Min height hero */
+            .min-h-screen {
+                min-height: auto;
+                padding-top: 5rem;
+                padding-bottom: 3rem;
             }
         }
         
-        @media (max-width: 480px) {
+        @media (max-width: 380px) {
             .hero-content h1 {
-                font-size: 1.65rem;
+                font-size: 1.5rem;
             }
             
             .stats-number {
-                font-size: 1.4rem;
+                font-size: 1.2rem;
             }
             
-            /* Stack CTA buttons full width */
-            .btn {
-                font-size: 0.875rem;
-                padding: 0.625rem 1.25rem;
+            .stats-card .text-sm {
+                font-size: 0.6rem;
+            }
+            
+            h2 {
+                font-size: 1.35rem !important;
             }
         }
         
@@ -693,8 +816,8 @@
             <div class="flex items-center gap-3" id="mobileMenuTitle">
                 <!-- Company Logo -->
                 <img src="company-logo.png" alt="Ntronix Logo" class="h-10 w-auto">
-                <span class="text-2xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
-                    Ntronix
+                <span class="text-2xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent" style="font-family: 'Orbitron', sans-serif;">
+                    NTRONIX
                 </span>
             </div>
             
@@ -751,8 +874,8 @@
                 <!-- Logo -->
                 <div class="flex items-center gap-3">
                     <img src="company-logo.png" alt="Ntronix Logo" class="h-10 w-auto">
-                    <span class="text-2xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
-                        Ntronix
+                    <span class="text-2xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent" style="font-family: 'Orbitron', sans-serif;">
+                        NTRONIX
                     </span>
                 </div>
                 
@@ -1790,7 +1913,7 @@
                 <div>
                     <div class="flex items-center gap-3 mb-6">
                         <img src="company-logo.png" alt="Ntronix Logo" class="h-10 w-auto">
-                        <span class="text-2xl font-bold">Ntronix</span>
+                        <span class="text-2xl font-bold" style="font-family: 'Orbitron', sans-serif;">NTRONIX</span>
                     </div>
                     <p class="text-gray-400 mb-6">
                         Ugandan technology company building smart solar energy systems. Embedded systems, power electronics, and IoT solutions.
