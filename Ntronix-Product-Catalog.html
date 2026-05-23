@@ -1,0 +1,3000 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Ntronix's complete catalog of smart power solutions including hybrid inverters, portable power stations, and intelligent switches.">
+    <meta name="keywords" content="smart power catalog, energy products, hybrid inverters, portable power stations, smart switches, energy marketplace">
+    <link rel="icon" href="https://static.readdy.ai/image/667419ca10697304df83e3b31516c4ec/favicon.ico" type="image/x-icon">
+    <title>Ntronix | Product Catalog - Smart Power Solutions</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.tailwindcss.com/3.4.16" as="script">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Modern CSS with reduced specificity -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        gradient: {
+                            start: '#0ea5e9',
+                            end: '#8b5cf6'
+                        }
+                    },
+                    animation: {
+                        'gradient': 'gradient-xy 15s ease infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in-up': 'fadeInUp 0.5s ease-out forwards'
+                    },
+                    keyframes: {
+                        'gradient-xy': {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' }
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        'fadeInUp': {
+                            'from': { opacity: '0', transform: 'translateY(20px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    },
+                    transitionProperty: {
+                        'height': 'height',
+                        'spacing': 'margin, padding'
+                    }
+                }
+            },
+            plugins: [
+                require('@tailwindcss/forms')
+            ]
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com/3.4.16?plugins=forms"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Critical CSS for above-the-fold content -->
+    <style>
+        :root {
+            --primary-start: #0ea5e9;
+            --primary-end: #8b5cf6;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(120deg, var(--primary-start), var(--primary-end), #ec4899);
+            background-size: 400% 400%;
+            animation: gradient-xy 15s ease infinite;
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .feature-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .feature-icon:hover {
+            transform: scale(1.1);
+            color: var(--primary-start);
+        }
+        
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stagger-reveal {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        
+        .stagger-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .glow {
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.3);
+        }
+        
+        .glow:hover {
+            box-shadow: 0 0 25px rgba(14, 165, 233, 0.5);
+        }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-out;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        .menu-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-out;
+        }
+        
+        .menu-overlay.active {
+            opacity: 0.5;
+            visibility: visible;
+        }
+        
+        .dark .gradient-bg {
+            background: linear-gradient(120deg, #1d4ed8, #5b21b6, #7e22ce);
+        }
+        
+        .dark .card-hover:hover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+        }
+        
+        .dark .stagger-reveal.active {
+            color: #e2e8f0;
+        }
+        
+        .dark .reveal.active {
+            color: #f1f5f9;
+        }
+        
+        .dark .feature-icon:hover {
+            color: #93c5fd;
+        }
+        
+        .dark .glow:hover {
+            box-shadow: 0 0 25px rgba(96, 165, 250, 0.5);
+        }
+        
+        .theme-toggle {
+            transition: all 0.3s ease;
+        }
+        
+        .dark .theme-toggle {
+            transform: rotate(180deg);
+        }
+        
+        .stats-number {
+            background: linear-gradient(to right, #0ea5e9, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .dark .stats-number {
+            background: linear-gradient(to right, #93c5fd, #c4b5fd);
+        }
+        
+        .product-image {
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        
+        .floating-button {
+            position: fixed;
+            right: 2rem;
+            bottom: 2rem;
+            z-index: 100;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-start), var(--primary-end));
+            color: white;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .floating-button.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .floating-button:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .ai-badge {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ai-badge::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.6s;
+        }
+        
+        .ai-badge:hover::after {
+            left: 100%;
+        }
+        
+        .tech-chart-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+        
+        .chart-gradient {
+            background: linear-gradient(135deg, #f0f9ff, #ede9fe);
+            border-radius: 1rem;
+            padding: 2px;
+        }
+        
+        .chart-content {
+            background: white;
+            border-radius: 0.875rem;
+            padding: 1.5rem;
+        }
+        
+        .dark .chart-content {
+            background: #1e293b;
+        }
+        
+        .feature-highlight {
+            position: relative;
+        }
+        
+        .feature-highlight::before {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary-start), var(--primary-end));
+            transition: width 0.3s ease;
+        }
+        
+        .feature-highlight:hover::before {
+            width: 100%;
+        }
+        
+        .dark .feature-highlight:hover::before {
+            background: linear-gradient(to right, #93c5fd, #c4b5fd);
+        }
+        
+        .stats-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .dark .stats-card {
+            background: #1e293b;
+            border: 1px solid #334155;
+        }
+        
+        .stats-card .stats-number {
+            font-size: 2.5rem;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stats-card p {
+            font-weight: 500;
+            color: #64748b;
+        }
+        
+        .dark .stats-card p {
+            color: #94a3b8;
+        }
+        
+        .product-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 10;
+            transform: translateX(30px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover .product-tag {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        
+        .marketplace-card {
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .marketplace-card:hover {
+            border-color: rgba(14, 165, 233, 0.2);
+            background: rgba(14, 165, 233, 0.03);
+        }
+        
+        .dark .marketplace-card:hover {
+            border-color: rgba(96, 165, 250, 0.2);
+            background: rgba(96, 165, 250, 0.05);
+        }
+        
+        .stats-bar {
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            background: #e2e8f0;
+        }
+        
+        .dark .stats-bar {
+            background: #334155;
+        }
+        
+        .stats-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(to right, var(--primary-start), var(--primary-end));
+        }
+        
+        .dark .stats-bar-fill {
+            background: linear-gradient(to right, #93c5fd, #c4b5fd);
+        }
+        
+        .contact-input:focus {
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+            border-color: #0ea5e9;
+        }
+        
+        .dark .contact-input:focus {
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+            border-color: #38bdf8;
+        }
+        
+        .footer-link:hover {
+            color: #0ea5e9;
+            text-decoration: underline;
+        }
+        
+        .dark .footer-link:hover {
+            color: #38bdf8;
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark .social-icon:hover {
+            box-shadow: 0 5px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .newsletter-input:focus + .send-button {
+            transform: scale(1.1);
+            color: #0ea5e9;
+        }
+        
+        .dark .newsletter-input:focus + .send-button {
+            color: #38bdf8;
+        }
+        
+        .rounded-button {
+            border-radius: 1.5rem !important;
+        }
+        
+        .hero-button {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.6s;
+        }
+        
+        .hero-button:hover::after {
+            left: 100%;
+        }
+        
+        .mobile-menu-link {
+            position: relative;
+            padding: 1rem 0;
+        }
+        
+        .mobile-menu-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: linear-gradient(to right, var(--primary-start), var(--primary-end));
+            transition: width 0.3s ease;
+        }
+        
+        .mobile-menu-link:hover::after {
+            width: 100%;
+        }
+        
+        .dark .mobile-menu-link:hover::after {
+            background: linear-gradient(to right, #93c5fd, #c4b5fd);
+        }
+        
+        .floating-button {
+            animation: pulse-slow 2s infinite;
+        }
+        
+        @keyframes pulse-slow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(14, 165, 233, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(14, 165, 233, 0);
+            }
+        }
+        
+        .dark @keyframes pulse-slow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(96, 165, 250, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(96, 165, 250, 0);
+            }
+        }
+        
+        .product-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+            border: 1px solid transparent;
+        }
+        
+        .product-card:hover {
+            border-color: rgba(14, 165, 233, 0.2);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.15);
+        }
+        
+        .dark .product-card:hover {
+            border-color: rgba(96, 165, 250, 0.2);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .filter-section {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-section.collapsed {
+            max-height: 40px;
+            overflow: hidden;
+        }
+        
+        .filter-section.expanded {
+            max-height: 1000px;
+        }
+        
+        .filter-toggle {
+            transition: transform 0.3s ease;
+        }
+        
+        .filter-section.collapsed .filter-toggle {
+            transform: rotate(-90deg);
+        }
+        
+        .wishlist-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .wishlist-icon:hover {
+            transform: scale(1.2);
+            color: #ef4444;
+        }
+        
+        .wishlist-icon.active {
+            color: #ef4444;
+            fill: #ef4444;
+        }
+        
+        .comparison-item {
+            transition: all 0.3s ease;
+        }
+        
+        .comparison-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark .comparison-item:hover {
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .product-spec {
+            transition: all 0.2s ease;
+        }
+        
+        .product-spec:hover {
+            background-color: rgba(14, 165, 233, 0.05);
+            transform: translateX(3px);
+        }
+        
+        .dark .product-spec:hover {
+            background-color: rgba(96, 165, 250, 0.1);
+        }
+        
+        .quick-view-btn {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover .quick-view-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .price-discount {
+            position: relative;
+        }
+        
+        .price-discount::after {
+            content: '';
+            position: absolute;
+            bottom: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: currentColor;
+            transform: rotate(-5deg);
+        }
+        
+        .cart-count {
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(14, 165, 233, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
+        }
+        
+        .dark @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(96, 165, 250, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0); }
+        }
+        
+        .filter-badge {
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .product-grid {
+            transition: opacity 0.3s ease;
+        }
+        
+        .filtering {
+            opacity: 0.6;
+        }
+        
+        .filter-option {
+            transition: all 0.2s ease;
+        }
+        
+        .filter-option:hover {
+            background-color: rgba(14, 165, 233, 0.05);
+        }
+        
+        .dark .filter-option:hover {
+            background-color: rgba(96, 165, 250, 0.1);
+        }
+        
+        .filter-option.active {
+            background-color: rgba(14, 165, 233, 0.1);
+            color: #0ea5e9;
+            font-weight: 600;
+        }
+        
+        .dark .filter-option.active {
+            background-color: rgba(96, 165, 250, 0.2);
+            color: #38bdf8;
+        }
+        
+        .sort-dropdown {
+            transition: all 0.2s ease;
+        }
+        
+        .sort-dropdown:hover {
+            border-color: #0ea5e9;
+            color: #0ea5e9;
+        }
+        
+        .dark .sort-dropdown:hover {
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+        
+        .sort-option {
+            transition: all 0.2s ease;
+        }
+        
+        .sort-option:hover {
+            background-color: rgba(14, 165, 233, 0.1);
+            color: #0ea5e9;
+        }
+        
+        .dark .sort-option:hover {
+            background-color: rgba(96, 165, 250, 0.1);
+            color: #38bdf8;
+        }
+        
+        .sort-option.active {
+            background-color: rgba(14, 165, 233, 0.1);
+            color: #0ea5e9;
+            font-weight: 600;
+        }
+        
+        .dark .sort-option.active {
+            background-color: rgba(96, 165, 250, 0.2);
+            color: #38bdf8;
+        }
+        
+        .price-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #e2e8f0;
+            outline: none;
+        }
+        
+        .dark .price-slider {
+            background: #475569;
+        }
+        
+        .price-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--primary-start);
+            cursor: pointer;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+            transition: all 0.2s ease;
+        }
+        
+        .price-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 6px rgba(14, 165, 233, 0.3);
+        }
+        
+        .dark .price-slider::-webkit-slider-thumb {
+            background: #38bdf8;
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+        }
+        
+        .dark .price-slider::-webkit-slider-thumb:hover {
+            box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.3);
+        }
+        
+        .product-rating {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .product-rating::before {
+            content: '★★★★★';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            overflow: hidden;
+            color: #f59e0b;
+        }
+        
+        .product-rating[data-rating="5"]::before { width: 100%; }
+        .product-rating[data-rating="4"]::before { width: 80%; }
+        .product-rating[data-rating="3"]::before { width: 60%; }
+        .product-rating[data-rating="2"]::before { width: 40%; }
+        .product-rating[data-rating="1"]::before { width: 20%; }
+        
+        .product-card .product-rating::before {
+            color: #f59e0b;
+        }
+        
+        .dark .product-card .product-rating::before {
+            color: #fcd34d;
+        }
+        
+        .filter-section {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-section.collapsed {
+            max-height: 40px;
+            overflow: hidden;
+        }
+        
+        .filter-section.expanded {
+            max-height: 1000px;
+        }
+        
+        .filter-toggle {
+            transition: transform 0.3s ease;
+        }
+        
+        .filter-section.collapsed .filter-toggle {
+            transform: rotate(-90deg);
+        }
+        
+        .filter-section h3 {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-section.expanded h3 {
+            color: #0ea5e9;
+        }
+        
+        .dark .filter-section.expanded h3 {
+            color: #38bdf8;
+        }
+        
+        .product-features {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .product-card:hover .product-features {
+            max-height: 200px;
+        }
+        
+        .product-features ul {
+            padding-left: 1.5rem;
+        }
+        
+        .product-features li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-features li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #0ea5e9;
+        }
+        
+        .dark .product-features li::before {
+            color: #38bdf8;
+        }
+        
+        .filter-badge {
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .product-grid {
+            transition: opacity 0.3s ease;
+        }
+        
+        .filtering {
+            opacity: 0.6;
+        }
+        
+        .filter-option {
+            transition: all 0.2s ease;
+        }
+        
+        .filter-option:hover {
+            background-color: rgba(14, 165, 233, 0.05);
+        }
+        
+        .dark .filter-option:hover {
+            background-color: rgba(96, 165, 250, 0.1);
+        }
+        
+        .filter-option.active {
+            background-color: rgba(14, 165, 233, 0.1);
+            color: #0ea5e9;
+            font-weight: 600;
+        }
+        
+        .dark .filter-option.active {
+            background-color: rgba(96, 165, 250, 0.2);
+            color: #38bdf8;
+        }
+        
+        .sort-dropdown {
+            transition: all 0.2s ease;
+        }
+        
+        .sort-dropdown:hover {
+            border-color: #0ea5e9;
+            color: #0ea5e9;
+        }
+        
+        .dark .sort-dropdown:hover {
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+        
+        .sort-option {
+            transition: all 0.2s ease;
+        }
+        
+        .sort-option:hover {
+            background-color: rgba(14, 165, 233, 0.1);
+            color: #0ea5e9;
+        }
+        
+        .dark .sort-option:hover {
+            background-color: rgba(96, 165, 250, 0.1);
+            color: #38bdf8;
+        }
+        
+        .sort-option.active {
+            background-color: rgba(14, 165, 233, 0.1);
+            color: #0ea5e9;
+            font-weight: 600;
+        }
+        
+        .dark .sort-option.active {
+            background-color: rgba(96, 165, 250, 0.2);
+            color: #38bdf8;
+        }
+        
+        .price-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #e2e8f0;
+            outline: none;
+        }
+        
+        .dark .price-slider {
+            background: #475569;
+        }
+        
+        .price-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--primary-start);
+            cursor: pointer;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+            transition: all 0.2s ease;
+        }
+        
+        .price-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 6px rgba(14, 165, 233, 0.3);
+        }
+        
+        .dark .price-slider::-webkit-slider-thumb {
+            background: #38bdf8;
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+        }
+        
+        .dark .price-slider::-webkit-slider-thumb:hover {
+            box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.3);
+        }
+        
+        .product-rating {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .product-rating::before {
+            content: '★★★★★';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            overflow: hidden;
+            color: #f59e0b;
+        }
+        
+        .product-rating[data-rating="5"]::before { width: 100%; }
+        .product-rating[data-rating="4"]::before { width: 80%; }
+        .product-rating[data-rating="3"]::before { width: 60%; }
+        .product-rating[data-rating="2"]::before { width: 40%; }
+        .product-rating[data-rating="1"]::before { width: 20%; }
+        
+        .product-card .product-rating::before {
+            color: #f59e0b;
+        }
+        
+        .dark .product-card .product-rating::before {
+            color: #fcd34d;
+        }
+        
+        .filter-section {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-section.collapsed {
+            max-height: 40px;
+            overflow: hidden;
+        }
+        
+        .filter-section.expanded {
+            max-height: 1000px;
+        }
+        
+        .filter-toggle {
+            transition: transform 0.3s ease;
+        }
+        
+        .filter-section.collapsed .filter-toggle {
+            transform: rotate(-90deg);
+        }
+        
+        .filter-section h3 {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-section.expanded h3 {
+            color: #0ea5e9;
+        }
+        
+        .dark .filter-section.expanded h3 {
+            color: #38bdf8;
+        }
+        
+        .product-features {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .product-card:hover .product-features {
+            max-height: 200px;
+        }
+        
+        .product-features ul {
+            padding-left: 1.5rem;
+        }
+        
+        .product-features li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-features li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #0ea5e9;
+        }
+        
+        .dark .product-features li::before {
+            color: #38bdf8;
+        }
+        
+        .ai-recommendation {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ai-recommendation::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.6s;
+        }
+        
+        .ai-recommendation:hover::after {
+            left: 100%;
+        }
+        
+        .product-grid {
+            transition: all 0.3s ease;
+        }
+        
+        .filtering .product-grid {
+            opacity: 0.6;
+        }
+        
+        .filter-option {
+            transition: all 0.2s ease;
+        }
+        
+        .filter-option:hover {
+            background-color: rgba(14, 165, 233, 0.05);
+        }
+        
+        .dark .filter-option:hover {
+            background-color: rgba(96, 165, 250, 0.1);
+        }
+        
+        .filter-option.active {
+            background-color: rgba(14, 165, 233, 0.1);
+            color: #0ea5e9;
+            font-weight: 600;
+        }
+        
+        .dark .filter-option.active {
+            background-color: rgba(96, 165, 250, 0.2);
+            color: #38bdf8;
+        }
+        
+        .wishlist-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .wishlist-icon:hover {
+            transform: scale(1.2);
+            color: #ef4444;
+        }
+        
+        .wishlist-icon.active {
+            color: #ef4444;
+            fill: #ef4444;
+        }
+        
+        .product-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+            border: 1px solid transparent;
+        }
+        
+        .product-card:hover {
+            border-color: rgba(14, 165, 233, 0.2);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.15);
+        }
+        
+        .dark .product-card:hover {
+            border-color: rgba(96, 165, 250, 0.2);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .product-spec {
+            transition: all 0.2s ease;
+        }
+        
+        .product-spec:hover {
+            background-color: rgba(14, 165, 233, 0.05);
+            transform: translateX(3px);
+        }
+        
+        .dark .product-spec:hover {
+            background-color: rgba(96, 165, 250, 0.1);
+        }
+        
+        .quick-view-btn {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover .quick-view-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .price-discount {
+            position: relative;
+        }
+        
+        .price-discount::after {
+            content: '';
+            position: absolute;
+            bottom: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: currentColor;
+            transform: rotate(-5deg);
+        }
+        
+        .cart-count {
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(14, 165, 233, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
+        }
+        
+        .dark @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(96, 165, 250, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0); }
+        }
+        
+        .filter-badge {
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .product-grid {
+            transition: opacity 0.3s ease;
+        }
+        
+        .filtering {
+            opacity: 0.6;
+        }
+        
+        .filter-option {
+            transition: all 0.2s ease;
+        }
+        
+        .filter-option:hover {
+            background-color: rgba(14, 165, 233, 0.05);
+        }
+        
+        .dark .filter-option:hover {
+            background-color: rgba(96, 165, 250, 0.1);
+        }
+        
+        .filter-option.active {
+            background-color: rgba(14, 165, 233, 0.1);
+            color: #0ea5e9;
+            font-weight: 600;
+        }
+        
+        .dark .filter-option.active {
+            background-color: rgba(96, 165, 250, 0.2);
+            color: #38bdf8;
+        }
+        
+        .sort-dropdown {
+            transition: all 0.2s ease;
+        }
+        
+        .sort-dropdown:hover {
+            border-color: #0ea5e9;
+            color: #0ea5e9;
+        }
+        
+        .dark .sort-dropdown:hover {
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+        
+        .sort-option {
+            transition: all 0.2s ease;
+        }
+        
+        .sort-option:hover {
+            background-color: rgba(14, 165, 233, 0.1);
+            color: #0ea5e9;
+        }
+        
+        .dark .sort-option:hover {
+            background-color: rgba(96, 165, 250, 0.1);
+            color: #38bdf8;
+        }
+        
+        .sort-option.active {
+            background-color: rgba(14, 165, 233, 0.1);
+            color: #0ea5e9;
+            font-weight: 600;
+        }
+        
+        .dark .sort-option.active {
+            background-color: rgba(96, 165, 250, 0.2);
+            color: #38bdf8;
+        }
+        
+        .price-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #e2e8f0;
+            outline: none;
+        }
+        
+        .dark .price-slider {
+            background: #475569;
+        }
+        
+        .price-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--primary-start);
+            cursor: pointer;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+            transition: all 0.2s ease;
+        }
+        
+        .price-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 6px rgba(14, 165, 233, 0.3);
+        }
+        
+        .dark .price-slider::-webkit-slider-thumb {
+            background: #38bdf8;
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+        }
+        
+        .dark .price-slider::-webkit-slider-thumb:hover {
+            box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.3);
+        }
+        
+        .product-rating {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .product-rating::before {
+            content: '★★★★★';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            overflow: hidden;
+            color: #f59e0b;
+        }
+        
+        .product-rating[data-rating="5"]::before { width: 100%; }
+        .product-rating[data-rating="4"]::before { width: 80%; }
+        .product-rating[data-rating="3"]::before { width: 60%; }
+        .product-rating[data-rating="2"]::before { width: 40%; }
+        .product-rating[data-rating="1"]::before { width: 20%; }
+        
+        .product-card .product-rating::before {
+            color: #f59e0b;
+        }
+        
+        .dark .product-card .product-rating::before {
+            color: #fcd34d;
+        }
+        
+        .filter-section {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-section.collapsed {
+            max-height: 40px;
+            overflow: hidden;
+        }
+        
+        .filter-section.expanded {
+            max-height: 1000px;
+        }
+        
+        .filter-toggle {
+            transition: transform 0.3s ease;
+        }
+        
+        .filter-section.collapsed .filter-toggle {
+            transform: rotate(-90deg);
+        }
+        
+        .filter-section h3 {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-section.expanded h3 {
+            color: #0ea5e9;
+        }
+        
+        .dark .filter-section.expanded h3 {
+            color: #38bdf8;
+        }
+        
+        .product-features {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .product-card:hover .product-features {
+            max-height: 200px;
+        }
+        
+        .product-features ul {
+            padding-left: 1.5rem;
+        }
+        
+        .product-features li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-features li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #0ea5e9;
+        }
+        
+        .dark .product-features li::before {
+            color: #38bdf8;
+        }
+        
+        .filter-section {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-section.collapsed {
+            max-height: 40px;
+            overflow: hidden;
+        }
+        
+        .filter-section.expanded {
+            max-height: 1000px;
+        }
+        
+        .filter-toggle {
+            transition: transform 0.3s ease;
+        }
+        
+        .filter-section.collapsed .filter-toggle {
+            transform: rotate(-90deg);
+        }
+        
+        .filter-section h3 {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-section.expanded h3 {
+            color: #0ea5e9;
+        }
+        
+        .dark .filter-section.expanded h3 {
+            color: #38bdf8;
+        }
+        
+        .product-features {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .product-card:hover .product-features {
+            max-height: 200px;
+        }
+        
+        .product-features ul {
+            padding-left: 1.5rem;
+        }
+        
+        .product-features li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-features li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #0ea5e9;
+        }
+        
+        .dark .product-features li::before {
+            color: #38bdf8;
+        }
+        
+        .ai-recommendation {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ai-recommendation::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.6s;
+        }
+        
+        .ai-recommendation:hover::after {
+            left: 100%;
+        }
+        
+        .product-grid {
+            transition: all 0.3s ease;
+        }
+        
+        .filtering .product-grid {
+            opacity: 0.6;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed dark:bg-gray-900 dark:text-gray-100">
+    <!-- Floating Action Button -->
+    <a href="#contact" class="floating-button smooth-scroll" aria-label="Contact us">
+        <i class="ri-chat-1-line text-2xl"></i>
+    </a>
+    
+    <!-- Theme Toggle -->
+    <button id="themeToggle" class="fixed top-6 right-6 z-50 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-gray-700 dark:text-white shadow-lg theme-toggle transition-all duration-300 hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-white dark:hover:text-white" aria-label="Toggle dark mode">
+        <i class="ri-sun-line dark:hidden text-xl"></i>
+        <i class="ri-moon-line hidden dark:block text-xl"></i>
+    </button>
+    
+    <!-- Mobile Menu Overlay -->
+    <div id="menuOverlay" class="menu-overlay fixed inset-0 bg-black z-40"></div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-80 h-full bg-white dark:bg-gray-800 z-50 shadow-2xl pt-16 px-6 overflow-y-auto">
+        <div class="flex justify-between items-center mb-10">
+            <div class="flex items-center gap-3">
+                <img src="https://static.readdy.ai/image/667419ca10697304df83e3b31516c4ec/802a488e3607a520883c5340be484ec1.png" alt="Ntronix Logo" class="h-10">
+                <span class="text-2xl font-bold bg-gradient-to-r from-primary-500 to-primary-700 bg-clip-text text-transparent">Ntronix</span>
+            </div>
+            <button id="closeMenu" class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" aria-label="Close menu">
+                <i class="ri-close-line text-2xl"></i>
+            </button>
+        </div>
+        
+        <div class="flex flex-col gap-2">
+            <a href="https://readdy.ai/home/2213dc04-a46f-4c2f-ba6d-3beca447343b/5b6e9d21-88d1-49de-8a46-d562524a3ae2" 
+                data-readdy="true" 
+                class="mobile-menu-link text-xl font-medium text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Home</a>
+            <a href="#" class="mobile-menu-link text-xl font-medium text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Products</a>
+            <a href="#" class="mobile-menu-link text-xl font-medium text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Marketplace</a>
+            <a href="#" class="mobile-menu-link text-xl font-medium text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Technology</a>
+            <a href="#" class="mobile-menu-link text-xl font-medium text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">About</a>
+            <a href="#" class="mobile-menu-link text-xl font-medium text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Contact</a>
+            
+            <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+                <a href="#" class="block w-full bg-gradient-to-r from-primary-500 to-primary-600 text-white py-4 rounded-2xl text-center font-medium hover:from-primary-600 hover:to-primary-700 transition-all shadow-lg mb-3">
+                    Get Started
+                </a>
+                <div class="flex justify-center gap-3 mb-3">
+                    <button id="openCart" class="w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors relative">
+                        <i class="ri-shopping-cart-line text-xl"></i>
+                        <span class="cart-count absolute top-2 right-2 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">3</span>
+                    </button>
+                    <button id="wishlistBtn" class="w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                        <i class="ri-heart-line text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <header class="fixed w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-700/50 transition-colors">
+        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="https://static.readdy.ai/image/667419ca10697304df83e3b31516c4ec/802a488e3607a520883c5340be484ec1.png" 
+                    alt="Ntronix Logo" 
+                    class="h-10">
+                <span class="text-2xl font-bold bg-gradient-to-r from-primary-500 to-primary-700 bg-clip-text text-transparent">Ntronix</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="https://readdy.ai/home/2213dc04-a46f-4c2f-ba6d-3beca447343b/5b6e9d21-88d1-49de-8a46-d562524a3ae2" 
+                    data-readdy="true" 
+                    class="feature-highlight text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Home</a>
+                <a href="#" class="feature-highlight text-base font-medium text-primary-600 dark:text-primary-300 font-semibold">Products</a>
+                <a href="#" class="feature-highlight text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Marketplace</a>
+                <a href="#" class="feature-highlight text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Technology</a>
+                <a href="#" class="feature-highlight text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">About</a>
+                <a href="#" class="feature-highlight text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Contact</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="hidden md:flex items-center gap-4">
+                    <button id="openCart" class="w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700/50 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600/50 transition-colors relative">
+                        <i class="ri-shopping-cart-line text-xl"></i>
+                        <span class="cart-count absolute top-2 right-2 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">3</span>
+                    </button>
+                    <button id="wishlistBtn" class="w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700/50 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600/50 transition-colors">
+                        <i class="ri-heart-line text-xl"></i>
+                    </button>
+                </div>
+                <button id="openMenu" class="md:hidden w-12 h-12 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" aria-label="Open menu">
+                    <i class="ri-menu-line text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="pt-24">
+        <section class="py-6 bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700/50">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                    <div class="stagger-reveal" style="animation-delay: 0.1s">
+                        <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Product Catalog</h1>
+                        <p class="text-gray-600 dark:text-gray-300 mt-1">Discover our range of innovative power solutions</p>
+                    </div>
+                    <div class="flex items-center gap-4 w-full md:w-auto">
+                        <div class="relative w-full md:w-72">
+                            <input type="text" 
+                                placeholder="Search products..." 
+                                class="w-full pl-12 pr-4 py-3 border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-200 dark:focus:ring-primary-900/50 focus:border-primary-500 text-sm transition-colors"
+                                aria-label="Search products">
+                            <div class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                                <i class="ri-search-line"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 md:hidden">
+                            <button id="openFilters" class="w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700/50 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600/50 transition-colors">
+                                <i class="ri-filter-2-line text-xl"></i>
+                            </button>
+                            <button id="openSort" class="w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700/50 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600/50 transition-colors">
+                                <i class="ri-sort-asc text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- AI Recommendations Section -->
+        <section class="py-8 bg-gray-50 dark:bg-gray-900/50">
+            <div class="container mx-auto px-6">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-md overflow-hidden">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-100 to-purple-100 dark:from-primary-900/30 dark:to-purple-900/30 flex items-center justify-center">
+                                <i class="ri-robot-2-line text-3xl text-primary-600 dark:text-primary-300"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Personalized Recommendations</h3>
+                                <p class="text-gray-600 dark:text-gray-300">Based on your energy usage patterns, we recommend these products to maximize efficiency.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <button class="px-4 py-2 bg-gray-100 dark:bg-gray-700/50 rounded-xl font-medium hover:bg-gray-200 dark:hover:bg-gray-600/50 transition-colors">
+                                <i class="ri-refresh-line mr-2"></i> Refresh
+                            </button>
+                            <button class="px-4 py-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl font-medium hover:from-primary-600 hover:to-primary-700 transition-all">
+                                View All Recommendations
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <!-- Recommendation 1 -->
+                        <div class="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4 ai-recommendation">
+                            <div class="flex items-center gap-3 mb-3">
+                                <img src="https://public.readdy.ai/ai/img_res/a0f9c36b76594ad8a967bf4d40066fd5.jpg" 
+                                    alt="Hybrid Inverter" 
+                                    class="w-16 h-16 object-cover rounded-lg">
+                                <div>
+                                    <h4 class="font-bold">Smart Hybrid Inverter Pro</h4>
+                                    <div class="flex items-center gap-1 mt-1">
+                                        <div class="product-rating" data-rating="5"></div>
+                                        <span class="text-xs text-gray-500 dark:text-gray-400">(142)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                                Based on your solar setup, this inverter will increase efficiency by 23%.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-primary-600 dark:text-primary-300">$1,299</span>
+                                <button class="text-primary-600 dark:text-primary-300 hover:underline text-sm font-medium">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Recommendation 2 -->
+                        <div class="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4 ai-recommendation">
+                            <div class="flex items-center gap-3 mb-3">
+                                <img src="https://public.readdy.ai/ai/img_res/881a5d26b1ca35989322d35c8e9443c5.jpg" 
+                                    alt="Power Station" 
+                                    class="w-16 h-16 object-cover rounded-lg">
+                                <div>
+                                    <h4 class="font-bold">PowerStation X1</h4>
+                                    <div class="flex items-center gap-1 mt-1">
+                                        <div class="product-rating" data-rating="4"></div>
+                                        <span class="text-xs text-gray-500 dark:text-gray-400">(87)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                                Perfect for your backup power needs during outages.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-primary-600 dark:text-primary-300">$899</span>
+                                <button class="text-primary-600 dark:text-primary-300 hover:underline text-sm font-medium">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Recommendation 3 -->
+                        <div class="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4 ai-recommendation">
+                            <div class="flex items-center gap-3 mb-3">
+                                <img src="https://public.readdy.ai/ai/img_res/9dfa0990a9c7e2bc571d91e32e745035.jpg" 
+                                    alt="Smart Switch" 
+                                    class="w-16 h-16 object-cover rounded-lg">
+                                <div>
+                                    <h4 class="font-bold">Smart Switch Pro</h4>
+                                    <div class="flex items-center gap-1 mt-1">
+                                        <div class="product-rating" data-rating="5"></div>
+                                        <span class="text-xs text-gray-500 dark:text-gray-400">(215)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                                Automate your energy usage with AI-powered scheduling.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-primary-600 dark:text-primary-300">$199</span>
+                                <button class="text-primary-600 dark:text-primary-300 hover:underline text-sm font-medium">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="py-8">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <!-- Filters Sidebar -->
+                    <aside class="w-full lg:w-80 shrink-0">
+                        <div class="sticky top-28 space-y-6">
+                            <!-- Filter by Categories -->
+                            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-6 filter-section expanded">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="font-bold text-xl">Categories</h3>
+                                    <button class="filter-toggle w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                                        <i class="ri-arrow-down-s-line"></i>
+                                    </button>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="filter-option active" data-category="all">
+                                        <div class="flex items-center gap-3 cursor-pointer">
+                                            <div class="w-5 h-5 rounded-full border-2 border-primary-500 flex items-center justify-center">
+                                                <div class="w-2.5 h-2.5 rounded-full bg-primary-500"></div>
+                                            </div>
+                                            <span>All Products</span>
+                                            <span class="ml-auto text-gray-500 dark:text-gray-400">24</span>
+                                        </div>
+                                    </div>
+                                    <div class="filter-option" data-category="inverters">
+                                        <div class="flex items-center gap-3 cursor-pointer">
+                                            <div class="w-5 h-5 rounded-full border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center">
+                                                <div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>
+                                            </div>
+                                            <span>Hybrid Inverters</span>
+                                            <span class="ml-auto text-gray-500 dark:text-gray-400">8</span>
+                                        </div>
+                                    </div>
+                                    <div class="filter-option" data-category="power-stations">
+                                        <div class="flex items-center gap-3 cursor-pointer">
+                                            <div class="w-5 h-5 rounded-full border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center">
+                                                <div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>
+                                            </div>
+                                            <span>Portable Power Stations</span>
+                                            <span class="ml-auto text-gray-500 dark:text-gray-400">7</span>
+                                        </div>
+                                    </div>
+                                    <div class="filter-option" data-category="switches">
+                                        <div class="flex items-center gap-3 cursor-pointer">
+                                            <div class="w-5 h-5 rounded-full border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center">
+                                                <div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>
+                                            </div>
+                                            <span>Smart Switches</span>
+                                            <span class="ml-auto text-gray-500 dark:text-gray-400">5</span>
+                                        </div>
+                                    </div>
+                                    <div class="filter-option" data-category="accessories">
+                                        <div class="flex items-center gap-3 cursor-pointer">
+                                            <div class="w-5 h-5 rounded-full border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center">
+                                                <div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>
+                                            </div>
+                                            <span>Accessories</span>
+                                            <span class="ml-auto text-gray-500 dark:text-gray-400">4</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Filter by Price -->
+                            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-6 filter-section expanded">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="font-bold text-xl">Price Range</h3>
+                                    <button class="filter-toggle w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                                        <i class="ri-arrow-down-s-line"></i>
+                                    </button>
+                                </div>
+                                <div class="mb-6">
+                                    <input type="range" 
+                                        min="0" 
+                                        max="5000" 
+                                        value="2500" 
+                                        id="priceRangeSlider"
+                                        class="price-slider">
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm text-gray-500 dark:text-gray-400">$0</span>
+                                    <span class="text-sm font-medium" id="priceRangeValue">$2,500</span>
+                                    <span class="text-sm text-gray-500 dark:text-gray-400">$5,000</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Filter by Power Rating -->
+                            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-6 filter-section expanded">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="font-bold text-xl">Power Rating</h3>
+                                    <button class="filter-toggle w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                                        <i class="ri-arrow-down-s-line"></i>
+                                    </button>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="filter-option" data-power="all">
+                                        <div class="flex items-center gap-3 cursor-pointer">
+                                            <div class="w-5 h-5 rounded border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center">
+                                                <div class="w-2.5 h-2.5 rounded bg-transparent"></div>
+                                            </div>
+                                            <span>All Ratings</span>
+                                        </div>
+                                    </div>
+                                    <div class="filter-option" data-power="low">
+                                        <div class="flex items-center gap-3 cursor-pointer">
+                                            <div class="w-5 h-5 rounded border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center">
+                                                <div class="w-2.5 h-2.5 rounded bg-transparent"></div>
+                                            </div>
+                                            <span>Under 1000W</span>
+                                        </div>
+                                    </div>
+                                    <div class="filter-option active" data-power="medium">
+                                        <div class="flex items-center gap-3 cursor-pointer">
+                                            <div class="w-5 h-5 rounded border-2 border-primary-500 flex items-center justify-center">
+                                                <div class="w-2.5 h-2.5 rounded bg-primary-500"></div>
+                                            </div>
+                                            <span>1000W - 3000W</span>
+                                        </div>
+                                    </div>
+                                    <div class="filter-option" data-power="high">
+                                        <div class="flex items-center gap-3 cursor-pointer">
+                                            <div class="w-5 h-5 rounded border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center">
+                                                <div class="w-2.5 h-2.5 rounded bg-transparent"></div>
+                                            </div>
+                                            <span>3000W - 5000W</span>
+                                        </div>
+                                    </div>
+                                    <div class="filter-option" data-power="ultra">
+                                        <div class="flex items-center gap-3 cursor-pointer">
+                                            <div class="w-5 h-5 rounded border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center">
+                                                <div class="w-2.5 h-2.5 rounded bg-transparent"></div>
+                                            </div>
+                                            <span>Above 5000W</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Filter by Features -->
+                            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-6 filter-section expanded">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="font-bold text-xl">Features</h3>
+                                    <button class="filter-toggle w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                                        <i class="ri-arrow-down-s-line"></i>
+                                    </button>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="filter-option active" data-feature="wifi">
+                                        <div class="flex items-center gap-3 cursor-pointer">
+                                            <div class="w-5 h-5 rounded border-2 border-primary-500 flex items-center justify-center">
+                                                <i class="ri-wifi-line text-primary-500 text-xs"></i>
+                                            </div>
+                                            <span>Wi-Fi Connectivity</span>
+                                        </div>
+                                    </div>
+                                    <div class="filter-option active" data-feature="app">
+                                        <div class="flex items-center gap-3 cursor-pointer">
+                                            <div class="w-5 h-5 rounded border-2 border-primary-500 flex items-center justify-center">
+                                                <i class="ri-apps-2-line text-primary-500 text-xs"></i>
+                                            </div>
+                                            <span>Mobile App Control</span>
+                                        </div>
+                                    </div>
+                                    <div class="filter-option" data-feature="voice">
+                                        <div class="flex items-center gap-3 cursor-pointer">
+                                            <div class="w-5 h-5 rounded border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center">
+                                                <i class="ri-mic-2-line text-gray-500 dark:text-gray-400 text-xs"></i>
+                                            </div>
+                                            <span>Voice Control</span>
+                                        </div>
+                                    </div>
+                                    <div class="filter-option" data-feature="solar">
+                                        <div class="flex items-center gap-3 cursor-pointer">
+                                            <div class="w-5 h-5 rounded border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center">
+                                                <i class="ri-sun-line text-gray-500 dark:text-gray-400 text-xs"></i>
+                                            </div>
+                                            <span>Solar Compatible</span>
+                                        </div>
+                                    </div>
+                                    <div class="filter-option" data-feature="battery">
+                                        <div class="flex items-center gap-3 cursor-pointer">
+                                            <div class="w-5 h-5 rounded border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center">
+                                                <i class="ri-battery-2-charge-line text-gray-500 dark:text-gray-400 text-xs"></i>
+                                            </div>
+                                            <span>Battery Backup</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Filter by Customer Rating -->
+                            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-6 filter-section expanded">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="font-bold text-xl">Customer Rating</h3>
+                                    <button class="filter-toggle w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                                        <i class="ri-arrow-down-s-line"></i>
+                                    </button>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="filter-option" data-rating="all">
+                                        <div class="flex items-center gap-3 cursor-pointer">
+                                            <div class="w-5 h-5 rounded border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center">
+                                                <div class="w-2.5 h-2.5 rounded bg-transparent"></div>
+                                            </div>
+                                            <span>All Ratings</span>
+                                        </div>
+                                    </div>
+                                    <div class="filter-option active" data-rating="4plus">
+                                        <div class="flex items-center gap-3 cursor-pointer">
+                                            <div class="w-5 h-5 rounded border-2 border-primary-500 flex items-center justify-center">
+                                                <div class="w-2.5 h-2.5 rounded bg-primary-500"></div>
+                                            </div>
+                                            <div class="flex items-center gap-1">
+                                                <div class="product-rating" data-rating="4"></div>
+                                                <span>& Above</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="filter-option" data-rating="3plus">
+                                        <div class="flex items-center gap-3 cursor-pointer">
+                                            <div class="w-5 h-5 rounded border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center">
+                                                <div class="w-2.5 h-2.5 rounded bg-transparent"></div>
+                                            </div>
+                                            <div class="flex items-center gap-1">
+                                                <div class="product-rating" data-rating="3"></div>
+                                                <span>& Above</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="filter-option" data-rating="2plus">
+                                        <div class="flex items-center gap-3 cursor-pointer">
+                                            <div class="w-5 h-5 rounded border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center">
+                                                <div class="w-2.5 h-2.5 rounded bg-transparent"></div>
+                                            </div>
+                                            <div class="flex items-center gap-1">
+                                                <div class="product-rating" data-rating="2"></div>
+                                                <span>& Above</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-6">
+                                <button class="w-full bg-gray-100 dark:bg-gray-700/50 text-gray-700 dark:text-gray-200 py-3 rounded-xl font-medium hover:bg-gray-200 dark:hover:bg-gray-600/50 transition-colors whitespace-nowrap cursor-pointer">
+                                    Reset Filters
+                                </button>
+                            </div>
+                        </div>
+                    </aside>
+                    
+                    <!-- Product Grid -->
+                    <div class="flex-1">
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-5 mb-6">
+                            <div class="flex flex-wrap items-center justify-between gap-4">
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <span class="text-sm text-gray-600 dark:text-gray-400">Active Filters:</span>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="filter-badge inline-flex items-center gap-1 px-3 py-1.5 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-200 text-sm rounded-xl">
+                                            1000W - 3000W
+                                            <button class="ml-1 w-4 h-4 flex items-center justify-center rounded-full hover:bg-primary-200 dark:hover:bg-primary-900/50">
+                                                <i class="ri-close-line text-xs"></i>
+                                            </button>
+                                        </span>
+                                        <span class="filter-badge inline-flex items-center gap-1 px-3 py-1.5 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-200 text-sm rounded-xl">
+                                            Wi-Fi Connectivity
+                                            <button class="ml-1 w-4 h-4 flex items-center justify-center rounded-full hover:bg-primary-200 dark:hover:bg-primary-900/50">
+                                                <i class="ri-close-line text-xs"></i>
+                                            </button>
+                                        </span>
+                                        <span class="filter-badge inline-flex items-center gap-1 px-3 py-1.5 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-200 text-sm rounded-xl">
+                                            Mobile App Control
+                                            <button class="ml-1 w-4 h-4 flex items-center justify-center rounded-full hover:bg-primary-200 dark:hover:bg-primary-900/50">
+                                                <i class="ri-close-line text-xs"></i>
+                                            </button>
+                                        </span>
+                                        <span class="filter-badge inline-flex items-center gap-1 px-3 py-1.5 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-200 text-sm rounded-xl">
+                                            4★ & Above
+                                            <button class="ml-1 w-4 h-4 flex items-center justify-center rounded-full hover:bg-primary-200 dark:hover:bg-primary-900/50">
+                                                <i class="ri-close-line text-xs"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <span class="text-sm text-gray-600 dark:text-gray-400">Sort by:</span>
+                                    <div class="relative">
+                                        <div class="sort-dropdown flex items-center gap-2 border border-gray-200 dark:border-gray-600 rounded-xl px-4 py-2.5 cursor-pointer bg-white dark:bg-gray-700/50">
+                                            <span class="text-sm">Best Selling</span>
+                                            <i class="ri-arrow-down-s-line"></i>
+                                        </div>
+                                        <div class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-700 rounded-xl shadow-xl border border-gray-200 dark:border-gray-600 overflow-hidden z-10 hidden">
+                                            <div class="sort-option active py-2.5 px-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-600/50">
+                                                Best Selling
+                                            </div>
+                                            <div class="sort-option py-2.5 px-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-600/50">
+                                                Price: Low to High
+                                            </div>
+                                            <div class="sort-option py-2.5 px-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-600/50">
+                                                Price: High to Low
+                                            </div>
+                                            <div class="sort-option py-2.5 px-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-600/50">
+                                                Newest Arrivals
+                                            </div>
+                                            <div class="sort-option py-2.5 px-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-600/50">
+                                                Customer Rating
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 product-grid" id="productGrid">
+                            <!-- Product Card 1 -->
+                            <div class="product-card bg-white dark:bg-gray-800 rounded-2xl shadow-md overflow-hidden card-hover">
+                                <div class="relative">
+                                    <span class="product-tag bg-gradient-to-r from-amber-400 to-amber-500 text-white text-xs font-bold">
+                                        BEST SELLER
+                                    </span>
+                                    <img src="https://public.readdy.ai/ai/img_res/a0f9c36b76594ad8a967bf4d40066fd5.jpg" 
+                                        alt="Smart Hybrid Inverter Pro" 
+                                        class="product-image w-full h-56 object-cover"
+                                        loading="lazy">
+                                    <div class="absolute top-3 right-3">
+                                        <button class="wishlist-icon w-10 h-10 rounded-full bg-white/80 dark:bg-gray-700/80 flex items-center justify-center hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors">
+                                            <i class="ri-heart-line text-xl"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="p-5">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <div class="product-rating" data-rating="5"></div>
+                                        <span class="text-gray-500 dark:text-gray-400 text-sm">(427)</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold mb-2">Smart Hybrid Inverter Pro</h3>
+                                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                        Advanced hybrid inverters with intelligent power management and seamless grid integration.
+                                    </p>
+                                    
+                                    <div class="space-y-2 mb-4">
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>99% Conversion Efficiency</span>
+                                        </div>
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>Smart Grid Integration</span>
+                                        </div>
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>Remote Monitoring</span>
+                                        </div>
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>AI Energy Optimization</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex justify-between items-center">
+                                        <div>
+                                            <span class="text-2xl font-bold text-primary-600 dark:text-primary-300">$1,299</span>
+                                            <span class="text-gray-500 dark:text-gray-400 line-through ml-2">$1,499</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <button class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700/50 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600/50 transition-colors">
+                                                <i class="ri-eye-line text-xl"></i>
+                                            </button>
+                                            <button class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center hover:bg-primary-200 dark:hover:bg-primary-900/50 transition-colors">
+                                                <i class="ri-shopping-cart-2-line text-xl text-primary-600 dark:text-primary-300"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product Card 2 -->
+                            <div class="product-card bg-white dark:bg-gray-800 rounded-2xl shadow-md overflow-hidden card-hover">
+                                <div class="relative">
+                                    <span class="product-tag bg-gradient-to-r from-emerald-400 to-emerald-500 text-white text-xs font-bold">
+                                        NEW
+                                    </span>
+                                    <img src="https://public.readdy.ai/ai/img_res/881a5d26b1ca35989322d35c8e9443c5.jpg" 
+                                        alt="PowerStation X1" 
+                                        class="product-image w-full h-56 object-cover"
+                                        loading="lazy">
+                                    <div class="absolute top-3 right-3">
+                                        <button class="wishlist-icon w-10 h-10 rounded-full bg-white/80 dark:bg-gray-700/80 flex items-center justify-center hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors">
+                                            <i class="ri-heart-line text-xl"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="p-5">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <div class="product-rating" data-rating="4"></div>
+                                        <span class="text-gray-500 dark:text-gray-400 text-sm">(389)</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold mb-2">PowerStation X1</h3>
+                                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                        Portable power stations with smart connectivity and real-time monitoring capabilities.
+                                    </p>
+                                    
+                                    <div class="space-y-2 mb-4">
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>Mobile App Control</span>
+                                        </div>
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>Fast Charging</span>
+                                        </div>
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>Multiple Outputs</span>
+                                        </div>
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>Solar Ready</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex justify-between items-center">
+                                        <div>
+                                            <span class="text-2xl font-bold text-primary-600 dark:text-primary-300">$899</span>
+                                            <span class="text-gray-500 dark:text-gray-400 line-through ml-2">$999</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <button class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700/50 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600/50 transition-colors">
+                                                <i class="ri-eye-line text-xl"></i>
+                                            </button>
+                                            <button class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center hover:bg-primary-200 dark:hover:bg-primary-900/50 transition-colors">
+                                                <i class="ri-shopping-cart-2-line text-xl text-primary-600 dark:text-primary-300"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product Card 3 -->
+                            <div class="product-card bg-white dark:bg-gray-800 rounded-2xl shadow-md overflow-hidden card-hover">
+                                <div class="relative">
+                                    <span class="product-tag bg-gradient-to-r from-blue-400 to-blue-500 text-white text-xs font-bold">
+                                        PREMIUM
+                                    </span>
+                                    <img src="https://public.readdy.ai/ai/img_res/9dfa0990a9c7e2bc571d91e32e745035.jpg" 
+                                        alt="Smart Switch Pro" 
+                                        class="product-image w-full h-56 object-cover"
+                                        loading="lazy">
+                                    <div class="absolute top-3 right-3">
+                                        <button class="wishlist-icon w-10 h-10 rounded-full bg-white/80 dark:bg-gray-700/80 flex items-center justify-center hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors">
+                                            <i class="ri-heart-line text-xl"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="p-5">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <div class="product-rating" data-rating="5"></div>
+                                        <span class="text-gray-500 dark:text-gray-400 text-sm">(295)</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold mb-2">Smart Switch Pro</h3>
+                                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                        Intelligent switches for automated power management and energy optimization.
+                                    </p>
+                                    
+                                    <div class="space-y-2 mb-4">
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>Voice Control</span>
+                                        </div>
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>Energy Monitoring</span>
+                                        </div>
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>Schedule Setting</span>
+                                        </div>
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>Multi-Device Control</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex justify-between items-center">
+                                        <div>
+                                            <span class="text-2xl font-bold text-primary-600 dark:text-primary-300">$199</span>
+                                            <span class="text-gray-500 dark:text-gray-400 line-through ml-2">$249</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <button class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700/50 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600/50 transition-colors">
+                                                <i class="ri-eye-line text-xl"></i>
+                                            </button>
+                                            <button class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center hover:bg-primary-200 dark:hover:bg-primary-900/50 transition-colors">
+                                                <i class="ri-shopping-cart-2-line text-xl text-primary-600 dark:text-primary-300"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product Card 4 -->
+                            <div class="product-card bg-white dark:bg-gray-800 rounded-2xl shadow-md overflow-hidden card-hover">
+                                <div class="relative">
+                                    <img src="https://public.readdy.ai/ai/img_res/1a3b5c7d8e9f0a1b2c3d4e5f6a7b8c9d.jpg" 
+                                        alt="Solar Panel Kit" 
+                                        class="product-image w-full h-56 object-cover"
+                                        loading="lazy">
+                                    <div class="absolute top-3 right-3">
+                                        <button class="wishlist-icon w-10 h-10 rounded-full bg-white/80 dark:bg-gray-700/80 flex items-center justify-center hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors">
+                                            <i class="ri-heart-line text-xl"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="p-5">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <div class="product-rating" data-rating="4"></div>
+                                        <span class="text-gray-500 dark:text-gray-400 text-sm">(185)</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold mb-2">Solar Panel Kit</h3>
+                                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                        Complete solar panel system with mounting hardware and connectors for easy installation.
+                                    </p>
+                                    
+                                    <div class="space-y-2 mb-4">
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>400W High Efficiency</span>
+                                        </div>
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>Weather Resistant</span>
+                                        </div>
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>25-Year Warranty</span>
+                                        </div>
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>Easy Installation</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex justify-between items-center">
+                                        <div>
+                                            <span class="text-2xl font-bold text-primary-600 dark:text-primary-300">$1,899</span>
+                                            <span class="text-gray-500 dark:text-gray-400 line-through ml-2">$2,199</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <button class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700/50 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600/50 transition-colors">
+                                                <i class="ri-eye-line text-xl"></i>
+                                            </button>
+                                            <button class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center hover:bg-primary-200 dark:hover:bg-primary-900/50 transition-colors">
+                                                <i class="ri-shopping-cart-2-line text-xl text-primary-600 dark:text-primary-300"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product Card 5 -->
+                            <div class="product-card bg-white dark:bg-gray-800 rounded-2xl shadow-md overflow-hidden card-hover">
+                                <div class="relative">
+                                    <img src="https://public.readdy.ai/ai/img_res/2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7.jpg" 
+                                        alt="Energy Monitoring System" 
+                                        class="product-image w-full h-56 object-cover"
+                                        loading="lazy">
+                                    <div class="absolute top-3 right-3">
+                                        <button class="wishlist-icon w-10 h-10 rounded-full bg-white/80 dark:bg-gray-700/80 flex items-center justify-center hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors">
+                                            <i class="ri-heart-line text-xl"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="p-5">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <div class="product-rating" data-rating="5"></div>
+                                        <span class="text-gray-500 dark:text-gray-400 text-sm">(218)</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold mb-2">Energy Monitoring System</h3>
+                                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                        Real-time energy monitoring with detailed analytics and reporting for your entire home.
+                                    </p>
+                                    
+                                    <div class="space-y-2 mb-4">
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>Real-time Analytics</span>
+                                        </div>
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>Historical Data</span>
+                                        </div>
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>Usage Alerts</span>
+                                        </div>
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>Mobile App Integration</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex justify-between items-center">
+                                        <div>
+                                            <span class="text-2xl font-bold text-primary-600 dark:text-primary-300">$349</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <button class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700/50 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600/50 transition-colors">
+                                                <i class="ri-eye-line text-xl"></i>
+                                            </button>
+                                            <button class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center hover:bg-primary-200 dark:hover:bg-primary-900/50 transition-colors">
+                                                <i class="ri-shopping-cart-2-line text-xl text-primary-600 dark:text-primary-300"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Product Card 6 -->
+                            <div class="product-card bg-white dark:bg-gray-800 rounded-2xl shadow-md overflow-hidden card-hover">
+                                <div class="relative">
+                                    <img src="https://public.readdy.ai/ai/img_res/3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8.jpg" 
+                                        alt="Battery Storage System" 
+                                        class="product-image w-full h-56 object-cover"
+                                        loading="lazy">
+                                    <div class="absolute top-3 right-3">
+                                        <button class="wishlist-icon w-10 h-10 rounded-full bg-white/80 dark:bg-gray-700/80 flex items-center justify-center hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors">
+                                            <i class="ri-heart-line text-xl"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="p-5">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <div class="product-rating" data-rating="4"></div>
+                                        <span class="text-gray-500 dark:text-gray-400 text-sm">(156)</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold mb-2">Battery Storage System</h3>
+                                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                        High-capacity battery storage for storing excess solar energy and providing backup power.
+                                    </p>
+                                    
+                                    <div class="space-y-2 mb-4">
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>10kWh Capacity</span>
+                                        </div>
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>10-Year Warranty</span>
+                                        </div>
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>Modular Design</span>
+                                        </div>
+                                        <div class="product-spec flex items-center gap-2">
+                                            <i class="ri-check-line text-primary-500"></i>
+                                            <span>Smart Energy Management</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex justify-between items-center">
+                                        <div>
+                                            <span class="text-2xl font-bold text-primary-600 dark:text-primary-300">$4,299</span>
+                                            <span class="text-gray-500 dark:text-gray-400 line-through ml-2">$4,799</span>
+                                        </div>
+                                        <div class="flex items-center gap-2">
+                                            <button class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700/50 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600/50 transition-colors">
+                                                <i class="ri-eye-line text-xl"></i>
+                                            </button>
+                                            <button class="w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center hover:bg-primary-200 dark:hover:bg-primary-900/50 transition-colors">
+                                                <i class="ri-shopping-cart-2-line text-xl text-primary-600 dark:text-primary-300"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+                            <div class="text-sm text-gray-600 dark:text-gray-400">
+                                Showing <span class="font-medium">1-9</span> of <span class="font-medium">24</span> products
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button class="w-10 h-10 flex items-center justify-center rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700/50 text-gray-400 dark:text-gray-500 hover:border-primary-500 dark:hover:border-primary-300 hover:text-primary-500 dark:hover:text-primary-300 transition-colors">
+                                    <i class="ri-arrow-left-s-line"></i>
+                                </button>
+                                <button class="w-10 h-10 flex items-center justify-center rounded-xl border border-primary-500 bg-primary-500 text-white">1</button>
+                                <button class="w-10 h-10 flex items-center justify-center rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700/50 hover:border-primary-500 dark:hover:border-primary-300 hover:text-primary-500 dark:hover:text-primary-300 transition-colors">2</button>
+                                <button class="w-10 h-10 flex items-center justify-center rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700/50 hover:border-primary-500 dark:hover:border-primary-300 hover:text-primary-500 dark:hover:text-primary-300 transition-colors">3</button>
+                                <button class="w-10 h-10 flex items-center justify-center rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700/50 text-gray-400 dark:text-gray-500 hover:border-primary-500 dark:hover:border-primary-300 hover:text-primary-500 dark:hover:text-primary-300 transition-colors">
+                                    <i class="ri-arrow-right-s-line"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Comparison Bar -->
+    <div id="comparisonBar" class="comparison-bar fixed bottom-0 left-0 w-full bg-white dark:bg-gray-800 shadow-lg border-t border-gray-200 dark:border-gray-700/50 z-40">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <h3 class="font-bold text-xl">Compare Products</h3>
+                    <span class="text-sm text-gray-600 dark:text-gray-400">3 items selected</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button id="clearCompare" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
+                        Clear All
+                    </button>
+                    <button class="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-3 rounded-xl font-medium hover:from-primary-600 hover:to-primary-700 transition-all">
+                        Compare Now
+                    </button>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 gap-4 mt-4" id="compareItems">
+                <!-- Compare items -->
+                <div class="comparison-item bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
+                    <div class="relative mb-3">
+                        <button class="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-red-500 text-white flex items-center justify-center text-xs">
+                            <i class="ri-close-line"></i>
+                        </button>
+                        <img src="https://public.readdy.ai/ai/img_res/a0f9c36b76594ad8a967bf4d40066fd5.jpg" 
+                            alt="Smart Hybrid Inverter Pro" 
+                            class="w-full h-24 object-cover rounded-lg">
+                    </div>
+                    <h4 class="font-medium text-sm mb-1">Smart Hybrid Inverter Pro</h4>
+                    <div class="product-rating" data-rating="5" style="font-size: 0.75rem;"></div>
+                    <div class="mt-2">
+                        <span class="font-bold text-primary-600 dark:text-primary-300">$1,299</span>
+                    </div>
+                </div>
+                
+                <div class="comparison-item bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
+                    <div class="relative mb-3">
+                        <button class="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-red-500 text-white flex items-center justify-center text-xs">
+                            <i class="ri-close-line"></i>
+                        </button>
+                        <img src="https://public.readdy.ai/ai/img_res/881a5d26b1ca35989322d35c8e9443c5.jpg" 
+                            alt="PowerStation X1" 
+                            class="w-full h-24 object-cover rounded-lg">
+                    </div>
+                    <h4 class="font-medium text-sm mb-1">PowerStation X1</h4>
+                    <div class="product-rating" data-rating="4" style="font-size: 0.75rem;"></div>
+                    <div class="mt-2">
+                        <span class="font-bold text-primary-600 dark:text-primary-300">$899</span>
+                    </div>
+                </div>
+                
+                <div class="comparison-item bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
+                    <div class="relative mb-3">
+                        <button class="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-red-500 text-white flex items-center justify-center text-xs">
+                            <i class="ri-close-line"></i>
+                        </button>
+                        <img src="https://public.readdy.ai/ai/img_res/9dfa0990a9c7e2bc571d91e32e745035.jpg" 
+                            alt="Smart Switch Pro" 
+                            class="w-full h-24 object-cover rounded-lg">
+                    </div>
+                    <h4 class="font-medium text-sm mb-1">Smart Switch Pro</h4>
+                    <div class="product-rating" data-rating="5" style="font-size: 0.75rem;"></div>
+                    <div class="mt-2">
+                        <span class="font-bold text-primary-600 dark:text-primary-300">$199</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Quick View Modal -->
+    <div id="quickViewModal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+        <div class="absolute inset-0 bg-black/50 dark:bg-black/70" id="modalOverlay"></div>
+        <div class="relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <button id="closeModal" class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-gray-700 shadow-md z-10 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                <i class="ri-close-line text-xl"></i>
+            </button>
+            <div class="p-6" id="modalContent">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="relative mb-4">
+                            <img src="https://public.readdy.ai/ai/img_res/a0f9c36b76594ad8a967bf4d40066fd5.jpg" 
+                                alt="Smart Hybrid Inverter Pro" 
+                                class="w-full h-auto rounded-xl">
+                            <div class="absolute top-4 left-4">
+                                <span class="px-3 py-1 bg-gradient-to-r from-amber-400 to-amber-500 text-white text-xs font-bold rounded-full">
+                                    BEST SELLER
+                                </span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-4 gap-2">
+                            <img src="https://public.readdy.ai/ai/img_res/a0f9c36b76594ad8a967bf4d40066fd5.jpg" 
+                                alt="Inverter Angle 1" 
+                                class="w-full h-16 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-primary-500">
+                            <img src="https://public.readdy.ai/ai/img_res/a0f9c36b76594ad8a967bf4d40066fd5.jpg" 
+                                alt="Inverter Angle 2" 
+                                class="w-full h-16 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-primary-500">
+                            <img src="https://public.readdy.ai/ai/img_res/a0f9c36b76594ad8a967bf4d40066fd5.jpg" 
+                                alt="Inverter Angle 3" 
+                                class="w-full h-16 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-primary-500">
+                            <img src="https://public.readdy.ai/ai/img_res/a0f9c36b76594ad8a967bf4d40066fd5.jpg" 
+                                alt="Inverter Angle 4" 
+                                class="w-full h-16 object-cover rounded-lg cursor-pointer border-2 border-transparent hover:border-primary-500">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="product-rating" data-rating="5"></div>
+                            <span class="text-gray-500 dark:text-gray-400">(427 reviews)</span>
+                        </div>
+                        <h2 class="text-2xl font-bold mb-2">Smart Hybrid Inverter Pro</h2>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Advanced hybrid inverters with intelligent power management and seamless grid integration.
+                        </p>
+                        
+                        <div class="mb-6">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="text-3xl font-bold text-primary-600 dark:text-primary-300">$1,299</span>
+                                <span class="text-gray-500 dark:text-gray-400 line-through text-xl">$1,499</span>
+                                <span class="bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-200 px-2 py-1 rounded text-sm font-medium">
+                                    Save 13%
+                                </span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3 mb-4">
+                                <button class="w-full bg-gray-100 dark:bg-gray-700/50 text-gray-700 dark:text-gray-200 py-2 rounded-xl font-medium hover:bg-gray-200 dark:hover:bg-gray-600/50 transition-colors">
+                                    <i class="ri-heart-line mr-2"></i> Add to Wishlist
+                                </button>
+                                <button class="w-full bg-gradient-to-r from-primary-500 to-primary-600 text-white py-2 rounded-xl font-medium hover:from-primary-600 hover:to-primary-700 transition-all">
+                                    <i class="ri-shopping-cart-2-line mr-2"></i> Add to Cart
+                                </button>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="text-gray-500 dark:text-gray-400">Share:</span>
+                                <div class="flex gap-2">
+                                    <a href="#" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-700/50 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600/50 transition-colors">
+                                        <i class="ri-facebook-fill"></i>
+                                    </a>
+                                    <a href="#" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-700/50 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600/50 transition-colors">
+                                        <i class="ri-twitter-fill"></i>
+                                    </a>
+                                    <a href="#" class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-700/50 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600/50 transition-colors">
+                                        <i class="ri-linkedin-fill"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-gray-200 dark:border-gray-700 pt-6">
+                            <h3 class="text-xl font-bold mb-4">Product Specifications</h3>
+                            <div class="space-y-3">
+                                <div class="flex justify-between border-b border-gray-100 dark:border-gray-700 pb-2">
+                                    <span class="text-gray-600 dark:text-gray-400">Power Output</span>
+                                    <span class="font-medium">3000W</span>
+                                </div>
+                                <div class="flex justify-between border-b border-gray-100 dark:border-gray-700 pb-2">
+                                    <span class="text-gray-600 dark:text-gray-400">Efficiency</span>
+                                    <span class="font-medium">99%</span>
+                                </div>
+                                <div class="flex justify-between border-b border-gray-100 dark:border-gray-700 pb-2">
+                                    <span class="text-gray-600 dark:text-gray-400">Input Voltage</span>
+                                    <span class="font-medium">120/240V AC</span>
+                                </div>
+                                <div class="flex justify-between border-b border-gray-100 dark:border-gray-700 pb-2">
+                                    <span class="text-gray-600 dark:text-gray-400">Output Voltage</span>
+                                    <span class="font-medium">120/240V AC</span>
+                                </div>
+                                <div class="flex justify-between border-b border-gray-100 dark:border-gray-700 pb-2">
+                                    <span class="text-gray-600 dark:text-gray-400">Connectivity</span>
+                                    <span class="font-medium">Wi-Fi, Bluetooth</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-600 dark:text-gray-400">Warranty</span>
+                                    <span class="font-medium">5 Years</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-gray-200 dark:border-gray-700 pt-6 mt-6">
+                            <h3 class="text-xl font-bold mb-4">Key Features</h3>
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2">
+                                    <i class="ri-check-line text-primary-500 mt-1"></i>
+                                    <span>99% Conversion Efficiency with advanced MPPT technology</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="ri-check-line text-primary-500 mt-1"></i>
+                                    <span>Seamless grid integration with automatic transfer switch</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="ri-check-line text-primary-500 mt-1"></i>
+                                    <span>Real-time monitoring via mobile app with AI energy optimization</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="ri-check-line text-primary-500 mt-1"></i>
+                                    <span>Supports solar, battery, and grid power sources simultaneously</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="ri-check-line text-primary-500 mt-1"></i>
+                                    <span>Weather-resistant design for outdoor installation</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button id="backToTop" class="floating-button" aria-label="Back to top">
+        <i class="ri-arrow-up-line text-2xl"></i>
+    </button>
+    
+    <footer class="bg-gray-900 dark:bg-black text-white py-12 mt-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="https://static.readdy.ai/image/667419ca10697304df83e3b31516c4ec/802a488e3607a520883c5340be484ec1.png" 
+                            alt="Ntronix Logo" 
+                            class="h-10">
+                        <span class="text-2xl font-bold">Ntronix</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        Leading the way in smart power solutions and energy management technology. Join us in creating a sustainable energy future.
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary-600 transition-colors social-icon">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary-600 transition-colors social-icon">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary-600 transition-colors social-icon">
+                            <i class="ri-linkedin-fill"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary-600 transition-colors social-icon">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Products</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white footer-link transition-colors">Hybrid Inverters</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white footer-link transition-colors">Portable Power Stations</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white footer-link transition-colors">Smart Switches</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white footer-link transition-colors">Energy Monitoring</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white footer-link transition-colors">Marketplace</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Company</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="text-gray-400 hover:text-white footer-link transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white footer-link transition-colors">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white footer-link transition-colors">News & Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white footer-link transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white footer-link transition-colors">Partners</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Connect</h4>
+                    <p class="text-gray-400 mb-4">
+                        Subscribe to our newsletter for the latest updates and energy tips.
+                    </p>
+                    <div class="relative mb-6">
+                        <input type="email" 
+                            placeholder="Your email address" 
+                            class="newsletter-input w-full px-5 py-3 bg-gray-800 border border-gray-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/50">
+                        <button class="send-button absolute right-3 top-1/2 -translate-y-1/2 text-primary-400 hover:text-primary-300 transition-colors">
+                            <i class="ri-send-plane-line text-xl"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 text-gray-400">
+                        <i class="ri-truck-line"></i>
+                        <span>Free shipping on orders over $500</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-400 mt-3">
+                        <i class="ri-secure-payment-line"></i>
+                        <span>Secure payment with 256-bit encryption</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-gray-400 mt-3">
+                        <i class="ri-24-hours-line"></i>
+                        <span>24/7 customer support</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    &copy; 2025 Ntronix. All rights reserved.
+                </p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- ECharts Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const menuButton = document.getElementById('openMenu');
+            const closeButton = document.getElementById('closeMenu');
+            const menuOverlay = document.getElementById('menuOverlay');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            menuButton.addEventListener('click', function() {
+                mobileMenu.classList.add('open');
+                menuOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            closeButton.addEventListener('click', function() {
+                mobileMenu.classList.remove('open');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+            
+            menuOverlay.addEventListener('click', function() {
+                mobileMenu.classList.remove('open');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Theme Toggle
+            const themeToggle = document.getElementById('themeToggle');
+            const htmlElement = document.documentElement;
+            
+            // Check for saved theme preference or respect OS preference
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                htmlElement.classList.add('dark');
+            }
+            
+            themeToggle.addEventListener('click', function() {
+                if (htmlElement.classList.contains('dark')) {
+                    htmlElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    htmlElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+            
+            // Scroll Reveal Animation
+            const revealElements = document.querySelectorAll('.reveal, .stagger-reveal');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            revealElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            // Floating Button Scroll Trigger
+            const floatingButton = document.querySelector('.floating-button');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    floatingButton.classList.add('visible');
+                } else {
+                    floatingButton.classList.remove('visible');
+                }
+            });
+            
+            // Back to top button
+            document.getElementById('backToTop').addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Filter section toggle
+            document.querySelectorAll('.filter-toggle').forEach(button => {
+                button.addEventListener('click', function() {
+                    const filterSection = this.closest('.filter-section');
+                    filterSection.classList.toggle('collapsed');
+                    filterSection.classList.toggle('expanded');
+                });
+            });
+            
+            // Filter options
+            document.querySelectorAll('.filter-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const parent = this.closest('.filter-section');
+                    const isActive = this.classList.contains('active');
+                    
+                    // For single-select sections (categories, power ratings, etc.)
+                    if (parent.querySelector('[data-category]') || 
+                        parent.querySelector('[data-power]') || 
+                        parent.querySelector('[data-rating]')) {
+                        
+                        parent.querySelectorAll('.filter-option').forEach(opt => {
+                            opt.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                    } 
+                    // For multi-select sections (features)
+                    else if (parent.querySelector('[data-feature]')) {
+                        this.classList.toggle('active');
+                    }
+                    
+                    // Show filtering state
+                    document.querySelector('.product-grid').classList.add('filtering');
+                    setTimeout(() => {
+                        document.querySelector('.product-grid').classList.remove('filtering');
+                    }, 500);
+                });
+            });
+            
+            // Sort dropdown
+            const sortDropdown = document.querySelector('.sort-dropdown');
+            const sortOptions = document.querySelector('.sort-option');
+            
+            sortDropdown.addEventListener('click', function() {
+                const options = this.nextElementSibling;
+                options.classList.toggle('hidden');
+            });
+            
+            document.querySelectorAll('.sort-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    document.querySelector('.sort-option.active').classList.remove('active');
+                    this.classList.add('active');
+                    document.querySelector('.sort-dropdown span').textContent = this.textContent;
+                    document.querySelector('.sort-dropdown + div').classList.add('hidden');
+                });
+            });
+            
+            // Close sort dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!sortDropdown.contains(e.target)) {
+                    document.querySelector('.sort-dropdown + div').classList.add('hidden');
+                }
+            });
+            
+            // Price slider
+            const priceSlider = document.getElementById('priceRangeSlider');
+            const priceRangeValue = document.getElementById('priceRangeValue');
+            
+            priceSlider.addEventListener('input', function() {
+                const value = parseInt(this.value);
+                priceRangeValue.textContent = `$${value.toLocaleString()}`;
+            });
+            
+            // Wishlist toggle
+            document.querySelectorAll('.wishlist-icon').forEach(button => {
+                button.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    if (this.classList.contains('active')) {
+                        this.innerHTML = '<i class="ri-heart-fill text-xl"></i>';
+                    } else {
+                        this.innerHTML = '<i class="ri-heart-line text-xl"></i>';
+                    }
+                });
+            });
+            
+            // Quick view modal
+            const quickViewModal = document.getElementById('quickViewModal');
+            const closeModal = document.getElementById('closeModal');
+            const modalOverlay = document.getElementById('modalOverlay');
+            
+            document.querySelectorAll('.ri-eye-line').forEach(button => {
+                button.closest('.product-card').querySelector('.ri-eye-line').parentElement.addEventListener('click', function() {
+                    quickViewModal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+            
+            closeModal.addEventListener('click', function() {
+                quickViewModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+            
+            modalOverlay.addEventListener('click', function() {
+                quickViewModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Clear comparison
+            document.getElementById('clearCompare').addEventListener('click', function() {
+                document.getElementById('compareItems').innerHTML = '';
+                document.getElementById('comparisonBar').classList.add('hidden');
+            });
+            
+            // Mobile filter and sort
+            document.getElementById('openFilters').addEventListener('click', function() {
+                document.querySelector('.filter-section').classList.toggle('expanded');
+                document.querySelector('.filter-section').classList.toggle('collapsed');
+            });
+            
+            document.getElementById('openSort').addEventListener('click', function() {
+                document.querySelector('.sort-dropdown + div').classList.toggle('hidden');
+            });
+            
+            // Add to cart animation
+            document.querySelectorAll('.ri-shopping-cart-2-line').forEach(button => {
+                button.closest('button').addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    
+                    // Create floating cart element
+                    const floatingCart = document.createElement('div');
+                    floatingCart.className = 'fixed w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center text-white z-50';
+                    floatingCart.innerHTML = '<i class="ri-shopping-cart-2-line"></i>';
+                    
+                    // Position at button
+                    const rect = this.getBoundingClientRect();
+                    floatingCart.style.left = `${rect.left + window.scrollX + rect.width/2}px`;
+                    floatingCart.style.top = `${rect.top + window.scrollY + rect.height/2}px`;
+                    
+                    document.body.appendChild(floatingCart);
+                    
+                    // Animate to cart icon
+                    const cartIcon = document.querySelector('#openCart');
+                    const cartRect = cartIcon.getBoundingClientRect();
+                    
+                    const animation = floatingCart.animate([
+                        { 
+                            transform: 'translate(0, 0) scale(1)',
+                            opacity: 1
+                        },
+                        { 
+                            transform: `translate(${cartRect.left - rect.left - window.scrollX}px, ${cartRect.top - rect.top - window.scrollY}px) scale(0.5)`,
+                            opacity: 0
+                        }
+                    ], {
+                        duration: 800,
+                        easing: 'cubic-bezier(0.23, 1, 0.32, 1)'
+                    });
+                    
+                    animation.onfinish = () => {
+                        document.body.removeChild(floatingCart);
+                        
+                        // Update cart count
+                        const cartCount = document.querySelector('.cart-count');
+                        let count = parseInt(cartCount.textContent);
+                        cartCount.textContent = count + 1;
+                        
+                        // Add pulse animation
+                        cartCount.classList.add('pulse');
+                        setTimeout(() => {
+                            cartCount.classList.remove('pulse');
+                        }, 1000);
+                    };
+                });
+            });
+            
+            // Filter badges
+            document.querySelectorAll('.filter-badge button').forEach(button => {
+                button.addEventListener('click', function() {
+                    this.closest('.filter-badge').remove();
+                });
+            });
+            
+            // Initialize product ratings
+            document.querySelectorAll('.product-rating').forEach(rating => {
+                const value = parseInt(rating.dataset.rating);
+                rating.innerHTML = '★'.repeat(value) + '☆'.repeat(5 - value);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,2818 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- 
+        NTRONIX SMART ENERGY SOLUTIONS
+        =================================
+        Professional business website for energy management systems
+        
+        AUTHOR: Ntronix Development Team
+        VERSION: 2.0
+        LAST UPDATED: 2025-12-08
+        
+        STRUCTURE:
+        1. Meta & SEO
+        2. CSS Framework & Fonts
+        3. Critical CSS (Above-the-fold)
+        4. Custom Component Styles
+    -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Meta Tags -->
+    <meta name="description" content="Ntronix Volta is a locally engineered smart solar hybrid inverter system for East African homes and businesses. Bluetooth, WiFi, AI assistant, and mobile app — all made in Uganda.">
+    <meta name="keywords" content="solar inverter Uganda, smart inverter East Africa, solar power Uganda, Ntronix Volta, hybrid inverter Uganda, locally made solar inverter">
+    <meta name="author" content="Ntronix Systems">
+    <link rel="canonical" href="https://www.ntronixvolta.com">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Ntronix Systems — Smart Energy. Locally Made.">
+    <meta property="og:description" content="Uganda-built solar inverters with AI, smart connectivity, and a mobile app. Four models from 500W to 3,000W.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.ntronixvolta.com">
+    <meta property="og:image" content="#">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ntronix Systems — Smart Energy. Locally Made.">
+    <meta name="twitter:description" content="Uganda-built solar inverters with AI, smart connectivity, and a mobile app. Four models from 500W to 3,000W.">
+    <meta name="twitter:image" content="#">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="#" type="image/x-icon">
+    
+    <title>Ntronix Systems — Smart Solar Inverters. Made in Uganda.</title>
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://cdn.tailwindcss.com/3.4.16" as="script">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- CSS Framework -->
+    <script src="https://cdn.tailwindcss.com/3.4.16?plugins=forms"></script>
+    
+    <!-- Icon Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#f5f3ff',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                        }
+                    },
+                    animation: {
+                        'gradient': 'gradient-xy 15s ease infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'reveal': 'reveal 0.6s ease-out forwards',
+                        'particle-float': 'particle-float 20s infinite linear',
+                    },
+                    keyframes: {
+                        'gradient-xy': {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' }
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-20px) rotate(5deg)' }
+                        },
+                        'reveal': {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        'particle-float': {
+                            '0%': { transform: 'translateY(100vh) rotate(0deg)' },
+                            '100%': { transform: 'translateY(-100px) rotate(360deg)' }
+                        }
+                    }
+                }
+            },
+            plugins: [
+                require('@tailwindcss/forms')
+            ]
+        }
+    </script>
+    
+    <!-- 
+        ============================================================================
+        CUSTOM STYLES
+        ============================================================================
+        1. CSS Custom Properties (Design Tokens)
+        2. Base Styles & Resets
+        3. Component Styles (Cards, Buttons, Forms)
+        4. Animation & Effects
+        5. Responsive Utilities
+    -->
+    <style>
+        /* ========== CSS Custom Properties ========== */
+        :root {
+            --color-primary-hue: 200;
+            --color-primary-saturation: 80%;
+            --color-primary-lightness: 50%;
+            
+            --color-primary: hsl(var(--color-primary-hue), var(--color-primary-saturation), var(--color-primary-lightness));
+            --color-primary-dark: hsl(var(--color-primary-hue), var(--color-primary-saturation), calc(var(--color-primary-lightness) - 10%));
+            --color-secondary: 262, 83%, 58%; /* Purple */
+            
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+            --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.25);
+            
+            --radius-lg: 1rem;
+            --radius-xl: 1.5rem;
+            
+            --transition-fast: 0.2s;
+            --transition-normal: 0.3s;
+            --transition-slow: 0.5s;
+        }
+        
+        /* ========== Base Styles ========== */
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            background-color: #ffffff;
+            color: #1f2937;
+        }
+        
+        body.dark {
+            background-color: #111827;
+            color: #f9fafb;
+        }
+        
+        /* ========== Typography ========== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        /* ========== Glassmorphism Effects ========== */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .glass.dark {
+            background: rgba(17, 24, 39, 0.5);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* ========== Component Styles ========== */
+        
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            transition: all var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .dark .card {
+            background: #1f2937;
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            transition: all var(--transition-normal);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            color: white;
+            box-shadow: 0 4px 14px rgba(14, 165, 233, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--color-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Forms */
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: var(--radius-lg);
+            background: white;
+            transition: all var(--transition-fast);
+        }
+        
+        .dark .form-input {
+            background: #1f2937;
+            border-color: #374151;
+            color: white;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+        }
+        
+        /* ========== Animations & Effects ========== */
+        
+        /* Gradient Background Animation */
+        .gradient-bg {
+            background: linear-gradient(135deg, 
+                hsl(var(--color-primary-hue), var(--color-primary-saturation), var(--color-primary-lightness)),
+                hsl(calc(var(--color-primary-hue) + 30), var(--color-primary-saturation), var(--color-primary-lightness)),
+                hsl(calc(var(--color-primary-hue) + 60), var(--color-primary-saturation), var(--color-primary-lightness)));
+            background-size: 400% 400%;
+            animation: gradient-xy 15s ease infinite;
+        }
+        
+        /* Floating Animation */
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Reveal on Scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Staggered Animation Delays */
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        
+        /* ========== Navigation ========== */
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 0;
+            font-weight: 500;
+            color: #6b7280;
+            transition: color var(--transition-fast);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-primary);
+            transition: width var(--transition-normal);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .nav-link:hover {
+            color: var(--color-primary);
+        }
+        
+        /* ========== Hero Section ========== */
+        .hero-particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: particle-float 15s infinite linear;
+        }
+        
+        /* ========== Mobile Menu ========== */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        
+        .menu-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-normal);
+        }
+        
+        .menu-overlay.active {
+            opacity: 0.5;
+            visibility: visible;
+        }
+        
+        /* ========== Floating Action Button ========== */
+        .fab {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+            box-shadow: 0 4px 20px rgba(14, 165, 233, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            transition: all var(--transition-normal);
+            z-index: 1000;
+            opacity: 0;
+            transform: scale(0);
+        }
+        
+        .fab.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .fab:hover {
+            transform: scale(1.1) translateY(-4px);
+            box-shadow: 0 6px 25px rgba(14, 165, 233, 0.6);
+        }
+        
+        /* ========== Dark Mode Toggle ========== */
+        .theme-toggle {
+            transition: transform var(--transition-normal);
+        }
+        
+        .theme-toggle:hover {
+            transform: rotate(180deg);
+        }
+        
+        /* ========== Product Cards ========== */
+        .product-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transform: translateX(30px);
+            opacity: 0;
+            transition: all var(--transition-fast);
+            z-index: 10;
+        }
+        
+        .product-card:hover .product-badge {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        
+        /* ========== Stats Cards ========== */
+        .stats-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, 
+                hsla(var(--color-primary-hue), var(--color-primary-saturation), var(--color-primary-lightness), 0.1),
+                hsla(calc(var(--color-primary-hue) + 30), var(--color-primary-saturation), var(--color-primary-lightness), 0.05));
+            z-index: -1;
+        }
+        
+        .stats-number {
+            background: linear-gradient(to right, var(--color-primary), var(--color-primary-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        
+        /* ========== Charts ========== */
+        .chart-container {
+            position: relative;
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .dark .chart-container {
+            background: #1f2937;
+            border-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        /* ========== Footer ========== */
+        .footer-link {
+            color: #9ca3af;
+            transition: color var(--transition-fast);
+        }
+        
+        .footer-link:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        /* ========== Responsive Design ========== */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .fab {
+                width: 56px;
+                height: 56px;
+                font-size: 1.25rem;
+            }
+        }
+        
+        /* ========== Print Styles ========== */
+        @media print {
+            .fab, .theme-toggle, .mobile-menu, .menu-overlay {
+                display: none;
+            }
+            
+            .gradient-bg {
+                background: white !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-900 font-sans dark:bg-gray-900 dark:text-white">
+    <!-- 
+        ============================================================================
+        ACCESSIBILITY FEATURES
+        ============================================================================
+        - Skip to main content link for keyboard navigation
+        - ARIA labels for interactive elements
+        - High contrast mode support
+        - Reduced motion media query support
+    -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary-600 text-white px-4 py-2 rounded-lg z-50">
+        Skip to main content
+    </a>
+    
+    <!-- 
+        ============================================================================
+        FLOATING ACTION BUTTON
+        ============================================================================
+        - Appears on scroll > 300px
+        - Smooth scroll to contact section
+        - Pulsing animation to draw attention
+    -->
+    <a href="#contact" 
+       class="fab smooth-scroll" 
+       aria-label="Contact us via chat"
+       data-tooltip="Contact our support team">
+        <i class="ri-chat-1-line" aria-hidden="true"></i>
+    </a>
+    
+    <!-- 
+        ============================================================================
+        THEME TOGGLE
+        ============================================================================
+        - Persists user preference in localStorage
+        - Respects OS dark mode preference
+        - Animated rotation on hover
+    -->
+    <button id="themeToggle" 
+            class="fixed top-6 right-6 z-50 w-12 h-12 rounded-full glass flex items-center justify-center shadow-lg hover:scale-110 transition-all" 
+            aria-label="Toggle dark mode"
+            aria-pressed="false">
+        <i class="ri-sun-line dark:hidden" aria-hidden="true"></i>
+        <i class="ri-moon-line hidden dark:block" aria-hidden="true"></i>
+    </button>
+    
+    <!-- 
+        ============================================================================
+        MOBILE MENU OVERLAY
+        ============================================================================
+        - Closes menu when clicking outside
+        - Animated fade-in/out
+    -->
+    <div id="menuOverlay" 
+         class="menu-overlay fixed inset-0 bg-black bg-opacity-50 z-40" 
+         aria-hidden="true">
+    </div>
+    
+    <!-- 
+        ============================================================================
+        MOBILE MENU
+        ============================================================================
+        - Slide-in animation from right
+        - Touch-friendly 44px minimum tap targets
+        - Keyboard navigation support
+    -->
+    <div id="mobileMenu" 
+         class="mobile-menu fixed top-0 right-0 w-80 h-full bg-white dark:bg-gray-800 z-50 shadow-2xl pt-16 px-6 overflow-y-auto" 
+         role="dialog" 
+         aria-modal="true" 
+         aria-labelledby="mobileMenuTitle">
+        
+        <div class="flex justify-between items-center mb-8">
+            <div class="flex items-center gap-3" id="mobileMenuTitle">
+                <!-- Company Logo -->
+                <img src="company-logo.png" alt="Ntronix Logo" class="h-10 w-auto">
+                <span class="text-2xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
+                    Ntronix
+                </span>
+            </div>
+            
+            <button id="closeMenu" 
+                    class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" 
+                    aria-label="Close mobile menu">
+                <i class="ri-close-line ri-2x" aria-hidden="true"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation Links -->
+        <nav class="flex flex-col gap-2">
+            <a href="#products" class="mobile-menu-link py-4 text-lg font-medium text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                Products
+            </a>
+            <a href="#technology" class="mobile-menu-link py-4 text-lg font-medium text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                Technology
+            </a>
+            <a href="#app" class="mobile-menu-link py-4 text-lg font-medium text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                Mobile App
+            </a>
+            <a href="#about" class="mobile-menu-link py-4 text-lg font-medium text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                About
+            </a>
+            <a href="#contact" class="mobile-menu-link py-4 text-lg font-medium text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                Contact
+            </a>
+            
+            <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+                <div class="space-y-3">
+                    <a href="#products" 
+                       class="btn btn-primary w-full rounded-button">
+                        Explore Products
+                    </a>
+                    <button class="btn btn-secondary w-full rounded-button">
+                        Request Demo
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+    <!-- 
+        ============================================================================
+        HEADER
+        ============================================================================
+        - Sticky navigation with backdrop blur
+        - Responsive layout (mobile/desktop)
+        - Active link highlighting
+    -->
+    <header class="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700/50 transition-all">
+        <div class="container mx-auto px-6 py-4">
+            <nav class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <img src="company-logo.png" alt="Ntronix Logo" class="h-10 w-auto">
+                    <span class="text-2xl font-bold bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
+                        Ntronix
+                    </span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="#products" class="nav-link active">Products</a>
+                    <a href="#technology" class="nav-link">Technology</a>
+                    <a href="#app" class="nav-link">Mobile App</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                
+                <!-- CTA Buttons -->
+                <div class="flex items-center gap-4">
+                    <a href="#products" 
+                       class="btn btn-primary hidden lg:inline-flex rounded-button">
+                        Explore Products
+                    </a>
+                    
+                    <!-- Mobile Menu Toggle -->
+                    <button id="openMenu" 
+                            class="lg:hidden w-12 h-12 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" 
+                            aria-label="Open mobile menu"
+                            aria-expanded="false">
+                        <i class="ri-menu-line ri-2x" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- 
+        ============================================================================
+        MAIN CONTENT
+        ============================================================================
+        - All sections wrapped in <main> for accessibility
+        - Unique ID for skip link target
+    -->
+    <main id="main-content" class="smooth-scroll">
+        <!-- 
+            ============================================================================
+            HERO SECTION
+            ============================================================================
+            - Animated gradient background
+            - Floating particle effects
+            - Stats counters
+            - CTA buttons
+        -->
+        <section class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+            <!-- Animated Background -->
+            <div class="gradient-bg absolute inset-0 z-0" aria-hidden="true"></div>
+            
+            <!-- Floating Particles -->
+            <div class="hero-particles">
+                <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+                <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
+                <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
+                <div class="particle" style="left: 40%; animation-delay: 6s;"></div>
+                <div class="particle" style="left: 50%; animation-delay: 8s;"></div>
+                <div class="particle" style="left: 60%; animation-delay: 10s;"></div>
+                <div class="particle" style="left: 70%; animation-delay: 12s;"></div>
+                <div class="particle" style="left: 80%; animation-delay: 14s;"></div>
+                <div class="particle" style="left: 90%; animation-delay: 16s;"></div>
+            </div>
+            
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <!-- Hero Content -->
+                    <div class="hero-content space-y-8 reveal stagger-1">
+                        <!-- Badge -->
+                        <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium text-white">
+                            <i class="ri-map-pin-line" aria-hidden="true"></i>
+                            <span>Prototype Stage — Designed &amp; Built in Uganda</span>
+                        </div>
+                        
+                        <!-- Heading -->
+                        <h1 class="text-5xl lg:text-6xl font-extrabold leading-tight text-white">
+                            Smart Energy for Africa. 
+                            <span class="block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-white to-primary-200">
+                                By Africa.
+                            </span>
+                        </h1>
+                        
+                        <!-- Description -->
+                        <p class="text-xl text-white/90 max-w-2xl">
+                            Locally engineered smart powerwalls that double as hybrid inverters and portable power stations. Bluetooth and WiFi connectivity, Volta AI assistant, and full mobile app control — from 500W portable to 3,000W whole-home systems.
+                        </p>
+                        
+                        <!-- CTA Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="#products" 
+                               class="btn btn-primary px-8 py-4 text-lg rounded-button inline-flex items-center gap-2">
+                                Explore Products
+                                <i class="ri-arrow-right-line" aria-hidden="true"></i>
+                            </a>
+                            <button class="btn btn-secondary bg-white/10 backdrop-blur-sm border-2 border-white text-white px-8 py-4 text-lg rounded-button hover:bg-white/20">
+                                <i class="ri-play-circle-line mr-2" aria-hidden="true"></i>
+                                Watch Demo
+                            </button>
+                        </div>
+                        
+                        <!-- Stats Grid -->
+                        <div class="grid grid-cols-3 gap-6 mt-12">
+                            <div class="stats-card glass rounded-xl p-6 text-center">
+                                <div class="stats-number">4</div>
+                                <div class="text-white/80 text-sm font-medium">Product Models</div>
+                            </div>
+                            <div class="stats-card glass rounded-xl p-6 text-center">
+                                <div class="stats-number">5</div>
+                                <div class="text-white/80 text-sm font-medium">Battery Types</div>
+                            </div>
+                            <div class="stats-card glass rounded-xl p-6 text-center">
+                                <div class="stats-number">&gt;95%</div>
+                                <div class="text-white/80 text-sm font-medium">MPPT Efficiency</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Hero Image -->
+                    <div class="relative reveal stagger-2">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-primary-500/40 to-secondary-500/40 rounded-2xl blur-xl" aria-hidden="true"></div>
+                        
+                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&h=600&fit=crop" 
+                             alt="Solar panel array — Ntronix Volta smart energy systems" 
+                             class="relative rounded-2xl shadow-2xl w-full h-auto object-cover"
+                             loading="eager">
+                        
+                        <!-- Floating Info Card -->
+                        <div class="absolute -bottom-6 -left-6 glass rounded-2xl p-6 shadow-xl max-w-xs">
+                            <div class="flex items-start gap-3">
+                                <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center flex-shrink-0">
+                                    <i class="ri-flashlight-line text-white text-xl" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-white">Multi-MCU Power System</p>
+                                    <p class="text-sm text-white/80">Smart Controller + Charge Controller + Inverter</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 
+            ============================================================================
+            AI RECOMMENDATIONS SECTION
+            ============================================================================
+            - Interactive cards with progress bars
+            - AI badges with animations
+            - Real-time data visualization
+        -->
+        <section id="problem" class="py-20 bg-gray-50 dark:bg-gray-800">
+            <div class="container mx-auto px-6">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="inline-block px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 rounded-full text-sm font-medium mb-4">
+                        <i class="ri-error-warning-line mr-2" aria-hidden="true"></i>
+                        WHY WE EXIST
+                    </span>
+                    <h2 class="text-4xl lg:text-5xl font-bold mb-6 reveal stagger-1">The Problem We Solve</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 reveal stagger-2">
+                        Real challenges facing energy access in East Africa that drove us to build Ntronix.
+                    </p>
+                </div>
+                
+                <!-- Problem Cards Grid -->
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="card p-8 reveal stagger-1">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-100 to-orange-100 dark:from-red-900/30 dark:to-orange-900/30 flex items-center justify-center mb-6">
+                            <i class="ri-flashlight-line text-red-600 dark:text-red-300 text-3xl" aria-hidden="true"></i>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold mb-4">Unreliable Grid Power</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Frequent outages and load-shedding disrupt homes, schools, clinics, and businesses every day across Uganda and East Africa. Communities need dependable power they can control.
+                        </p>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="card p-8 reveal stagger-2">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-100 to-amber-100 dark:from-yellow-900/30 dark:to-amber-900/30 flex items-center justify-center mb-6">
+                            <i class="ri-money-dollar-circle-line text-yellow-600 dark:text-yellow-300 text-3xl" aria-hidden="true"></i>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold mb-4">Expensive Imported Inverters</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Solar inverters are imported at high cost, designed for foreign conditions, with no local repair or support available. This makes reliable solar power inaccessible to most households.
+                        </p>
+                    </div>
+                    
+                    <!-- Card 3 -->
+                    <div class="card p-8 reveal stagger-3">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 flex items-center justify-center mb-6">
+                            <i class="ri-cpu-line text-primary-600 dark:text-primary-300 text-3xl" aria-hidden="true"></i>
+                        </div>
+                        
+                        <h3 class="text-2xl font-bold mb-4">No Smart Energy Systems</h3>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            There is virtually no indigenous power electronics manufacturing in East Africa. Available inverters offer no connectivity, no analytics, no remote control — users have zero visibility into their own energy data.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- CTA -->
+                <div class="mt-12 text-center">
+                    <a href="#products" class="btn btn-secondary inline-flex items-center gap-2">
+                        <i class="ri-arrow-right-line" aria-hidden="true"></i>
+                        See Our Solution
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 
+            ============================================================================
+            PRODUCTS SECTION
+            ============================================================================
+            - Filterable product grid
+            - Professional product cards
+            - Add to cart functionality
+            - Review ratings
+        -->
+        <section id="products" class="py-20 bg-white dark:bg-gray-900">
+            <div class="container mx-auto px-6">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-4xl lg:text-5xl font-bold mb-6 reveal stagger-1">The Volta Powerwall Line</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 reveal stagger-2">
+                        Four smart powerwalls that double as hybrid inverters and portable power stations — from 500W to 3,000W, designed and built in Uganda.
+                    </p>
+                </div>
+                
+                <!-- Products Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8" id="productsGrid">
+                    <!-- VC-500 -->
+                    <article class="product-card card" data-category="volta">
+                        <div class="relative">
+                            <span class="product-badge bg-gradient-to-r from-sky-400 to-sky-500 text-white">
+                                ENTRY LEVEL
+                            </span>
+                            <div class="w-full h-56 bg-gradient-to-br from-primary-600 to-primary-800 flex flex-col items-center justify-center">
+                                <i class="ri-battery-charge-line text-white/30 text-7xl mb-2" aria-hidden="true"></i>
+                                <span class="text-white font-bold text-xl">VC-500</span>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Volta VC-500</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                                Entry-level powerwall with Bluetooth mobile app control.
+                            </p>
+                            
+                            <ul class="space-y-2 mb-5">
+                                <li class="flex items-center gap-2">
+                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                    <span class="text-gray-700 dark:text-gray-200 text-sm">500W Pure Sine Wave AC</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                    <span class="text-gray-700 dark:text-gray-200 text-sm">300W DC Output</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                    <span class="text-gray-700 dark:text-gray-200 text-sm">200W Solar Input</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                    <span class="text-gray-700 dark:text-gray-200 text-sm">Bluetooth Mobile App Control</span>
+                                </li>
+                            </ul>
+                            
+                            <div class="text-center">
+                                <span class="inline-block px-4 py-2 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm font-semibold">
+                                    500W | Bluetooth | Portable
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- VC-1000 -->
+                    <article class="product-card card" data-category="volta">
+                        <div class="relative">
+                            <span class="product-badge bg-gradient-to-r from-emerald-400 to-emerald-500 text-white">
+                                STANDARD
+                            </span>
+                            <div class="w-full h-56 bg-gradient-to-br from-emerald-600 to-emerald-800 flex flex-col items-center justify-center">
+                                <i class="ri-battery-charge-line text-white/30 text-7xl mb-2" aria-hidden="true"></i>
+                                <span class="text-white font-bold text-xl">VC-1000</span>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Volta VC-1000</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                                WiFi connectivity, scheduling, and cloud remote control.
+                            </p>
+                            
+                            <ul class="space-y-2 mb-5">
+                                <li class="flex items-center gap-2">
+                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                    <span class="text-gray-700 dark:text-gray-200 text-sm">1000W Pure Sine Wave AC</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                    <span class="text-gray-700 dark:text-gray-200 text-sm">500W DC Output</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                    <span class="text-gray-700 dark:text-gray-200 text-sm">400W Solar Input</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                    <span class="text-gray-700 dark:text-gray-200 text-sm">WiFi + Cloud Remote Control</span>
+                                </li>
+                            </ul>
+                            
+                            <div class="text-center">
+                                <span class="inline-block px-4 py-2 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm font-semibold">
+                                    1000W | WiFi | Scheduling
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- VC-2000 -->
+                    <article class="product-card card" data-category="volta">
+                        <div class="relative">
+                            <span class="product-badge bg-gradient-to-r from-blue-400 to-blue-500 text-white">
+                                HOME
+                            </span>
+                            <div class="w-full h-56 bg-gradient-to-br from-blue-600 to-blue-800 flex flex-col items-center justify-center">
+                                <i class="ri-battery-charge-line text-white/30 text-7xl mb-2" aria-hidden="true"></i>
+                                <span class="text-white font-bold text-xl">VC-2000</span>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Volta VC-2000</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                                Home powerwall with grid input, mesh networking, and smart switches.
+                            </p>
+                            
+                            <ul class="space-y-2 mb-5">
+                                <li class="flex items-center gap-2">
+                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                    <span class="text-gray-700 dark:text-gray-200 text-sm">2000W Pure Sine Wave AC</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                    <span class="text-gray-700 dark:text-gray-200 text-sm">Grid Input + Solar Priority</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                    <span class="text-gray-700 dark:text-gray-200 text-sm">Wireless Mesh Network</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                    <span class="text-gray-700 dark:text-gray-200 text-sm">Up to 8 Smart Switches</span>
+                                </li>
+                            </ul>
+                            
+                            <div class="text-center">
+                                <span class="inline-block px-4 py-2 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm font-semibold">
+                                    2000W | Grid | Mesh
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- VC-3000 -->
+                    <article class="product-card card" data-category="volta">
+                        <div class="relative">
+                            <span class="product-badge bg-gradient-to-r from-amber-400 to-amber-500 text-white">
+                                FLAGSHIP
+                            </span>
+                            <div class="w-full h-56 bg-gradient-to-br from-amber-600 to-amber-800 flex flex-col items-center justify-center">
+                                <i class="ri-battery-charge-line text-white/30 text-7xl mb-2" aria-hidden="true"></i>
+                                <span class="text-white font-bold text-xl">VC-3000</span>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Volta VC-3000</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                                Flagship powerwall with UPS bypass, full mesh, and all premium features.
+                            </p>
+                            
+                            <ul class="space-y-2 mb-5">
+                                <li class="flex items-center gap-2">
+                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                    <span class="text-gray-700 dark:text-gray-200 text-sm">3000W Pure Sine Wave AC</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                    <span class="text-gray-700 dark:text-gray-200 text-sm">1500W Solar Input</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                    <span class="text-gray-700 dark:text-gray-200 text-sm">UPS Bypass Mode (&lt;10ms)</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                    <span class="text-gray-700 dark:text-gray-200 text-sm">Full Mesh + Smart Switches</span>
+                                </li>
+                            </ul>
+                            
+                            <div class="text-center">
+                                <span class="inline-block px-4 py-2 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm font-semibold">
+                                    3000W | Bypass | Full Featured
+                                </span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                
+                <!-- CTA Button -->
+                <div class="mt-12 text-center">
+                    <a href="#contact" 
+                       class="btn btn-primary inline-flex items-center gap-2 px-8 py-3.5 rounded-button">
+                        Request a Quote
+                        <i class="ri-arrow-right-line" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 
+            ============================================================================
+            MARKETPLACE SECTION
+            ============================================================================
+            - Energy trading platform overview
+            - Benefits visualization
+            - Interactive chart
+        -->
+        <section id="app" class="py-20 bg-gray-50 dark:bg-gray-800">
+            <div class="container mx-auto px-6">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-4xl lg:text-5xl font-bold mb-6 reveal stagger-1">The Ntronix Mobile App</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 reveal stagger-2">
+                        Control your entire energy system from your phone. Available on Android and iOS.
+                    </p>
+                </div>
+                
+                <!-- App Features Grid -->
+                <div class="grid lg:grid-cols-3 gap-8 mb-16">
+                    <div class="card p-8 text-center">
+                        <div class="w-16 h-16 mx-auto flex items-center justify-center bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 rounded-2xl mb-6">
+                            <i class="ri-bluetooth-line text-3xl text-primary-600 dark:text-primary-300" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Smart Device Control</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">
+                             Connect via Bluetooth or cloud. Toggle AC, DC, and USB outputs, monitor battery and solar in real-time.
+                        </p>
+                        <ul class="text-left space-y-3 mb-6">
+                            <li class="flex items-center gap-3">
+                                <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                Bluetooth &amp; WiFi connectivity
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                AC/DC/USB output toggle
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                Real-time battery &amp; solar monitoring
+                            </li>
+                        </ul>
+                        <a href="#technology" class="btn btn-secondary w-full rounded-button">
+                            Learn More
+                        </a>
+                    </div>
+                    
+                    <div class="card p-8 text-center">
+                        <div class="w-16 h-16 mx-auto flex items-center justify-center bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 rounded-2xl mb-6">
+                            <i class="ri-robot-2-line text-3xl text-primary-600 dark:text-primary-300" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Volta AI Assistant</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">
+                             Your built-in AI assistant. Just tell Volta what you need — "turn on AC", "set a 2-hour timer", or "how's my battery?"
+                        </p>
+                        <ul class="text-left space-y-3 mb-6">
+                            <li class="flex items-center gap-3">
+                                <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                Voice and text device control
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                Energy tips and troubleshooting
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                Smart scheduling suggestions
+                            </li>
+                        </ul>
+                        <a href="#technology" class="btn btn-secondary w-full rounded-button">
+                            Learn More
+                        </a>
+                    </div>
+                    
+                    <div class="card p-8 text-center">
+                        <div class="w-16 h-16 mx-auto flex items-center justify-center bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 rounded-2xl mb-6">
+                            <i class="ri-bar-chart-box-line text-3xl text-primary-600 dark:text-primary-300" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Energy Analytics</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">
+                            Track consumption, cost savings, and carbon footprint with multi-currency support including UGX.
+                        </p>
+                        <ul class="text-left space-y-3 mb-6">
+                            <li class="flex items-center gap-3">
+                                <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                Daily/weekly/monthly charts
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                Multi-currency cost tracking
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                CSV &amp; PDF data export
+                            </li>
+                        </ul>
+                        <a href="#technology" class="btn btn-secondary w-full rounded-button">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- More Features & Chart -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <!-- More Features List -->
+                    <div class="space-y-8">
+                        <h3 class="text-3xl font-bold">More App Features</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex gap-5">
+                                <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-primary-100 dark:bg-primary-900/30 rounded-xl">
+                                    <i class="ri-settings-3-line text-primary-600 dark:text-primary-300 text-2xl" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-2">Smart Automation</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 mb-3">
+                                         Set automatic rules that respond to your energy needs. Turn on outputs at specific times, protect your battery, or react to solar and grid changes — all hands-free.
+                                    </p>
+                                    <div class="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
+                                        <div class="grid grid-cols-3 gap-3">
+                                            <div class="text-center">
+                                                <div class="text-xl font-bold text-primary-600 dark:text-primary-300">Time</div>
+                                                <div class="text-xs text-gray-500 dark:text-gray-400">Schedules</div>
+                                            </div>
+                                            <div class="text-center">
+                                                <div class="text-xl font-bold text-primary-600 dark:text-primary-300">Battery</div>
+                                                <div class="text-xs text-gray-500 dark:text-gray-400">Protection</div>
+                                            </div>
+                                            <div class="text-center">
+                                                <div class="text-xl font-bold text-primary-600 dark:text-primary-300">Solar</div>
+                                                <div class="text-xs text-gray-500 dark:text-gray-400">Priority</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex gap-5">
+                                <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-primary-100 dark:bg-primary-900/30 rounded-xl">
+                                    <i class="ri-hand text-primary-600 dark:text-primary-300 text-2xl" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-2">Hand Gesture Control</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 mb-3">
+                                        Use hand gestures through your phone camera to control your powerwall — no touching needed. Turn AC on with a fist-to-palm, toggle DC with a peace sign, and more.
+                                    </p>
+                                    <div class="grid grid-cols-3 gap-3">
+                                        <div class="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 text-center">
+                                            <div class="text-xl font-bold text-primary-600 dark:text-primary-300">10</div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400">Gestures</div>
+                                        </div>
+                                        <div class="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 text-center">
+                                            <div class="text-xl font-bold text-primary-600 dark:text-primary-300">Hands</div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400">Free</div>
+                                        </div>
+                                        <div class="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 text-center">
+                                            <div class="text-xl font-bold text-primary-600 dark:text-primary-300">Live</div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400">Camera</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chart -->
+                    <div class="chart-container">
+                        <div id="marketplaceChart" class="w-full h-[400px]"></div>
+                        
+                        <!-- Chart Legend -->
+                        <div class="flex justify-center gap-6 mt-4">
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                <span class="text-sm">Solar</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 rounded-full bg-blue-500"></div>
+                                <span class="text-sm">Battery</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 rounded-full bg-purple-500"></div>
+                                <span class="text-sm">Load</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 
+            ============================================================================
+            TECHNOLOGY SECTION
+            ============================================================================
+            - Technical features showcase
+            - Interactive technology chart
+            - Performance metrics
+        -->
+        <section id="technology" class="py-20 bg-white dark:bg-gray-900">
+            <div class="container mx-auto px-6">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-4xl lg:text-5xl font-bold mb-6 reveal stagger-1">Engineering &amp; Technology</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 reveal stagger-2">
+                        Purpose-built hardware and software working together — advanced solar charging, pure sine wave output, encrypted connectivity, and intelligent energy management.
+                    </p>
+                </div>
+                
+                <!-- Tech Overview -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="space-y-8">
+                        <div>
+                            <span class="inline-block px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 rounded-full text-sm font-medium mb-4">
+                                ENGINEERED
+                            </span>
+                            <h3 class="text-3xl font-bold mb-4">Purpose-Built Hardware</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-lg">
+                                Each Volta powerwall uses dedicated processors for connectivity, solar charging, and AC generation — designed to work together seamlessly. The result is reliable, efficient power conversion with intelligent monitoring and protection built in at every level.
+                            </p>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <div class="flex gap-5">
+                                <div class="w-14 h-14 flex-shrink-0 flex items-center justify-center bg-primary-100 dark:bg-primary-900/30 rounded-xl">
+                                    <i class="ri-wifi-line text-primary-600 dark:text-primary-300 text-2xl" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-2">Bluetooth + WiFi + Cloud</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Encrypted Bluetooth pairing, secure cloud remote control, and wireless mesh networking for smart switches.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex gap-5">
+                                <div class="w-14 h-14 flex-shrink-0 flex items-center justify-center bg-primary-100 dark:bg-primary-900/30 rounded-xl">
+                                    <i class="ri-sun-line text-primary-600 dark:text-primary-300 text-2xl" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-2">Smart Solar Charging</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Advanced maximum power point tracking with &gt;95% efficiency and support for LiFePO4, Li-Ion, Lead-Acid, AGM, and Gel batteries.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex gap-5">
+                                <div class="w-14 h-14 flex-shrink-0 flex items-center justify-center bg-primary-100 dark:bg-primary-900/30 rounded-xl">
+                                    <i class="ri-shield-check-line text-primary-600 dark:text-primary-300 text-2xl" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-2">Safety &amp; Protection</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">Multi-layer protection against overvoltage, overcurrent, overtemperature, and short circuits with automatic recovery.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Technology Chart -->
+                    <div class="chart-container">
+                        <div id="techChart" class="w-full h-[400px]"></div>
+                    </div>
+                </div>
+                
+                <!-- Tech Features Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="card p-6 text-center">
+                        <div class="w-12 h-12 mx-auto rounded-xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mb-4">
+                            <i class="ri-cpu-line text-primary-600 dark:text-primary-300 text-xl" aria-hidden="true"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3">Pure Sine Wave Output</h4>
+                        <p class="text-gray-600 dark:text-gray-300">Clean, stable AC power safe for sensitive electronics — laptops, medical devices, and appliances.</p>
+                    </div>
+                    
+                    <div class="card p-6 text-center">
+                        <div class="w-12 h-12 mx-auto rounded-xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mb-4">
+                            <i class="ri-shield-keyhole-line text-primary-600 dark:text-primary-300 text-xl" aria-hidden="true"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3">Secure Device Pairing</h4>
+                        <p class="text-gray-600 dark:text-gray-300">PIN-based pairing displayed on the device screen. Share access with family using invite codes with role-based permissions.</p>
+                    </div>
+                    
+                    <div class="card p-6 text-center">
+                        <div class="w-12 h-12 mx-auto rounded-xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mb-4">
+                            <i class="ri-flashlight-line text-primary-600 dark:text-primary-300 text-xl" aria-hidden="true"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3">UPS Bypass Mode</h4>
+                        <p class="text-gray-600 dark:text-gray-300">Instant switchover keeps your devices running when the grid drops — available on the VC-3000.</p>
+                    </div>
+                    
+                    <div class="card p-6 text-center">
+                        <div class="w-12 h-12 mx-auto rounded-xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mb-4">
+                            <i class="ri-global-line text-primary-600 dark:text-primary-300 text-xl" aria-hidden="true"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3">OTA Firmware Updates</h4>
+                        <p class="text-gray-600 dark:text-gray-300">Remote firmware management with version history and model-specific selection via the mobile app.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 
+            ============================================================================
+            ABOUT SECTION
+            ============================================================================
+            - Company story
+            - Team image
+            - Awards and recognition
+            - Mission statement
+        -->
+        <section id="about" class="py-20 bg-gray-50 dark:bg-gray-800">
+            <div class="container mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <!-- Founder Image -->
+                    <div class="relative reveal stagger-1">
+                        <div class="absolute -top-6 -left-6 w-24 h-24 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500 -z-10"></div>
+                        
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop" 
+                             alt="Ntronix team — Kampala, Uganda" 
+                             class="rounded-2xl shadow-2xl w-full h-auto object-cover"
+                             loading="lazy">
+                        
+                        <!-- Location Badge -->
+                        <div class="absolute bottom-6 right-6 glass rounded-2xl p-5 shadow-xl max-w-xs">
+                            <div class="flex items-start gap-3">
+                                <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-amber-400 to-amber-500 flex items-center justify-center flex-shrink-0">
+                                    <i class="ri-medal-line text-white text-xl" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-white">Innovation Award 2022</p>
+                                    <p class="text-sm text-white/80">Kampala, Uganda</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Company & Founder Info -->
+                    <div class="space-y-8">
+                        <h2 class="text-4xl lg:text-5xl font-bold reveal stagger-2">About Ntronix</h2>
+                        <p class="text-xl text-gray-600 dark:text-gray-300 reveal stagger-3">
+                            Ntronix is a clean-energy technology startup focused on advanced powerwalls, hybrid inverters, and intelligent energy systems — designed and built in Uganda for African and global markets.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <!-- Founder -->
+                            <div class="flex gap-5 items-start reveal stagger-1">
+                                <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-primary-100 dark:bg-primary-900/30 rounded-xl">
+                                    <i class="ri-user-star-line text-primary-600 dark:text-primary-300 text-2xl" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-2xl font-bold mb-2">Ankunda Nelson — Founder &amp; CEO</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        A Ugandan engineer, educator, and largely self-taught embedded systems specialist. Trained as a teacher of Physics and Mathematics, Nelson combines deep technical expertise with strong analytical skills developed through extensive self-driven learning in embedded systems, power electronics, and renewable energy. He has independently designed and developed working energy prototypes with a focus on efficient hardware-software integration.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Full-Stack -->
+                            <div class="flex gap-5 items-start reveal stagger-2">
+                                <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-primary-100 dark:bg-primary-900/30 rounded-xl">
+                                    <i class="ri-cpu-line text-primary-600 dark:text-primary-300 text-2xl" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-2xl font-bold mb-2">Full-Stack Hardware Company</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        From circuit board design to firmware to mobile app development — we own the entire technology stack. Every component is engineered in-house with no outsourced modules.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Partnership -->
+                            <div class="flex gap-5 items-start reveal stagger-3">
+                                <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-primary-100 dark:bg-primary-900/30 rounded-xl">
+                                    <i class="ri-handshake-line text-primary-600 dark:text-primary-300 text-2xl" aria-hidden="true"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-2xl font-bold mb-2">Open for Partnership</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">
+                                        We are actively seeking investors, distributors, and partners to scale clean energy access across East Africa and beyond.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="reveal stagger-4">
+                            <a href="#contact" class="btn btn-primary inline-flex items-center gap-2">
+                                Get in Touch
+                                <i class="ri-arrow-right-line" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 
+            ============================================================================
+            CONTACT SECTION
+            ============================================================================
+            - Contact form with validation
+            - Live chat widget
+            - Multiple contact methods
+            - Google Maps integration (optional)
+        -->
+        <section id="contact" class="py-20 bg-white dark:bg-gray-900">
+            <div class="container mx-auto px-6">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-4xl lg:text-5xl font-bold mb-6 reveal stagger-1">Get in Touch</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 reveal stagger-2">
+                        Interested in Ntronix products, partnership, or investment? Reach out to us.
+                    </p>
+                </div>
+                
+                <div class="max-w-6xl mx-auto">
+                    <!-- Contact Form -->
+                    <div class="card p-8 mb-12">
+                        <form id="contactForm" class="grid md:grid-cols-2 gap-6" novalidate>
+                            <!-- Name Field -->
+                            <div class="stagger-reveal stagger-1">
+                                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                    Full Name *
+                                </label>
+                                <input type="text" 
+                                       id="name"
+                                       name="name"
+                                       class="form-input"
+                                       placeholder="John Smith"
+                                       required
+                                       aria-required="true">
+                                <span class="error-message text-red-500 text-sm mt-1 hidden"></span>
+                            </div>
+                            
+                            <!-- Email Field -->
+                            <div class="stagger-reveal stagger-2">
+                                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                    Email Address *
+                                </label>
+                                <input type="email" 
+                                       id="email"
+                                       name="email"
+                                       class="form-input"
+                                       placeholder="john@example.com"
+                                       required
+                                       aria-required="true">
+                                <span class="error-message text-red-500 text-sm mt-1 hidden"></span>
+                            </div>
+                            
+                            <!-- Subject Field -->
+                            <div class="md:col-span-2 stagger-reveal stagger-3">
+                                <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                    Subject *
+                                </label>
+                                <input type="text" 
+                                       id="subject"
+                                       name="subject"
+                                       class="form-input"
+                                       placeholder="I'm interested in..."
+                                       required
+                                       aria-required="true">
+                                <span class="error-message text-red-500 text-sm mt-1 hidden"></span>
+                            </div>
+                            
+                            <!-- Message Field -->
+                            <div class="md:col-span-2 stagger-reveal stagger-4">
+                                <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                    Message *
+                                </label>
+                                <textarea id="message"
+                                          name="message"
+                                          rows="5"
+                                          class="form-input"
+                                          placeholder="How can we help you today? Please provide details..."
+                                          required
+                                          aria-required="true"></textarea>
+                                <span class="error-message text-red-500 text-sm mt-1 hidden"></span>
+                            </div>
+                            
+                            <!-- Submit Button -->
+                            <div class="md:col-span-2 stagger-reveal stagger-5">
+                                <button type="submit" 
+                                        class="btn btn-primary w-full md:w-auto px-8 py-3.5"
+                                        id="submitButton"
+                                        aria-label="Send message">
+                                    <span class="btn-text">Send Message</span>
+                                    <i class="ri-send-plane-line ml-2" aria-hidden="true"></i>
+                                </button>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">
+                                    * Required fields. We typically respond within 24 hours.
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Contact Methods -->
+                    <div class="grid md:grid-cols-3 gap-8 mb-12">
+                        <div class="card p-6 text-center">
+                            <div class="w-16 h-16 mx-auto flex items-center justify-center bg-primary-100 dark:bg-primary-900/30 rounded-2xl mb-4">
+                                <i class="ri-map-pin-line text-2xl text-primary-600 dark:text-primary-300" aria-hidden="true"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2">Visit Us</h4>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                Kampala, Uganda<br>
+                                East Africa
+                            </p>
+                            <button class="btn btn-secondary mt-4" onclick="alert('Map integration coming soon!')">
+                                View on Map
+                            </button>
+                        </div>
+                        
+                        <div class="card p-6 text-center">
+                            <div class="w-16 h-16 mx-auto flex items-center justify-center bg-primary-100 dark:bg-primary-900/30 rounded-2xl mb-4">
+                                <i class="ri-phone-line text-2xl text-primary-600 dark:text-primary-300" aria-hidden="true"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2">Call Us</h4>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                0790 737 778 (WhatsApp)<br>
+                                0792 623 008
+                            </p>
+                            <a href="https://wa.me/256790737778" target="_blank" rel="noopener" class="btn btn-secondary mt-4">
+                                WhatsApp Us
+                            </a>
+                        </div>
+                        
+                        <div class="card p-6 text-center">
+                            <div class="w-16 h-16 mx-auto flex items-center justify-center bg-primary-100 dark:bg-primary-900/30 rounded-2xl mb-4">
+                                <i class="ri-mail-line text-2xl text-primary-600 dark:text-primary-300" aria-hidden="true"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-2">Email Us</h4>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                ntronixsmartcity@gmail.com
+                            </p>
+                            <a href="mailto:ntronixsmartcity@gmail.com" class="btn btn-secondary mt-4">
+                                Send Email
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Live Chat Widget -->
+                    <div class="card p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+                                <h3 class="text-xl font-bold">Live Chat Support</h3>
+                                <span class="text-sm text-gray-500 dark:text-gray-400">Typically replies in 2 min</span>
+                            </div>
+                            <button id="clearChat" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                                <i class="ri-delete-bin-line" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="h-64 overflow-y-auto p-4 bg-gray-50 dark:bg-gray-700/50 rounded-xl mb-4" id="chatMessages">
+                            <div class="space-y-4">
+                                <div class="flex justify-start">
+                                    <div class="bg-white dark:bg-gray-600 rounded-lg p-3 max-w-xs shadow-sm">
+                                        <p class="text-gray-800 dark:text-white text-sm">
+                                            Hello! I'm Volta, your Ntronix assistant. How can I help you today?
+                                        </p>
+                                        <span class="text-xs text-gray-500 dark:text-gray-400 mt-1 block">10:23 AM</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Suggested Questions -->
+                                <div class="flex justify-start">
+                                    <div class="bg-white dark:bg-gray-600 rounded-lg p-3 max-w-xs shadow-sm">
+                                        <p class="text-sm font-medium mb-2">Quick questions:</p>
+                                        <div class="space-y-2">
+                                            <button class="block w-full text-left text-sm text-primary-600 dark:text-primary-300 hover:underline" onclick="sendQuickMessage('Tell me about the VC product line')">
+                                                Tell me about the VC product line
+                                            </button>
+                                            <button class="block w-full text-left text-sm text-primary-600 dark:text-primary-300 hover:underline" onclick="sendQuickMessage('How can I partner with Ntronix?')">
+                                                How can I partner with Ntronix?
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-3">
+                            <input type="text" 
+                                   id="chatInput"
+                                   placeholder="Type your message..." 
+                                   class="flex-1 form-input"
+                                   aria-label="Type your message">
+                            <button id="sendChat" 
+                                    class="btn btn-primary px-4"
+                                    aria-label="Send message">
+                                <i class="ri-send-plane-fill" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- 
+        ============================================================================
+        FOOTER
+        ============================================================================
+        - Multi-column layout
+        - Newsletter signup
+        - Social links
+        - Legal links
+        - SEO optimized
+    -->
+    <footer class="bg-gray-900 dark:bg-black text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-10">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="company-logo.png" alt="Ntronix Logo" class="h-10 w-auto">
+                        <span class="text-2xl font-bold">Ntronix</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        Ugandan technology company building smart solar energy systems. Embedded systems, power electronics, and IoT solutions.
+                    </p>
+                    
+                    <!-- Social Links -->
+                    <div class="flex items-center gap-3">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary-600 transition-colors social-icon" aria-label="Facebook">
+                            <i class="ri-facebook-fill" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary-600 transition-colors social-icon" aria-label="Twitter">
+                            <i class="ri-twitter-fill" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary-600 transition-colors social-icon" aria-label="LinkedIn">
+                            <i class="ri-linkedin-fill" aria-hidden="true"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary-600 transition-colors social-icon" aria-label="Instagram">
+                            <i class="ri-instagram-fill" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Products -->
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Products</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#products" class="footer-link">Volta VC-500</a></li>
+                        <li><a href="#products" class="footer-link">Volta VC-1000</a></li>
+                        <li><a href="#products" class="footer-link">Volta VC-2000</a></li>
+                        <li><a href="#products" class="footer-link">Volta VC-3000</a></li>
+                        <li><a href="#products" class="footer-link">Smart Switches</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company -->
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Company</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#about" class="footer-link">About Us</a></li>
+                        <li><a href="#technology" class="footer-link">Technology</a></li>
+                        <li><a href="#app" class="footer-link">Mobile App</a></li>
+                        <li><a href="#contact" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Newsletter & Guarantees -->
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Stay Connected</h4>
+                    <p class="text-gray-400 mb-4">
+                        Subscribe to our newsletter for energy tips and exclusive offers.
+                    </p>
+                    
+                    <!-- Newsletter Form -->
+                    <form class="relative mb-6" id="newsletterForm">
+                        <input type="email" 
+                               placeholder="your@email.com" 
+                               class="w-full px-5 py-3 bg-gray-800 border border-gray-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/50 text-white"
+                               required
+                               aria-label="Email for newsletter">
+                        <button type="submit" 
+                                class="absolute right-1 top-1/2 -translate-y-1/2 text-primary-400 hover:text-primary-300 p-2 transition-colors"
+                                aria-label="Subscribe to newsletter">
+                            <i class="ri-send-plane-line" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                    
+                    <!-- Guarantees -->
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2 text-gray-400 text-sm">
+                            <i class="ri-map-pin-line text-primary-400" aria-hidden="true"></i>
+                            <span>Designed &amp; manufactured in Uganda</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-400 text-sm">
+                            <i class="ri-secure-payment-line text-primary-400" aria-hidden="true"></i>
+                            <span>Encrypted cloud connectivity</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-gray-400 text-sm">
+                            <i class="ri-mail-line text-primary-400" aria-hidden="true"></i>
+                            <span>WhatsApp &amp; email support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    &copy; 2024-2026 Ntronix Systems. All rights reserved.
+                </p>
+                
+                <div class="flex gap-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- 
+        ============================================================================
+        JAVASCRIPT
+        ============================================================================
+        1. Theme Management
+        2. Mobile Menu
+        3. Scroll Animations
+        4. Form Validation
+        5. Charts
+        6. Live Chat
+        7. Product Filters
+        8. Newsletter
+        9. Lazy Loading
+    -->
+    
+    <!-- ECharts Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script>
+        /**
+         * Ntronix Website Main JavaScript
+         * 
+         * @fileoverview Main application logic for Ntronix website
+         * @author Ntronix Development Team
+         * @version 2.0
+         * @requires echarts
+         */
+        
+        'use strict';
+        
+        /**
+         * Application configuration object
+         */
+        const CONFIG = {
+            animationDuration: 600,
+            chartColors: {
+                primary: '#0ea5e9',
+                secondary: '#8b5cf6',
+                success: '#10b981',
+                warning: '#f59e0b',
+                danger: '#ef4444'
+            },
+            breakpoints: {
+                mobile: 768,
+                tablet: 1024
+            }
+        };
+        
+        /**
+         * Theme Management Module
+         * Handles dark/light mode switching and persistence
+         */
+        const ThemeManager = {
+            /**
+             * Initialize theme system
+             */
+            init() {
+                this.toggleButton = document.getElementById('themeToggle');
+                this.htmlElement = document.documentElement;
+                
+                // Load saved preference or use system preference
+                const savedTheme = localStorage.getItem('theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                
+                if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                    this.setTheme('dark');
+                }
+                
+                this.bindEvents();
+            },
+            
+            /**
+             * Bind event listeners
+             */
+            bindEvents() {
+                this.toggleButton.addEventListener('click', () => this.toggleTheme());
+                
+                // Listen for system theme changes
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                    if (!localStorage.getItem('theme')) {
+                        this.setTheme(e.matches ? 'dark' : 'light');
+                    }
+                });
+            },
+            
+            /**
+             * Toggle between light and dark themes
+             */
+            toggleTheme() {
+                const currentTheme = this.htmlElement.classList.contains('dark') ? 'dark' : 'light';
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                this.setTheme(newTheme);
+                localStorage.setItem('theme', newTheme);
+            },
+            
+            /**
+             * Set theme and update UI
+             * @param {string} theme - Theme to set ('light' or 'dark')
+             */
+            setTheme(theme) {
+                if (theme === 'dark') {
+                    this.htmlElement.classList.add('dark');
+                    this.toggleButton.setAttribute('aria-pressed', 'true');
+                } else {
+                    this.htmlElement.classList.remove('dark');
+                    this.toggleButton.setAttribute('aria-pressed', 'false');
+                }
+            }
+        };
+        
+        /**
+         * Mobile Menu Module
+         * Handles mobile navigation interactions
+         */
+        const MobileMenu = {
+            /**
+             * Initialize mobile menu
+             */
+            init() {
+                this.menuButton = document.getElementById('openMenu');
+                this.closeButton = document.getElementById('closeMenu');
+                this.overlay = document.getElementById('menuOverlay');
+                this.menu = document.getElementById('mobileMenu');
+                
+                this.bindEvents();
+            },
+            
+            /**
+             * Bind event listeners
+             */
+            bindEvents() {
+                this.menuButton.addEventListener('click', () => this.open());
+                this.closeButton.addEventListener('click', () => this.close());
+                this.overlay.addEventListener('click', () => this.close());
+                
+                // Close on escape key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && this.menu.classList.contains('open')) {
+                        this.close();
+                    }
+                });
+                
+                // Close when clicking a menu link
+                this.menu.querySelectorAll('.mobile-menu-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        setTimeout(() => this.close(), 300);
+                    });
+                });
+            },
+            
+            /**
+             * Open mobile menu
+             */
+            open() {
+                this.menu.classList.add('open');
+                this.overlay.classList.add('active');
+                this.menuButton.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+                
+                // Focus trap
+                this.focusableElements = this.menu.querySelectorAll(
+                    'a[href], button, textarea, input[type="text"], input[type="email"]'
+                );
+                this.firstFocusableElement = this.focusableElements[0];
+                this.lastFocusableElement = this.focusableElements[this.focusableElements.length - 1];
+                
+                this.firstFocusableElement?.focus();
+                this.bindFocusTrap();
+            },
+            
+            /**
+             * Close mobile menu
+             */
+            close() {
+                this.menu.classList.remove('open');
+                this.overlay.classList.remove('active');
+                this.menuButton.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = 'auto';
+                this.unbindFocusTrap();
+            },
+            
+            /**
+             * Bind focus trap for accessibility
+             */
+            bindFocusTrap() {
+                this.focusTrapHandler = (e) => {
+                    if (e.key === 'Tab') {
+                        if (e.shiftKey && document.activeElement === this.firstFocusableElement) {
+                            e.preventDefault();
+                            this.lastFocusableElement.focus();
+                        } else if (!e.shiftKey && document.activeElement === this.lastFocusableElement) {
+                            e.preventDefault();
+                            this.firstFocusableElement.focus();
+                        }
+                    }
+                };
+                document.addEventListener('keydown', this.focusTrapHandler);
+            },
+            
+            /**
+             * Unbind focus trap
+             */
+            unbindFocusTrap() {
+                if (this.focusTrapHandler) {
+                    document.removeEventListener('keydown', this.focusTrapHandler);
+                }
+            }
+        };
+        
+        /**
+         * Scroll Animations Module
+         * Handles reveal animations on scroll
+         */
+        const ScrollAnimations = {
+            /**
+             * Initialize scroll animations
+             */
+            init() {
+                this.elements = document.querySelectorAll('.reveal, .stagger-reveal');
+                this.fab = document.querySelector('.fab');
+                
+                this.createObserver();
+                this.bindFab();
+            },
+            
+            /**
+             * Create Intersection Observer
+             */
+            createObserver() {
+                this.observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                            
+                            // Animate progress bars
+                            if (entry.target.querySelector('.bg-primary-500.h-2')) {
+                                this.animateProgressBars(entry.target);
+                            }
+                            
+                            this.observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+                
+                this.elements.forEach(element => {
+                    this.observer.observe(element);
+                });
+            },
+            
+            /**
+             * Animate progress bars within a container
+             * @param {Element} container - Parent container element
+             */
+            animateProgressBars(container) {
+                container.querySelectorAll('.bg-primary-500.h-2').forEach(bar => {
+                    const width = bar.getAttribute('data-width') || bar.style.width;
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 200);
+                });
+            },
+            
+            /**
+             * Bind floating action button visibility
+             */
+            bindFab() {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        this.fab?.classList.add('visible');
+                    } else {
+                        this.fab?.classList.remove('visible');
+                    }
+                });
+            }
+        };
+        
+        /**
+         * Form Validation Module
+         * Handles contact form validation and submission
+         */
+        const FormValidator = {
+            /**
+             * Initialize form validation
+             */
+            init() {
+                this.form = document.getElementById('contactForm');
+                if (!this.form) return;
+                
+                this.submitButton = document.getElementById('submitButton');
+                this.bindEvents();
+            },
+            
+            /**
+             * Bind form events
+             */
+            bindEvents() {
+                this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+                
+                // Real-time validation
+                this.form.querySelectorAll('input, textarea').forEach(field => {
+                    field.addEventListener('blur', () => this.validateField(field));
+                    field.addEventListener('input', () => {
+                        if (field.classList.contains('error')) {
+                            this.validateField(field);
+                        }
+                    });
+                });
+            },
+            
+            /**
+             * Handle form submission
+             * @param {Event} e - Submit event
+             */
+            async handleSubmit(e) {
+                e.preventDefault();
+                
+                const isValid = this.validateForm();
+                
+                if (!isValid) {
+                    this.showMessage('Please correct the errors above.', 'error');
+                    return;
+                }
+                
+                const name = this.form.querySelector('#name').value.trim();
+                const email = this.form.querySelector('#email').value.trim();
+                const subject = this.form.querySelector('#subject').value.trim();
+                const message = this.form.querySelector('#message').value.trim();
+                
+                const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${encodeURIComponent(message)}`;
+                const mailtoLink = `mailto:ntronixsmartcity@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+                
+                window.location.href = mailtoLink;
+                
+                this.showMessage('Opening your email app — send the message to reach us directly.', 'success');
+                this.form.reset();
+            },
+            
+            /**
+             * Validate entire form
+             * @returns {boolean} - Form validity
+             */
+            validateForm() {
+                let isValid = true;
+                
+                this.form.querySelectorAll('input[required], textarea[required]').forEach(field => {
+                    if (!this.validateField(field)) {
+                        isValid = false;
+                    }
+                });
+                
+                return isValid;
+            },
+            
+            /**
+             * Validate single field
+             * @param {HTMLInputElement} field - Form field to validate
+             * @returns {boolean} - Field validity
+             */
+            validateField(field) {
+                const value = field.value.trim();
+                const type = field.type;
+                let isValid = true;
+                let message = '';
+                
+                // Clear previous errors
+                this.clearFieldError(field);
+                
+                // Required validation
+                if (field.hasAttribute('required') && !value) {
+                    isValid = false;
+                    message = 'This field is required.';
+                }
+                
+                // Email validation
+                else if (type === 'email' && value && !this.isValidEmail(value)) {
+                    isValid = false;
+                    message = 'Please enter a valid email address.';
+                }
+                
+                // Minimum length
+                else if (field.minLength && value.length < field.minLength) {
+                    isValid = false;
+                    message = `Minimum ${field.minLength} characters required.`;
+                }
+                
+                if (!isValid) {
+                    this.showFieldError(field, message);
+                }
+                
+                return isValid;
+            },
+            
+            /**
+             * Check if email is valid
+             * @param {string} email - Email to validate
+             * @returns {boolean} - Email validity
+             */
+            isValidEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            },
+            
+            /**
+             * Show field error
+             * @param {HTMLInputElement} field - Form field
+             * @param {string} message - Error message
+             */
+            showFieldError(field, message) {
+                field.classList.add('error', 'border-red-500');
+                const errorElement = field.parentNode.querySelector('.error-message');
+                if (errorElement) {
+                    errorElement.textContent = message;
+                    errorElement.classList.remove('hidden');
+                }
+                field.setAttribute('aria-invalid', 'true');
+            },
+            
+            /**
+             * Clear field error
+             * @param {HTMLInputElement} field - Form field
+             */
+            clearFieldError(field) {
+                field.classList.remove('error', 'border-red-500');
+                const errorElement = field.parentNode.querySelector('.error-message');
+                if (errorElement) {
+                    errorElement.classList.add('hidden');
+                }
+                field.removeAttribute('aria-invalid');
+            },
+            
+            /**
+             * Set submitting state
+             * @param {boolean} isSubmitting - Submitting state
+             */
+            setSubmitting(isSubmitting) {
+                const btnText = this.submitButton.querySelector('.btn-text');
+                if (isSubmitting) {
+                    this.submitButton.disabled = true;
+                    btnText.textContent = 'Sending...';
+                } else {
+                    this.submitButton.disabled = false;
+                    btnText.textContent = 'Send Message';
+                }
+            },
+            
+            
+            /**
+             * Show message to user
+             * @param {string} message - Message to display
+             * @param {string} type - Message type (success/error)
+             */
+            showMessage(message, type) {
+                // Create message element
+                const messageEl = document.createElement('div');
+                messageEl.className = `fixed top-6 left-1/2 -translate-x-1/2 z-50 px-6 py-3 rounded-lg shadow-lg ${
+                    type === 'success' 
+                        ? 'bg-green-500 text-white' 
+                        : 'bg-red-500 text-white'
+                }`;
+                messageEl.textContent = message;
+                
+                document.body.appendChild(messageEl);
+                
+                // Auto remove after 5 seconds
+                setTimeout(() => {
+                    messageEl.remove();
+                }, 5000);
+            }
+        };
+        
+        /**
+         * Charts Module
+         * Handles ECharts initialization and configuration
+         */
+        const Charts = {
+            /**
+             * Initialize all charts
+             */
+            init() {
+                this.initTechChart();
+                this.initMarketplaceChart();
+                
+                // Resize charts on window resize
+                window.addEventListener('resize', () => this.resizeAll());
+            },
+            
+            /**
+             * Initialize technology performance chart
+             */
+            initTechChart() {
+                const chartEl = document.getElementById('techChart');
+                if (!chartEl) return;
+                
+                this.techChart = echarts.init(chartEl);
+                
+                const option = {
+                    tooltip: {
+                        trigger: 'axis',
+                        backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                        borderColor: '#3b82f6',
+                        textStyle: { color: '#ffffff' }
+                    },
+                    legend: {
+                        data: ['Solar Power (W)', 'Battery SOC (%)'],
+                        textStyle: { color: '#94a3b8' }
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: ['6AM', '8AM', '10AM', '12PM', '2PM', '4PM', '6PM'],
+                        axisLine: { lineStyle: { color: '#475569' } },
+                        axisLabel: { color: '#94a3b8' }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        axisLine: { show: false },
+                        splitLine: { lineStyle: { color: '#334155' } },
+                        axisLabel: { color: '#94a3b8' }
+                    },
+                    series: [
+                        {
+                            name: 'Solar Power (W)',
+                            type: 'line',
+                            data: [50, 180, 420, 580, 520, 310, 80],
+                            smooth: true,
+                            lineStyle: {
+                                width: 4,
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                    { offset: 0, color: '#3b82f6' },
+                                    { offset: 1, color: '#8b5cf6' }
+                                ])
+                            },
+                            areaStyle: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                    { offset: 0, color: 'rgba(59, 130, 246, 0.3)' },
+                                    { offset: 1, color: 'rgba(139, 92, 246, 0.1)' }
+                                ])
+                            }
+                        },
+                        {
+                            name: 'Battery SOC (%)',
+                            type: 'line',
+                            data: [45, 52, 68, 85, 92, 88, 78],
+                            smooth: true,
+                            lineStyle: {
+                                width: 4,
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                    { offset: 0, color: '#10b981' },
+                                    { offset: 1, color: '#06b6d4' }
+                                ])
+                            },
+                            areaStyle: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                    { offset: 0, color: 'rgba(16, 185, 129, 0.3)' },
+                                    { offset: 1, color: 'rgba(6, 182, 212, 0.1)' }
+                                ])
+                            }
+                        }
+                    ]
+                };
+                
+                this.techChart.setOption(option);
+            },
+            
+            /**
+             * Initialize marketplace energy sources chart
+             */
+            initMarketplaceChart() {
+                const chartEl = document.getElementById('marketplaceChart');
+                if (!chartEl) return;
+                
+                this.marketplaceChart = echarts.init(chartEl);
+                
+                const option = {
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{a} <br/>{b}: {c} ({d}%)'
+                    },
+                    legend: {
+                        orient: 'horizontal',
+                        bottom: 10,
+                        textStyle: { color: '#94a3b8' }
+                    },
+                    series: [
+                        {
+                            name: 'Energy Sources',
+                            type: 'pie',
+                            radius: ['45%', '70%'],
+                            avoidLabelOverlap: false,
+                            itemStyle: {
+                                borderRadius: 10,
+                                borderColor: '#1e293b',
+                                borderWidth: 2
+                            },
+                            label: { show: false },
+                            emphasis: {
+                                label: {
+                                    show: true,
+                                    fontSize: '16',
+                                    fontWeight: 'bold'
+                                }
+                            },
+                            data: [
+                                { value: 65, name: 'Solar Energy', itemStyle: { color: '#10b981' } },
+                                { value: 25, name: 'Battery Storage', itemStyle: { color: '#3b82f6' } },
+                                { value: 10, name: 'Grid/Load', itemStyle: { color: '#8b5cf6' } }
+                            ]
+                        }
+                    ]
+                };
+                
+                this.marketplaceChart.setOption(option);
+            },
+            
+            /**
+             * Resize all charts
+             */
+            resizeAll() {
+                this.techChart?.resize();
+                this.marketplaceChart?.resize();
+            }
+        };
+        
+        /**
+         * Live Chat Module
+         * Handles live chat functionality
+         */
+        const LiveChat = {
+            /**
+             * Initialize live chat
+             */
+            init() {
+                this.chatInput = document.getElementById('chatInput');
+                this.sendButton = document.getElementById('sendChat');
+                this.chatMessages = document.getElementById('chatMessages');
+                this.clearButton = document.getElementById('clearChat');
+                
+                if (!this.chatInput) return;
+                
+                this.bindEvents();
+            },
+            
+            /**
+             * Bind chat events
+             */
+            bindEvents() {
+                this.sendButton.addEventListener('click', () => this.sendMessage());
+                this.chatInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.sendMessage();
+                });
+                this.clearButton.addEventListener('click', () => this.clearChat());
+            },
+            
+            /**
+             * Send chat message
+             */
+            sendMessage() {
+                const message = this.chatInput.value.trim();
+                if (!message) return;
+                
+                this.addMessage(message, 'user');
+                this.chatInput.value = '';
+                
+                // Simulate bot response
+                setTimeout(() => {
+                    const response = this.generateBotResponse(message);
+                    this.addMessage(response, 'bot');
+                }, 1000);
+            },
+            
+            /**
+             * Add message to chat
+             * @param {string} message - Message text
+             * @param {string} sender - 'user' or 'bot'
+             */
+            addMessage(message, sender) {
+                const now = new Date();
+                const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                
+                const messageEl = document.createElement('div');
+                messageEl.className = sender === 'user' ? 'flex justify-end' : 'flex justify-start';
+                
+                messageEl.innerHTML = `
+                    <div class="${sender === 'user' 
+                        ? 'bg-primary-500 text-white' 
+                        : 'bg-white dark:bg-gray-600'} rounded-lg p-3 max-w-xs shadow-sm">
+                        <p class="${sender === 'user' ? '' : 'text-gray-800 dark:text-white'} text-sm">
+                            ${this.escapeHtml(message)}
+                        </p>
+                        <span class="${sender === 'user' 
+                            ? 'text-white/80' 
+                            : 'text-gray-500 dark:text-gray-400'} text-xs mt-1 block">${time}</span>
+                    </div>
+                `;
+                
+                this.chatMessages.appendChild(messageEl);
+                this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+            },
+            
+            /**
+             * Generate bot response
+             * @param {string} userMessage - User's message
+             * @returns {string} - Bot response
+             */
+            generateBotResponse(userMessage) {
+                const responses = [
+                    "Thanks for your interest in Ntronix! We'll get back to you shortly.",
+                    "Great question! Our Volta product line ranges from 500W (VC-500) to 3000W (VC-3000).",
+                    "We'd love to discuss partnership opportunities. Please email us at ntronixsmartcity@gmail.com.",
+                    "All our powerwalls are designed and manufactured in Kampala, Uganda. Let me know what you'd like to know more about.",
+                    "Our powerwalls support LiFePO4, Li-Ion, Lead-Acid, AGM, and Gel batteries with auto-detection."
+                ];
+                
+                return responses[Math.floor(Math.random() * responses.length)];
+            },
+            
+            /**
+             * Clear chat history
+             */
+            clearChat() {
+                this.chatMessages.innerHTML = `
+                    <div class="flex justify-start">
+                        <div class="bg-white dark:bg-gray-600 rounded-lg p-3 max-w-xs shadow-sm">
+                            <p class="text-gray-800 dark:text-white text-sm">
+                                            Chat cleared. How can I help you today?
+                            </p>
+                            <span class="text-xs text-gray-500 dark:text-gray-400 mt-1 block">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                        </div>
+                    </div>
+                `;
+            },
+            
+            /**
+             * Escape HTML to prevent XSS
+             * @param {string} text - Text to escape
+             * @returns {string} - Escaped text
+             */
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+        };
+        
+        /**
+         * Product Filter Module
+         * Handles product category filtering
+         */
+        const ProductFilter = {
+            /**
+             * Initialize product filter
+             */
+            init() {
+                this.filterButtons = document.querySelectorAll('[data-filter]');
+                this.products = document.querySelectorAll('[data-category]');
+                this.productsGrid = document.getElementById('productsGrid');
+                
+                if (!this.productsGrid) return;
+                
+                this.bindEvents();
+            },
+            
+            /**
+             * Bind filter events
+             */
+            bindEvents() {
+                this.filterButtons.forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const filter = e.target.getAttribute('data-filter');
+                        this.filterProducts(filter);
+                        this.updateActiveButton(e.target);
+                    });
+                });
+                
+                // Add to cart buttons
+                this.productsGrid.addEventListener('click', (e) => {
+                    const addToCartBtn = e.target.closest('[data-add-to-cart]');
+                    if (addToCartBtn) {
+                        e.preventDefault();
+                        this.addToCart(addToCartBtn.getAttribute('data-add-to-cart'));
+                    }
+                });
+            },
+            
+            /**
+             * Filter products by category
+             * @param {string} category - Category to filter by
+             */
+            filterProducts(category) {
+                this.products.forEach(product => {
+                    const productCategory = product.getAttribute('data-category');
+                    
+                    if (category === 'all' || productCategory === category) {
+                        product.style.display = 'block';
+                        // Add reveal animation
+                        setTimeout(() => product.classList.add('active'), 100);
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            },
+            
+            /**
+             * Update active filter button
+             * @param {HTMLElement} activeButton - Currently active button
+             */
+            updateActiveButton(activeButton) {
+                this.filterButtons.forEach(btn => {
+                    btn.classList.remove('btn-primary');
+                    btn.classList.add('btn-secondary');
+                });
+                
+                activeButton.classList.remove('btn-secondary');
+                activeButton.classList.add('btn-primary');
+            },
+            
+            /**
+             * Add product to cart
+             * @param {string} productId - Product identifier
+             */
+            addToCart(productId) {
+                // Get existing cart
+                const cart = JSON.parse(localStorage.getItem('ntronixCart') || '[]');
+                
+                // Check if already in cart
+                const existingItem = cart.find(item => item.id === productId);
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id: productId,
+                        quantity: 1,
+                        addedAt: new Date().toISOString()
+                    });
+                }
+                
+                // Save to localStorage
+                localStorage.setItem('ntronixCart', JSON.stringify(cart));
+                
+                // Show feedback
+                this.showCartFeedback(productId);
+            },
+            
+            /**
+             * Show add to cart feedback
+             * @param {string} productId - Product identifier
+             */
+            showCartFeedback(productId) {
+                // Create toast notification
+                const toast = document.createElement('div');
+                toast.className = 'fixed bottom-6 right-6 z-50 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform translate-x-full transition-transform';
+                toast.innerHTML = `
+                    <div class="flex items-center gap-2">
+                        <i class="ri-check-line"></i>
+                        <span>Product added to cart!</span>
+                    </div>
+                `;
+                
+                document.body.appendChild(toast);
+                
+                // Animate in
+                setTimeout(() => toast.classList.remove('translate-x-full'), 100);
+                
+                // Remove after 3 seconds
+                setTimeout(() => {
+                    toast.classList.add('translate-x-full');
+                    setTimeout(() => toast.remove(), 300);
+                }, 3000);
+            }
+        };
+        
+        /**
+         * Newsletter Module
+         * Handles newsletter signup
+         */
+        const Newsletter = {
+            /**
+             * Initialize newsletter form
+             */
+            init() {
+                this.form = document.getElementById('newsletterForm');
+                if (!this.form) return;
+                
+                this.bindEvents();
+            },
+            
+            /**
+             * Bind newsletter events
+             */
+            bindEvents() {
+                this.form.addEventListener('submit', (e) => this.handleSubmit(e));
+            },
+            
+            /**
+             * Handle newsletter submission
+             * @param {Event} e - Submit event
+             */
+            handleSubmit(e) {
+                e.preventDefault();
+                
+                const email = e.target.querySelector('input[type="email"]').value;
+                
+                if (!email || !FormValidator.isValidEmail(email)) {
+                    alert('Please enter a valid email address');
+                    return;
+                }
+                
+                // Simulate API call
+                setTimeout(() => {
+                    alert('Thank you for subscribing! Please check your email for confirmation.');
+                    this.form.reset();
+                }, 500);
+            }
+        };
+        
+        /**
+         * Lazy Loading Module
+         * Handles lazy loading for images and components
+         */
+        const LazyLoader = {
+            /**
+             * Initialize lazy loading
+             */
+            init() {
+                this.images = document.querySelectorAll('img[loading="lazy"]');
+                this.initIntersectionObserver();
+            },
+            
+            /**
+             * Create Intersection Observer for lazy loading
+             */
+            initIntersectionObserver() {
+                if (!('IntersectionObserver' in window)) {
+                    // Fallback: load all images immediately
+                    this.images.forEach(img => img.src = img.dataset.src || img.src);
+                    return;
+                }
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            this.loadImage(entry.target);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    rootMargin: '50px 0px'
+                });
+                
+                this.images.forEach(img => observer.observe(img));
+            },
+            
+            /**
+             * Load image
+             * @param {HTMLImageElement} img - Image element
+             */
+            loadImage(img) {
+                img.classList.add('loading');
+                
+                // Simulate loading delay for demo
+                setTimeout(() => {
+                    img.classList.remove('loading');
+                    img.classList.add('loaded');
+                }, 300);
+            }
+        };
+        
+        /**
+         * Application Entry Point
+         */
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('🚀 Ntronix website initializing...');
+            
+            // Initialize modules
+            ThemeManager.init();
+            MobileMenu.init();
+            ScrollAnimations.init();
+            FormValidator.init();
+            Charts.init();
+            LiveChat.init();
+            ProductFilter.init();
+            Newsletter.init();
+            LazyLoader.init();
+            
+            console.log('✅ Ntronix website loaded successfully');
+        });
+        
+        /**
+         * Global utility functions
+         */
+        
+        /**
+         * Send quick message in chat
+         * @param {string} message - Message to send
+         */
+        function sendQuickMessage(message) {
+            const chatInput = document.getElementById('chatInput');
+            const sendButton = document.getElementById('sendChat');
+            
+            if (chatInput && sendButton) {
+                chatInput.value = message;
+                sendButton.click();
+            }
+        }
+    </script>
+</body>
+</html>
