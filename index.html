@@ -21,29 +21,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO & Social Meta Tags -->
-    <meta name="description" content="Ntronix Volta is a locally engineered smart solar hybrid inverter system for East African homes and businesses. Bluetooth, WiFi, AI assistant, and mobile app — all made in Uganda.">
-    <meta name="keywords" content="solar inverter Uganda, smart inverter East Africa, solar power Uganda, Ntronix Volta, hybrid inverter Uganda, locally made solar inverter, powerwall Uganda, portable power station Uganda, Ntronix, Volta inverter">
-    <meta name="author" content="Ntronix Systems">
+    <meta name="description" content="Ntronix Volta — Uganda's first locally designed and manufactured smart solar hybrid inverter and powerwall. Bluetooth, WiFi, AI assistant, and mobile app. Built from scratch in Kampala for homes and businesses across East Africa.">
+    <meta name="keywords" content="Ntronix, Ntronix Volta, ntronixvolta, solar inverter Uganda, smart inverter East Africa, solar power Uganda, hybrid inverter Uganda, locally made solar inverter, powerwall Uganda, portable power station Uganda, Volta inverter, solar energy Uganda, solar battery Uganda, off grid solar Uganda, home solar system Uganda, solar inverter Kampala, made in Uganda inverter, African solar technology, East Africa solar, solar backup Uganda, load shedding solution Uganda, renewable energy Uganda, solar panel system Uganda, smart energy Africa, Uganda clean energy, solar inverter price Uganda, best inverter Uganda, power backup East Africa, Ankunda Nelson, Uganda startup, clean energy startup Africa">
+    <meta name="author" content="Ntronix Volta">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://ntronixvolta.netlify.app">
     
     <!-- Open Graph / Social Media -->
     <meta property="og:title" content="Ntronix Volta — Smart Energy. Locally Made.">
-    <meta property="og:description" content="Uganda-built solar inverters with AI, smart connectivity, and a mobile app. Four models from 500W to 3,000W.">
+    <meta property="og:description" content="Uganda's first locally designed smart solar inverter and powerwall. AI assistant, Bluetooth, WiFi, and mobile app — engineered and built from scratch in Kampala. Four models from 500W to 3,000W.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ntronixvolta.netlify.app">
     <meta property="og:image" content="https://ntronixvolta.netlify.app/company-logo.png">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Ntronix Systems — Smart Energy. Locally Made.">
-    <meta name="twitter:description" content="Uganda-built solar inverters with AI, smart connectivity, and a mobile app. Four models from 500W to 3,000W.">
+    <meta name="twitter:title" content="Ntronix Volta — Smart Energy. Locally Made.">
+    <meta name="twitter:description" content="Uganda's first locally designed smart solar inverter and powerwall. AI assistant, Bluetooth, WiFi, and mobile app — engineered and built from scratch in Kampala. Four models from 500W to 3,000W.">
     <meta name="twitter:image" content="https://ntronixvolta.netlify.app/company-logo.png">
     
     <!-- Favicon -->
     <link rel="icon" href="company-logo.png" type="image/png">
     
-    <title>Ntronix Systems — Smart Solar Inverters. Made in Uganda.</title>
+    <title>Ntronix Volta — Uganda's First Smart Solar Inverter &amp; Powerwall | Made in Kampala</title>
     
     <!-- Preload Critical Resources -->
     <link rel="preload" href="https://cdn.tailwindcss.com/3.4.16" as="script">
@@ -760,6 +760,24 @@
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary-600 text-white px-4 py-2 rounded-lg z-50">
         Skip to main content
     </a>
+    
+    <!-- CEO Image Lightbox Modal -->
+    <div id="ceoModal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center" onclick="closeCeoModal()">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        <div class="relative max-w-lg w-full mx-4" onclick="event.stopPropagation()">
+            <button onclick="closeCeoModal()" class="absolute -top-12 right-0 text-white hover:text-primary-400 transition-colors flex items-center gap-2 text-sm font-medium">
+                <span>Close</span>
+                <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                    <i class="ri-close-line text-lg" aria-hidden="true"></i>
+                </div>
+            </button>
+            <img src="ntronix_CEO.JPG" alt="Ankunda Nelson — Founder &amp; CEO of Ntronix" class="rounded-2xl shadow-2xl w-full h-auto object-cover">
+            <div class="text-center mt-4">
+                <p class="text-white font-semibold text-lg">Ankunda Nelson</p>
+                <p class="text-white/60 text-sm">Founder &amp; CEO — Ntronix Volta</p>
+            </div>
+        </div>
+    </div>
     
     <!-- Video Modal -->
     <div id="videoModal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center" onclick="closeVideoModal(event)">
@@ -1807,9 +1825,11 @@
                         <div class="space-y-6">
                             <!-- Founder -->
                             <div class="flex gap-5 items-start reveal stagger-1">
-                                <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-primary-100 dark:bg-primary-900/30 rounded-xl">
-                                    <i class="ri-user-star-line text-primary-600 dark:text-primary-300 text-2xl" aria-hidden="true"></i>
-                                </div>
+                                <img src="ntronix_CEO.JPG" 
+                                     alt="Ankunda Nelson — Founder &amp; CEO" 
+                                     class="w-16 h-16 flex-shrink-0 rounded-xl object-cover shadow-md cursor-pointer hover:ring-2 hover:ring-primary-400 hover:scale-105 transition-all"
+                                     onclick="document.getElementById('ceoModal').classList.remove('hidden')"
+                                     title="Click to view full photo">
                                 <div>
                                     <h4 class="text-2xl font-bold mb-2">Ankunda Nelson — Founder &amp; CEO</h4>
                                     <p class="text-gray-600 dark:text-gray-300">
@@ -2163,7 +2183,7 @@
             <!-- Footer Bottom -->
             <div class="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-gray-400 text-sm mb-4 md:mb-0">
-                    &copy; 2024-2026 Ntronix Systems. All rights reserved.
+                    &copy; 2024-2026 Ntronix Volta. All rights reserved.
                 </p>
                 
                 <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
@@ -3182,6 +3202,15 @@
         /**
          * Video modal controls
          */
+        function closeCeoModal() {
+            document.getElementById('ceoModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        document.getElementById('ceoModal').addEventListener('click', function(e) {
+            if (e.target === this) closeCeoModal();
+        });
+        
         function closeVideoModal(event) {
             const modal = document.getElementById('videoModal');
             modal.classList.add('hidden');
