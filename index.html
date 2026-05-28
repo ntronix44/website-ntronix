@@ -57,63 +57,75 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        primary: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            200: '#bae6fd',
-                            300: '#7dd3fc',
-                            400: '#38bdf8',
-                            500: '#0ea5e9',
-                            600: '#0284c7',
-                            700: '#0369a1',
-                            800: '#075985',
-                            900: '#0c4a6e',
+                        accent: {
+                            teal: '#00F5C4',
+                            purple: '#7B5CFA',
+                            coral: '#FF6B6B',
                         },
-                        secondary: {
-                            50: '#f5f3ff',
-                            500: '#8b5cf6',
-                            600: '#7c3aed',
+                        dark: {
+                            base: '#0a0a1a',
+                            card: '#0f0f24',
+                            surface: '#141430',
                         }
                     },
+                    fontFamily: {
+                        display: ['Syne', 'sans-serif'],
+                        body: ['DM Sans', 'sans-serif'],
+                        brand: ['Orbitron', 'sans-serif'],
+                    },
                     animation: {
-                        'gradient': 'gradient-xy 15s ease infinite',
+                        'gradient-mesh': 'meshMove 20s ease infinite',
                         'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'reveal': 'reveal 0.6s ease-out forwards',
+                        'orb-drift-1': 'orbDrift1 25s ease-in-out infinite',
+                        'orb-drift-2': 'orbDrift2 30s ease-in-out infinite',
+                        'orb-drift-3': 'orbDrift3 22s ease-in-out infinite',
                         'particle-float': 'particle-float 20s infinite linear',
+                        'shimmer': 'shimmer 3s ease-in-out infinite',
                     },
                     keyframes: {
-                        'gradient-xy': {
+                        'meshMove': {
                             '0%, 100%': { 'background-position': '0% 50%' },
-                            '50%': { 'background-position': '100% 50%' }
+                            '25%': { 'background-position': '50% 0%' },
+                            '50%': { 'background-position': '100% 50%' },
+                            '75%': { 'background-position': '50% 100%' }
                         },
                         'float': {
                             '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
                             '50%': { transform: 'translateY(-20px) rotate(5deg)' }
                         },
-                        'reveal': {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        'orbDrift1': {
+                            '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+                            '33%': { transform: 'translate(60px, -40px) scale(1.1)' },
+                            '66%': { transform: 'translate(-30px, 30px) scale(0.95)' }
+                        },
+                        'orbDrift2': {
+                            '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+                            '33%': { transform: 'translate(-50px, 50px) scale(1.05)' },
+                            '66%': { transform: 'translate(40px, -30px) scale(0.9)' }
+                        },
+                        'orbDrift3': {
+                            '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
+                            '50%': { transform: 'translate(30px, 60px) scale(1.1)' }
                         },
                         'particle-float': {
                             '0%': { transform: 'translateY(100vh) rotate(0deg)' },
                             '100%': { transform: 'translateY(-100px) rotate(360deg)' }
+                        },
+                        'shimmer': {
+                            '0%': { 'background-position': '-200% 0' },
+                            '100%': { 'background-position': '200% 0' }
                         }
                     }
                 }
-            },
-            plugins: [
-                require('@tailwindcss/forms')
-            ]
+            }
         }
     </script>
     
@@ -130,20 +142,19 @@
     <style>
         /* ========== CSS Custom Properties ========== */
         :root {
-            --color-primary-hue: 200;
-            --color-primary-saturation: 80%;
-            --color-primary-lightness: 50%;
+            --teal: #00F5C4;
+            --purple: #7B5CFA;
+            --coral: #FF6B6B;
+            --dark-base: #0a0a1a;
+            --dark-card: #0f0f24;
+            --dark-surface: #141430;
             
-            --color-primary: hsl(var(--color-primary-hue), var(--color-primary-saturation), var(--color-primary-lightness));
-            --color-primary-dark: hsl(var(--color-primary-hue), var(--color-primary-saturation), calc(var(--color-primary-lightness) - 10%));
-            --color-secondary: 262, 83%, 58%; /* Purple */
+            --glass-bg: rgba(255,255,255,0.08);
+            --glass-border: rgba(255,255,255,0.18);
+            --glass-blur: blur(18px) saturate(180%);
             
-            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
-            --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.25);
-            
-            --radius-lg: 1rem;
-            --radius-xl: 1.5rem;
+            --radius-card: 20px;
+            --radius-pill: 9999px;
             
             --transition-fast: 0.2s;
             --transition-normal: 0.3s;
@@ -154,29 +165,31 @@
         * {
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            box-sizing: border-box;
         }
         
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            background-color: #ffffff;
-            color: #1f2937;
+            overflow-x: hidden;
         }
         
-        body.dark {
-            background-color: #111827;
-            color: #f9fafb;
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            background-color: var(--dark-base);
+            color: rgba(255,255,255,0.75);
         }
         
         /* ========== Typography ========== */
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Syne', sans-serif;
             font-weight: 700;
             line-height: 1.2;
+            color: #fff;
         }
         
         .brand-name {
@@ -185,48 +198,138 @@
             letter-spacing: 0.05em;
         }
         
+        /* ========== Animated Gradient Mesh Background ========== */
+        .mesh-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse 60% 50% at 20% 30%, rgba(123,92,250,0.15) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 60% at 80% 20%, rgba(0,245,196,0.1) 0%, transparent 55%),
+                radial-gradient(ellipse 55% 45% at 60% 80%, rgba(255,107,107,0.1) 0%, transparent 55%),
+                radial-gradient(ellipse 40% 40% at 40% 60%, rgba(123,92,250,0.08) 0%, transparent 50%);
+            background-size: 200% 200%;
+            animation: meshMove 20s ease infinite;
+        }
+        
+        /* Floating Orbs */
+        .floating-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(70px);
+            pointer-events: none;
+            z-index: 0;
+            will-change: transform;
+        }
+        
+        .orb-teal {
+            width: 300px;
+            height: 300px;
+            background: rgba(0,245,196,0.12);
+            top: 15%;
+            left: 5%;
+            animation: orbDrift1 25s ease-in-out infinite;
+        }
+        
+        .orb-purple {
+            width: 350px;
+            height: 350px;
+            background: rgba(123,92,250,0.1);
+            top: 50%;
+            right: 5%;
+            animation: orbDrift2 30s ease-in-out infinite;
+        }
+        
+        .orb-coral {
+            width: 250px;
+            height: 250px;
+            background: rgba(255,107,107,0.08);
+            bottom: 10%;
+            left: 30%;
+            animation: orbDrift3 22s ease-in-out infinite;
+        }
+        
+        @keyframes meshMove {
+            0%, 100% { background-position: 0% 50%; }
+            25% { background-position: 50% 0%; }
+            50% { background-position: 100% 50%; }
+            75% { background-position: 50% 100%; }
+        }
+        
+        @keyframes orbDrift1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(60px, -40px) scale(1.1); }
+            66% { transform: translate(-30px, 30px) scale(0.95); }
+        }
+        
+        @keyframes orbDrift2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-50px, 50px) scale(1.05); }
+            66% { transform: translate(40px, -30px) scale(0.9); }
+        }
+        
+        @keyframes orbDrift3 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, 60px) scale(1.1); }
+        }
+        
         /* ========== Glassmorphism Effects ========== */
         .glass {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
         }
         
-        .glass.dark {
-            background: rgba(17, 24, 39, 0.5);
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        /* ========== Component Styles ========== */
-        
-        /* Cards */
+        /* ========== Glass Cards ========== */
         .card {
-            background: white;
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-lg);
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-card);
             transition: all var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Top-edge shimmer line */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0,245,196,0.4), rgba(123,92,250,0.4), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
         }
         
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
+            transform: translateY(-6px);
+            border-color: rgba(255,255,255,0.25);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 30px rgba(123,92,250,0.05);
         }
         
-        .dark .card {
-            background: #1f2937;
-            border-color: rgba(255, 255, 255, 0.05);
-        }
-        
-        /* Buttons */
+        /* ========== Buttons — Pill Shaped ========== */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--radius-lg);
+            padding: 0.75rem 1.75rem;
+            border-radius: var(--radius-pill);
             font-weight: 600;
+            font-family: 'DM Sans', sans-serif;
             transition: all var(--transition-normal);
             border: none;
             cursor: pointer;
@@ -235,68 +338,62 @@
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-            color: white;
-            box-shadow: 0 4px 14px rgba(14, 165, 233, 0.3);
+            background: linear-gradient(135deg, var(--teal), var(--purple));
+            color: #0a0a1a;
+            box-shadow: 0 4px 20px rgba(0,245,196,0.25);
         }
         
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
+            box-shadow: 0 8px 30px rgba(0,245,196,0.35);
         }
         
         .btn-secondary {
-            background: transparent;
-            color: var(--color-primary);
-            border: 2px solid var(--color-primary);
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: var(--teal);
+            border: 1px solid rgba(0,245,196,0.3);
         }
         
         .btn-secondary:hover {
-            background: var(--color-primary);
-            color: white;
+            background: rgba(0,245,196,0.1);
+            border-color: var(--teal);
             transform: translateY(-2px);
+            color: var(--teal);
         }
         
-        /* Forms */
+        /* ========== Forms ========== */
         .form-input {
             width: 100%;
             padding: 0.75rem 1rem;
-            border: 2px solid #e5e7eb;
-            border-radius: var(--radius-lg);
-            background: white;
+            border: 1px solid var(--glass-border);
+            border-radius: 14px;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: #fff;
             transition: all var(--transition-fast);
         }
         
-        .dark .form-input {
-            background: #1f2937;
-            border-color: #374151;
-            color: white;
+        .form-input::placeholder {
+            color: rgba(255,255,255,0.3);
         }
         
         .form-input:focus {
             outline: none;
-            border-color: var(--color-primary);
-            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(0,245,196,0.15);
         }
         
-        /* ========== Animations & Effects ========== */
-        
-        /* Gradient Background Animation */
+        /* ========== Hero Gradient Background ========== */
         .gradient-bg {
-            background: linear-gradient(135deg, 
-                hsl(var(--color-primary-hue), var(--color-primary-saturation), var(--color-primary-lightness)),
-                hsl(calc(var(--color-primary-hue) + 30), var(--color-primary-saturation), var(--color-primary-lightness)),
-                hsl(calc(var(--color-primary-hue) + 60), var(--color-primary-saturation), var(--color-primary-lightness)));
+            background: linear-gradient(135deg, #7B5CFA, #00F5C4, #FF6B6B, #7B5CFA);
             background-size: 400% 400%;
-            animation: gradient-xy 15s ease infinite;
+            animation: meshMove 15s ease infinite;
         }
         
-        /* Floating Animation */
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        /* Reveal on Scroll */
+        /* ========== Reveal on Scroll ========== */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -308,7 +405,6 @@
             transform: translateY(0);
         }
         
-        /* Staggered Animation Delays */
         .stagger-1 { animation-delay: 0.1s; }
         .stagger-2 { animation-delay: 0.2s; }
         .stagger-3 { animation-delay: 0.3s; }
@@ -319,7 +415,7 @@
             position: relative;
             padding: 0.5rem 0;
             font-weight: 500;
-            color: #6b7280;
+            color: rgba(255,255,255,0.6);
             transition: color var(--transition-fast);
         }
         
@@ -330,7 +426,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--color-primary);
+            background: var(--teal);
             transition: width var(--transition-normal);
         }
         
@@ -339,11 +435,12 @@
             width: 100%;
         }
         
-        .nav-link:hover {
-            color: var(--color-primary);
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--teal);
         }
         
-        /* ========== Hero Section ========== */
+        /* ========== Hero Particles ========== */
         .hero-particles {
             position: absolute;
             inset: 0;
@@ -355,7 +452,7 @@
             position: absolute;
             width: 4px;
             height: 4px;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(0,245,196,0.4);
             border-radius: 50%;
             animation: particle-float 15s infinite linear;
         }
@@ -377,7 +474,7 @@
         }
         
         .menu-overlay.active {
-            opacity: 0.5;
+            opacity: 0.7;
             visibility: visible;
         }
         
@@ -389,12 +486,12 @@
             width: 64px;
             height: 64px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-            box-shadow: 0 4px 20px rgba(14, 165, 233, 0.4);
+            background: linear-gradient(135deg, var(--teal), var(--purple));
+            box-shadow: 0 4px 20px rgba(0,245,196,0.3);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: #0a0a1a;
             font-size: 1.5rem;
             transition: all var(--transition-normal);
             z-index: 1000;
@@ -409,16 +506,7 @@
         
         .fab:hover {
             transform: scale(1.1) translateY(-4px);
-            box-shadow: 0 6px 25px rgba(14, 165, 233, 0.6);
-        }
-        
-        /* ========== Dark Mode Toggle ========== */
-        .theme-toggle {
-            transition: transform var(--transition-normal);
-        }
-        
-        .theme-toggle:hover {
-            transform: rotate(180deg);
+            box-shadow: 0 6px 30px rgba(0,245,196,0.5);
         }
         
         /* ========== Product Cards ========== */
@@ -427,20 +515,12 @@
             overflow: hidden;
         }
         
-        .product-image {
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .product-card:hover .product-image {
-            transform: scale(1.05);
-        }
-        
         .product-badge {
             position: absolute;
             top: 1rem;
             right: 1rem;
             padding: 0.25rem 0.75rem;
-            border-radius: 2rem;
+            border-radius: var(--radius-pill);
             font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
@@ -462,18 +542,8 @@
             overflow: hidden;
         }
         
-        .stats-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, 
-                hsla(var(--color-primary-hue), var(--color-primary-saturation), var(--color-primary-lightness), 0.1),
-                hsla(calc(var(--color-primary-hue) + 30), var(--color-primary-saturation), var(--color-primary-lightness), 0.05));
-            z-index: -1;
-        }
-        
         .stats-number {
-            background: linear-gradient(to right, var(--color-primary), var(--color-primary-dark));
+            background: linear-gradient(135deg, var(--teal), var(--purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-size: 3rem;
@@ -484,32 +554,27 @@
         /* ========== Charts ========== */
         .chart-container {
             position: relative;
-            background: white;
-            border-radius: var(--radius-xl);
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-radius: var(--radius-card);
             padding: 2rem;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        
-        .dark .chart-container {
-            background: #1f2937;
-            border-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
         }
         
         /* ========== Footer ========== */
         .footer-link {
-            color: #9ca3af;
+            color: rgba(255,255,255,0.4);
             transition: color var(--transition-fast);
         }
         
         .footer-link:hover {
-            color: white;
-            text-decoration: underline;
+            color: var(--teal);
+            text-decoration: none;
         }
         
         /* ========== Responsive Design ========== */
         @media (max-width: 768px) {
-            /* Hero */
             .hero-content h1 {
                 font-size: 2rem;
                 line-height: 1.15;
@@ -520,7 +585,6 @@
                 line-height: 1.5;
             }
             
-            /* Hero image & floating card */
             .hero-content + div {
                 margin-top: 2rem;
             }
@@ -540,7 +604,6 @@
                 right: 1rem;
             }
             
-            /* Stats cards */
             .stats-number {
                 font-size: 1.5rem;
             }
@@ -553,30 +616,22 @@
                 font-size: 0.65rem;
             }
             
-            /* Section headings */
             h2 {
                 font-size: 1.6rem !important;
             }
             
-            /* Section subtitles */
-            .text-xl.text-gray-600,
-            .text-xl.text-gray-300 {
-                font-size: 0.95rem !important;
-            }
-            
-            /* Section padding */
             .py-20 {
                 padding-top: 3rem;
                 padding-bottom: 3rem;
             }
             
-            /* Container padding */
             .container {
                 padding-left: 1rem;
                 padding-right: 1rem;
+                max-width: 100%;
+                overflow-x: hidden;
             }
             
-            /* Cards */
             .card {
                 padding: 1rem;
             }
@@ -589,7 +644,6 @@
                 font-size: 0.875rem;
             }
             
-            /* Product cards */
             .product-card .p-6 {
                 padding: 1rem;
             }
@@ -598,19 +652,10 @@
                 font-size: 1.1rem;
             }
             
-            .product-card .text-sm {
-                font-size: 0.8rem;
-            }
-            
-            .product-card ul {
-                margin-bottom: 0.75rem;
-            }
-            
             .product-card .h-56 {
                 height: 10rem;
             }
             
-            /* Chart containers */
             .chart-container {
                 padding: 0.75rem;
             }
@@ -619,26 +664,10 @@
                 height: 250px !important;
             }
             
-            /* Floating glass cards on images */
             .glass.rounded-2xl {
                 padding: 0.75rem !important;
             }
             
-            .glass.rounded-2xl .w-12 {
-                width: 2rem;
-                height: 2rem;
-            }
-            
-            .glass.rounded-2xl p.font-bold,
-            .glass.rounded-2xl p.font-semibold {
-                font-size: 0.75rem;
-            }
-            
-            .glass.rounded-2xl p.text-sm {
-                font-size: 0.65rem;
-            }
-            
-            /* Navigation header */
             header .container {
                 padding-left: 0.75rem;
                 padding-right: 0.75rem;
@@ -654,20 +683,20 @@
                 font-size: 1.25rem;
             }
             
-            /* Theme toggle - move out of way */
-            #themeToggle {
-                width: 2.5rem;
-                height: 2.5rem;
-                top: 1rem;
-                right: 1rem;
-            }
-            
-            /* Two-col sections stack */
             .grid.lg\:grid-cols-2 {
                 gap: 2rem;
             }
             
-            /* About section */
+            /* Product grid - 1 col on small screens */
+            .grid.lg\:grid-cols-4 {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Tech features grid - 1 col */
+            .grid.grid-cols-2.lg\:grid-cols-4 {
+                grid-template-columns: 1fr 1fr;
+            }
+            
             .flex.gap-5 {
                 gap: 0.75rem;
             }
@@ -682,12 +711,10 @@
                 font-size: 1.1rem;
             }
             
-            /* Contact form */
             .card.p-8 {
                 padding: 1rem;
             }
             
-            /* Footer */
             footer .grid {
                 gap: 1.5rem;
             }
@@ -697,22 +724,78 @@
                 margin-bottom: 0.75rem;
             }
             
-            /* Live chat */
             #chatMessages {
                 height: 150px;
             }
             
-            /* Buttons */
             .btn {
                 font-size: 0.875rem;
                 padding: 0.6rem 1.2rem;
             }
             
-            /* Min height hero */
             .min-h-screen {
                 min-height: auto;
                 padding-top: 5rem;
                 padding-bottom: 3rem;
+            }
+            
+            .floating-orb {
+                display: none;
+            }
+            
+            /* Mesh bg reduce intensity on mobile */
+            .mesh-bg {
+                opacity: 0.6;
+            }
+            
+            /* HES section flex layout stacks properly */
+            .hes-section .flex-col.lg\:flex-row {
+                flex-direction: column;
+            }
+            
+            /* Ensure images don't overflow */
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+            
+            /* Footer grid on small screens */
+            footer .grid.grid-cols-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Investor section cards stack */
+            .grid.lg\:grid-cols-4 {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.7rem;
+            }
+            
+            /* Stats grid - tighter on very small */
+            .grid.grid-cols-3 {
+                gap: 0.5rem;
+            }
+            
+            .stats-number {
+                font-size: 1.3rem;
+            }
+            
+            .stats-card .text-sm {
+                font-size: 0.6rem;
+            }
+            
+            /* Section subtitles */
+            .text-xl {
+                font-size: 0.95rem !important;
+            }
+            
+            /* Product cards - full width single col */
+            .grid.sm\:grid-cols-2 {
+                grid-template-columns: 1fr;
             }
         }
         
@@ -725,12 +808,416 @@
                 font-size: 1.2rem;
             }
             
-            .stats-card .text-sm {
-                font-size: 0.6rem;
-            }
-            
             h2 {
                 font-size: 1.35rem !important;
+            }
+            
+            .btn {
+                font-size: 0.8rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+        
+        /* ========== Home Energy Solution Section ========== */
+        .hes-section {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hes-bg-image {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?w=1920&q=80&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center 40%;
+            z-index: 0;
+        }
+        
+        .hes-bg-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to right,
+                rgba(8,12,22,0.88) 0%,
+                rgba(8,12,22,0.65) 40%,
+                rgba(8,12,22,0.35) 70%,
+                rgba(8,12,22,0.55) 100%
+            );
+        }
+        
+        /* Warm ambient light glow on left (like the reference image) */
+        .hes-warm-glow {
+            position: absolute;
+            top: 10%;
+            left: 0;
+            width: 40%;
+            height: 60%;
+            background: radial-gradient(ellipse at 20% 40%, rgba(180,140,60,0.12) 0%, transparent 70%);
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        /* Phone Mockup - Professional iPhone-style frame */
+        .phone-device {
+            position: relative;
+            width: 290px;
+            background: #1c1c1e;
+            border-radius: 50px;
+            padding: 14px;
+            box-shadow:
+                inset 0 0 3px rgba(255,255,255,0.06),
+                0 0 0 2px #2c2c2e,
+                0 0 0 4px #1c1c1e,
+                0 30px 80px -10px rgba(0,0,0,0.7),
+                0 10px 30px rgba(0,0,0,0.4);
+        }
+        
+        /* Side buttons */
+        .phone-device::before {
+            content: '';
+            position: absolute;
+            right: -3px;
+            top: 120px;
+            width: 3px;
+            height: 55px;
+            background: #2c2c2e;
+            border-radius: 0 3px 3px 0;
+        }
+        
+        .phone-device::after {
+            content: '';
+            position: absolute;
+            left: -3px;
+            top: 100px;
+            width: 3px;
+            height: 30px;
+            background: #2c2c2e;
+            border-radius: 3px 0 0 3px;
+            box-shadow: 0 45px 0 #2c2c2e, 0 80px 0 #2c2c2e;
+        }
+        
+        .phone-screen-pro {
+            width: 100%;
+            aspect-ratio: 9 / 19.2;
+            background: #f2f2f7;
+            border-radius: 38px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Dynamic Island */
+        .phone-island {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 95px;
+            height: 28px;
+            background: #000;
+            border-radius: 20px;
+            z-index: 30;
+        }
+        
+        /* Screen content area */
+        .screen-content {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(180deg, #d4e8f5 0%, #c5dff0 25%, #f0f0f0 55%, #f8f8f8 100%);
+        }
+        
+        .screen-statusbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 24px 0;
+            font-size: 12px;
+            font-weight: 600;
+            color: #000;
+            position: relative;
+            z-index: 20;
+        }
+        
+        .screen-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 20px 6px;
+        }
+        
+        .screen-header-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #111;
+        }
+        
+        .screen-header-icons {
+            display: flex;
+            gap: 12px;
+            color: #444;
+            font-size: 17px;
+        }
+        
+        /* House illustration container inside phone */
+        .house-display {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 0;
+            padding: 0 12px;
+        }
+        
+        .house-display img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.08));
+        }
+        
+        /* Energy labels overlaid on house */
+        .e-label {
+            position: absolute;
+            text-align: center;
+            z-index: 10;
+        }
+        
+        .e-label-title {
+            font-size: 9px;
+            color: #777;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+        
+        .e-label-val {
+            font-size: 15px;
+            font-weight: 700;
+            color: #111;
+        }
+        
+        .e-label.e-solar { top: 8%; left: 8%; }
+        .e-label.e-grid { top: 8%; right: 8%; }
+        .e-label.e-load { bottom: 4%; left: 8%; }
+        .e-label.e-storage { bottom: 4%; right: 6%; }
+        
+        /* Bottom cards */
+        .screen-card {
+            margin: 0 10px;
+            padding: 10px 14px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+        }
+        
+        .screen-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .screen-stat-item {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .screen-stat-item .ss-label {
+            font-size: 8px;
+            color: #aaa;
+            font-weight: 500;
+        }
+        
+        .screen-stat-item .ss-val {
+            font-size: 13px;
+            font-weight: 700;
+            color: #111;
+        }
+        
+        .screen-tabs {
+            display: flex;
+            margin: 6px 10px 0;
+            padding: 4px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+        }
+        
+        .s-tab {
+            flex: 1;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 600;
+            color: #bbb;
+            padding: 7px 0 5px;
+            border-radius: 12px;
+            line-height: 1.2;
+        }
+        
+        .s-tab.active {
+            background: #111;
+            color: #fff;
+        }
+        
+        .s-tab-sub {
+            font-size: 8px;
+            font-weight: 400;
+            opacity: 0.6;
+            display: block;
+        }
+        
+        .screen-bottomnav {
+            display: flex;
+            justify-content: space-around;
+            padding: 8px 8px 2px;
+            margin-top: auto;
+            background: #fafafa;
+            border-top: 1px solid #f0f0f0;
+        }
+        
+        .bn-item {
+            text-align: center;
+            font-size: 9px;
+            color: #bbb;
+            font-weight: 500;
+        }
+        
+        .bn-item.active { color: #111; }
+        
+        .bn-item i {
+            font-size: 19px;
+            display: block;
+            margin-bottom: 1px;
+        }
+        
+        .screen-homebar {
+            width: 34%;
+            height: 4px;
+            background: #111;
+            border-radius: 4px;
+            margin: 5px auto 6px;
+        }
+        
+        /* Glassmorphic product card */
+        .hes-glass-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 28px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hes-glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+        }
+        
+        .hes-glass-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 30% 20%, rgba(180,140,60,0.04) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        /* Spec items */
+        .spec-chip {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 14px;
+            padding: 12px 14px;
+        }
+        
+        .spec-chip-label {
+            font-size: 10px;
+            color: rgba(255,255,255,0.35);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        
+        .spec-chip-val {
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+        }
+        
+        @media (max-width: 1023px) {
+            .hes-section {
+                min-height: auto;
+                padding: 6rem 0 3rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hes-section {
+                padding: 5rem 0 2.5rem;
+            }
+            
+            .phone-device {
+                width: 230px;
+                border-radius: 40px;
+                padding: 11px;
+            }
+            
+            .phone-screen-pro {
+                border-radius: 30px;
+            }
+            
+            .phone-island {
+                width: 76px;
+                height: 22px;
+                top: 8px;
+            }
+            
+            .screen-statusbar {
+                font-size: 10px;
+                padding: 12px 20px 0;
+            }
+            
+            .screen-header-title {
+                font-size: 16px;
+            }
+            
+            .screen-header-icons {
+                font-size: 14px;
+            }
+            
+            .e-label-val {
+                font-size: 12px;
+            }
+            
+            .e-label-title {
+                font-size: 7px;
+            }
+            
+            .screen-stat-item .ss-val {
+                font-size: 11px;
+            }
+            
+            .screen-stat-item .ss-label {
+                font-size: 7px;
+            }
+            
+            .hes-glass-card {
+                padding: 20px;
+                border-radius: 20px;
             }
         }
         
@@ -747,7 +1234,7 @@
     </style>
 </head>
 
-<body class="bg-white text-gray-900 font-sans dark:bg-gray-900 dark:text-white">
+<body class="font-body" style="background:#0a0a1a; color:rgba(255,255,255,0.75)">
     <!-- 
         ============================================================================
         ACCESSIBILITY FEATURES
@@ -757,7 +1244,7 @@
         - High contrast mode support
         - Reduced motion media query support
     -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary-600 text-white px-4 py-2 rounded-lg z-50">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 text-white px-4 py-2 rounded-lg z-50" style="background:#7B5CFA">
         Skip to main content
     </a>
     
@@ -765,7 +1252,7 @@
     <div id="ceoModal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center" onclick="closeCeoModal()">
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
         <div class="relative max-w-lg w-full mx-4" onclick="event.stopPropagation()">
-            <button onclick="closeCeoModal()" class="absolute -top-12 right-0 text-white hover:text-primary-400 transition-colors flex items-center gap-2 text-sm font-medium">
+            <button onclick="closeCeoModal()" class="absolute -top-12 right-0 text-white hover:text-accent-teal transition-colors flex items-center gap-2 text-sm font-medium">
                 <span>Close</span>
                 <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
                     <i class="ri-close-line text-lg" aria-hidden="true"></i>
@@ -786,7 +1273,7 @@
         <!-- Modal Content -->
         <div class="relative w-full max-w-sm sm:max-w-md md:max-w-lg mx-4" onclick="event.stopPropagation()">
             <!-- Close Button -->
-            <button onclick="closeVideoModal()" class="absolute -top-12 right-0 text-white hover:text-primary-400 transition-colors flex items-center gap-2 text-sm font-medium">
+            <button onclick="closeVideoModal()" class="absolute -top-12 right-0 text-white hover:text-accent-teal transition-colors flex items-center gap-2 text-sm font-medium">
                 <span>Close</span>
                 <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
                     <i class="ri-close-line text-lg" aria-hidden="true"></i>
@@ -826,21 +1313,11 @@
         <i class="ri-chat-1-line" aria-hidden="true"></i>
     </a>
     
-    <!-- 
-        ============================================================================
-        THEME TOGGLE
-        ============================================================================
-        - Persists user preference in localStorage
-        - Respects OS dark mode preference
-        - Animated rotation on hover
-    -->
-    <button id="themeToggle" 
-            class="fixed top-6 right-6 z-50 w-12 h-12 rounded-full glass flex items-center justify-center shadow-lg hover:scale-110 transition-all" 
-            aria-label="Toggle dark mode"
-            aria-pressed="false">
-        <i class="ri-sun-line dark:hidden" aria-hidden="true"></i>
-        <i class="ri-moon-line hidden dark:block" aria-hidden="true"></i>
-    </button>
+    <!-- Floating Orbs for depth -->
+    <div class="mesh-bg" aria-hidden="true"></div>
+    <div class="floating-orb orb-teal" aria-hidden="true"></div>
+    <div class="floating-orb orb-purple" aria-hidden="true"></div>
+    <div class="floating-orb orb-coral" aria-hidden="true"></div>
     
     <!-- 
         ============================================================================
@@ -863,7 +1340,7 @@
         - Keyboard navigation support
     -->
     <div id="mobileMenu" 
-         class="mobile-menu fixed top-0 right-0 w-80 h-full bg-white dark:bg-gray-800 z-50 shadow-2xl pt-16 px-6 overflow-y-auto" 
+         class="mobile-menu fixed top-0 right-0 w-80 h-full z-50 shadow-2xl pt-16 px-6 overflow-y-auto" style="background:rgba(10,10,26,0.92);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-left:1px solid rgba(255,255,255,0.1)" 
          role="dialog" 
          aria-modal="true" 
          aria-labelledby="mobileMenuTitle">
@@ -872,13 +1349,13 @@
             <div class="flex items-center gap-3" id="mobileMenuTitle">
                 <!-- Company Logo -->
                 <img src="company-logo.png" alt="Ntronix Logo" class="h-10 w-auto">
-                <span class="text-2xl brand-name text-gray-900 dark:text-white">
+                <span class="text-2xl brand-name text-white">
                     NTRONIX
                 </span>
             </div>
             
             <button id="closeMenu" 
-                    class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" 
+                    class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors text-white" 
                     aria-label="Close mobile menu">
                 <i class="ri-close-line ri-2x" aria-hidden="true"></i>
             </button>
@@ -886,23 +1363,23 @@
         
         <!-- Mobile Navigation Links -->
         <nav class="flex flex-col gap-2">
-            <a href="#products" class="mobile-menu-link py-4 text-lg font-medium text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+            <a href="#products" class="mobile-menu-link py-4 text-lg font-medium text-white/70 hover:text-accent-teal transition-colors">
                 Products
             </a>
-            <a href="#technology" class="mobile-menu-link py-4 text-lg font-medium text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+            <a href="#technology" class="mobile-menu-link py-4 text-lg font-medium text-white/70 hover:text-accent-teal transition-colors">
                 Technology
             </a>
-            <a href="#app" class="mobile-menu-link py-4 text-lg font-medium text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+            <a href="#app" class="mobile-menu-link py-4 text-lg font-medium text-white/70 hover:text-accent-teal transition-colors">
                 Mobile App
             </a>
-            <a href="#about" class="mobile-menu-link py-4 text-lg font-medium text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+            <a href="#about" class="mobile-menu-link py-4 text-lg font-medium text-white/70 hover:text-accent-teal transition-colors">
                 About
             </a>
-            <a href="#contact" class="mobile-menu-link py-4 text-lg font-medium text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+            <a href="#contact" class="mobile-menu-link py-4 text-lg font-medium text-white/70 hover:text-accent-teal transition-colors">
                 Contact
             </a>
             
-            <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+            <div class="mt-8 pt-6 border-t border-white/10">
                 <div class="space-y-3">
                     <a href="#products" 
                        class="btn btn-primary w-full rounded-button">
@@ -924,7 +1401,7 @@
         - Responsive layout (mobile/desktop)
         - Active link highlighting
     -->
-    <header class="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700/50 transition-all">
+    <header class="fixed w-full z-50 transition-all" style="background:rgba(10,10,26,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.08)">
         <div class="container mx-auto px-6 py-4">
             <nav class="flex items-center justify-between">
                 <!-- Logo -->
@@ -953,7 +1430,7 @@
                     
                     <!-- Mobile Menu Toggle -->
                     <button id="openMenu" 
-                            class="lg:hidden w-12 h-12 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" 
+                            class="lg:hidden w-12 h-12 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors text-white" 
                             aria-label="Open mobile menu"
                             aria-expanded="false">
                         <i class="ri-menu-line ri-2x" aria-hidden="true"></i>
@@ -970,7 +1447,7 @@
         - All sections wrapped in <main> for accessibility
         - Unique ID for skip link target
     -->
-    <main id="main-content" class="smooth-scroll">
+    <main id="main-content" class="smooth-scroll relative z-10">
         <!-- 
             ============================================================================
             HERO SECTION
@@ -980,7 +1457,7 @@
             - Stats counters
             - CTA buttons
         -->
-        <section class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+        <section class="relative min-h-screen flex items-center pt-24 overflow-hidden z-10">
             <!-- Animated Background -->
             <div class="gradient-bg absolute inset-0 z-0" aria-hidden="true"></div>
             
@@ -1002,15 +1479,15 @@
                     <!-- Hero Content -->
                     <div class="hero-content space-y-8 reveal stagger-1">
                         <!-- Badge -->
-                        <div class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/30 backdrop-blur-sm rounded-full text-sm font-semibold text-white border border-emerald-400/40">
-                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <div class="inline-flex items-center gap-2 px-4 py-2 bg-accent-teal/15 backdrop-blur-sm rounded-full text-sm font-semibold text-white border border-accent-teal/30">
+                            <span class="w-2 h-2 rounded-full bg-accent-teal animate-pulse"></span>
                             <span>First Unit Sold &amp; Deployed — Zero Issues Since Dec 2025</span>
                         </div>
                         
                         <!-- Heading -->
                         <h1 class="text-5xl lg:text-6xl font-extrabold leading-tight text-white">
                             Smart Energy for Africa. 
-                            <span class="block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-white to-primary-200">
+                            <span class="block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-white to-accent-teal">
                                 By Africa.
                             </span>
                         </h1>
@@ -1052,7 +1529,7 @@
                     
                     <!-- Hero Image -->
                     <div class="relative reveal stagger-2">
-                        <div class="absolute -inset-4 bg-gradient-to-r from-primary-500/40 to-secondary-500/40 rounded-2xl blur-xl" aria-hidden="true"></div>
+                        <div class="absolute -inset-4 bg-gradient-to-r from-accent-teal/30 to-accent-purple/30 rounded-2xl blur-xl" aria-hidden="true"></div>
                         
                         <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&h=600&fit=crop" 
                              alt="Solar panel array — Ntronix Volta smart energy systems" 
@@ -1062,7 +1539,7 @@
                         <!-- Floating Info Card -->
                         <div class="absolute -bottom-6 -left-6 glass rounded-2xl p-6 shadow-xl max-w-xs">
                             <div class="flex items-start gap-3">
-                                <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center flex-shrink-0">
+                                <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-accent-teal to-accent-purple flex items-center justify-center flex-shrink-0">
                                     <i class="ri-flashlight-line text-white text-xl" aria-hidden="true"></i>
                                 </div>
                                 <div>
@@ -1084,16 +1561,16 @@
             - AI badges with animations
             - Real-time data visualization
         -->
-        <section id="problem" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <section id="problem" class="py-20 relative z-10">
             <div class="container mx-auto px-6">
                 <!-- Section Header -->
                 <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="inline-block px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 rounded-full text-sm font-medium mb-4">
+                    <span class="inline-block px-4 py-2 rounded-full text-sm font-medium mb-4" style="background:rgba(123,92,250,0.15);color:#7B5CFA;border:1px solid rgba(123,92,250,0.2)">
                         <i class="ri-error-warning-line mr-2" aria-hidden="true"></i>
                         WHY WE EXIST
                     </span>
                     <h2 class="text-4xl lg:text-5xl font-bold mb-6 reveal stagger-1">Why Africa Needs Ntronix</h2>
-                    <p class="text-xl text-gray-600 dark:text-gray-300 reveal stagger-2">
+                    <p class="text-xl text-white/60 reveal stagger-2">
                         600 million people in Sub-Saharan Africa lack reliable electricity. The solutions available are imported, overpriced, and dumb. We're changing that.
                     </p>
                 </div>
@@ -1102,36 +1579,36 @@
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                     <!-- Card 1 -->
                     <div class="card p-6 sm:p-8 reveal stagger-1">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-100 to-orange-100 dark:from-red-900/30 dark:to-orange-900/30 flex items-center justify-center mb-6">
-                            <i class="ri-flashlight-line text-red-600 dark:text-red-300 text-3xl" aria-hidden="true"></i>
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-500/15 to-orange-500/15 flex items-center justify-center mb-6">
+                            <i class="ri-flashlight-line text-red-400 text-3xl" aria-hidden="true"></i>
                         </div>
                         
                         <h3 class="text-2xl font-bold mb-4">The Grid Fails Daily</h3>
-                        <p class="text-gray-600 dark:text-gray-300">
+                        <p class="text-white/60">
                             Load-shedding hits homes, hospitals, and businesses across East Africa every single day. People lose food, income, and productivity. Children study by candlelight. This is not acceptable in 2026.
                         </p>
                     </div>
                     
                     <!-- Card 2 -->
                     <div class="card p-6 sm:p-8 reveal stagger-2">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-100 to-amber-100 dark:from-yellow-900/30 dark:to-amber-900/30 flex items-center justify-center mb-6">
-                            <i class="ri-money-dollar-circle-line text-yellow-600 dark:text-yellow-300 text-3xl" aria-hidden="true"></i>
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-500/15 to-amber-500/15 flex items-center justify-center mb-6">
+                            <i class="ri-money-dollar-circle-line text-yellow-400 text-3xl" aria-hidden="true"></i>
                         </div>
                         
                         <h3 class="text-2xl font-bold mb-4">Imports Drain the Economy</h3>
-                        <p class="text-gray-600 dark:text-gray-300">
+                        <p class="text-white/60">
                             Every inverter sold in East Africa is imported — at 2x-3x the cost, designed for European/Chinese conditions, with zero local repair capability. When it breaks, you buy another import. Billions of shillings leave the continent every year.
                         </p>
                     </div>
                     
                     <!-- Card 3 -->
                     <div class="card p-6 sm:p-8 reveal stagger-3">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 flex items-center justify-center mb-6">
-                            <i class="ri-cpu-line text-primary-600 dark:text-primary-300 text-3xl" aria-hidden="true"></i>
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-purple/15 to-accent-teal/15 flex items-center justify-center mb-6">
+                            <i class="ri-cpu-line text-accent-teal text-3xl" aria-hidden="true"></i>
                         </div>
                         
                         <h3 class="text-2xl font-bold mb-4">Zero Local Innovation</h3>
-                        <p class="text-gray-600 dark:text-gray-300">
+                        <p class="text-white/60">
                             There is virtually no indigenous power electronics manufacturing in all of East Africa. No Bluetooth. No app. No AI. No data. Existing inverters are black boxes with no intelligence. Africa deserves better — and we're building it.
                         </p>
                     </div>
@@ -1156,12 +1633,12 @@
             - Add to cart functionality
             - Review ratings
         -->
-        <section id="products" class="py-20 bg-white dark:bg-gray-900">
+        <section id="products" class="py-20 relative z-10">
             <div class="container mx-auto px-6">
                 <!-- Section Header -->
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <h2 class="text-4xl lg:text-5xl font-bold mb-6 reveal stagger-1">The Volta Powerwall Line</h2>
-                    <p class="text-xl text-gray-600 dark:text-gray-300 reveal stagger-2">
+                    <p class="text-xl text-white/60 reveal stagger-2">
                         Four smart powerwalls that double as hybrid inverters and portable power stations — from 500W to 3,000W, designed and built in Uganda.
                     </p>
                 </div>
@@ -1171,10 +1648,10 @@
                     <!-- VC-500 -->
                     <article class="product-card card" data-category="volta">
                         <div class="relative">
-                            <span class="product-badge bg-gradient-to-r from-sky-400 to-sky-500 text-white">
+                            <span class="product-badge bg-gradient-to-r from-accent-purple to-accent-purple/80 text-white">
                                 ENTRY LEVEL
                             </span>
-                            <div class="w-full h-56 bg-gradient-to-br from-primary-600 to-primary-800 flex flex-col items-center justify-center">
+                            <div class="w-full h-56 bg-gradient-to-br from-accent-purple/80 to-accent-purple/40 flex flex-col items-center justify-center">
                                 <i class="ri-battery-charge-line text-white/30 text-7xl mb-2" aria-hidden="true"></i>
                                 <span class="text-white font-bold text-xl">VC-500</span>
                             </div>
@@ -1182,31 +1659,31 @@
                         
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">Volta VC-500</h3>
-                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                            <p class="text-white/60 text-sm mb-4">
                                 Entry-level powerwall with Bluetooth mobile app control.
                             </p>
                             
                             <ul class="space-y-2 mb-5">
                                 <li class="flex items-center gap-2">
-                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
-                                    <span class="text-gray-700 dark:text-gray-200 text-sm">500W Pure Sine Wave AC</span>
+                                    <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
+                                    <span class="text-white/70 text-sm">500W Pure Sine Wave AC</span>
                                 </li>
                                 <li class="flex items-center gap-2">
-                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
-                                    <span class="text-gray-700 dark:text-gray-200 text-sm">300W DC Output</span>
+                                    <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
+                                    <span class="text-white/70 text-sm">300W DC Output</span>
                                 </li>
                                 <li class="flex items-center gap-2">
-                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
-                                    <span class="text-gray-700 dark:text-gray-200 text-sm">200W Solar Input</span>
+                                    <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
+                                    <span class="text-white/70 text-sm">200W Solar Input</span>
                                 </li>
                                 <li class="flex items-center gap-2">
-                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
-                                    <span class="text-gray-700 dark:text-gray-200 text-sm">Bluetooth Mobile App Control</span>
+                                    <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
+                                    <span class="text-white/70 text-sm">Bluetooth Mobile App Control</span>
                                 </li>
                             </ul>
                             
                             <div class="text-center">
-                                <span class="inline-block px-4 py-2 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm font-semibold">
+                                <span class="inline-block px-4 py-2 bg-accent-teal/10 text-accent-teal rounded-full text-sm font-semibold">
                                     500W | Bluetooth | Portable
                                 </span>
                             </div>
@@ -1216,10 +1693,10 @@
                     <!-- VC-1000 -->
                     <article class="product-card card" data-category="volta">
                         <div class="relative">
-                            <span class="product-badge bg-gradient-to-r from-emerald-400 to-emerald-500 text-white">
+                            <span class="product-badge bg-gradient-to-r from-accent-teal to-accent-teal/80 text-dark-base">
                                 STANDARD
                             </span>
-                            <div class="w-full h-56 bg-gradient-to-br from-emerald-600 to-emerald-800 flex flex-col items-center justify-center">
+                            <div class="w-full h-56 bg-gradient-to-br from-accent-teal/60 to-accent-teal/20 flex flex-col items-center justify-center">
                                 <i class="ri-battery-charge-line text-white/30 text-7xl mb-2" aria-hidden="true"></i>
                                 <span class="text-white font-bold text-xl">VC-1000</span>
                             </div>
@@ -1227,31 +1704,31 @@
                         
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">Volta VC-1000</h3>
-                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                            <p class="text-white/60 text-sm mb-4">
                                 WiFi connectivity, scheduling, and cloud remote control.
                             </p>
                             
                             <ul class="space-y-2 mb-5">
                                 <li class="flex items-center gap-2">
-                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
-                                    <span class="text-gray-700 dark:text-gray-200 text-sm">1000W Pure Sine Wave AC</span>
+                                    <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
+                                    <span class="text-white/70 text-sm">1000W Pure Sine Wave AC</span>
                                 </li>
                                 <li class="flex items-center gap-2">
-                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
-                                    <span class="text-gray-700 dark:text-gray-200 text-sm">500W DC Output</span>
+                                    <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
+                                    <span class="text-white/70 text-sm">500W DC Output</span>
                                 </li>
                                 <li class="flex items-center gap-2">
-                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
-                                    <span class="text-gray-700 dark:text-gray-200 text-sm">400W Solar Input</span>
+                                    <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
+                                    <span class="text-white/70 text-sm">400W Solar Input</span>
                                 </li>
                                 <li class="flex items-center gap-2">
-                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
-                                    <span class="text-gray-700 dark:text-gray-200 text-sm">WiFi + Cloud Remote Control</span>
+                                    <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
+                                    <span class="text-white/70 text-sm">WiFi + Cloud Remote Control</span>
                                 </li>
                             </ul>
                             
                             <div class="text-center">
-                                <span class="inline-block px-4 py-2 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm font-semibold">
+                                <span class="inline-block px-4 py-2 bg-accent-teal/10 text-accent-teal rounded-full text-sm font-semibold">
                                     1000W | WiFi | Scheduling
                                 </span>
                             </div>
@@ -1261,10 +1738,10 @@
                     <!-- VC-2000 -->
                     <article class="product-card card" data-category="volta">
                         <div class="relative">
-                            <span class="product-badge bg-gradient-to-r from-blue-400 to-blue-500 text-white">
+                            <span class="product-badge bg-gradient-to-r from-accent-teal to-accent-teal/80 text-dark-base">
                                 HOME
                             </span>
-                            <div class="w-full h-56 bg-gradient-to-br from-blue-600 to-blue-800 flex flex-col items-center justify-center">
+                            <div class="w-full h-56 bg-gradient-to-br from-accent-teal/50 to-accent-purple/30 flex flex-col items-center justify-center">
                                 <i class="ri-battery-charge-line text-white/30 text-7xl mb-2" aria-hidden="true"></i>
                                 <span class="text-white font-bold text-xl">VC-2000</span>
                             </div>
@@ -1272,31 +1749,31 @@
                         
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">Volta VC-2000</h3>
-                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                            <p class="text-white/60 text-sm mb-4">
                                 Home powerwall with grid input, mesh networking, and smart switches.
                             </p>
                             
                             <ul class="space-y-2 mb-5">
                                 <li class="flex items-center gap-2">
-                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
-                                    <span class="text-gray-700 dark:text-gray-200 text-sm">2000W Pure Sine Wave AC</span>
+                                    <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
+                                    <span class="text-white/70 text-sm">2000W Pure Sine Wave AC</span>
                                 </li>
                                 <li class="flex items-center gap-2">
-                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
-                                    <span class="text-gray-700 dark:text-gray-200 text-sm">Grid Input + Solar Priority</span>
+                                    <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
+                                    <span class="text-white/70 text-sm">Grid Input + Solar Priority</span>
                                 </li>
                                 <li class="flex items-center gap-2">
-                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
-                                    <span class="text-gray-700 dark:text-gray-200 text-sm">Wireless Mesh Network</span>
+                                    <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
+                                    <span class="text-white/70 text-sm">Wireless Mesh Network</span>
                                 </li>
                                 <li class="flex items-center gap-2">
-                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
-                                    <span class="text-gray-700 dark:text-gray-200 text-sm">Up to 8 Smart Switches</span>
+                                    <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
+                                    <span class="text-white/70 text-sm">Up to 8 Smart Switches</span>
                                 </li>
                             </ul>
                             
                             <div class="text-center">
-                                <span class="inline-block px-4 py-2 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm font-semibold">
+                                <span class="inline-block px-4 py-2 bg-accent-teal/10 text-accent-teal rounded-full text-sm font-semibold">
                                     2000W | Grid | Mesh
                                 </span>
                             </div>
@@ -1306,10 +1783,10 @@
                     <!-- VC-3000 -->
                     <article class="product-card card" data-category="volta">
                         <div class="relative">
-                            <span class="product-badge bg-gradient-to-r from-amber-400 to-amber-500 text-white">
+                            <span class="product-badge bg-gradient-to-r from-accent-coral to-accent-coral/80 text-white">
                                 FLAGSHIP
                             </span>
-                            <div class="w-full h-56 bg-gradient-to-br from-amber-600 to-amber-800 flex flex-col items-center justify-center">
+                            <div class="w-full h-56 bg-gradient-to-br from-accent-coral/50 to-accent-purple/30 flex flex-col items-center justify-center">
                                 <i class="ri-battery-charge-line text-white/30 text-7xl mb-2" aria-hidden="true"></i>
                                 <span class="text-white font-bold text-xl">VC-3000</span>
                             </div>
@@ -1317,31 +1794,31 @@
                         
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2">Volta VC-3000</h3>
-                            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                            <p class="text-white/60 text-sm mb-4">
                                 Flagship powerwall with UPS bypass, full mesh, and all premium features.
                             </p>
                             
                             <ul class="space-y-2 mb-5">
                                 <li class="flex items-center gap-2">
-                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
-                                    <span class="text-gray-700 dark:text-gray-200 text-sm">3000W Pure Sine Wave AC</span>
+                                    <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
+                                    <span class="text-white/70 text-sm">3000W Pure Sine Wave AC</span>
                                 </li>
                                 <li class="flex items-center gap-2">
-                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
-                                    <span class="text-gray-700 dark:text-gray-200 text-sm">1500W Solar Input</span>
+                                    <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
+                                    <span class="text-white/70 text-sm">1500W Solar Input</span>
                                 </li>
                                 <li class="flex items-center gap-2">
-                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
-                                    <span class="text-gray-700 dark:text-gray-200 text-sm">UPS Bypass Mode (&lt;10ms)</span>
+                                    <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
+                                    <span class="text-white/70 text-sm">UPS Bypass Mode (&lt;10ms)</span>
                                 </li>
                                 <li class="flex items-center gap-2">
-                                    <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
-                                    <span class="text-gray-700 dark:text-gray-200 text-sm">Full Mesh + Smart Switches</span>
+                                    <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
+                                    <span class="text-white/70 text-sm">Full Mesh + Smart Switches</span>
                                 </li>
                             </ul>
                             
                             <div class="text-center">
-                                <span class="inline-block px-4 py-2 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded-full text-sm font-semibold">
+                                <span class="inline-block px-4 py-2 bg-accent-teal/10 text-accent-teal rounded-full text-sm font-semibold">
                                     3000W | Bypass | Full Featured
                                 </span>
                             </div>
@@ -1362,18 +1839,199 @@
         
         <!-- 
             ============================================================================
+            HOME ENERGY SOLUTION SECTION
+            ============================================================================
+            - Cinematic Unsplash background with overlay
+            - Glassmorphic powerwall showcase
+            - Professional iPhone-style phone mockup with app UI
+        -->
+        <section class="hes-section">
+            <!-- Real cinematic background image -->
+            <div class="hes-bg-image" aria-hidden="true"></div>
+            <div class="hes-warm-glow" aria-hidden="true"></div>
+            
+            <div class="container mx-auto px-6 relative z-10">
+                <!-- Section header text — positioned top-left like the reference -->
+                <div class="mb-10 lg:mb-16 reveal stagger-1">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3">Home Energy Solution</h2>
+                    <p class="text-base sm:text-lg text-white/50 max-w-xl">
+                        The Most Advanced Home Energy Solution System's Companion Application
+                    </p>
+                </div>
+                
+                <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+                    <!-- Left: Powerwall in glassmorphic card -->
+                    <div class="flex-1 w-full reveal stagger-2">
+                        <div class="hes-glass-card">
+                            <div class="relative z-10 flex flex-col sm:flex-row items-center gap-8">
+                                <!-- Powerwall image -->
+                                <div class="flex-shrink-0">
+                                    <img src="powerwall.png" 
+                                         alt="Ntronix Volta Powerwall — Smart Energy Storage System" 
+                                         class="h-56 sm:h-72 lg:h-80 w-auto object-contain"
+                                         style="filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));"
+                                         loading="lazy">
+                                </div>
+                                
+                                <!-- Product info -->
+                                <div class="space-y-5 text-center sm:text-left">
+                                    <span class="inline-block px-3 py-1.5 bg-accent-teal/10 text-accent-teal rounded-full text-xs font-semibold uppercase tracking-wider border border-accent-teal/20">
+                                        Smart Powerwall
+                                    </span>
+                                    <h3 class="text-2xl lg:text-3xl font-bold text-white">Ntronix Volta</h3>
+                                    <p class="text-white/40 text-sm leading-relaxed max-w-xs">
+                                        Intelligent energy storage with real-time monitoring, solar MPPT charging, and full app control.
+                                    </p>
+                                    
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <div class="spec-chip">
+                                            <div class="spec-chip-label">Capacity</div>
+                                            <div class="spec-chip-val">500W–3kW</div>
+                                        </div>
+                                        <div class="spec-chip">
+                                            <div class="spec-chip-label">Solar Input</div>
+                                            <div class="spec-chip-val">Up to 1.5kW</div>
+                                        </div>
+                                        <div class="spec-chip">
+                                            <div class="spec-chip-label">Connectivity</div>
+                                            <div class="spec-chip-val">BT + WiFi</div>
+                                        </div>
+                                        <div class="spec-chip">
+                                            <div class="spec-chip-label">Output</div>
+                                            <div class="spec-chip-val">Pure Sine</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right: Professional phone mockup -->
+                    <div class="flex-shrink-0 reveal stagger-3">
+                        <div class="phone-device">
+                            <div class="phone-screen-pro">
+                                <!-- Dynamic Island -->
+                                <div class="phone-island"></div>
+                                
+                                <div class="screen-content">
+                                    <!-- Status bar -->
+                                    <div class="screen-statusbar">
+                                        <span>9:41</span>
+                                        <div style="display:flex;align-items:center;gap:4px">
+                                            <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor"><rect x="0" y="6.5" width="2.8" height="4.5" rx="0.6"/><rect x="3.8" y="4.5" width="2.8" height="6.5" rx="0.6"/><rect x="7.6" y="2" width="2.8" height="9" rx="0.6"/><rect x="11.4" y="0" width="2.8" height="11" rx="0.6"/></svg>
+                                            <svg width="14" height="10" viewBox="0 0 14 10" fill="currentColor"><path d="M7 2.2c2.1 0 4 .9 5.3 2.4l.7-.7C11.5 2.1 9.4 1 7 1S2.5 2.1 1 3.9l.7.7C3 3.1 4.9 2.2 7 2.2zm0 3c1.3 0 2.4.5 3.3 1.4l.7-.7c-1.1-1-2.5-1.6-4-1.6s-2.9.6-4 1.6l.7.7c.9-.9 2-1.4 3.3-1.4zM8.5 8.7L7 10.2 5.5 8.7c.4-.4.9-.7 1.5-.7s1.1.3 1.5.7z"/></svg>
+                                            <svg width="24" height="11" viewBox="0 0 24 11" fill="currentColor"><rect x="0" y="1" width="20" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="20.5" y="3.5" width="2.5" height="4" rx="0.8"/><rect x="1.8" y="2.8" width="15" height="5.4" rx="1" fill="#34C759"/></svg>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- App header -->
+                                    <div class="screen-header">
+                                        <div style="display:flex;align-items:center;gap:4px">
+                                            <span class="screen-header-title">My Home</span>
+                                            <svg width="10" height="6" viewBox="0 0 10 6" fill="#111"><path d="M1 1l4 4 4-4" stroke="#111" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                        </div>
+                                        <div class="screen-header-icons">
+                                            <i class="ri-equalizer-line"></i>
+                                            <i class="ri-settings-3-line"></i>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- House illustration with energy labels -->
+                                    <div class="house-display">
+                                        <div class="e-label e-solar">
+                                            <div class="e-label-title">Solar</div>
+                                            <div class="e-label-val">2 kW</div>
+                                        </div>
+                                        <div class="e-label e-grid">
+                                            <div class="e-label-title">Grid</div>
+                                            <div class="e-label-val">2.6 kW</div>
+                                        </div>
+                                        <div class="e-label e-load">
+                                            <div class="e-label-title">Home Load</div>
+                                            <div class="e-label-val">3.15 kW</div>
+                                        </div>
+                                        <div class="e-label e-storage">
+                                            <div class="e-label-title">Storage</div>
+                                            <div class="e-label-val">1.45 kW <span style="font-size:10px;color:#888">&bull; 80%</span></div>
+                                        </div>
+                                        
+                                        <!-- House with solar panels -->
+                                        <img src="https://images.unsplash.com/photo-1558036117-15d82a90b9b1?w=400&q=80&auto=format&fit=crop" 
+                                             alt="Modern house with solar panels"
+                                             style="max-height: 90%; max-width: 80%; object-fit: cover; border-radius: 12px;">
+                                    </div>
+                                    
+                                    <!-- Stats row -->
+                                    <div class="screen-card" style="margin-bottom:6px">
+                                        <div class="screen-stats">
+                                            <div class="screen-stat-item">
+                                                <div class="ss-label">Earning</div>
+                                                <div class="ss-val">$ 686</div>
+                                            </div>
+                                            <div style="width:1px;height:22px;background:#eee"></div>
+                                            <div class="screen-stat-item">
+                                                <div class="ss-label">CO<sub style="font-size:6px">2</sub> Savings</div>
+                                                <div class="ss-val">2.45 t</div>
+                                            </div>
+                                            <div style="width:1px;height:22px;background:#eee"></div>
+                                            <div class="screen-stat-item">
+                                                <div class="ss-label">Produced</div>
+                                                <div class="ss-val">2.45 MWh</div>
+                                            </div>
+                                            <svg width="7" height="12" viewBox="0 0 7 12" fill="none" stroke="#ccc" stroke-width="1.5" stroke-linecap="round"><path d="M1 1l4.5 5L1 11"/></svg>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Time period tabs -->
+                                    <div class="screen-tabs">
+                                        <div class="s-tab active">
+                                            Day
+                                            <span class="s-tab-sub">Oct. 21</span>
+                                        </div>
+                                        <div class="s-tab">Week</div>
+                                        <div class="s-tab">Month</div>
+                                        <div class="s-tab">Year</div>
+                                    </div>
+                                    
+                                    <!-- Bottom navigation -->
+                                    <div class="screen-bottomnav">
+                                        <div class="bn-item active">
+                                            <i class="ri-home-5-fill"></i>
+                                            Home
+                                        </div>
+                                        <div class="bn-item">
+                                            <i class="ri-smartphone-line"></i>
+                                            Devices
+                                        </div>
+                                        <div class="bn-item">
+                                            <i class="ri-user-3-line"></i>
+                                            Profile
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="screen-homebar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 
+            ============================================================================
             MARKETPLACE SECTION
             ============================================================================
             - Energy trading platform overview
             - Benefits visualization
             - Interactive chart
         -->
-        <section id="app" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <section id="app" class="py-20 relative z-10">
             <div class="container mx-auto px-6">
                 <!-- Section Header -->
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <h2 class="text-4xl lg:text-5xl font-bold mb-6 reveal stagger-1">The Ntronix Mobile App</h2>
-                    <p class="text-xl text-gray-600 dark:text-gray-300 reveal stagger-2">
+                    <p class="text-xl text-white/60 reveal stagger-2">
                         Control your entire energy system from your phone. Available on Android and iOS.
                     </p>
                 </div>
@@ -1381,24 +2039,24 @@
                 <!-- App Features Grid -->
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
                     <div class="card p-6 sm:p-8 text-center">
-                        <div class="w-16 h-16 mx-auto flex items-center justify-center bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 rounded-2xl mb-6">
-                            <i class="ri-bluetooth-line text-3xl text-primary-600 dark:text-primary-300" aria-hidden="true"></i>
+                        <div class="w-16 h-16 mx-auto flex items-center justify-center bg-gradient-to-br from-accent-purple/15 to-accent-teal/15 rounded-2xl mb-6">
+                            <i class="ri-bluetooth-line text-3xl text-accent-teal" aria-hidden="true"></i>
                         </div>
                         <h3 class="text-2xl font-bold mb-4">Smart Device Control</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        <p class="text-white/60 mb-6">
                              Connect via Bluetooth or cloud. Toggle AC, DC, and USB outputs, monitor battery and solar in real-time.
                         </p>
                         <ul class="text-left space-y-3 mb-6">
                             <li class="flex items-center gap-3">
-                                <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
                                 Bluetooth &amp; WiFi connectivity
                             </li>
                             <li class="flex items-center gap-3">
-                                <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
                                 AC/DC/USB output toggle
                             </li>
                             <li class="flex items-center gap-3">
-                                <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
                                 Real-time battery &amp; solar monitoring
                             </li>
                         </ul>
@@ -1408,24 +2066,24 @@
                     </div>
                     
                     <div class="card p-6 sm:p-8 text-center">
-                        <div class="w-16 h-16 mx-auto flex items-center justify-center bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 rounded-2xl mb-6">
-                            <i class="ri-robot-2-line text-3xl text-primary-600 dark:text-primary-300" aria-hidden="true"></i>
+                        <div class="w-16 h-16 mx-auto flex items-center justify-center bg-gradient-to-br from-accent-purple/15 to-accent-teal/15 rounded-2xl mb-6">
+                            <i class="ri-robot-2-line text-3xl text-accent-teal" aria-hidden="true"></i>
                         </div>
                         <h3 class="text-2xl font-bold mb-4">Volta AI Assistant</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        <p class="text-white/60 mb-6">
                              Your built-in AI assistant. Just tell Volta what you need — "turn on AC", "set a 2-hour timer", or "how's my battery?"
                         </p>
                         <ul class="text-left space-y-3 mb-6">
                             <li class="flex items-center gap-3">
-                                <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
                                 Voice and text device control
                             </li>
                             <li class="flex items-center gap-3">
-                                <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
                                 Energy tips and troubleshooting
                             </li>
                             <li class="flex items-center gap-3">
-                                <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
                                 Smart scheduling suggestions
                             </li>
                         </ul>
@@ -1435,24 +2093,24 @@
                     </div>
                     
                     <div class="card p-6 sm:p-8 text-center">
-                        <div class="w-16 h-16 mx-auto flex items-center justify-center bg-gradient-to-br from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 rounded-2xl mb-6">
-                            <i class="ri-bar-chart-box-line text-3xl text-primary-600 dark:text-primary-300" aria-hidden="true"></i>
+                        <div class="w-16 h-16 mx-auto flex items-center justify-center bg-gradient-to-br from-accent-purple/15 to-accent-teal/15 rounded-2xl mb-6">
+                            <i class="ri-bar-chart-box-line text-3xl text-accent-teal" aria-hidden="true"></i>
                         </div>
                         <h3 class="text-2xl font-bold mb-4">Energy Analytics</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        <p class="text-white/60 mb-6">
                             Track consumption, cost savings, and carbon footprint with multi-currency support including UGX.
                         </p>
                         <ul class="text-left space-y-3 mb-6">
                             <li class="flex items-center gap-3">
-                                <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
                                 Daily/weekly/monthly charts
                             </li>
                             <li class="flex items-center gap-3">
-                                <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
                                 Multi-currency cost tracking
                             </li>
                             <li class="flex items-center gap-3">
-                                <i class="ri-check-line text-primary-500" aria-hidden="true"></i>
+                                <i class="ri-check-line text-accent-teal" aria-hidden="true"></i>
                                 CSV &amp; PDF data export
                             </li>
                         </ul>
@@ -1470,27 +2128,27 @@
                         
                         <div class="space-y-6">
                             <div class="flex gap-5">
-                                <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-primary-100 dark:bg-primary-900/30 rounded-xl">
-                                    <i class="ri-settings-3-line text-primary-600 dark:text-primary-300 text-2xl" aria-hidden="true"></i>
+                                <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-white/5 rounded-xl">
+                                    <i class="ri-settings-3-line text-accent-teal text-2xl" aria-hidden="true"></i>
                                 </div>
                                 <div>
                                     <h4 class="text-xl font-bold mb-2">Smart Automation</h4>
-                                    <p class="text-gray-600 dark:text-gray-300 mb-3">
+                                    <p class="text-white/60 mb-3">
                                          Set automatic rules that respond to your energy needs. Turn on outputs at specific times, protect your battery, or react to solar and grid changes — all hands-free.
                                     </p>
-                                    <div class="bg-gray-50 dark:bg-gray-700/50 rounded-xl p-4">
+                                    <div class="bg-white/5 rounded-xl p-4">
                                         <div class="grid grid-cols-3 gap-3">
                                             <div class="text-center">
-                                                <div class="text-xl font-bold text-primary-600 dark:text-primary-300">Time</div>
-                                                <div class="text-xs text-gray-500 dark:text-gray-400">Schedules</div>
+                                                <div class="text-xl font-bold text-accent-teal">Time</div>
+                                                <div class="text-xs text-white/40">Schedules</div>
                                             </div>
                                             <div class="text-center">
-                                                <div class="text-xl font-bold text-primary-600 dark:text-primary-300">Battery</div>
-                                                <div class="text-xs text-gray-500 dark:text-gray-400">Protection</div>
+                                                <div class="text-xl font-bold text-accent-teal">Battery</div>
+                                                <div class="text-xs text-white/40">Protection</div>
                                             </div>
                                             <div class="text-center">
-                                                <div class="text-xl font-bold text-primary-600 dark:text-primary-300">Solar</div>
-                                                <div class="text-xs text-gray-500 dark:text-gray-400">Priority</div>
+                                                <div class="text-xl font-bold text-accent-teal">Solar</div>
+                                                <div class="text-xs text-white/40">Priority</div>
                                             </div>
                                         </div>
                                     </div>
@@ -1498,26 +2156,26 @@
                             </div>
                             
                             <div class="flex gap-5">
-                                <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-primary-100 dark:bg-primary-900/30 rounded-xl">
-                                    <i class="ri-hand text-primary-600 dark:text-primary-300 text-2xl" aria-hidden="true"></i>
+                                <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-white/5 rounded-xl">
+                                    <i class="ri-hand text-accent-teal text-2xl" aria-hidden="true"></i>
                                 </div>
                                 <div>
                                     <h4 class="text-xl font-bold mb-2">Hand Gesture Control</h4>
-                                    <p class="text-gray-600 dark:text-gray-300 mb-3">
+                                    <p class="text-white/60 mb-3">
                                         Use hand gestures through your phone camera to control your powerwall — no touching needed. Turn AC on with a fist-to-palm, toggle DC with a peace sign, and more.
                                     </p>
                                     <div class="grid grid-cols-3 gap-3">
-                                        <div class="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 text-center">
-                                            <div class="text-xl font-bold text-primary-600 dark:text-primary-300">10</div>
-                                            <div class="text-xs text-gray-500 dark:text-gray-400">Gestures</div>
+                                        <div class="bg-white/5 rounded-lg p-3 text-center">
+                                            <div class="text-xl font-bold text-accent-teal">10</div>
+                                            <div class="text-xs text-white/40">Gestures</div>
                                         </div>
-                                        <div class="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 text-center">
-                                            <div class="text-xl font-bold text-primary-600 dark:text-primary-300">Hands</div>
-                                            <div class="text-xs text-gray-500 dark:text-gray-400">Free</div>
+                                        <div class="bg-white/5 rounded-lg p-3 text-center">
+                                            <div class="text-xl font-bold text-accent-teal">Hands</div>
+                                            <div class="text-xs text-white/40">Free</div>
                                         </div>
-                                        <div class="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 text-center">
-                                            <div class="text-xl font-bold text-primary-600 dark:text-primary-300">Live</div>
-                                            <div class="text-xs text-gray-500 dark:text-gray-400">Camera</div>
+                                        <div class="bg-white/5 rounded-lg p-3 text-center">
+                                            <div class="text-xl font-bold text-accent-teal">Live</div>
+                                            <div class="text-xs text-white/40">Camera</div>
                                         </div>
                                     </div>
                                 </div>
@@ -1557,12 +2215,12 @@
             - Interactive technology chart
             - Performance metrics
         -->
-        <section id="technology" class="py-20 bg-white dark:bg-gray-900">
+        <section id="technology" class="py-20 relative z-10">
             <div class="container mx-auto px-6">
                 <!-- Section Header -->
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <h2 class="text-4xl lg:text-5xl font-bold mb-6 reveal stagger-1">Engineering &amp; Technology</h2>
-                    <p class="text-xl text-gray-600 dark:text-gray-300 reveal stagger-2">
+                    <p class="text-xl text-white/60 reveal stagger-2">
                         Purpose-built hardware and software working together — advanced solar charging, pure sine wave output, encrypted connectivity, and intelligent energy management.
                     </p>
                 </div>
@@ -1571,43 +2229,43 @@
                 <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
                     <div class="space-y-8">
                         <div>
-                            <span class="inline-block px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-200 rounded-full text-sm font-medium mb-4">
+                            <span class="inline-block px-3 py-1 bg-white/5 text-accent-teal rounded-full text-sm font-medium mb-4">
                                 ENGINEERED
                             </span>
                             <h3 class="text-3xl font-bold mb-4">Purpose-Built Hardware</h3>
-                            <p class="text-gray-600 dark:text-gray-300 text-lg">
+                            <p class="text-white/60 text-lg">
                                 Each Volta powerwall uses dedicated processors for connectivity, solar charging, and AC generation — designed to work together seamlessly. The result is reliable, efficient power conversion with intelligent monitoring and protection built in at every level.
                             </p>
                         </div>
                         
                         <div class="space-y-6">
                             <div class="flex gap-5">
-                                <div class="w-14 h-14 flex-shrink-0 flex items-center justify-center bg-primary-100 dark:bg-primary-900/30 rounded-xl">
-                                    <i class="ri-wifi-line text-primary-600 dark:text-primary-300 text-2xl" aria-hidden="true"></i>
+                                <div class="w-14 h-14 flex-shrink-0 flex items-center justify-center bg-white/5 rounded-xl">
+                                    <i class="ri-wifi-line text-accent-teal text-2xl" aria-hidden="true"></i>
                                 </div>
                                 <div>
                                     <h4 class="text-xl font-bold mb-2">Bluetooth + WiFi + Cloud</h4>
-                                    <p class="text-gray-600 dark:text-gray-300">Encrypted Bluetooth pairing, secure cloud remote control, and wireless mesh networking for smart switches.</p>
+                                    <p class="text-white/60">Encrypted Bluetooth pairing, secure cloud remote control, and wireless mesh networking for smart switches.</p>
                                 </div>
                             </div>
                             
                             <div class="flex gap-5">
-                                <div class="w-14 h-14 flex-shrink-0 flex items-center justify-center bg-primary-100 dark:bg-primary-900/30 rounded-xl">
-                                    <i class="ri-sun-line text-primary-600 dark:text-primary-300 text-2xl" aria-hidden="true"></i>
+                                <div class="w-14 h-14 flex-shrink-0 flex items-center justify-center bg-white/5 rounded-xl">
+                                    <i class="ri-sun-line text-accent-teal text-2xl" aria-hidden="true"></i>
                                 </div>
                                 <div>
                                     <h4 class="text-xl font-bold mb-2">Smart Solar Charging</h4>
-                                    <p class="text-gray-600 dark:text-gray-300">Advanced maximum power point tracking with &gt;95% efficiency and support for LiFePO4, Li-Ion, Lead-Acid, AGM, and Gel batteries.</p>
+                                    <p class="text-white/60">Advanced maximum power point tracking with &gt;95% efficiency and support for LiFePO4, Li-Ion, Lead-Acid, AGM, and Gel batteries.</p>
                                 </div>
                             </div>
                             
                             <div class="flex gap-5">
-                                <div class="w-14 h-14 flex-shrink-0 flex items-center justify-center bg-primary-100 dark:bg-primary-900/30 rounded-xl">
-                                    <i class="ri-shield-check-line text-primary-600 dark:text-primary-300 text-2xl" aria-hidden="true"></i>
+                                <div class="w-14 h-14 flex-shrink-0 flex items-center justify-center bg-white/5 rounded-xl">
+                                    <i class="ri-shield-check-line text-accent-teal text-2xl" aria-hidden="true"></i>
                                 </div>
                                 <div>
                                     <h4 class="text-xl font-bold mb-2">Safety &amp; Protection</h4>
-                                    <p class="text-gray-600 dark:text-gray-300">Multi-layer protection against overvoltage, overcurrent, overtemperature, and short circuits with automatic recovery.</p>
+                                    <p class="text-white/60">Multi-layer protection against overvoltage, overcurrent, overtemperature, and short circuits with automatic recovery.</p>
                                 </div>
                             </div>
                         </div>
@@ -1622,35 +2280,35 @@
                 <!-- Tech Features Grid -->
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                     <div class="card p-4 sm:p-6 text-center">
-                        <div class="w-12 h-12 mx-auto rounded-xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mb-4">
-                            <i class="ri-cpu-line text-primary-600 dark:text-primary-300 text-xl" aria-hidden="true"></i>
+                        <div class="w-12 h-12 mx-auto rounded-xl bg-white/5 flex items-center justify-center mb-4">
+                            <i class="ri-cpu-line text-accent-teal text-xl" aria-hidden="true"></i>
                         </div>
                         <h4 class="text-xl font-bold mb-3">Pure Sine Wave Output</h4>
-                        <p class="text-gray-600 dark:text-gray-300">Clean, stable AC power safe for sensitive electronics — laptops, medical devices, and appliances.</p>
+                        <p class="text-white/60">Clean, stable AC power safe for sensitive electronics — laptops, medical devices, and appliances.</p>
                     </div>
                     
                     <div class="card p-6 text-center">
-                        <div class="w-12 h-12 mx-auto rounded-xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mb-4">
-                            <i class="ri-shield-keyhole-line text-primary-600 dark:text-primary-300 text-xl" aria-hidden="true"></i>
+                        <div class="w-12 h-12 mx-auto rounded-xl bg-white/5 flex items-center justify-center mb-4">
+                            <i class="ri-shield-keyhole-line text-accent-teal text-xl" aria-hidden="true"></i>
                         </div>
                         <h4 class="text-xl font-bold mb-3">Secure Device Pairing</h4>
-                        <p class="text-gray-600 dark:text-gray-300">PIN-based pairing displayed on the device screen. Share access with family using invite codes with role-based permissions.</p>
+                        <p class="text-white/60">PIN-based pairing displayed on the device screen. Share access with family using invite codes with role-based permissions.</p>
                     </div>
                     
                     <div class="card p-6 text-center">
-                        <div class="w-12 h-12 mx-auto rounded-xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mb-4">
-                            <i class="ri-flashlight-line text-primary-600 dark:text-primary-300 text-xl" aria-hidden="true"></i>
+                        <div class="w-12 h-12 mx-auto rounded-xl bg-white/5 flex items-center justify-center mb-4">
+                            <i class="ri-flashlight-line text-accent-teal text-xl" aria-hidden="true"></i>
                         </div>
                         <h4 class="text-xl font-bold mb-3">UPS Bypass Mode</h4>
-                        <p class="text-gray-600 dark:text-gray-300">Instant switchover keeps your devices running when the grid drops — available on the VC-3000.</p>
+                        <p class="text-white/60">Instant switchover keeps your devices running when the grid drops — available on the VC-3000.</p>
                     </div>
                     
                     <div class="card p-6 text-center">
-                        <div class="w-12 h-12 mx-auto rounded-xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mb-4">
-                            <i class="ri-global-line text-primary-600 dark:text-primary-300 text-xl" aria-hidden="true"></i>
+                        <div class="w-12 h-12 mx-auto rounded-xl bg-white/5 flex items-center justify-center mb-4">
+                            <i class="ri-global-line text-accent-teal text-xl" aria-hidden="true"></i>
                         </div>
                         <h4 class="text-xl font-bold mb-3">OTA Firmware Updates</h4>
-                        <p class="text-gray-600 dark:text-gray-300">Remote firmware management with version history and model-specific selection via the mobile app.</p>
+                        <p class="text-white/60">Remote firmware management with version history and model-specific selection via the mobile app.</p>
                     </div>
                 </div>
             </div>
@@ -1661,40 +2319,40 @@
             TRACTION & INVESTOR SECTION
             ============================================================================
         -->
-        <section id="invest" class="py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+        <section id="invest" class="py-20 relative z-10 text-white">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="inline-block px-4 py-2 bg-emerald-500/20 text-emerald-300 rounded-full text-sm font-semibold mb-4 border border-emerald-500/30">
+                    <span class="inline-block px-4 py-2 bg-accent-teal/10 text-accent-teal rounded-full text-sm font-semibold mb-4 border border-accent-teal/20">
                         <i class="ri-funds-line mr-2" aria-hidden="true"></i>
                         INVESTMENT OPPORTUNITY
                     </span>
                     <h2 class="text-4xl lg:text-5xl font-bold mb-6 reveal stagger-1">We're Raising Capital</h2>
-                    <p class="text-xl text-gray-300 reveal stagger-2">
+                    <p class="text-xl text-white/60 reveal stagger-2">
                         Ntronix is proven technology looking for investment to scale. Our first unit has been in the field since December 2025 with zero issues. We're building the second prototype now.
                     </p>
                 </div>
                 
                 <!-- Traction Stats -->
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center reveal stagger-1">
-                        <div class="text-3xl font-extrabold text-emerald-400 mb-2">1st Unit Sold</div>
-                        <div class="text-gray-400 text-sm">December 4, 2025</div>
-                        <div class="text-gray-500 text-xs mt-1">Customer: Agaba Peter</div>
+                    <div class="card p-6 text-center reveal stagger-1">
+                        <div class="text-3xl font-extrabold text-accent-teal mb-2">1st Unit Sold</div>
+                        <div class="text-white/40 text-sm">December 4, 2025</div>
+                        <div class="text-white/30 text-xs mt-1">Customer: Agaba Peter</div>
                     </div>
-                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center reveal stagger-2">
-                        <div class="text-3xl font-extrabold text-emerald-400 mb-2">UGX 400,000</div>
-                        <div class="text-gray-400 text-sm">First Sale Price</div>
-                        <div class="text-gray-500 text-xs mt-1">Profitable at prototype scale</div>
+                    <div class="card p-6 text-center reveal stagger-2">
+                        <div class="text-3xl font-extrabold text-accent-teal mb-2">UGX 400,000</div>
+                        <div class="text-white/40 text-sm">First Sale Price</div>
+                        <div class="text-white/30 text-xs mt-1">Profitable at prototype scale</div>
                     </div>
-                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center reveal stagger-3">
-                        <div class="text-3xl font-extrabold text-emerald-400 mb-2">0 Issues</div>
-                        <div class="text-gray-400 text-sm">Since Deployment</div>
-                        <div class="text-gray-500 text-xs mt-1">6 months in the field</div>
+                    <div class="card p-6 text-center reveal stagger-3">
+                        <div class="text-3xl font-extrabold text-accent-teal mb-2">0 Issues</div>
+                        <div class="text-white/40 text-sm">Since Deployment</div>
+                        <div class="text-white/30 text-xs mt-1">6 months in the field</div>
                     </div>
-                    <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center reveal stagger-4">
-                        <div class="text-3xl font-extrabold text-emerald-400 mb-2">2nd Prototype</div>
-                        <div class="text-gray-400 text-sm">Currently In Progress</div>
-                        <div class="text-gray-500 text-xs mt-1">Improved design</div>
+                    <div class="card p-6 text-center reveal stagger-4">
+                        <div class="text-3xl font-extrabold text-accent-teal mb-2">2nd Prototype</div>
+                        <div class="text-white/40 text-sm">Currently In Progress</div>
+                        <div class="text-white/30 text-xs mt-1">Improved design</div>
                     </div>
                 </div>
                 
@@ -1704,49 +2362,49 @@
                         <h3 class="text-3xl font-bold">Why Invest in Ntronix</h3>
                         
                         <div class="flex gap-4 items-start">
-                            <div class="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="ri-check-line text-emerald-400 text-xl" aria-hidden="true"></i>
+                            <div class="w-10 h-10 rounded-full bg-accent-teal/15 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="ri-check-line text-accent-teal text-xl" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h4 class="text-lg font-bold mb-1">First Mover in East Africa</h4>
-                                <p class="text-gray-400">No one else is manufacturing smart inverters locally. We own this space.</p>
+                                <p class="text-white/40">No one else is manufacturing smart inverters locally. We own this space.</p>
                             </div>
                         </div>
                         
                         <div class="flex gap-4 items-start">
-                            <div class="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="ri-check-line text-emerald-400 text-xl" aria-hidden="true"></i>
+                            <div class="w-10 h-10 rounded-full bg-accent-teal/15 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="ri-check-line text-accent-teal text-xl" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h4 class="text-lg font-bold mb-1">Proven Product, Not Just an Idea</h4>
-                                <p class="text-gray-400">We have a paying customer and a working product in the field. This isn't a pitch deck — it's real hardware generating real revenue.</p>
+                                <p class="text-white/40">We have a paying customer and a working product in the field. This isn't a pitch deck — it's real hardware generating real revenue.</p>
                             </div>
                         </div>
                         
                         <div class="flex gap-4 items-start">
-                            <div class="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="ri-check-line text-emerald-400 text-xl" aria-hidden="true"></i>
+                            <div class="w-10 h-10 rounded-full bg-accent-teal/15 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="ri-check-line text-accent-teal text-xl" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h4 class="text-lg font-bold mb-1">Massive Addressable Market</h4>
-                                <p class="text-gray-400">600M+ people without reliable power. East Africa's solar market is projected to grow 20%+ annually. We're positioned to capture it locally.</p>
+                                <p class="text-white/40">600M+ people without reliable power. East Africa's solar market is projected to grow 20%+ annually. We're positioned to capture it locally.</p>
                             </div>
                         </div>
                         
                         <div class="flex gap-4 items-start">
-                            <div class="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                                <i class="ri-check-line text-emerald-400 text-xl" aria-hidden="true"></i>
+                            <div class="w-10 h-10 rounded-full bg-accent-teal/15 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="ri-check-line text-accent-teal text-xl" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <h4 class="text-lg font-bold mb-1">Full IP Ownership</h4>
-                                <p class="text-gray-400">We own every layer — hardware, firmware, mobile app, AI, cloud. No licensing fees, no foreign dependencies.</p>
+                                <p class="text-white/40">We own every layer — hardware, firmware, mobile app, AI, cloud. No licensing fees, no foreign dependencies.</p>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Testimonial -->
                     <div class="space-y-8">
-                        <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
+                        <div class="card p-8">
                             <div class="flex items-center gap-1 text-amber-400 mb-4">
                                 <i class="ri-star-fill"></i>
                                 <i class="ri-star-fill"></i>
@@ -1754,26 +2412,26 @@
                                 <i class="ri-star-fill"></i>
                                 <i class="ri-star-fill"></i>
                             </div>
-                            <blockquote class="text-lg text-gray-200 mb-6 italic">
+                            <blockquote class="text-lg text-white/70 mb-6 italic">
                                 "I bought the first Ntronix powerwall in December 2025. It has been running since then with no problems at all. I can control everything from my phone. Nothing like this exists from any other local company."
                             </blockquote>
                             <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center text-white font-bold text-lg">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-accent-teal to-accent-purple flex items-center justify-center text-white font-bold text-lg">
                                     AP
                                 </div>
                                 <div>
                                     <div class="font-bold text-white">Agaba Peter</div>
-                                    <div class="text-gray-400 text-sm">First Ntronix Customer — December 2025</div>
+                                    <div class="text-white/40 text-sm">First Ntronix Customer — December 2025</div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="text-center">
-                            <a href="#contact" class="btn bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-10 py-4 text-lg rounded-button hover:shadow-lg hover:shadow-emerald-500/25 transition-all inline-flex items-center gap-2">
+                            <a href="#contact" class="btn btn-primary px-10 py-4 text-lg transition-all inline-flex items-center gap-2">
                                 <i class="ri-funds-line" aria-hidden="true"></i>
                                 Invest in Ntronix
                             </a>
-                            <p class="text-gray-500 text-sm mt-3">Or call us directly: 0790 737 778</p>
+                            <p class="text-white/30 text-sm mt-3">Or call us directly: 0792 623 008</p>
                         </div>
                     </div>
                 </div>
@@ -1789,12 +2447,12 @@
             - Awards and recognition
             - Mission statement
         -->
-        <section id="about" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <section id="about" class="py-20 relative z-10">
             <div class="container mx-auto px-6">
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
                     <!-- Founder Image -->
                     <div class="relative reveal stagger-1">
-                        <div class="absolute -top-6 -left-6 w-24 h-24 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500 -z-10"></div>
+                        <div class="absolute -top-6 -left-6 w-24 h-24 rounded-2xl bg-gradient-to-br from-accent-teal to-accent-purple -z-10"></div>
                         
                         <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop" 
                              alt="Ntronix team — Kampala, Uganda" 
@@ -1804,7 +2462,7 @@
                         <!-- Location Badge -->
                         <div class="absolute bottom-6 right-6 glass rounded-2xl p-5 shadow-xl max-w-xs">
                             <div class="flex items-start gap-3">
-                                <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-amber-400 to-amber-500 flex items-center justify-center flex-shrink-0">
+                                <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-accent-teal to-accent-purple flex items-center justify-center flex-shrink-0">
                                     <i class="ri-medal-line text-white text-xl" aria-hidden="true"></i>
                                 </div>
                                 <div>
@@ -1818,7 +2476,7 @@
                     <!-- Company & Founder Info -->
                     <div class="space-y-8">
                         <h2 class="text-4xl lg:text-5xl font-bold reveal stagger-2">About Ntronix</h2>
-                        <p class="text-xl text-gray-600 dark:text-gray-300 reveal stagger-3">
+                        <p class="text-xl text-white/60 reveal stagger-3">
                             Ntronix is a clean-energy technology startup focused on advanced powerwalls, hybrid inverters, and intelligent energy systems — designed and built in Uganda for African and global markets.
                         </p>
                         
@@ -1832,7 +2490,7 @@
                                      title="Click to view full photo">
                                 <div>
                                     <h4 class="text-2xl font-bold mb-2">Ankunda Nelson — Founder &amp; CEO</h4>
-                                    <p class="text-gray-600 dark:text-gray-300">
+                                    <p class="text-white/60">
                                         A Ugandan engineer, educator, and largely self-taught embedded systems specialist. Trained as a teacher of Physics and Mathematics, Nelson combines deep technical expertise with strong analytical skills developed through extensive self-driven learning in embedded systems, power electronics, and renewable energy. He has independently designed and developed working energy prototypes with a focus on efficient hardware-software integration.
                                     </p>
                                 </div>
@@ -1840,12 +2498,12 @@
                             
                             <!-- Full-Stack -->
                             <div class="flex gap-5 items-start reveal stagger-2">
-                                <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-primary-100 dark:bg-primary-900/30 rounded-xl">
-                                    <i class="ri-cpu-line text-primary-600 dark:text-primary-300 text-2xl" aria-hidden="true"></i>
+                                <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-white/5 rounded-xl">
+                                    <i class="ri-cpu-line text-accent-teal text-2xl" aria-hidden="true"></i>
                                 </div>
                                 <div>
                                     <h4 class="text-2xl font-bold mb-2">Full-Stack Hardware Company</h4>
-                                    <p class="text-gray-600 dark:text-gray-300">
+                                    <p class="text-white/60">
                                         From circuit board design to firmware to mobile app development — we own the entire technology stack. Every component is engineered in-house with no outsourced modules.
                                     </p>
                                 </div>
@@ -1853,12 +2511,12 @@
                             
                             <!-- Partnership -->
                             <div class="flex gap-5 items-start reveal stagger-3">
-                                <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-primary-100 dark:bg-primary-900/30 rounded-xl">
-                                    <i class="ri-handshake-line text-primary-600 dark:text-primary-300 text-2xl" aria-hidden="true"></i>
+                                <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-white/5 rounded-xl">
+                                    <i class="ri-handshake-line text-accent-teal text-2xl" aria-hidden="true"></i>
                                 </div>
                                 <div>
                                     <h4 class="text-2xl font-bold mb-2">Open for Partnership</h4>
-                                    <p class="text-gray-600 dark:text-gray-300">
+                                    <p class="text-white/60">
                                         We are actively seeking investors, distributors, and partners. If you believe in African-built technology and clean energy, let's talk.
                                     </p>
                                 </div>
@@ -1885,12 +2543,12 @@
             - Multiple contact methods
             - Google Maps integration (optional)
         -->
-        <section id="contact" class="py-20 bg-white dark:bg-gray-900">
+        <section id="contact" class="py-20 relative z-10">
             <div class="container mx-auto px-6">
                 <!-- Section Header -->
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <h2 class="text-4xl lg:text-5xl font-bold mb-6 reveal stagger-1">Get in Touch</h2>
-                    <p class="text-xl text-gray-600 dark:text-gray-300 reveal stagger-2">
+                    <p class="text-xl text-white/60 reveal stagger-2">
                         Whether you want to buy a powerwall, invest in Ntronix, distribute our products, or just learn more — we want to hear from you.
                     </p>
                 </div>
@@ -1901,7 +2559,7 @@
                         <form id="contactForm" class="grid md:grid-cols-2 gap-6" novalidate>
                             <!-- Name Field -->
                             <div class="stagger-reveal stagger-1">
-                                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                <label for="name" class="block text-sm font-medium text-white/60 mb-2">
                                     Full Name *
                                 </label>
                                 <input type="text" 
@@ -1916,7 +2574,7 @@
                             
                             <!-- Email Field -->
                             <div class="stagger-reveal stagger-2">
-                                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                <label for="email" class="block text-sm font-medium text-white/60 mb-2">
                                     Email Address *
                                 </label>
                                 <input type="email" 
@@ -1931,7 +2589,7 @@
                             
                             <!-- Subject Field -->
                             <div class="md:col-span-2 stagger-reveal stagger-3">
-                                <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                <label for="subject" class="block text-sm font-medium text-white/60 mb-2">
                                     Subject *
                                 </label>
                                 <input type="text" 
@@ -1946,7 +2604,7 @@
                             
                             <!-- Message Field -->
                             <div class="md:col-span-2 stagger-reveal stagger-4">
-                                <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                <label for="message" class="block text-sm font-medium text-white/60 mb-2">
                                     Message *
                                 </label>
                                 <textarea id="message"
@@ -1968,7 +2626,7 @@
                                     <span class="btn-text">Send Message</span>
                                     <i class="ri-send-plane-line ml-2" aria-hidden="true"></i>
                                 </button>
-                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">
+                                <p class="text-sm text-white/40 mt-2">
                                     * Required fields. We typically respond within 24 hours.
                                 </p>
                             </div>
@@ -1978,11 +2636,11 @@
                     <!-- Contact Methods -->
                     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-12">
                         <div class="card p-6 text-center">
-                            <div class="w-16 h-16 mx-auto flex items-center justify-center bg-primary-100 dark:bg-primary-900/30 rounded-2xl mb-4">
-                                <i class="ri-map-pin-line text-2xl text-primary-600 dark:text-primary-300" aria-hidden="true"></i>
+                            <div class="w-16 h-16 mx-auto flex items-center justify-center bg-white/5 rounded-2xl mb-4">
+                                <i class="ri-map-pin-line text-2xl text-accent-teal" aria-hidden="true"></i>
                             </div>
                             <h4 class="text-xl font-bold mb-2">Visit Us</h4>
-                            <p class="text-gray-600 dark:text-gray-300">
+                            <p class="text-white/60">
                                 Kampala, Uganda<br>
                                 East Africa
                             </p>
@@ -1992,13 +2650,13 @@
                         </div>
                         
                         <div class="card p-6 text-center">
-                            <div class="w-16 h-16 mx-auto flex items-center justify-center bg-primary-100 dark:bg-primary-900/30 rounded-2xl mb-4">
-                                <i class="ri-phone-line text-2xl text-primary-600 dark:text-primary-300" aria-hidden="true"></i>
+                            <div class="w-16 h-16 mx-auto flex items-center justify-center bg-white/5 rounded-2xl mb-4">
+                                <i class="ri-phone-line text-2xl text-accent-teal" aria-hidden="true"></i>
                             </div>
                             <h4 class="text-xl font-bold mb-2">Call Us</h4>
-                            <p class="text-gray-600 dark:text-gray-300">
-                                0790 737 778 (WhatsApp)<br>
-                                0792 623 008
+                            <p class="text-white/60">
+                                0792 623 008 (Call)<br>
+                                0790 737 778 (WhatsApp)
                             </p>
                             <a href="https://wa.me/256790737778" target="_blank" rel="noopener" class="btn btn-secondary mt-4">
                                 WhatsApp Us
@@ -2006,11 +2664,11 @@
                         </div>
                         
                         <div class="card p-6 text-center">
-                            <div class="w-16 h-16 mx-auto flex items-center justify-center bg-primary-100 dark:bg-primary-900/30 rounded-2xl mb-4">
-                                <i class="ri-mail-line text-2xl text-primary-600 dark:text-primary-300" aria-hidden="true"></i>
+                            <div class="w-16 h-16 mx-auto flex items-center justify-center bg-white/5 rounded-2xl mb-4">
+                                <i class="ri-mail-line text-2xl text-accent-teal" aria-hidden="true"></i>
                             </div>
                             <h4 class="text-xl font-bold mb-2">Email Us</h4>
-                            <p class="text-gray-600 dark:text-gray-300">
+                            <p class="text-white/60">
                                 ntronixsmartcity@gmail.com
                             </p>
                             <a href="mailto:ntronixsmartcity@gmail.com" class="btn btn-secondary mt-4">
@@ -2025,33 +2683,33 @@
                             <div class="flex items-center gap-3">
                                 <div class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
                                 <h3 class="text-xl font-bold">Live Chat Support</h3>
-                                <span class="text-sm text-gray-500 dark:text-gray-400">Typically replies in 2 min</span>
+                                <span class="text-sm text-white/40">Typically replies in 2 min</span>
                             </div>
-                            <button id="clearChat" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                            <button id="clearChat" class="text-white/40 hover:text-white/70">
                                 <i class="ri-delete-bin-line" aria-hidden="true"></i>
                             </button>
                         </div>
                         
-                        <div class="h-64 overflow-y-auto p-4 bg-gray-50 dark:bg-gray-700/50 rounded-xl mb-4" id="chatMessages">
+                        <div class="h-64 overflow-y-auto p-4 bg-white/5 rounded-xl mb-4" id="chatMessages">
                             <div class="space-y-4">
                                 <div class="flex justify-start">
-                                    <div class="bg-white dark:bg-gray-600 rounded-lg p-3 max-w-xs shadow-sm">
-                                        <p class="text-gray-800 dark:text-white text-sm">
+                                    <div class="bg-white/10 rounded-lg p-3 max-w-xs shadow-sm">
+                                        <p class="text-white text-sm">
                                             Hello! I'm Volta, your Ntronix assistant. How can I help you today?
                                         </p>
-                                        <span class="text-xs text-gray-500 dark:text-gray-400 mt-1 block">10:23 AM</span>
+                                        <span class="text-xs text-white/40 mt-1 block">10:23 AM</span>
                                     </div>
                                 </div>
                                 
                                 <!-- Suggested Questions -->
                                 <div class="flex justify-start">
-                                    <div class="bg-white dark:bg-gray-600 rounded-lg p-3 max-w-xs shadow-sm">
+                                    <div class="bg-white/10 rounded-lg p-3 max-w-xs shadow-sm">
                                         <p class="text-sm font-medium mb-2">Quick questions:</p>
                                         <div class="space-y-2">
-                                            <button class="block w-full text-left text-sm text-primary-600 dark:text-primary-300 hover:underline" onclick="sendQuickMessage('Tell me about the VC product line')">
+                                            <button class="block w-full text-left text-sm text-accent-teal hover:underline" onclick="sendQuickMessage('Tell me about the VC product line')">
                                                 Tell me about the VC product line
                                             </button>
-                                            <button class="block w-full text-left text-sm text-primary-600 dark:text-primary-300 hover:underline" onclick="sendQuickMessage('How can I partner with Ntronix?')">
+                                            <button class="block w-full text-left text-sm text-accent-teal hover:underline" onclick="sendQuickMessage('How can I partner with Ntronix?')">
                                                 How can I partner with Ntronix?
                                             </button>
                                         </div>
@@ -2088,7 +2746,7 @@
         - Legal links
         - SEO optimized
     -->
-    <footer class="bg-gray-900 dark:bg-black text-white py-16">
+    <footer class="relative z-10 text-white py-16" style="background:rgba(10,10,26,0.8);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid rgba(255,255,255,0.06)">
         <div class="container mx-auto px-6">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10">
                 <!-- Company Info -->
@@ -2097,25 +2755,25 @@
                         <img src="company-logo.png" alt="Ntronix Logo" class="h-10 w-auto">
                         <span class="text-2xl brand-name">NTRONIX</span>
                     </div>
-                    <p class="text-gray-400 mb-6">
+                    <p class="text-white/40 mb-6">
                         Ugandan technology company building smart solar energy systems. Embedded systems, power electronics, and IoT solutions.
                     </p>
                     
                     <!-- Social Links -->
                     <div class="flex items-center gap-3">
-                        <a href="https://www.youtube.com/@ankundanelsoninnovator7493" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-red-600 transition-colors social-icon" aria-label="YouTube">
+                        <a href="https://www.youtube.com/@ankundanelsoninnovator7493" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-red-600 transition-colors social-icon" aria-label="YouTube">
                             <i class="ri-youtube-fill" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.facebook.com/ankunda.nelson.3" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors social-icon" aria-label="Facebook">
+                        <a href="https://www.facebook.com/ankunda.nelson.3" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-600 transition-colors social-icon" aria-label="Facebook">
                             <i class="ri-facebook-fill" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.instagram.com/ntronix_smart" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 transition-colors social-icon" aria-label="Instagram">
+                        <a href="https://www.instagram.com/ntronix_smart" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-pink-600 transition-colors social-icon" aria-label="Instagram">
                             <i class="ri-instagram-fill" aria-hidden="true"></i>
                         </a>
-                        <a href="https://x.com/InnovatorN5663" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-600 transition-colors social-icon" aria-label="X (Twitter)">
+                        <a href="https://x.com/InnovatorN5663" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors social-icon" aria-label="X (Twitter)">
                             <i class="ri-twitter-x-fill" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/ankunda-nelson-innovator-703368346" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-700 transition-colors social-icon" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/in/ankunda-nelson-innovator-703368346" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-700 transition-colors social-icon" aria-label="LinkedIn">
                             <i class="ri-linkedin-fill" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -2147,7 +2805,7 @@
                 <!-- Newsletter & Guarantees -->
                 <div>
                     <h4 class="text-xl font-bold mb-6">Stay Connected</h4>
-                    <p class="text-gray-400 mb-4">
+                    <p class="text-white/40 mb-4">
                         Subscribe to our newsletter for energy tips and exclusive offers.
                     </p>
                     
@@ -2155,11 +2813,11 @@
                     <form class="relative mb-6" id="newsletterForm">
                         <input type="email" 
                                placeholder="your@email.com" 
-                               class="w-full px-5 py-3 bg-gray-800 border border-gray-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/50 text-white"
+                               class="w-full px-5 py-3 bg-white/5 border border-white/15 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent-teal/30 text-white"
                                required
                                aria-label="Email for newsletter">
                         <button type="submit" 
-                                class="absolute right-1 top-1/2 -translate-y-1/2 text-primary-400 hover:text-primary-300 p-2 transition-colors"
+                                class="absolute right-1 top-1/2 -translate-y-1/2 text-accent-teal hover:text-white p-2 transition-colors"
                                 aria-label="Subscribe to newsletter">
                             <i class="ri-send-plane-line" aria-hidden="true"></i>
                         </button>
@@ -2167,16 +2825,16 @@
                     
                     <!-- Guarantees -->
                     <div class="space-y-3">
-                        <div class="flex items-center gap-2 text-gray-400 text-sm">
-                            <i class="ri-map-pin-line text-primary-400" aria-hidden="true"></i>
+                        <div class="flex items-center gap-2 text-white/40 text-sm">
+                            <i class="ri-map-pin-line text-accent-teal" aria-hidden="true"></i>
                             <span>Designed &amp; manufactured in Uganda</span>
                         </div>
-                        <div class="flex items-center gap-2 text-gray-400 text-sm">
-                            <i class="ri-secure-payment-line text-primary-400" aria-hidden="true"></i>
+                        <div class="flex items-center gap-2 text-white/40 text-sm">
+                            <i class="ri-secure-payment-line text-accent-teal" aria-hidden="true"></i>
                             <span>Encrypted cloud connectivity</span>
                         </div>
-                        <div class="flex items-center gap-2 text-gray-400 text-sm">
-                            <i class="ri-mail-line text-primary-400" aria-hidden="true"></i>
+                        <div class="flex items-center gap-2 text-white/40 text-sm">
+                            <i class="ri-mail-line text-accent-teal" aria-hidden="true"></i>
                             <span>WhatsApp &amp; email support</span>
                         </div>
                     </div>
@@ -2184,14 +2842,14 @@
             </div>
             
             <!-- Footer Bottom -->
-            <div class="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+            <div class="border-t border-white/10 mt-8 sm:mt-12 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-white/40 text-sm mb-4 md:mb-0">
                     &copy; 2024-2026 Ntronix Volta. All rights reserved.
                 </p>
                 
                 <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
-                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
-                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+                    <a href="#" class="text-white/40 hover:text-white text-sm transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-white/40 hover:text-white text-sm transition-colors">Terms of Service</a>
                 </div>
             </div>
         </div>
@@ -2234,11 +2892,11 @@
         const CONFIG = {
             animationDuration: 600,
             chartColors: {
-                primary: '#0ea5e9',
-                secondary: '#8b5cf6',
-                success: '#10b981',
-                warning: '#f59e0b',
-                danger: '#ef4444'
+                primary: '#00F5C4',
+                secondary: '#7B5CFA',
+                success: '#00F5C4',
+                warning: '#FF6B6B',
+                danger: '#FF6B6B'
             },
             breakpoints: {
                 mobile: 768,
@@ -2891,14 +3549,14 @@
                 
                 messageEl.innerHTML = `
                     <div class="${sender === 'user' 
-                        ? 'bg-primary-500 text-white' 
-                        : 'bg-white dark:bg-gray-600'} rounded-lg p-3 max-w-xs shadow-sm">
-                        <p class="${sender === 'user' ? '' : 'text-gray-800 dark:text-white'} text-sm">
+                        ? 'text-white' + ' bg-accent-purple' 
+                        : 'bg-white/10'} rounded-lg p-3 max-w-xs shadow-sm">
+                        <p class="${sender === 'user' ? '' : 'text-white'} text-sm">
                             ${this.escapeHtml(message)}
                         </p>
                         <span class="${sender === 'user' 
                             ? 'text-white/80' 
-                            : 'text-gray-500 dark:text-gray-400'} text-xs mt-1 block">${time}</span>
+                            : 'text-white/40'} text-xs mt-1 block">${time}</span>
                     </div>
                 `;
                 
@@ -2929,11 +3587,11 @@
             clearChat() {
                 this.chatMessages.innerHTML = `
                     <div class="flex justify-start">
-                        <div class="bg-white dark:bg-gray-600 rounded-lg p-3 max-w-xs shadow-sm">
-                            <p class="text-gray-800 dark:text-white text-sm">
+                        <div class="bg-white/10 rounded-lg p-3 max-w-xs shadow-sm">
+                            <p class="text-white text-sm">
                                             Chat cleared. How can I help you today?
                             </p>
-                            <span class="text-xs text-gray-500 dark:text-gray-400 mt-1 block">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                            <span class="text-xs text-white/40 mt-1 block">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
                         </div>
                     </div>
                 `;
@@ -3181,7 +3839,6 @@
             console.log('🚀 Ntronix website initializing...');
             
             // Initialize modules
-            ThemeManager.init();
             MobileMenu.init();
             ScrollAnimations.init();
             FormValidator.init();
