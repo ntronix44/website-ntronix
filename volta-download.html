@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Volta AI Engineer — Ntronix's professional firmware development platform for STM32, ESP32, power electronics and IoT. Enterprise licensing, training, and support available.">
+    <meta name="author" content="Ntronix Volta">
+    <link rel="canonical" href="https://ntronixvolta.netlify.app/volta-download.html">
+    <meta property="og:title" content="Volta AI Engineer — Ntronix Firmware Development Platform">
+    <meta property="og:description" content="Professional AI-assisted firmware development for the Ntronix hardware ecosystem. STM32, ESP32, power electronics.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://ntronixvolta.netlify.app/company-logo.png">
+
+    <link rel="icon" href="company-logo.png" type="image/png">
+    <title>Volta AI Engineer — Ntronix Firmware Platform</title>
+
+    <script src="https://cdn.tailwindcss.com/3.4.16?plugins=forms"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        accent: { teal: '#00F5C4', purple: '#7B5CFA', coral: '#FF6B6B' },
+                        dark: { base: '#0a0a1a', card: '#0f0f24', surface: '#141430' }
+                    },
+                    fontFamily: {
+                        display: ['Syne', 'sans-serif'],
+                        body: ['DM Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'DM Sans', sans-serif; background: #0a0a1a; color: #e2e8f0; }
+        .code-block { background: #0a0a1a; border: 1px solid #1e293b; border-radius: 0.5rem; padding: 1rem 1.25rem; font-family: 'Cascadia Code','Fira Code','JetBrains Mono','SF Mono',monospace; font-size: 0.85rem; line-height: 1.6; overflow-x: auto; white-space: pre; color: #00F5C4; }
+        .code-block.wrap { white-space: pre-wrap; word-break: break-all; }
+        .copy-btn { position: absolute; top: 0.5rem; right: 0.5rem; background: #1e293b; border: 1px solid transparent; color: #94a3b8; padding: 0.3rem 0.7rem; border-radius: 0.3rem; cursor: pointer; font-size: 0.7rem; font-family: 'DM Sans', sans-serif; transition: all 0.2s; display: flex; align-items: center; gap: 0.3rem; }
+        .copy-btn:hover { background: #334155; border-color: #00F5C4; color: #00F5C4; }
+        .copy-btn.copied { background: #00F5C4; color: #0a0a1a; border-color: #00F5C4; }
+        .card { background: #0f0f24; border: 1px solid rgba(255,255,255,0.05); border-radius: 0.75rem; padding: 1.75rem; transition: all 0.3s; }
+        .card:hover { border-color: rgba(255,255,255,0.1); }
+        .card-feature { background: #0f0f24; border: 1px solid rgba(255,255,255,0.05); border-radius: 0.75rem; padding: 1.5rem; transition: all 0.3s; }
+        .card-feature:hover { border-color: rgba(0,245,196,0.2); box-shadow: 0 0 20px rgba(0,245,196,0.08); }
+        .icon-box { width: 2.5rem; height: 2.5rem; display: flex; align-items: center; justify-content: center; background: rgba(0,245,196,0.1); border-radius: 0.75rem; font-size: 1.25rem; color: #00F5C4; flex-shrink: 0; }
+        .badge { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 500; }
+        .badge-teal { background: rgba(0,245,196,0.1); border: 1px solid rgba(0,245,196,0.2); color: #00F5C4; }
+        .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.75rem; border-radius: 0.5rem; background: #00F5C4; color: #0a0a1a; font-weight: 600; transition: all 0.2s; }
+        .btn-primary:hover { background: rgba(0,245,196,0.9); box-shadow: 0 0 20px rgba(0,245,196,0.2); }
+        .btn-outline { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.75rem; border-radius: 0.5rem; border: 1px solid rgba(255,255,255,0.1); color: #cbd5e1; transition: all 0.2s; font-weight: 500; }
+        .btn-outline:hover { border-color: #00F5C4; color: #fff; }
+        .pricing-card { background: #0f0f24; border: 1px solid rgba(255,255,255,0.05); border-radius: 1rem; padding: 2rem; transition: all 0.3s; position: relative; }
+        .pricing-card.featured { border-color: rgba(0,245,196,0.3); box-shadow: 0 0 30px rgba(0,245,196,0.08); }
+        .pricing-card.featured::before { content: 'Most Popular'; position: absolute; top: -0.75rem; left: 50%; transform: translateX(-50%); background: #00F5C4; color: #0a0a1a; font-size: 0.7rem; font-weight: 600; padding: 0.2rem 1rem; border-radius: 9999px; white-space: nowrap; }
+        .spec-table td { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 0.875rem; }
+        .spec-table td:first-child { color: #94a3b8; white-space: nowrap; padding-right: 2rem; }
+        .spec-table td:last-child { color: #e2e8f0; }
+        .spec-table tr:last-child td { border-bottom: none; }
+        ::selection { background: rgba(0,245,196,0.3); color: #fff; }
+    </style>
+</head>
+<body>
+
+<!-- ─── Navigation ─────────────────────────────────────────────────────── -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-dark-base/80 backdrop-blur-md border-b border-white/5">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="index.html" class="text-xl font-display font-bold tracking-wider">
+            <span class="text-accent-teal">NTRONIX</span> <span class="text-white/60 font-light">VOLTA</span>
+        </a>
+        <div class="hidden md:flex items-center gap-8 text-sm">
+            <a href="index.html#products" class="text-gray-400 hover:text-white transition">Products</a>
+            <a href="index.html#technology" class="text-gray-400 hover:text-white transition">Technology</a>
+            <a href="index.html#app" class="text-gray-400 hover:text-white transition">App</a>
+            <a href="volta-download.html" class="text-accent-teal font-medium">Volta AI</a>
+            <a href="index.html#contact" class="text-gray-400 hover:text-white transition">Contact</a>
+        </div>
+        <a href="index.html#contact" class="md:hidden text-accent-teal text-sm font-medium">Contact</a>
+    </div>
+</nav>
+<div class="h-16"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!--  HERO                                                                  -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section class="relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse at 30% 20%, rgba(0,245,196,0.06) 0%, transparent 60%);"></div>
+    <div class="max-w-5xl mx-auto px-6 pt-20 pb-16 text-center relative">
+        <div class="badge badge-teal mb-6 w-fit mx-auto">
+            <i class="ri-flashlight-fill text-xs"></i>
+            Ntronix Product &mdash; Made in Kampala
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight text-white">
+            Volta <span class="text-accent-teal">AI Engineer</span>
+        </h1>
+        <p class="text-gray-400 text-lg mt-5 max-w-3xl mx-auto leading-relaxed">
+            A professional firmware development platform for the Ntronix hardware ecosystem.
+            Develop, test, and deploy embedded firmware for STM32, ESP32, and power electronics &mdash;
+            with AI-assisted code generation, datasheet intelligence, and automated debugging.
+        </p>
+        <div class="flex flex-wrap gap-3 justify-center mt-8">
+            <a href="#pricing" class="btn-primary"><i class="ri-shopping-cart-line"></i> Licensing &amp; Pricing</a>
+            <a href="#capabilities" class="btn-outline"><i class="ri-flashlight-line"></i> Features</a>
+            <a href="#quick-start" class="btn-outline"><i class="ri-download-2-line"></i> Quick Start</a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!--  PRODUCT OVERVIEW                                                      -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section class="max-w-5xl mx-auto px-6 py-16">
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+            <div class="badge badge-teal mb-4">Product Overview</div>
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-white leading-tight">
+                Firmware Development,<br>
+                <span class="text-accent-teal">Reimagined for Africa</span>
+            </h2>
+            <p class="text-gray-400 mt-4 leading-relaxed">
+                Volta AI Engineer is Ntronix's in-house firmware development platform &mdash; the same tool our engineers
+                use to design and manufacture the Volta Powerwall line, MPPT charge controllers, and smart energy systems.
+                Now available to hardware engineers, integrators, and enterprises across Africa.
+            </p>
+            <p class="text-gray-500 mt-4 leading-relaxed text-sm">
+                Whether you're developing for Ntronix hardware, building your own embedded products,
+                or integrating IoT solutions &mdash; Volta handles the full lifecycle: from register-level
+                MCU configuration through production firmware, flashing, and field debugging.
+            </p>
+        </div>
+        <div class="space-y-4">
+            <div class="card">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="icon-box"><i class="ri-verified-badge-line"></i></div>
+                    <div>
+                        <h3 class="text-white font-semibold">Production Ready</h3>
+                        <p class="text-gray-500 text-sm">MISRA C:2012 compliant code generation</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="icon-box"><i class="ri-article-line"></i></div>
+                    <div>
+                        <h3 class="text-white font-semibold">Datasheet-Cited</h3>
+                        <p class="text-gray-500 text-sm">Every register and formula cites its source</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="icon-box"><i class="ri-flask-line"></i></div>
+                    <div>
+                        <h3 class="text-white font-semibold">Field-Proven</h3>
+                        <p class="text-gray-500 text-sm">Powers Ntronix Volta Powerwall, MPPT, and BMS products</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="icon-box"><i class="ri-community-line"></i></div>
+                    <div>
+                        <h3 class="text-white font-semibold">Built in Uganda</h3>
+                        <p class="text-gray-500 text-sm">Engineered in Kampala for African manufacturing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!--  CAPABILITIES                                                          -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section id="capabilities" class="max-w-6xl mx-auto px-6 py-20">
+    <div class="text-center mb-14">
+        <div class="badge badge-teal mb-4">Capabilities</div>
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-white">Platform Features</h2>
+        <p class="text-gray-500 mt-3 max-w-xl mx-auto">A full-spectrum firmware platform covering every stage of embedded product engineering.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="card-feature">
+            <div class="icon-box"><i class="ri-microchip-line"></i></div>
+            <h3 class="text-white font-semibold text-lg mt-4 mb-1">MCU Support</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">STM32 (F0/F1/F3/F4/G0/G4/H7/L4/U5), ESP32 (S2/S3/C3/C6), nRF52/nRF91, RP2040, AVR, GD32, CH32 (RISC-V).</p>
+        </div>
+        <div class="card-feature">
+            <div class="icon-box"><i class="ri-flashlight-line"></i></div>
+            <h3 class="text-white font-semibold text-lg mt-4 mb-1">Power Electronics</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">MPPT algorithms, buck/boost converters, sine-wave inverters, BMS state machines, battery charger profiles &mdash; with dead-time, shoot-through, and thermal protection built in.</p>
+        </div>
+        <div class="card-feature">
+            <div class="icon-box"><i class="ri-smartphone-line"></i></div>
+            <h3 class="text-white font-semibold text-lg mt-4 mb-1">Companion Apps</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Flutter mobile app development &mdash; Bluetooth LE, WiFi, cloud sync, real-time dashboards. Scaffold, analyze, test, and deploy.</p>
+        </div>
+        <div class="card-feature">
+            <div class="icon-box"><i class="ri-bug-line"></i></div>
+            <h3 class="text-white font-semibold text-lg mt-4 mb-1">Diagnostics &amp; Debug</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">HardFault and Guru Meditation decoder, stack trace analysis, FreeRTOS task/heap inspection, GDB integration, serial monitor.</p>
+        </div>
+        <div class="card-feature">
+            <div class="icon-box"><i class="ri-article-line"></i></div>
+            <h3 class="text-white font-semibold text-lg mt-4 mb-1">Datasheet Engine</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Import, index, and query PDF datasheets locally. Pinouts, register maps, electrical limits, and timing diagrams &mdash; searchable by part number.</p>
+        </div>
+        <div class="card-feature">
+            <div class="icon-box"><i class="ri-plug-line"></i></div>
+            <h3 class="text-white font-semibold text-lg mt-4 mb-1">Programming &amp; Flashing</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">ST-Link, JLink, esptool, OpenOCD, avrdude, probe-rs, DFU-util, WCH-Link &mdash; with flash verification and bootloop detection.</p>
+        </div>
+        <div class="card-feature">
+            <div class="icon-box"><i class="ri-shield-check-line"></i></div>
+            <h3 class="text-white font-semibold text-lg mt-4 mb-1">MISRA &amp; CERT-C Compliance</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Static analysis, rule checking, violation reporting. No dynamic allocation. Bounded loops. Production-grade code standards.</p>
+        </div>
+        <div class="card-feature">
+            <div class="icon-box"><i class="ri-git-branch-line"></i></div>
+            <h3 class="text-white font-semibold text-lg mt-4 mb-1">Planning &amp; Quality</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Multi-step plan generation, auto-created TODOs, architecture decision records, code coverage, memory map analysis, stack usage analysis.</p>
+        </div>
+        <div class="card-feature">
+            <div class="icon-box"><i class="ri-cloud-line"></i></div>
+            <h3 class="text-white font-semibold text-lg mt-4 mb-1">Multi-Model AI</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Switch between Gemini, Claude, and DeepSeek on the fly. Streaming responses, extended thinking, context compression for long sessions.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!--  NTRONIX ECOSYSTEM                                                     -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section class="max-w-5xl mx-auto px-6 py-16">
+    <div class="card text-center p-10 md:p-14" style="border-color: rgba(0,245,196,0.15);">
+        <div class="badge badge-teal mb-4">Ntronix Ecosystem</div>
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">
+            Designed for the <span class="text-accent-teal">Volta Powerwall</span> Line
+        </h2>
+        <p class="text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            Volta AI Engineer is the same platform Ntronix uses to develop firmware for the
+            VC-500, VC-1000, VC-2000, and VC-3000 hybrid inverters and powerwalls. It understands
+            the full Ntronix hardware stack &mdash; from the STM32-based MPPT controllers and
+            ESP32 communication modules to the BMS and battery charging algorithms.
+        </p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8 text-left max-w-3xl mx-auto">
+            <div class="text-center p-3"><div class="text-accent-teal text-2xl font-display font-bold">MPPT</div><p class="text-gray-500 text-xs mt-1">Solar charge algorithms</p></div>
+            <div class="text-center p-3"><div class="text-accent-teal text-2xl font-display font-bold">BMS</div><p class="text-gray-500 text-xs mt-1">Battery management</p></div>
+            <div class="text-center p-3"><div class="text-accent-teal text-2xl font-display font-bold">Inverter</div><p class="text-gray-500 text-xs mt-1">Sine-wave generation</p></div>
+            <div class="text-center p-3"><div class="text-accent-teal text-2xl font-display font-bold">IoT</div><p class="text-gray-500 text-xs mt-1">Bluetooth + WiFi + Cloud</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!--  TECHNICAL SPECIFICATIONS                                              -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section class="max-w-4xl mx-auto px-6 py-16">
+    <h2 class="text-3xl font-display font-bold text-white mb-2">Technical Specifications</h2>
+    <p class="text-gray-500 mb-8">Compatibility, requirements, and supported standards.</p>
+    <div class="grid md:grid-cols-2 gap-6">
+        <div class="card">
+            <h3 class="text-white font-semibold mb-4 flex items-center gap-2"><i class="ri-computer-line text-accent-teal"></i> System Requirements</h3>
+            <table class="spec-table w-full">
+                <tr><td>Operating System</td><td>Windows 10/11, macOS 12+, Linux (x86_64, aarch64)</td></tr>
+                <tr><td>Runtime</td><td>Node.js 18 LTS or later</td></tr>
+                <tr><td>RAM</td><td>4 GB minimum, 8 GB recommended</td></tr>
+                <tr><td>Disk</td><td>500 MB for platform + datasheet library</td></tr>
+                <tr><td>Terminal</td><td>PowerShell 5.1+, bash, zsh, fish</td></tr>
+            </table>
+        </div>
+        <div class="card">
+            <h3 class="text-white font-semibold mb-4 flex items-center gap-2"><i class="ri-microchip-line text-accent-teal"></i> Target Hardware</h3>
+            <table class="spec-table w-full">
+                <tr><td>MCU Families</td><td>STM32, ESP32, nRF52, nRF91, RP2040, AVR, GD32, CH32</td></tr>
+                <tr><td>Debug Probes</td><td>ST-Link, J-Link, Black Magic Probe, WCH-Link</td></tr>
+                <tr><td>Protocols</td><td>UART, SPI, I2C, CAN, USB, WiFi, BLE</td></tr>
+                <tr><td>RTOS Support</td><td>FreeRTOS, Zephyr RTOS</td></tr>
+                <tr><td>Code Standards</td><td>MISRA C:2012, CERT-C</td></tr>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!--  PRICING / LICENSING                                                   -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section id="pricing" class="max-w-5xl mx-auto px-6 py-20">
+    <div class="text-center mb-12">
+        <div class="badge badge-teal mb-4">Licensing</div>
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-white">Choose Your Edition</h2>
+        <p class="text-gray-500 mt-3 max-w-xl mx-auto">Volta AI Engineer is available under flexible licensing for individuals, teams, and enterprises.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <!-- Community -->
+        <div class="pricing-card">
+            <h3 class="text-white font-semibold text-lg">Community</h3>
+            <p class="text-gray-400 text-sm mt-1">For individual developers and makers</p>
+            <div class="mt-6 mb-6"><span class="text-3xl font-display font-bold text-white">Free</span></div>
+            <ul class="space-y-3 text-sm text-gray-400">
+                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> Full AI agent core</li>
+                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> One AI provider (Gemini)</li>
+                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> Community support via GitHub</li>
+                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> MIT License</li>
+            </ul>
+            <a href="#quick-start" class="btn-outline w-full justify-center mt-6 text-sm"><i class="ri-download-2-line"></i> Free Download</a>
+        </div>
+        <!-- Professional -->
+        <div class="pricing-card featured">
+            <h3 class="text-white font-semibold text-lg">Professional</h3>
+            <p class="text-gray-400 text-sm mt-1">For engineering teams and manufacturers</p>
+            <div class="mt-6 mb-6"><span class="text-3xl font-display font-bold text-white">UGX 500,000</span> <span class="text-gray-500 text-sm">/year</span></div>
+            <ul class="space-y-3 text-sm text-gray-400">
+                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> All Community features</li>
+                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> All AI providers (Gemini, Claude, DeepSeek)</li>
+                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> Priority email &amp; WhatsApp support</li>
+                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> Ntronix hardware integration guides</li>
+                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> Firmware templates for Ntronix products</li>
+            </ul>
+            <a href="index.html#contact" class="btn-primary w-full justify-center mt-6 text-sm"><i class="ri-shopping-cart-line"></i> Purchase License</a>
+        </div>
+        <!-- Enterprise -->
+        <div class="pricing-card">
+            <h3 class="text-white font-semibold text-lg">Enterprise</h3>
+            <p class="text-gray-400 text-sm mt-1">For OEMs and large-scale deployment</p>
+            <div class="mt-6 mb-6"><span class="text-3xl font-display font-bold text-white">Custom</span></div>
+            <ul class="space-y-3 text-sm text-gray-400">
+                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> All Professional features</li>
+                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> On-site training in Kampala</li>
+                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> Custom firmware module development</li>
+                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> Dedicated Ntronix engineer (SLA)</li>
+                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> White-label licensing available</li>
+            </ul>
+            <a href="index.html#contact" class="btn-outline w-full justify-center mt-6 text-sm"><i class="ri-chat-1-line"></i> Contact Sales</a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!--  QUICK START                                                           -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<section id="quick-start" class="max-w-4xl mx-auto px-6 py-16">
+    <div class="text-center mb-12">
+        <div class="badge badge-teal mb-4">Quick Start</div>
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-white">Get Started in Minutes</h2>
+        <p class="text-gray-500 mt-3">Two prerequisites, one command. Ready to use.</p>
+    </div>
+
+    <!-- Prerequisites -->
+    <div class="card mb-8">
+        <h3 class="text-white font-semibold text-lg mb-5 flex items-center gap-2"><i class="ri-checkbox-circle-line text-accent-teal"></i> Prerequisites</h3>
+        <div class="grid sm:grid-cols-2 gap-4">
+            <div class="flex items-start gap-3 p-4 rounded-lg bg-dark-surface/50">
+                <div class="w-10 h-10 flex items-center justify-center rounded-lg bg-accent-teal/10 text-accent-teal flex-shrink-0 text-xl"><i class="ri-nodejs-line"></i></div>
+                <div><p class="text-white text-sm font-medium">Node.js 18 LTS+</p><p class="text-gray-500 text-xs mt-0.5"><a href="https://nodejs.org" target="_blank" class="text-accent-teal hover:underline">nodejs.org</a> &nbsp;|&nbsp; <code class="text-gray-400 bg-dark-base px-1.5 rounded text-xs">winget install OpenJS.NodeJS.LTS</code></p></div>
+            </div>
+            <div class="flex items-start gap-3 p-4 rounded-lg bg-dark-surface/50">
+                <div class="w-10 h-10 flex items-center justify-center rounded-lg bg-accent-teal/10 text-accent-teal flex-shrink-0 text-xl"><i class="ri-git-branch-line"></i></div>
+                <div><p class="text-white text-sm font-medium">Git</p><p class="text-gray-500 text-xs mt-0.5"><a href="https://git-scm.com" target="_blank" class="text-accent-teal hover:underline">git-scm.com</a> &nbsp;|&nbsp; <code class="text-gray-400 bg-dark-base px-1.5 rounded text-xs">winget install Git.Git</code></p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Windows -->
+    <div class="card mb-5">
+        <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-400 text-xl"><i class="ri-windows-fill"></i></div>
+            <div><h3 class="text-white font-semibold text-lg">Windows</h3><p class="text-gray-500 text-sm">PowerShell &mdash; run as Administrator</p></div>
+        </div>
+        <div class="relative">
+            <div class="code-block wrap" id="winCmd">iwr -useb https://ntronixvolta.netlify.app/install.ps1 | iex</div>
+            <button class="copy-btn" onclick="copyText('winCmd', this)"><i class="ri-file-copy-line"></i> Copy</button>
+        </div>
+        <div class="mt-3 flex flex-wrap gap-2 text-xs text-gray-500">
+            <span class="px-2 py-1 rounded bg-dark-surface/50">Clones to <code class="text-gray-400">%USERPROFILE%\volta-AI-Engineer</code></span>
+            <span class="px-2 py-1 rounded bg-dark-surface/50">Registers <code class="text-gray-400">volta</code> command globally</span>
+        </div>
+    </div>
+
+    <!-- Linux & macOS -->
+    <div class="card mb-5">
+        <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-green-500/10 text-green-400 text-xl"><i class="ri-terminal-box-fill"></i></div>
+            <div><h3 class="text-white font-semibold text-lg">Linux &amp; macOS</h3><p class="text-gray-500 text-sm">Terminal &mdash; curl pipe</p></div>
+        </div>
+        <div class="relative">
+            <div class="code-block wrap" id="nixCmd">curl -fsSL https://ntronixvolta.netlify.app/install.sh | bash</div>
+            <button class="copy-btn" onclick="copyText('nixCmd', this)"><i class="ri-file-copy-line"></i> Copy</button>
+        </div>
+        <div class="mt-3 flex flex-wrap gap-2 text-xs text-gray-500">
+            <span class="px-2 py-1 rounded bg-dark-surface/50">Installs to <code class="text-gray-400">~/volta-AI-Engineer</code></span>
+            <span class="px-2 py-1 rounded bg-dark-surface/50">Requires Node.js 18 LTS+ &amp; Git</span>
+        </div>
+    </div>
+
+    <!-- Manual -->
+    <div class="card">
+        <div class="flex items-center gap-3 mb-5">
+            <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 text-gray-400 text-xl"><i class="ri-terminal-line"></i></div>
+            <div><h3 class="text-white font-semibold text-lg">Manual Install</h3><p class="text-gray-500 text-sm">Any OS &mdash; step by step</p></div>
+        </div>
+        <div class="relative">
+            <div class="code-block" id="manualCmd">git clone https://github.com/ntronix44/volta-AI-Engineer.git
+cd volta-AI-Engineer
+npm install
+npm link
+volta</div>
+            <button class="copy-btn" onclick="copyText('manualCmd', this)"><i class="ri-file-copy-line"></i> Copy</button>
+        </div>
+        <!-- API key setup -->
+        <div class="mt-6 p-4 rounded-lg border border-white/5 bg-dark-surface/50">
+            <div class="flex items-start gap-3">
+                <div class="text-accent-teal mt-0.5"><i class="ri-key-2-line"></i></div>
+                <div>
+                    <p class="text-white text-sm font-medium mb-2">Set your API key</p>
+                    <p class="text-gray-500 text-xs mb-3">Create a <code class="text-gray-400 bg-dark-base px-1 rounded">.env</code> file in the project directory or at <code class="text-gray-400 bg-dark-base px-1 rounded">~/.volta/.env</code>:</p>
+                    <div class="code-block text-xs" style="white-space: pre;">GEMINI_API_KEY=your_key_here
+# or ANTHROPIC_API_KEY=your_key_here
+# or DEEPSEEK_API_KEY=your_key_here</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── Tech Stack Footer ───────────────────────────────────────────────── -->
+<section class="max-w-4xl mx-auto px-6 py-16 text-center">
+    <p class="text-gray-600 text-sm uppercase tracking-widest mb-4 font-medium">Built With</p>
+    <div class="flex flex-wrap justify-center gap-3">
+        <span class="px-3 py-1.5 bg-dark-card rounded-full border border-white/5 text-gray-400 text-sm">Node.js</span>
+        <span class="px-3 py-1.5 bg-dark-card rounded-full border border-white/5 text-gray-400 text-sm">Gemini API</span>
+        <span class="px-3 py-1.5 bg-dark-card rounded-full border border-white/5 text-gray-400 text-sm">Claude API</span>
+        <span class="px-3 py-1.5 bg-dark-card rounded-full border border-white/5 text-gray-400 text-sm">DeepSeek</span>
+        <span class="px-3 py-1.5 bg-dark-card rounded-full border border-white/5 text-gray-400 text-sm">Chalk</span>
+        <span class="px-3 py-1.5 bg-dark-card rounded-full border border-white/5 text-gray-400 text-sm">Blessed</span>
+    </div>
+    <div class="mt-10 pt-8 border-t border-white/5">
+        <p class="text-gray-600 text-xs">
+            Volta AI Engineer &copy; 2026 <a href="index.html" class="text-accent-teal hover:underline">Ntronix</a> &mdash;
+            Kampala, Uganda &bull; MIT License
+        </p>
+    </div>
+</section>
+
+<!-- ─── Copy JS ─────────────────────────────────────────────────────────── -->
+<script>
+function copyCmd() {
+    const el = document.getElementById('installCmd');
+    const txt = el.textContent.trim();
+    navigator.clipboard.writeText(txt).then(() => {
+        const btn = document.getElementById('copyBtn');
+        btn.innerHTML = '<i class="ri-check-line"></i> Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.innerHTML = '<i class="ri-file-copy-line"></i> Copy';
+            btn.classList.remove('copied');
+        }, 2000);
+    });
+}
+
+function copyText(id, btn) {
+    const txt = document.getElementById(id).textContent.trim();
+    navigator.clipboard.writeText(txt).then(() => {
+        btn.innerHTML = '<i class="ri-check-line"></i> Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+            btn.innerHTML = '<i class="ri-file-copy-line"></i> Copy';
+            btn.classList.remove('copied');
+        }, 2000);
+    });
+}
+</script>
+
+</body>
+</html>
