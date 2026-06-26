@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Volta AI Engineer — Ntronix's professional firmware development platform for STM32, ESP32, power electronics and IoT. Enterprise licensing, training, and support available.">
+    <meta name="description" content="Volta AI Engineer — Ntronix's open-source firmware development platform for STM32, ESP32, power electronics and IoT. Free under MIT License.">
     <meta name="author" content="Ntronix Volta">
     <link rel="canonical" href="https://ntronixvolta.netlify.app/volta-download.html">
-    <meta property="og:title" content="Volta AI Engineer — Ntronix Firmware Development Platform">
-    <meta property="og:description" content="Professional AI-assisted firmware development for the Ntronix hardware ecosystem. STM32, ESP32, power electronics.">
+    <meta property="og:title" content="Volta AI Engineer — Open-Source Firmware Development Platform">
+    <meta property="og:description" content="Free open-source AI-assisted firmware development for STM32, ESP32, power electronics. MIT License.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://ntronixvolta.netlify.app/company-logo.png">
 
     <link rel="icon" href="company-logo.png" type="image/png">
-    <title>Volta AI Engineer — Ntronix Firmware Platform</title>
+    <title>Volta AI Engineer — Open-Source Firmware Platform | Ntronix</title>
 
     <script src="https://cdn.tailwindcss.com/3.4.16?plugins=forms"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
@@ -53,9 +53,6 @@
         .btn-primary:hover { background: rgba(0,245,196,0.9); box-shadow: 0 0 20px rgba(0,245,196,0.2); }
         .btn-outline { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.75rem; border-radius: 0.5rem; border: 1px solid rgba(255,255,255,0.1); color: #cbd5e1; transition: all 0.2s; font-weight: 500; }
         .btn-outline:hover { border-color: #00F5C4; color: #fff; }
-        .pricing-card { background: #0f0f24; border: 1px solid rgba(255,255,255,0.05); border-radius: 1rem; padding: 2rem; transition: all 0.3s; position: relative; }
-        .pricing-card.featured { border-color: rgba(0,245,196,0.3); box-shadow: 0 0 30px rgba(0,245,196,0.08); }
-        .pricing-card.featured::before { content: 'Most Popular'; position: absolute; top: -0.75rem; left: 50%; transform: translateX(-50%); background: #00F5C4; color: #0a0a1a; font-size: 0.7rem; font-weight: 600; padding: 0.2rem 1rem; border-radius: 9999px; white-space: nowrap; }
         .spec-table td { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 0.875rem; }
         .spec-table td:first-child { color: #94a3b8; white-space: nowrap; padding-right: 2rem; }
         .spec-table td:last-child { color: #e2e8f0; }
@@ -73,6 +70,7 @@
         </a>
         <div class="hidden md:flex items-center gap-8 text-sm">
             <a href="index.html#products" class="text-gray-400 hover:text-white transition">Products</a>
+            <a href="Ntronix-Product-Catalog.html" class="text-gray-400 hover:text-white transition">Shop</a>
             <a href="index.html#technology" class="text-gray-400 hover:text-white transition">Technology</a>
             <a href="index.html#app" class="text-gray-400 hover:text-white transition">App</a>
             <a href="volta-download.html" class="text-accent-teal font-medium">Volta AI</a>
@@ -102,7 +100,7 @@
             with AI-assisted code generation, datasheet intelligence, and automated debugging.
         </p>
         <div class="flex flex-wrap gap-3 justify-center mt-8">
-            <a href="#pricing" class="btn-primary"><i class="ri-shopping-cart-line"></i> Licensing &amp; Pricing</a>
+            <a href="#open-source" class="btn-primary"><i class="ri-github-fill"></i> Open Source (MIT)</a>
             <a href="#capabilities" class="btn-outline"><i class="ri-flashlight-line"></i> Features</a>
             <a href="#quick-start" class="btn-outline"><i class="ri-download-2-line"></i> Quick Start</a>
         </div>
@@ -179,54 +177,89 @@
     <div class="text-center mb-14">
         <div class="badge badge-teal mb-4">Capabilities</div>
         <h2 class="text-3xl md:text-4xl font-display font-bold text-white">Platform Features</h2>
-        <p class="text-gray-500 mt-3 max-w-xl mx-auto">A full-spectrum firmware platform covering every stage of embedded product engineering.</p>
+        <p class="text-gray-500 mt-3 max-w-xl mx-auto">60+ tools across the full embedded product engineering lifecycle &mdash; from register-level MCU config through production release.</p>
     </div>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         <div class="card-feature">
             <div class="icon-box"><i class="ri-microchip-line"></i></div>
-            <h3 class="text-white font-semibold text-lg mt-4 mb-1">MCU Support</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">STM32 (F0/F1/F3/F4/G0/G4/H7/L4/U5), ESP32 (S2/S3/C3/C6), nRF52/nRF91, RP2040, AVR, GD32, CH32 (RISC-V).</p>
+            <h3 class="text-white font-semibold text-lg mt-4 mb-1">Peripheral Intelligence</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Register maps, bit descriptions, and formulas for STM32, ESP32, nRF52/nRF91, RP2040, AVR, GD32, CH32 (RISC-V). GPIO, TIM, USART, SPI, I2C, ADC, LEDC, PWM, PIO, CAN, FDCAN, USB &mdash; with bus-clock resolution before any prescaler calculation.</p>
         </div>
         <div class="card-feature">
             <div class="icon-box"><i class="ri-flashlight-line"></i></div>
             <h3 class="text-white font-semibold text-lg mt-4 mb-1">Power Electronics</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">MPPT algorithms, buck/boost converters, sine-wave inverters, BMS state machines, battery charger profiles &mdash; with dead-time, shoot-through, and thermal protection built in.</p>
+            <p class="text-gray-400 text-sm leading-relaxed">PID controller design (Ziegler-Nichols, direct synthesis), Kalman filtering for battery SOC estimation, FFT with THD analysis, state-space models for buck converters and DC motors. All with discrete-time coefficients for MCU deployment.</p>
         </div>
         <div class="card-feature">
             <div class="icon-box"><i class="ri-smartphone-line"></i></div>
-            <h3 class="text-white font-semibold text-lg mt-4 mb-1">Companion Apps</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">Flutter mobile app development &mdash; Bluetooth LE, WiFi, cloud sync, real-time dashboards. Scaffold, analyze, test, and deploy.</p>
+            <h3 class="text-white font-semibold text-lg mt-4 mb-1">Flutter App Development</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Scaffold, analyze, test, and build. Clean Architecture feature scaffold, Riverpod/Bloc/Provider/MobX wiring, CI/CD workflow generation, BLE driver codegen, and full build pipeline for APK, iOS, and web.</p>
         </div>
         <div class="card-feature">
             <div class="icon-box"><i class="ri-bug-line"></i></div>
             <h3 class="text-white font-semibold text-lg mt-4 mb-1">Diagnostics &amp; Debug</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">HardFault and Guru Meditation decoder, stack trace analysis, FreeRTOS task/heap inspection, GDB integration, serial monitor.</p>
+            <p class="text-gray-400 text-sm leading-relaxed">HardFault decoder (ARM Cortex-M), Guru Meditation decoder (ESP32), Zephyr kernel panic analysis, FreeRTOS task/heap/stack inspection with structured output. GDB session generator for OpenOCD, ST-Link, and J-Link. Serial monitor with background daemon mode, filtering, and auto-timeout.</p>
         </div>
         <div class="card-feature">
             <div class="icon-box"><i class="ri-article-line"></i></div>
-            <h3 class="text-white font-semibold text-lg mt-4 mb-1">Datasheet Engine</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">Import, index, and query PDF datasheets locally. Pinouts, register maps, electrical limits, and timing diagrams &mdash; searchable by part number.</p>
+            <h3 class="text-white font-semibold text-lg mt-4 mb-1">Datasheet Library (RAG)</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Import PDF datasheets from URLs or local files. Auto-detects part numbers, extracts register tables, pinouts, and electrical limits. Query by part number, keyword, or tag across the full local library. All offline after import.</p>
         </div>
         <div class="card-feature">
             <div class="icon-box"><i class="ri-plug-line"></i></div>
-            <h3 class="text-white font-semibold text-lg mt-4 mb-1">Programming &amp; Flashing</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">ST-Link, JLink, esptool, OpenOCD, avrdude, probe-rs, DFU-util, WCH-Link &mdash; with flash verification and bootloop detection.</p>
+            <h3 class="text-white font-semibold text-lg mt-4 mb-1">Firmware Upload &amp; Flashing</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">esptool, ST-Link, DFU-util, PlatformIO, Arduino CLI, JLink Commander, WCH-Link (CH32 RISC-V), probe-rs, west flash (Zephyr), OpenOCD &mdash; all with optional flash verification. Bootloop detection and automatic rollback on repeated failure.</p>
         </div>
         <div class="card-feature">
             <div class="icon-box"><i class="ri-shield-check-line"></i></div>
-            <h3 class="text-white font-semibold text-lg mt-4 mb-1">MISRA &amp; CERT-C Compliance</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">Static analysis, rule checking, violation reporting. No dynamic allocation. Bounded loops. Production-grade code standards.</p>
+            <h3 class="text-white font-semibold text-lg mt-4 mb-1">MISRA-C &amp; CERT-C Compliance</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Rule-by-rule compliance analysis with tagged violations, fix suggestions, and severity. No dynamic memory allocation enforced. Bounded loops. Single return point. Production-grade code standards for safety-critical systems.</p>
         </div>
         <div class="card-feature">
             <div class="icon-box"><i class="ri-git-branch-line"></i></div>
-            <h3 class="text-white font-semibold text-lg mt-4 mb-1">Planning &amp; Quality</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">Multi-step plan generation, auto-created TODOs, architecture decision records, code coverage, memory map analysis, stack usage analysis.</p>
+            <h3 class="text-white font-semibold text-lg mt-4 mb-1">Planning &amp; Project Skills</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Multi-step plans with validation criteria and auto-created TODOs. Architecture Decision Records (ADRs). Per-project skill system with version-controlled `.volta/skills/` &mdash; share board quirks, coding conventions, and house rules across the team via git.</p>
         </div>
         <div class="card-feature">
             <div class="icon-box"><i class="ri-cloud-line"></i></div>
-            <h3 class="text-white font-semibold text-lg mt-4 mb-1">Multi-Model AI</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">Switch between Gemini, Claude, and DeepSeek on the fly. Streaming responses, extended thinking, context compression for long sessions.</p>
+            <h3 class="text-white font-semibold text-lg mt-4 mb-1">Multi-Model AI Engine</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Switch between Gemini 2.5 Flash, Claude Opus 4, and DeepSeek V4 mid-session. Streaming token output, extended thinking mode, context compression for long sessions. Provider-agnostic agent loop &mdash; adding a new provider means writing one file.</p>
+        </div>
+        <div class="card-feature">
+            <div class="icon-box"><i class="ri-radar-line"></i></div>
+            <h3 class="text-white font-semibold text-lg mt-4 mb-1">Protocol Analyzers</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Decode CAN/CAN FD frames, J1939 (agricultural/off-highway vehicles), ARINC 429 (avionics), MIL-STD-1553 (military aircraft), and MAVLink (drone/UAV telemetry) &mdash; with signal names, engineering values, and protocol type identification.</p>
+        </div>
+        <div class="card-feature">
+            <div class="icon-box"><i class="ri-code-s-slash-line"></i></div>
+            <h3 class="text-white font-semibold text-lg mt-4 mb-1">Static &amp; Memory Analysis</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">cppcheck/clang-tidy linting, cyclomatic complexity analysis, dead code detection, circular include detection, memory map parsing (.map files), GCC stack usage analysis, and FreeRTOS heap fragmentation &amp; leak tracing.</p>
+        </div>
+        <div class="card-feature">
+            <div class="icon-box"><i class="ri-test-tube-line"></i></div>
+            <h3 class="text-white font-semibold text-lg mt-4 mb-1">Testing &amp; Verification</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Unity/Catch2 test stub generation, CMock-style HAL mock generation, gcov/lcov coverage reports, AFL++/libFuzzer harness generation. One-call build+lint+size verification with automatic rollback on failure.</p>
+        </div>
+        <div class="card-feature">
+            <div class="icon-box"><i class="ri-donut-chart-line"></i></div>
+            <h3 class="text-white font-semibold text-lg mt-4 mb-1">EmbedderAI (Semantic Search)</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">TF-IDF semantic vector index of the entire codebase. Search by meaning, not regex &mdash; e.g. *"PWM timer initialization for motor control"* finds relevant code even without matching keywords. Supports C, C++, Python, Dart, Rust, Go, CMake, Kconfig, and linker scripts.</p>
+        </div>
+        <div class="card-feature">
+            <div class="icon-box"><i class="ri-circuit-board-line"></i></div>
+            <h3 class="text-white font-semibold text-lg mt-4 mb-1">Schematic &amp; BOM Intelligence</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Parse KiCad schematics (.kicad_sch) and netlist CSVs. Trace signals from MCU pin to target component. Check pinmux conflicts across active peripherals. Generate BOMs with grouping by value, MPN, or footprint. Component search and cross-referencing with parametric filters.</p>
+        </div>
+        <div class="card-feature">
+            <div class="icon-box"><i class="ri-building-2-line"></i></div>
+            <h3 class="text-white font-semibold text-lg mt-4 mb-1">System Architecture</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Generate Mermaid block diagrams for hardware-software systems (power rails, MCU, sensors, comms). Document module APIs and inter-team interface contracts. Architecture Decision Records (ADRs) persisted to `.volta/plans/architecture_log.md`.</p>
+        </div>
+        <div class="card-feature">
+            <div class="icon-box"><i class="ri-github-fill"></i></div>
+            <h3 class="text-white font-semibold text-lg mt-4 mb-1">Git &amp; CI/CD</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">Full git integration (status, diff, commit, log, stash, rollback). GitHub Actions workflow generation for PlatformIO, ESP-IDF, STM32 HAL, Zephyr, and Arduino — including multi-board matrix builds and firmware release automation.</p>
         </div>
     </div>
 </section>
@@ -251,6 +284,9 @@
             <div class="text-center p-3"><div class="text-accent-teal text-2xl font-display font-bold">BMS</div><p class="text-gray-500 text-xs mt-1">Battery management</p></div>
             <div class="text-center p-3"><div class="text-accent-teal text-2xl font-display font-bold">Inverter</div><p class="text-gray-500 text-xs mt-1">Sine-wave generation</p></div>
             <div class="text-center p-3"><div class="text-accent-teal text-2xl font-display font-bold">IoT</div><p class="text-gray-500 text-xs mt-1">Bluetooth + WiFi + Cloud</p></div>
+        </div>
+        <div class="mt-8 text-center">
+            <a href="Ntronix-Product-Catalog.html" class="btn-outline inline-flex items-center gap-2"><i class="ri-store-2-line"></i> Browse the Product Catalog</a>
         </div>
     </div>
 </section>
@@ -286,55 +322,71 @@
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
-<!--  PRICING / LICENSING                                                   -->
+<!--  OPEN SOURCE                                                          -->
 <!-- ═══════════════════════════════════════════════════════════════════════ -->
-<section id="pricing" class="max-w-5xl mx-auto px-6 py-20">
+<section id="open-source" class="max-w-5xl mx-auto px-6 py-20">
     <div class="text-center mb-12">
-        <div class="badge badge-teal mb-4">Licensing</div>
-        <h2 class="text-3xl md:text-4xl font-display font-bold text-white">Choose Your Edition</h2>
-        <p class="text-gray-500 mt-3 max-w-xl mx-auto">Volta AI Engineer is available under flexible licensing for individuals, teams, and enterprises.</p>
+        <div class="badge badge-teal mb-4">Open Source</div>
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-white">
+            Free. Open. <span class="text-accent-teal">Built for Everyone.</span>
+        </h2>
+        <p class="text-gray-500 mt-3 max-w-2xl mx-auto">
+            Volta AI Engineer is fully open-source under the MIT License &mdash; no paywalls, no trial limits,
+            no license keys. Use it freely for personal projects, commercial products, manufacturing, and research.
+        </p>
     </div>
-    <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-        <!-- Community -->
-        <div class="pricing-card">
-            <h3 class="text-white font-semibold text-lg">Community</h3>
-            <p class="text-gray-400 text-sm mt-1">For individual developers and makers</p>
-            <div class="mt-6 mb-6"><span class="text-3xl font-display font-bold text-white">Free</span></div>
-            <ul class="space-y-3 text-sm text-gray-400">
-                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> Full AI agent core</li>
-                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> One AI provider (Gemini)</li>
-                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> Community support via GitHub</li>
-                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> MIT License</li>
-            </ul>
-            <a href="#quick-start" class="btn-outline w-full justify-center mt-6 text-sm"><i class="ri-download-2-line"></i> Free Download</a>
-        </div>
-        <!-- Professional -->
+
+    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-10">
+        <!-- MIT License -->
         <div class="pricing-card featured">
-            <h3 class="text-white font-semibold text-lg">Professional</h3>
-            <p class="text-gray-400 text-sm mt-1">For engineering teams and manufacturers</p>
-            <div class="mt-6 mb-6"><span class="text-3xl font-display font-bold text-white">UGX 500,000</span> <span class="text-gray-500 text-sm">/year</span></div>
+            <div class="flex items-center gap-3 mb-5">
+                <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-accent-teal/10 text-accent-teal text-2xl"><i class="ri-open-source-line"></i></div>
+                <div>
+                    <h3 class="text-white font-semibold text-lg">MIT License</h3>
+                    <p class="text-gray-500 text-sm">Do what you want with it</p>
+                </div>
+            </div>
             <ul class="space-y-3 text-sm text-gray-400">
-                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> All Community features</li>
-                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> All AI providers (Gemini, Claude, DeepSeek)</li>
-                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> Priority email &amp; WhatsApp support</li>
-                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> Ntronix hardware integration guides</li>
-                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> Firmware templates for Ntronix products</li>
+                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> Use in commercial products — no royalties</li>
+                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> Modify, distribute, sublicense freely</li>
+                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> Full AI agent core — all providers included</li>
+                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> No registration, no API key required to start</li>
+                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> Community support via GitHub Issues &amp; Discussions</li>
             </ul>
-            <a href="index.html#contact" class="btn-primary w-full justify-center mt-6 text-sm"><i class="ri-shopping-cart-line"></i> Purchase License</a>
         </div>
-        <!-- Enterprise -->
+
+        <!-- Contribute -->
         <div class="pricing-card">
-            <h3 class="text-white font-semibold text-lg">Enterprise</h3>
-            <p class="text-gray-400 text-sm mt-1">For OEMs and large-scale deployment</p>
-            <div class="mt-6 mb-6"><span class="text-3xl font-display font-bold text-white">Custom</span></div>
+            <div class="flex items-center gap-3 mb-5">
+                <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-purple-500/10 text-purple-400 text-2xl"><i class="ri-git-branch-line"></i></div>
+                <div>
+                    <h3 class="text-white font-semibold text-lg">Contribute</h3>
+                    <p class="text-gray-500 text-sm">Help shape the platform</p>
+                </div>
+            </div>
             <ul class="space-y-3 text-sm text-gray-400">
-                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> All Professional features</li>
-                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> On-site training in Kampala</li>
-                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> Custom firmware module development</li>
-                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> Dedicated Ntronix engineer (SLA)</li>
-                <li class="flex items-start gap-2"><i class="ri-check-line text-accent-teal mt-0.5"></i> White-label licensing available</li>
+                <li class="flex items-start gap-2"><i class="ri-github-fill text-accent-teal mt-0.5"></i> <a href="https://github.com/ntronix44/volta-AI-Engineer" target="_blank" class="text-accent-teal hover:underline">github.com/ntronix44/volta-AI-Engineer</a></li>
+                <li class="flex items-start gap-2"><i class="ri-code-s-slash-line text-accent-teal mt-0.5"></i> New peripheral drivers (STM32, ESP32, RP2040, nRF52)</li>
+                <li class="flex items-start gap-2"><i class="ri-article-line text-accent-teal mt-0.5"></i> Datasheet parser improvements &amp; new templates</li>
+                <li class="flex items-start gap-2"><i class="ri-bug-line text-accent-teal mt-0.5"></i> Bug reports and crash dump analysers</li>
+                <li class="flex items-start gap-2"><i class="ri-translate-2 text-accent-teal mt-0.5"></i> Documentation and translations</li>
+                <li class="flex items-start gap-2"><i class="ri-star-line text-accent-teal mt-0.5"></i> Star the repo &mdash; it helps others find it</li>
             </ul>
-            <a href="index.html#contact" class="btn-outline w-full justify-center mt-6 text-sm"><i class="ri-chat-1-line"></i> Contact Sales</a>
+        </div>
+    </div>
+
+    <!-- Enterprise support note -->
+    <div class="max-w-4xl mx-auto">
+        <div class="card text-center p-8" style="border-color: rgba(255,255,255,0.06);">
+            <div class="flex items-center justify-center gap-3 mb-3">
+                <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-accent-teal/10 text-accent-teal text-xl"><i class="ri-hand-heart-line"></i></div>
+                <h3 class="text-white font-semibold text-lg">Need Professional Support?</h3>
+            </div>
+            <p class="text-gray-400 text-sm max-w-2xl mx-auto leading-relaxed">
+                Ntronix offers optional commercial support &mdash; on-site training in Kampala, custom firmware
+                development, and dedicated engineering. <a href="index.html#contact" class="text-accent-teal hover:underline">Get in touch</a>
+                if your team needs hands-on help. The software itself remains 100% open-source.
+            </p>
         </div>
     </div>
 </section>
@@ -417,9 +469,9 @@ volta</div>
                 <div>
                     <p class="text-white text-sm font-medium mb-2">Set your API key</p>
                     <p class="text-gray-500 text-xs mb-3">Create a <code class="text-gray-400 bg-dark-base px-1 rounded">.env</code> file in the project directory or at <code class="text-gray-400 bg-dark-base px-1 rounded">~/.volta/.env</code>:</p>
-                    <div class="code-block text-xs" style="white-space: pre;">GEMINI_API_KEY=your_key_here
-# or ANTHROPIC_API_KEY=your_key_here
-# or DEEPSEEK_API_KEY=your_key_here</div>
+                    <div class="code-block text-xs" style="white-space: pre;">DEEPSEEK_API_KEY=your_key_here     # (default provider — no rate limits, ~$0.14/M tokens)
+# or GEMINI_API_KEY=your_key_here
+# or ANTHROPIC_API_KEY=your_key_here</div>
                 </div>
             </div>
         </div>
@@ -440,7 +492,8 @@ volta</div>
     <div class="mt-10 pt-8 border-t border-white/5">
         <p class="text-gray-600 text-xs">
             Volta AI Engineer &copy; 2026 <a href="index.html" class="text-accent-teal hover:underline">Ntronix</a> &mdash;
-            Kampala, Uganda &bull; MIT License
+            Kampala, Uganda &bull; Open Source &mdash; MIT License &bull;
+            <a href="https://github.com/ntronix44/volta-AI-Engineer" target="_blank" class="text-accent-teal hover:underline">GitHub</a>
         </p>
     </div>
 </section>

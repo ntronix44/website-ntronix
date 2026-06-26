@@ -1,0 +1,170 @@
+[
+  [
+    "mqut5wdxurr",
+    {
+      "id": "mqut5wdxurr",
+      "task": "Step 1: Update the hero section — change 'Licensing & Pricing' CTA to 'Open Source (MIT)' and remove pricing link emphasis",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-26T10:48:40.245Z",
+      "notes": []
+    }
+  ],
+  [
+    "mqut5wdxe7k",
+    {
+      "id": "mqut5wdxe7k",
+      "task": "Step 2: Replace the entire Pricing/Licensing section with an Open Source section — MIT license, GitHub repo, community contributions, how to contribute",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-26T10:48:40.245Z",
+      "notes": []
+    }
+  ],
+  [
+    "mqut5wdxfwe",
+    {
+      "id": "mqut5wdxfwe",
+      "task": "Step 3: Update any paid/licensing language throughout the page to open-source / free language",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-26T10:48:40.245Z",
+      "notes": []
+    }
+  ],
+  [
+    "mqut5wdxuhv",
+    {
+      "id": "mqut5wdxuhv",
+      "task": "Step 4: Update the Quick Start section to reflect free/open-source install (already free, just make sure no 'license' confusion)",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-26T10:48:40.245Z",
+      "notes": []
+    }
+  ],
+  [
+    "mqut5wdxyej",
+    {
+      "id": "mqut5wdxyej",
+      "task": "Step 5: Update footer and metadata if needed to reflect open-source status",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-26T10:48:40.245Z",
+      "notes": []
+    }
+  ],
+  [
+    "mqut5wdxj2x",
+    {
+      "id": "mqut5wdxj2x",
+      "task": "Step 6: Verify final page by viewing the diff",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-26T10:48:40.245Z",
+      "notes": []
+    }
+  ],
+  [
+    "mqutjmzcgrm",
+    {
+      "id": "mqutjmzcgrm",
+      "task": "Step 1: Replace Tailwind config and <style> CSS — swap blue-sky (#0ea5e9, white cards) to dark-teal (#0a0a1a, #00F5C4, #0f0f24, #141430) with DM Sans + Syne fonts",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-26T10:59:21.240Z",
+      "notes": []
+    }
+  ],
+  [
+    "mqutjmzcox2",
+    {
+      "id": "mqutjmzcox2",
+      "task": "Step 2: Replace navigation bar — use dark-base/80 backdrop-blur, NTRONIX VOLTA branding, and links matching main site (Products, Technology, App, Volta AI, Contact)",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-26T10:59:21.240Z",
+      "notes": []
+    }
+  ],
+  [
+    "mqutjmzcxfk",
+    {
+      "id": "mqutjmzcxfk",
+      "task": "Step 3: Replace hero/header section — use dark theme with badge-teal, heading matching site style",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-26T10:59:21.240Z",
+      "notes": []
+    }
+  ],
+  [
+    "mqutjmzchpj",
+    {
+      "id": "mqutjmzchpj",
+      "task": "Step 4: Recolor all product cards, filters sidebar, comparison table, recommendation cards, floating button — all use dark-surface/card backgrounds with teal/purple/coral accent colors",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-26T10:59:21.240Z",
+      "notes": []
+    }
+  ],
+  [
+    "mqutjmzc5sa",
+    {
+      "id": "mqutjmzc5sa",
+      "task": "Step 5: Add the Ntronix VC-500 / VC-1000 / VC-2000 / VC-3000 powerwall products to the catalog grid with pricing and Add to Cart buttons",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-26T10:59:21.240Z",
+      "notes": []
+    }
+  ],
+  [
+    "mqutjmzctim",
+    {
+      "id": "mqutjmzctim",
+      "task": "Step 6: Replace footer — use same style as main site (dark border-top, teal links)",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-26T10:59:21.240Z",
+      "notes": []
+    }
+  ],
+  [
+    "mqutjmzc85s",
+    {
+      "id": "mqutjmzc85s",
+      "task": "Step 7: Link the catalog from volta-download.html navigation — add a 'Shop Products' link that goes to Ntronix-Product-Catalog.html",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-26T10:59:21.240Z",
+      "notes": []
+    }
+  ],
+  [
+    "mqutjmzc2z4",
+    {
+      "id": "mqutjmzc2z4",
+      "task": "Step 8: Verify final result — check both pages for visual consistency",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-26T10:59:21.240Z",
+      "notes": []
+    }
+  ]
+]

@@ -1,0 +1,18 @@
+# Volta per-project workspace
+# Generated automatically on first run — safe to edit by hand.
+
+# Raw chat transcripts and session state can contain pasted secrets,
+# customer data, or simply churn too much to be worth diffing in git.
+/history/
+
+# Regenerable semantic-search cache: large, machine-specific, and rebuilt
+# automatically — not worth versioning.
+/memory/embedder_index/
+
+# Repeated-failure tracking is session-local debugging state, not knowledge
+# worth sharing with the team.
+/memory/bootloop_state.json
+
+# Everything else — board_profile.json, notes.md, skills/, plans/ — is
+# intentionally tracked: it's project knowledge meant to travel with the
+# repo and be shared across the team.
