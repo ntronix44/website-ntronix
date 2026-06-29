@@ -59,6 +59,15 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
     <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
@@ -2868,6 +2877,7 @@
                         <li><a href="volta-download.html" class="footer-link">Volta AI</a></li>
 						<li><a href="volta-auth.html" class="footer-link">Volta Remote Access</a></li>
                         <li><a href="#contact" class="footer-link">Contact</a></li>
+                        <li><a href="dashboard.html" class="footer-link text-accent-teal font-semibold" style="color:#00F5C4;">🔐 Founder's Dashboard</a></li>
                     </ul>
                 </div>
                 
@@ -3974,6 +3984,132 @@
                 sendButton.click();
             }
         }
+
+        // ─── Founder's Space — Secure Auth ──────────────────────────────────────
+        // No password in source. First visit: set your secret phrase → SHA-256 hash stored locally.
+        // Subsequent visits: phrase verified against stored hash. Impossible to reverse.
+
+        async function sha256(msg) {
+            const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(msg));
+            return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+        }
+
+        const FS_KEY = 'ntronix_founder_hash';
+
+        async function openFoundersSpace(e) {
+            e.preventDefault();
+            const stored = localStorage.getItem(FS_KEY);
+
+            if (!stored) {
+                const phrase = prompt('🔐 FIRST-TIME SETUP\n\nChoose a secret phrase (12+ chars, something only you know):\n⚠️  Cannot be recovered if forgotten.');
+                if (!phrase || phrase.length < 12) { alert('Minimum 12 characters.'); return; }
+                localStorage.setItem(FS_KEY, await sha256(phrase));
+                alert('✅ Founder access set up. You are now logged in.');
+                showFSDashboard();
+            } else {
+                const phrase = prompt('🔐 FOUNDER AUTHENTICATION\n\nEnter your secret phrase:');
+                if (!phrase) return;
+                if ((await sha256(phrase)) === stored) showFSDashboard();
+                else alert('❌ Incorrect phrase. Access denied.');
+            }
+        }
+
+        function lockFS() {
+            const o = document.getElementById('fsOverlay');
+            const p = document.getElementById('fsPanel');
+            if (o) o.classList.add('hidden');
+            if (p) p.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function showFSDashboard() {
+            let o = document.getElementById('fsOverlay');
+            if (!o) o = buildFSElements();
+            o.classList.remove('hidden');
+            document.getElementById('fsPanel').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            renderFSData();
+        }
+
+        function buildFSElements() {
+            const overlay = document.createElement('div');
+            overlay.id = 'fsOverlay'; overlay.className = 'fixed inset-0 bg-black/70 backdrop-blur-sm z-[9998]';
+            overlay.onclick = lockFS; document.body.appendChild(overlay);
+
+            const panel = document.createElement('div');
+            panel.id = 'fsPanel';
+            panel.className = 'fixed inset-4 md:inset-10 z-[9999] overflow-y-auto rounded-2xl border border-white/10 shadow-2xl';
+            panel.style.background = '#0a0a1a';
+            panel.innerHTML = `<div style="max-width:1000px;margin:0 auto;padding:2rem;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;">
+                    <div><h2 style="font-size:1.5rem;font-weight:700;color:#fff;font-family:Syne,sans-serif;">🔐 Founder's Space</h2><p style="color:rgba(255,255,255,0.4);font-size:0.85rem;">Private business intelligence — only visible to you</p></div>
+                    <button onclick="lockFS()" style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:#fff;cursor:pointer;font-size:1.2rem;">✕</button>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:0.75rem;margin-bottom:1.5rem;">
+                    <div class="fs-card" style="background:rgba(255,255,255,0.05);border-radius:12px;padding:1rem;text-align:center;border:1px solid rgba(255,255,255,0.08);"><div style="font-size:1.75rem;font-weight:800;background:linear-gradient(135deg,#00F5C4,#7B5CFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" id="fsUsers">—</div><div style="font-size:0.7rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.05em;margin-top:0.25rem;">Users</div></div>
+                    <div class="fs-card" style="background:rgba(255,255,255,0.05);border-radius:12px;padding:1rem;text-align:center;border:1px solid rgba(255,255,255,0.08);"><div style="font-size:1.75rem;font-weight:800;background:linear-gradient(135deg,#00F5C4,#7B5CFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" id="fsRevenue">—</div><div style="font-size:0.7rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.05em;margin-top:0.25rem;">Revenue (UGX)</div></div>
+                    <div class="fs-card" style="background:rgba(255,255,255,0.05);border-radius:12px;padding:1rem;text-align:center;border:1px solid rgba(255,255,255,0.08);"><div style="font-size:1.75rem;font-weight:800;background:linear-gradient(135deg,#00F5C4,#7B5CFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" id="fsUnits">—</div><div style="font-size:0.7rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.05em;margin-top:0.25rem;">Units Sold</div></div>
+                    <div class="fs-card" style="background:rgba(255,255,255,0.05);border-radius:12px;padding:1rem;text-align:center;border:1px solid rgba(255,255,255,0.08);"><div style="font-size:1.75rem;font-weight:800;background:linear-gradient(135deg,#00F5C4,#7B5CFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;" id="fsIssues">—</div><div style="font-size:0.7rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.05em;margin-top:0.25rem;">Field Issues</div></div>
+                </div>
+                <div style="background:rgba(255,255,255,0.03);border-radius:12px;padding:1.25rem;border:1px solid rgba(255,255,255,0.06);margin-bottom:1.5rem;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;"><h3 style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.05em;font-weight:600;">Milestones</h3><button onclick="addFSM()" style="padding:0.3rem 1rem;border-radius:9999px;border:1px solid rgba(0,245,196,0.3);background:rgba(0,245,196,0.08);color:#00F5C4;cursor:pointer;font-size:0.75rem;">+ Add</button></div>
+                    <div id="fsMilestones"></div>
+                </div>
+                <div style="background:rgba(255,255,255,0.03);border-radius:12px;padding:1.25rem;border:1px solid rgba(255,255,255,0.06);">
+                    <h3 style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.05em;font-weight:600;margin-bottom:0.75rem;">Private Notes</h3>
+                    <textarea id="fsNotes" style="width:100%;padding:0.75rem;border:1px solid rgba(255,255,255,0.1);border-radius:8px;background:rgba(255,255,255,0.05);color:#fff;font-size:0.85rem;min-height:80px;outline:none;resize:vertical;"></textarea>
+                    <button onclick="saveFSN()" style="margin-top:0.5rem;padding:0.35rem 1.25rem;border-radius:9999px;border:1px solid rgba(0,245,196,0.3);background:rgba(0,245,196,0.08);color:#00F5C4;cursor:pointer;font-size:0.75rem;">Save</button>
+                    <span id="fsNotesSaved" style="display:none;color:#00F5C4;font-size:0.75rem;margin-left:0.5rem;">Saved</span>
+                </div>
+                <div style="text-align:center;margin-top:1.5rem;font-size:0.7rem;color:rgba(255,255,255,0.15);">Ntronix &bull; Kampala, Uganda &bull; Data in your browser only</div>
+            </div>`;
+            document.body.appendChild(panel);
+            return overlay;
+        }
+
+        const FSD_KEY = 'ntronix_fs_data';
+        function getFSD() {
+            const r = localStorage.getItem(FSD_KEY);
+            if (r) return JSON.parse(r);
+            return { users:47, revenue:400000, units:1, issues:0, notes:'Seeking seed investment. First customer since Dec 2025 — zero issues.', milestones:[
+                {t:'Ntronix founded — Kampala, Uganda',d:'2024',done:true},
+                {t:'First 1kW MPPT prototype',d:'Q3 2024',done:true},
+                {t:'First unit sold — Agaba Peter',d:'Dec 4, 2025',done:true},
+                {t:'Second prototype in progress',d:'2026',done:false},
+                {t:'Seed round close',d:'Target: Q3 2026',done:false},
+            ]};
+        }
+        function saveFSD(d) { localStorage.setItem(FSD_KEY, JSON.stringify(d)); }
+
+        function renderFSData() {
+            const d = getFSD();
+            document.getElementById('fsUsers').textContent = d.users;
+            document.getElementById('fsRevenue').textContent = d.revenue.toLocaleString();
+            document.getElementById('fsUnits').textContent = d.units;
+            document.getElementById('fsIssues').textContent = d.issues;
+            document.getElementById('fsNotes').value = d.notes || '';
+            const list = document.getElementById('fsMilestones');
+            list.innerHTML = '';
+            d.milestones.forEach((m,i) => {
+                const div = document.createElement('div');
+                div.style.cssText = 'display:flex;align-items:center;gap:0.75rem;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.05);';
+                div.innerHTML = '<span style="font-size:1.2rem;">' + (m.done ? '&#9989;' : '&#9203;') + '</span>'
+                    + '<div style="flex:1;"><div style="font-weight:500;color:#fff;font-size:0.9rem;">' + m.t + '</div>'
+                    + '<div style="font-size:0.75rem;color:rgba(255,255,255,0.35);">' + m.d + '</div></div>'
+                    + '<button onclick="togFSM(' + i + ')" style="font-size:0.7rem;padding:0.2rem 0.6rem;border-radius:9999px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.5);cursor:pointer;">Toggle</button>'
+                    + '<button onclick="delFSM(' + i + ')" style="font-size:0.7rem;padding:0.2rem 0.5rem;border:none;background:transparent;color:rgba(255,107,107,0.5);cursor:pointer;">&#10005;</button>';
+                list.appendChild(div);
+            });
+        }
+
+        function addFSM() {
+            const t = prompt('New milestone:'); if(!t) return;
+            const d = prompt('Date:') || 'TBD';
+            const x = getFSD(); x.milestones.push({t,d,done:false}); saveFSD(x); renderFSData();
+        }
+        function togFSM(i) { const x=getFSD(); x.milestones[i].done=!x.milestones[i].done; saveFSD(x); renderFSData(); }
+        function delFSM(i) { if(!confirm('Delete?'))return; const x=getFSD(); x.milestones.splice(i,1); saveFSD(x); renderFSData(); }
+        function saveFSN() { const x=getFSD(); x.notes=document.getElementById('fsNotes').value; saveFSD(x); const e=document.getElementById('fsNotesSaved'); e.style.display='inline'; setTimeout(()=>e.style.display='none',2000); }
     </script>
 </body>
 </html>

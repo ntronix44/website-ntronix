@@ -500,6 +500,13 @@ volta</div>
 
 <!-- ─── Copy JS ─────────────────────────────────────────────────────────── -->
 <script>
+// Track page visit (Volta download page viewed)
+fetch('https://trwxptxpfffbuxyhdwpx.supabase.co/rest/v1/volta_events', {
+    method: 'POST',
+    headers: {'apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRyd3hwdHhwZmZmdWJ4eWhkd3B4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI1Mzg1MzgsImV4cCI6MjA5ODExNDUzOH0.dNbVARgsSlnpYXzJZ6fW8xY6h8ImsjsAXGmRyLGBxU4','Content-Type':'application/json'},
+    body: JSON.stringify({event_type:'page_view',page:'volta-download',referrer:document.referrer||'direct',user_agent:navigator.userAgent.slice(0,200)})
+}).catch(()=>{});
+
 function copyCmd() {
     const el = document.getElementById('installCmd');
     const txt = el.textContent.trim();
@@ -524,6 +531,12 @@ function copyText(id, btn) {
             btn.classList.remove('copied');
         }, 2000);
     });
+    // Track download action
+    fetch('https://trwxptxpfffbuxyhdwpx.supabase.co/rest/v1/volta_events', {
+        method: 'POST',
+        headers: {'apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRyd3hwdHhwZmZmdWJ4eWhkd3B4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI1Mzg1MzgsImV4cCI6MjA5ODExNDUzOH0.dNbVARgsSlnpYXzJZ6fW8xY6h8ImsjsAXGmRyLGBxU4','Content-Type':'application/json'},
+        body: JSON.stringify({event_type:'copy_install',install_type:id==='winCmd'?'windows':id==='nixCmd'?'linux_mac':'manual'})
+    }).catch(()=>{});
 }
 </script>
 

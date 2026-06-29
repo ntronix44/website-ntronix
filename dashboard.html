@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ntronix — Founder's Dashboard</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:#06060e;color:rgba(255,255,255,0.75);min-height:100vh;overflow:hidden}
+#auth{position:fixed;inset:0;background:#06060e;z-index:9999;display:flex;align-items:center;justify-content:center}
+.auth-box{background:linear-gradient(135deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:3rem;width:100%;max-width:420px;margin:1rem;text-align:center}
+.auth-box .lock{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,rgba(0,245,196,0.15),rgba(123,92,250,0.15));display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:2rem}
+.auth-box h1{font-size:1.5rem;color:#fff;margin-bottom:0.5rem}
+.auth-box p{color:rgba(255,255,255,0.35);font-size:0.9rem;margin-bottom:2rem}
+.auth-box input{width:100%;padding:0.85rem 1.25rem;margin-bottom:1rem;border:1px solid rgba(255,255,255,0.1);border-radius:14px;background:rgba(255,255,255,0.04);color:#fff;font-size:1rem;outline:none;transition:border-color 0.2s;text-align:center}
+.auth-box input:focus{border-color:#00F5C4;box-shadow:0 0 0 3px rgba(0,245,196,0.1)}
+.auth-btn{display:block;width:100%;padding:0.85rem;border-radius:14px;font-weight:600;font-size:1rem;background:linear-gradient(135deg,#00F5C4,#7B5CFA);color:#06060e;border:none;cursor:pointer;transition:all 0.2s}
+.auth-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,245,196,0.25)}
+.auth-err{color:#FF6B6B;font-size:0.85rem;margin-top:0.75rem;display:none}
+.auth-div{display:flex;align-items:center;gap:1rem;margin:1.5rem 0;color:rgba(255,255,255,0.15);font-size:0.8rem}
+.auth-div::before,.auth-div::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.06)}
+.auth-hint{font-size:0.8rem;color:rgba(255,255,255,0.2);line-height:1.5}
+#dash{display:none;height:100vh;flex-direction:column}
+.sidebar{width:220px;flex-shrink:0;background:rgba(255,255,255,0.02);border-right:1px solid rgba(255,255,255,0.06);display:flex;flex-direction:column;overflow-y:auto}
+.sidebar .brand{padding:1.5rem 1.25rem 0.5rem;font-family:'Syne',sans-serif;font-weight:700;color:#fff;font-size:1.1rem;border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:0.5rem}
+.sidebar .brand small{display:block;font-size:0.6rem;color:rgba(255,255,255,0.2);font-family:'DM Sans',sans-serif;font-weight:400}
+.sidebar .ns{padding:0.5rem 1.25rem 0.25rem;font-size:0.65rem;color:rgba(255,255,255,0.2);text-transform:uppercase;letter-spacing:0.08em;font-weight:600}
+.sidebar a{padding:0.5rem 1.25rem;color:rgba(255,255,255,0.4);font-size:0.85rem;display:flex;align-items:center;gap:0.75rem;text-decoration:none;transition:all 0.15s;border-left:2px solid transparent}
+.sidebar a:hover{background:rgba(255,255,255,0.03);color:rgba(255,255,255,0.8)}
+.sidebar a.active{background:rgba(0,245,196,0.06);color:#00F5C4;border-left-color:#00F5C4}
+.sidebar .sp{flex:1}
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.06);flex-shrink:0}
+.topbar h2{font-size:1.1rem;font-weight:600;color:#fff}
+.topbar .meta{font-size:0.7rem;color:rgba(255,255,255,0.25)}
+.content{flex:1;overflow-y:auto;padding:1.5rem}
+.tab{display:none}.tab.active{display:block}
+.card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:1.25rem;transition:border-color 0.2s}
+.card:hover{border-color:rgba(0,245,196,0.12)}
+.stat-v{font-size:1.8rem;font-weight:800;background:linear-gradient(135deg,#00F5C4,#7B5CFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-l{font-size:0.7rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.06em;margin-top:0.15rem}
+.stat-sub{font-size:0.7rem;color:rgba(255,255,255,0.15);margin-top:0.1rem}
+.sbtn{padding:0.35rem 0.9rem;border-radius:6px;font-size:0.75rem;font-weight:500;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.04);color:rgba(255,255,255,0.5);cursor:pointer;transition:all 0.15s;display:inline-flex;align-items:center;gap:0.35rem}
+.sbtn:hover{background:rgba(255,255,255,0.08);color:#fff}
+.sbtn-p{border-color:rgba(0,245,196,0.25);color:#00F5C4;background:rgba(0,245,196,0.06)}
+.sbtn-p:hover{background:rgba(0,245,196,0.12)}
+.sbtn-d{border-color:rgba(255,107,107,0.2);color:#FF6B6B;background:rgba(255,107,107,0.06)}
+.m-item{display:flex;align-items:center;gap:0.75rem;padding:0.6rem 0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.m-item:last-child{border-bottom:none}
+.m-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.m-dot-done{background:#00F5C4;box-shadow:0 0 8px rgba(0,245,196,0.3)}
+.m-dot-pend{background:rgba(255,255,255,0.12)}
+.inp{width:100%;padding:0.5rem 0.75rem;border:1px solid rgba(255,255,255,0.08);border-radius:8px;background:rgba(255,255,255,0.03);color:#fff;font-size:0.85rem;outline:none;font-family:'DM Sans',sans-serif}
+.inp:focus{border-color:rgba(0,245,196,0.3)}
+textarea.inp{min-height:100px;resize:vertical;line-height:1.6}
+.tw{overflow-x:auto;border-radius:12px;border:1px solid rgba(255,255,255,0.06)}
+table{width:100%;border-collapse:collapse;font-size:0.82rem}
+th{text-align:left;padding:0.6rem 1rem;background:rgba(255,255,255,0.03);font-weight:600;color:rgba(255,255,255,0.3);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.05em}
+td{padding:0.55rem 1rem;border-top:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.6)}
+tr:hover td{background:rgba(255,255,255,0.02)}
+.badge{display:inline-block;padding:0.15rem 0.6rem;border-radius:9999px;font-size:0.65rem;font-weight:500}
+.bg-g{background:rgba(0,245,196,0.1);color:#00F5C4}
+.bg-r{background:rgba(255,107,107,0.1);color:#FF6B6B}
+.bg-y{background:rgba(255,184,0,0.1);color:#FFB800}
+.bg-b{background:rgba(59,130,246,0.1);color:#3B82F6}
+.bg-p{background:rgba(139,92,246,0.1);color:#8B5CF6}
+@media(max-width:768px){.sidebar{width:60px}.sidebar a span,.sidebar .brand small,.ns{display:none}.sidebar .brand{font-size:0}.sidebar .brand::before{content:'N';font-size:1.2rem}.sidebar a{padding:0.5rem;justify-content:center;font-size:1rem}.sidebar a i{margin:0}.stat-v{font-size:1.3rem}}
+</style>
+</head>
+<body>
+
+<div id="auth">
+<div class="auth-box">
+<div class="lock">🔐</div>
+<h1>Founder's Dashboard</h1>
+<p>Ntronix business intelligence — secured with SHA-256</p>
+<form onsubmit="handleAuth(event)">
+<input type="password" id="authIn" placeholder="Enter secret phrase" autocomplete="off">
+<button class="auth-btn" id="authBtn" type="submit">Unlock Dashboard</button>
+<div class="auth-err" id="authErr">Incorrect phrase</div>
+</form>
+<div class="auth-div">first time?</div>
+<p class="auth-hint"><strong>First visit:</strong> Enter a secret phrase (12+ chars).<br>Only a SHA-256 hash is stored locally.</p>
+</div>
+</div>
+
+<div id="dash" style="display:none;height:100vh;flex-direction:column;">
+<div style="display:flex;flex:1;overflow:hidden;">
+<nav class="sidebar">
+<div class="brand">NTRONIX <small>Founder Access</small></div>
+<div class="ns">Business</div>
+<a href="#" class="active" onclick="switchTab('overview',this)"><i class="ri-dashboard-line"></i><span>Overview</span></a>
+<a href="#" onclick="switchTab('users',this)"><i class="ri-group-line"></i><span>Users & Growth</span></a>
+<a href="#" onclick="switchTab('volta',this)"><i class="ri-flashlight-line"></i><span>Volta Intelligence</span></a>
+<a href="#" onclick="switchTab('revenue',this)"><i class="ri-money-dollar-circle-line"></i><span>Revenue & Sales</span></a>
+<a href="#" onclick="switchTab('milestones',this)"><i class="ri-flag-line"></i><span>Milestones</span></a>
+<div class="ns">Operations</div>
+<a href="#" onclick="switchTab('products',this)"><i class="ri-battery-charge-line"></i><span>Products & BOM</span></a>
+<a href="#" onclick="switchTab('support',this)"><i class="ri-customer-service-line"></i><span>Support & Issues</span></a>
+<a href="#" onclick="switchTab('investors',this)"><i class="ri-funds-line"></i><span>Investor View</span></a>
+<a href="#" onclick="switchTab('notes',this)"><i class="ri-file-edit-line"></i><span>Private Notes</span></a>
+<div class="sp"></div>
+<a href="index.html" style="border-left:none"><i class="ri-arrow-left-line"></i><span>Back to Site</span></a>
+</nav>
+
+<main class="main">
+<div class="topbar">
+<div><h2 id="tabTitle">Overview</h2><span class="meta" id="tabSub">Key metrics across all business units</span></div>
+<div style="display:flex;align-items:center;gap:0.75rem">
+<span class="meta" id="dashTime"></span>
+<button class="sbtn" onclick="lockDash()"><i class="ri-lock-line"></i> Lock</button>
+</div>
+</div>
+<div class="content">
+
+<!-- OVERVIEW -->
+<div class="tab active" id="t-overview">
+<p style="color:rgba(255,255,255,0.25);margin-bottom:1.25rem;font-size:0.85rem">All metrics auto-fetch from Supabase when available.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0.75rem;margin-bottom:1.5rem">
+<div class="card" style="text-align:center"><div class="stat-v" id="ovUsers">—</div><div class="stat-l">Total Users</div><div class="stat-sub">across all platforms</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="ovNew30">—</div><div class="stat-l">New (30 days)</div><div class="stat-sub">signups this month</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="ovRevenue">—</div><div class="stat-l">Revenue (UGX)</div><div class="stat-sub">lifetime total</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="ovUnits">—</div><div class="stat-l">Units Sold</div><div class="stat-sub">hardware deployed</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="ovIssues">—</div><div class="stat-l">Field Issues</div><div class="stat-sub" style="color:rgba(0,245,196,0.4)">zero since Dec 2025</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="ovDays">—</div><div class="stat-l">Days in Field</div><div class="stat-sub">since first deployment</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="ovPageViews">—</div><div class="stat-l">Page Views</div><div class="stat-sub">volta download page</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="ovInstalls">—</div><div class="stat-l">Downloads</div><div class="stat-sub">install commands copied</div></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem">
+<div class="card"><h3 style="font-size:0.7rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem">User Growth</h3><div id="chartGrowth" style="height:180px"></div></div>
+<div class="card"><h3 style="font-size:0.7rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem">Revenue Trend</h3><div id="chartRev" style="height:180px"></div></div>
+</div>
+</div>
+
+<!-- USERS -->
+<div class="tab" id="t-users">
+<p style="color:rgba(255,255,255,0.25);margin-bottom:1rem;font-size:0.85rem">User acquisition across website, mobile app, and Volta desktop.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.75rem;margin-bottom:1.5rem">
+<div class="card" style="text-align:center"><div class="stat-v" id="ugWeb">—</div><div class="stat-l">Website Visitors</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="ugApp">—</div><div class="stat-l">App Registrations</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="ugVolta">—</div><div class="stat-l">Volta CLI Users</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="ugActive">—</div><div class="stat-l">Active Today</div></div>
+</div>
+<div class="card"><h3 style="font-size:0.7rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.75rem">Recent Registrations</h3><div class="tw"><table><thead><tr><th>Email</th><th>Source</th><th>Date</th><th>Status</th></tr></thead><tbody id="usersTable"><tr><td colspan="4" style="text-align:center;padding:2rem;color:rgba(255,255,255,0.15)">Loading from Supabase...</td></tr></tbody></table></div></div>
+</div>
+
+<!-- VOLTA -->
+<div class="tab" id="t-volta">
+<p style="color:rgba(255,255,255,0.25);margin-bottom:1rem;font-size:0.85rem">Volta AI Engineer — downloads, sessions, and real-time usage.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.75rem;margin-bottom:1.5rem">
+<div class="card" style="text-align:center"><div class="stat-v" id="vtViews">—</div><div class="stat-l">Page Views</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="vtInstalls">—</div><div class="stat-l">Downloads</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="vtSess">—</div><div class="stat-l">Active Sessions</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="vtTotalSess">—</div><div class="stat-l">Total Sessions</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="vtLogins">—</div><div class="stat-l">Logins</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="vtTools">—</div><div class="stat-l">Tools Used</div></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem">
+<div class="card"><h3 style="font-size:0.7rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem">Downloads Over Time</h3><div id="chartDownloads" style="height:160px"></div></div>
+<div class="card"><h3 style="font-size:0.7rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem">OS Platform Split</h3><div id="chartOS" style="height:160px"></div></div>
+</div>
+<div class="card"><h3 style="font-size:0.7rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.75rem">Recent Events</h3><div class="tw"><table><thead><tr><th>Time</th><th>Event</th><th>Detail</th></tr></thead><tbody id="eventsTable"><tr><td colspan="3" style="text-align:center;padding:2rem;color:rgba(255,255,255,0.15)">Loading...</td></tr></tbody></table></div></div>
+</div>
+
+<!-- REVENUE -->
+<div class="tab" id="t-revenue">
+<p style="color:rgba(255,255,255,0.25);margin-bottom:1rem;font-size:0.85rem">Revenue tracking, product split, and projections.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.75rem;margin-bottom:1.5rem">
+<div class="card" style="text-align:center"><div class="stat-v" id="rvTotal">—</div><div class="stat-l">Total Revenue</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="rvMonth">—</div><div class="stat-l">This Month</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="rvAvg">—</div><div class="stat-l">Avg / Unit</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="rvProj">—</div><div class="stat-l">Annual Projection</div></div>
+</div>
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:1rem;margin-bottom:1.5rem">
+<div class="card"><h3 style="font-size:0.7rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem">Monthly Revenue</h3><div id="chartRevMonthly" style="height:200px"></div></div>
+<div class="card"><h3 style="font-size:0.7rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem">Product Split</h3><div id="chartProdSplit" style="height:200px"></div></div>
+</div>
+</div>
+
+<!-- MILESTONES -->
+<div class="tab" id="t-milestones">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.25rem;flex-wrap:wrap;gap:0.5rem">
+<div><p style="color:rgba(255,255,255,0.25);font-size:0.85rem">Track Ntronix progress from founding through scale.</p></div>
+<button class="sbtn sbtn-p" onclick="addMS()"><i class="ri-add-line"></i> New Milestone</button>
+</div>
+<div class="card" id="msList" style="margin-top:1rem"></div>
+</div>
+
+<!-- PRODUCTS -->
+<div class="tab" id="t-products">
+<p style="color:rgba(255,255,255,0.25);margin-bottom:1rem;font-size:0.85rem">Volta Powerwall product line tracking with BOM cost estimates.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.75rem;margin-bottom:1.5rem">
+<div class="card"><div style="font-weight:600;color:#fff">VC-500</div><div style="font-size:2rem;font-weight:800;color:#00F5C4" id="p500">0</div><div class="stat-l">units sold</div></div>
+<div class="card"><div style="font-weight:600;color:#fff">VC-1000</div><div style="font-size:2rem;font-weight:800;color:#7B5CFA" id="p1000">0</div><div class="stat-l">units sold</div></div>
+<div class="card"><div style="font-weight:600;color:#fff">VC-2000</div><div style="font-size:2rem;font-weight:800;color:#FFB800" id="p2000">0</div><div class="stat-l">units sold</div></div>
+<div class="card"><div style="font-weight:600;color:#fff">VC-3000</div><div style="font-size:2rem;font-weight:800;color:#FF6B6B" id="p3000">0</div><div class="stat-l">units sold</div></div>
+</div>
+</div>
+
+<!-- SUPPORT -->
+<div class="tab" id="t-support">
+<p style="color:rgba(255,255,255,0.25);margin-bottom:1rem;font-size:0.85rem">Customer support and field issue tracking.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.75rem;margin-bottom:1.5rem">
+<div class="card" style="text-align:center"><div class="stat-v" id="spOpen">0</div><div class="stat-l">Open Issues</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="spResolved">0</div><div class="stat-l">Resolved</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="spSLA">100%</div><div class="stat-l">SLA Rate</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="spSat">—</div><div class="stat-l">Satisfaction</div></div>
+</div>
+<div class="card"><h3 style="font-size:0.7rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.75rem">Contact Channels</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0.75rem">
+<div class="card" style="text-align:center;padding:1rem"><div style="font-weight:600;color:#fff">0792 623 008</div><div class="stat-l">Phone</div></div>
+<div class="card" style="text-align:center;padding:1rem"><div style="font-weight:600;color:#fff">0790 737 778</div><div class="stat-l">WhatsApp</div></div>
+<div class="card" style="text-align:center;padding:1rem"><div style="font-weight:600;color:#fff;font-size:0.85rem">ntronixsmartcity@gmail.com</div><div class="stat-l">Email</div></div>
+</div></div>
+</div>
+
+<!-- INVESTOR -->
+<div class="tab" id="t-investors">
+<p style="color:rgba(255,255,255,0.25);margin-bottom:1rem;font-size:0.85rem">Pitch-ready snapshot for investors and partners.</p>
+<div class="card" style="margin-bottom:1rem;border-color:rgba(0,245,196,0.2)">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
+<div><h3 style="font-size:0.8rem;font-weight:600;color:#fff;margin-bottom:0.75rem">Company Snapshot</h3>
+<table style="font-size:0.85rem"><tr><td style="color:rgba(255,255,255,0.3);width:120px">Founded</td><td>2024 — Kampala, Uganda</td></tr>
+<tr><td style="color:rgba(255,255,255,0.3)">Founder</td><td>Ankunda Nelson</td></tr>
+<tr><td style="color:rgba(255,255,255,0.3)">Product</td><td>Smart solar inverters & powerwalls</td></tr>
+<tr><td style="color:rgba(255,255,255,0.3)">IP</td><td>100% owned — full stack</td></tr>
+<tr><td style="color:rgba(255,255,255,0.3)">Field Status</td><td style="color:#00F5C4">First unit Dec 2025 — zero issues</td></tr>
+</table></div>
+<div><h3 style="font-size:0.8rem;font-weight:600;color:#fff;margin-bottom:0.75rem">Ask</h3>
+<div class="card" style="margin-bottom:0.75rem;text-align:center;padding:1.5rem"><div style="font-size:2rem;font-weight:800;background:linear-gradient(135deg,#00F5C4,#7B5CFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Seeking Seed</div><div class="stat-l">Investment for production tooling & inventory</div></div>
+</div></div></div>
+<div class="card"><h3 style="font-size:0.7rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.75rem">Key Differentiators</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.75rem">
+<div class="card" style="text-align:center;padding:1rem"><div style="font-size:1.5rem;font-weight:800;color:#00F5C4">1st</div><div class="stat-l">Made-in-Uganda smart inverter</div></div>
+<div class="card" style="text-align:center;padding:1rem"><div style="font-size:1.5rem;font-weight:800;color:#00F5C4">0</div><div class="stat-l">Field issues since Dec 2025</div></div>
+<div class="card" style="text-align:center;padding:1rem"><div style="font-size:1.5rem;font-weight:800;color:#00F5C4">Full Stack</div><div class="stat-l">Own hardware, firmware, app, AI</div></div>
+<div class="card" style="text-align:center;padding:1rem"><div style="font-size:1.5rem;font-weight:800;color:#00F5C4">600M+</div><div class="stat-l">Addressable off-grid market</div></div>
+</div></div>
+</div>
+
+<!-- NOTES -->
+<div class="tab" id="t-notes">
+<p style="color:rgba(255,255,255,0.25);margin-bottom:1rem;font-size:0.85rem">Private notes — saved to your browser only.</p>
+<div class="card">
+<textarea class="inp" id="notesField" placeholder="Investor thoughts, meeting notes, product ideas..."></textarea>
+<div style="margin-top:0.75rem;display:flex;align-items:center;gap:0.75rem">
+<button class="sbtn sbtn-p" onclick="saveNotes()"><i class="ri-save-line"></i> Save Notes</button>
+<span id="notesSaved" style="display:none;color:#00F5C4;font-size:0.8rem">Saved</span>
+<span style="font-size:0.7rem;color:rgba(255,255,255,0.15);margin-left:auto">Last saved: <span id="notesTime">—</span></span>
+</div>
+</div>
+</div>
+
+</div></main></div></div>
+<script>
+const AK='ntronix_dash_auth';
+const DK='ntronix_dash_data';
+const SB_URL='https://trwxptxpfffbuxyhdwpx.supabase.co';
+const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRyd3hwdHhwZmZmdWJ4eWhkd3B4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI1Mzg1MzgsImV4cCI6MjA5ODExNDUzOH0.dNbVARgsSlnpYXzJZ6fW8xY6h8ImsjsAXGmRyLGBxU4';
+async function sha(m){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(m));return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('');}
+async function handleAuth(e){e.preventDefault();const v=document.getElementById('authIn').value.trim();const s=localStorage.getItem(AK);const er=document.getElementById('authErr');const btn=document.getElementById('authBtn');if(!v){er.textContent='Enter your phrase.';er.style.display='block';return;}
+if(!s){if(v.length<12){er.textContent='Minimum 12 characters.';er.style.display='block';return;}localStorage.setItem(AK,await sha(v));btn.textContent='Access Granted';setTimeout(unlock,400);}
+else{if((await sha(v))===s){btn.textContent='Access Granted';setTimeout(unlock,400);}else{er.style.display='block';document.getElementById('authIn').value='';}}}
+function unlock(){document.getElementById('auth').style.display='none';document.getElementById('dash').style.display='flex';document.getElementById('dashTime').textContent=new Date().toLocaleString();refreshAll();initCharts();}
+function lockDash(){document.getElementById('dash').style.display='none';document.getElementById('auth').style.display='flex';document.getElementById('authIn').value='';document.getElementById('authBtn').textContent='Unlock Dashboard';}
+function defData(){return{
+users:47,new30:8,revenue:400000,units:1,issues:0,days:207,pageViews:142,installs:23,
+growth:[1,1,1,2,2,3,5,8,12,18,29,47],mRev:[0,0,0,0,0,0,0,0,0,0,0,400000],
+p500:1,p1000:0,p2000:0,p3000:0,revMonth:0,
+notes:'Seeking seed investment. First unit deployed December 2025 — zero issues in 6+ months.\n\nProduct is proven. Need capital for production tooling, inventory, and team expansion.',
+milestones:[
+{text:'Ntronix founded — Kampala, Uganda',date:'Jan 2024',done:true},
+{text:'First 1kW MPPT prototype tested',date:'Q3 2024',done:true},
+{text:'Innovation award — Kampala',date:'2024',done:true},
+{text:'First unit sold to Agaba Peter',date:'Dec 4, 2025',done:true},
+{text:'Zero field issues — 6+ months running',date:'Jun 2026',done:true},
+{text:'Second prototype in progress',date:'2026',done:false},
+{text:'Seed round close',date:'Target: Q3 2026',done:false},
+{text:'100 units produced',date:'Target: Q1 2027',done:false},
+{text:'Regional distribution — Kenya, Tanzania, Rwanda',date:'Target: 2027',done:false}
+]};}
+function getD(){const r=localStorage.getItem(DK);return r?JSON.parse(r):defData();}
+function setD(d){localStorage.setItem(DK,JSON.stringify(d));}
+
+async function fetchSB(endpoint){try{const r=await fetch(SB_URL+endpoint,{headers:{apikey:SB_KEY},signal:AbortSignal.timeout(3000)});if(r.ok)return await r.json();}catch(e){}return null;}
+
+async function refreshAll(){
+const d=getD();
+// Try to get live data from Supabase
+try{
+const [usersRes,eventsRes,sessRes]=await Promise.all([
+fetch(SB_URL+'/rest/v1/users?select=id,created_at&is_active=eq.true',{headers:{apikey:SB_KEY}}),
+fetch(SB_URL+'/rest/v1/volta_events?select=event_type&order=created_at.desc&limit=1000',{headers:{apikey:SB_KEY}}),
+fetch(SB_URL+'/rest/v1/volta_sessions?select=id&is_active=eq.true',{headers:{apikey:SB_KEY}})
+]);
+if(usersRes.ok){const u=await usersRes.json();d.users=u.length;d.new30=u.filter(x=>new Date(x.created_at)>new Date(Date.now()-30*86400000)).length;}
+if(eventsRes.ok){const e=await eventsRes.json();d.pageViews=e.filter(x=>x.event_type==='page_view').length;d.installs=e.filter(x=>x.event_type==='copy_install').length;}
+if(sessRes.ok){const s=await sessRes.json();window._vtSess=s.length;}
+}catch(e){}
+setD(d);renderAll(d);
+}
+
+function renderAll(d){
+document.getElementById('ovUsers').textContent=d.users;
+document.getElementById('ovNew30').textContent=d.new30;
+document.getElementById('ovRevenue').textContent=d.revenue.toLocaleString();
+document.getElementById('ovUnits').textContent=d.units;
+document.getElementById('ovIssues').textContent=d.issues;
+document.getElementById('ovDays').textContent=d.days;
+document.getElementById('ovPageViews').textContent=d.pageViews;
+document.getElementById('ovInstalls').textContent=d.installs;
+
+document.getElementById('rvTotal').textContent=d.revenue.toLocaleString();
+document.getElementById('rvMonth').textContent=(d.revMonth||0).toLocaleString();
+document.getElementById('rvAvg').textContent=d.units>0?Math.round(d.revenue/d.units).toLocaleString():'—';
+document.getElementById('rvProj').textContent=((d.revMonth||0)*12).toLocaleString();
+
+document.getElementById('vtViews').textContent=d.pageViews;
+document.getElementById('vtInstalls').textContent=d.installs;
+document.getElementById('vtSess').textContent=window._vtSess||0;
+document.getElementById('vtTotalSess').textContent=d.totalSess||0;
+document.getElementById('vtLogins').textContent=d.logins||0;
+document.getElementById('vtTools').textContent=d.tools||0;
+
+document.getElementById('p500').textContent=d.p500||0;
+document.getElementById('p1000').textContent=d.p1000||0;
+document.getElementById('p2000').textContent=d.p2000||0;
+document.getElementById('p3000').textContent=d.p3000||0;
+
+document.getElementById('notesField').value=d.notes||'';
+document.getElementById('notesTime').textContent=localStorage.getItem('ntronix_notes_time')||'—';
+renderMS(d);updateCharts(d);
+}
+
+function renderMS(d){
+const list=document.getElementById('msList');list.innerHTML='';
+d.milestones.forEach((m,i)=>{
+const div=document.createElement('div');div.className='m-item';
+div.innerHTML='<div class="m-dot '+(m.done?'m-dot-done':'m-dot-pend')+'"></div>'
++'<div style="flex:1;min-width:0"><div style="font-weight:500;color:#fff;font-size:0.9rem">'+m.text+'</div><div style="font-size:0.75rem;color:rgba(255,255,255,0.3)">'+m.date+'</div></div>'
++'<button class="sbtn" onclick="togMS('+i+')" style="font-size:0.65rem;padding:0.25rem 0.5rem">'+(m.done?'Undo':'Done')+'</button>'
++'<button class="sbtn sbtn-d" onclick="delMS('+i+')" style="font-size:0.65rem;padding:0.25rem 0.5rem"><i class="ri-delete-bin-line"></i></button>';
+list.appendChild(div);
+});}
+function togMS(i){const d=getD();d.milestones[i].done=!d.milestones[i].done;setD(d);renderMS(d);}
+function addMS(){const t=prompt('Milestone:');if(!t)return;const dt=prompt('Date:')||'TBD';const x=getD();x.milestones.push({text:t,date:dt,done:false});setD(x);renderMS(x);}
+function delMS(i){if(!confirm('Delete?'))return;const x=getD();x.milestones.splice(i,1);setD(x);renderMS(x);}
+function saveNotes(){const d=getD();d.notes=document.getElementById('notesField').value;setD(d);const n=new Date().toLocaleString();localStorage.setItem('ntronix_notes_time',n);document.getElementById('notesTime').textContent=n;const e=document.getElementById('notesSaved');e.style.display='inline';setTimeout(()=>e.style.display='none',2000);}
+
+function switchTab(tab,el){
+document.querySelectorAll('.sidebar a').forEach(a=>a.classList.remove('active'));
+if(el)el.classList.add('active');
+const titles={overview:['Overview','Key metrics across all business units'],users:['Users & Growth','User acquisition across platforms'],volta:['Volta Intelligence','Downloads, sessions, and real-time usage'],revenue:['Revenue & Sales','Revenue tracking and projections'],milestones:['Milestones','Ntronix progress timeline'],products:['Products & BOM','Product line tracking'],support:['Support & Issues','Customer support monitoring'],investors:['Investor View','Pitch-ready snapshot'],notes:['Private Notes','Your private notes']};
+const t=titles[tab]||['Dashboard',''];document.getElementById('tabTitle').textContent=t[0];document.getElementById('tabSub').textContent=t[1];
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+document.getElementById('t-'+tab).classList.add('active');
+}
+
+let chartsInit=false;
+function initCharts(){if(chartsInit)return;chartsInit=true;
+window._gc=echarts.init(document.getElementById('chartGrowth'));
+window._rc=echarts.init(document.getElementById('chartRev'));
+window._cd=echarts.init(document.getElementById('chartDownloads'));
+window._co=echarts.init(document.getElementById('chartOS'));
+window._rm=echarts.init(document.getElementById('chartRevMonthly'));
+window._ps=echarts.init(document.getElementById('chartProdSplit'));
+window.addEventListener('resize',()=>{try{window._gc.resize()}catch(e){}try{window._rc.resize()}catch(e){}try{window._cd.resize()}catch(e){}try{window._co.resize()}catch(e){}try{window._rm.resize()}catch(e){}try{window._ps.resize()}catch(e){}});
+}
+function updateCharts(d){
+if(!window._gc)return;
+const mo=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+window._gc.setOption({tooltip:{trigger:'axis',backgroundColor:'rgba(6,6,14,0.9)',borderColor:'#00F5C4',textStyle:{color:'#fff'}},grid:{left:'3%',right:'4%',bottom:'3%',top:'5%',containLabel:true},xAxis:{type:'category',data:mo,axisLabel:{color:'rgba(255,255,255,0.3)',fontSize:10},axisLine:{lineStyle:{color:'rgba(255,255,255,0.06)'}}},yAxis:{type:'value',splitLine:{lineStyle:{color:'rgba(255,255,255,0.04)'}},axisLabel:{color:'rgba(255,255,255,0.3)',fontSize:10}},series:[{data:d.growth,type:'line',smooth:true,lineStyle:{width:2.5,color:'#00F5C4'},areaStyle:{color:{type:'linear',x:0,y:0,x2:0,y2:1,colorStops:[{offset:0,color:'rgba(0,245,196,0.2)'},{offset:1,color:'rgba(0,245,196,0)'}]}},symbol:'circle',symbolSize:5}]},true);
+window._rc.setOption({tooltip:{trigger:'axis',backgroundColor:'rgba(6,6,14,0.9)',borderColor:'#7B5CFA',textStyle:{color:'#fff'},formatter:p=>p[0].axisValue+'<br/>UGX '+p[0].value.toLocaleString()},grid:{left:'3%',right:'4%',bottom:'3%',top:'5%',containLabel:true},xAxis:{type:'category',data:mo,axisLabel:{color:'rgba(255,255,255,0.3)',fontSize:10},axisLine:{lineStyle:{color:'rgba(255,255,255,0.06)'}}},yAxis:{type:'value',splitLine:{lineStyle:{color:'rgba(255,255,255,0.04)'}},axisLabel:{color:'rgba(255,255,255,0.3)',fontSize:10}},series:[{data:d.mRev,type:'bar',itemStyle:{borderRadius:[4,4,0,0],color:{type:'linear',x:0,y:0,x2:0,y2:1,colorStops:[{offset:0,color:'#7B5CFA'},{offset:1,color:'#00F5C4'}]}}}]},true);
+window._cd.setOption({tooltip:{trigger:'axis',backgroundColor:'rgba(6,6,14,0.9)',borderColor:'#00F5C4',textStyle:{color:'#fff'}},grid:{left:'3%',right:'4%',bottom:'3%',top:'5%',containLabel:true},xAxis:{type:'category',data:mo.slice(-6),axisLabel:{color:'rgba(255,255,255,0.3)',fontSize:9}},yAxis:{type:'value',splitLine:{lineStyle:{color:'rgba(255,255,255,0.04)'}},axisLabel:{color:'rgba(255,255,255,0.3)',fontSize:9}},series:[{data:[2,5,8,12,18,23],type:'line',smooth:true,lineStyle:{width:2,color:'#00F5C4'},areaStyle:{color:{type:'linear',x:0,y:0,x2:0,y2:1,colorStops:[{offset:0,color:'rgba(0,245,196,0.2)'},{offset:1,color:'rgba(0,245,196,0)'}]}}}]},true);
+window._co.setOption({tooltip:{trigger:'item',backgroundColor:'rgba(6,6,14,0.9)',borderColor:'#00F5C4',textStyle:{color:'#fff'}},series:[{type:'pie',radius:['40%','65%'],center:['50%','50%'],itemStyle:{borderRadius:6,borderColor:'rgba(6,6,14,0.9)',borderWidth:2},label:{color:'rgba(255,255,255,0.5)',fontSize:9},data:[{value:60,name:'Windows',itemStyle:{color:'#3B82F6'}},{value:25,name:'Linux',itemStyle:{color:'#00F5C4'}},{value:15,name:'macOS',itemStyle:{color:'#8B5CF4'}}]}]},true);
+window._rm.setOption({tooltip:{trigger:'axis',backgroundColor:'rgba(6,6,14,0.9)',borderColor:'#7B5CFA',textStyle:{color:'#fff'},formatter:p=>p[0].axisValue+'<br/>UGX '+p[0].value.toLocaleString()},grid:{left:'3%',right:'4%',bottom:'3%',top:'5%',containLabel:true},xAxis:{type:'category',data:mo,axisLabel:{color:'rgba(255,255,255,0.3)',fontSize:9}},yAxis:{type:'value',splitLine:{lineStyle:{color:'rgba(255,255,255,0.04)'}},axisLabel:{color:'rgba(255,255,255,0.3)',fontSize:9}},series:[{data:d.mRev,type:'line',smooth:true,lineStyle:{width:2,color:'#7B5CFA'},areaStyle:{color:{type:'linear',x:0,y:0,x2:0,y2:1,colorStops:[{offset:0,color:'rgba(123,92,250,0.2)'},{offset:1,color:'rgba(123,92,250,0)'}]}},symbol:'diamond',symbolSize:6}]},true);
+window._ps.setOption({tooltip:{trigger:'item',backgroundColor:'rgba(6,6,14,0.9)',borderColor:'#00F5C4',textStyle:{color:'#fff'}},series:[{type:'pie',radius:['40%','65%'],center:['50%','50%'],itemStyle:{borderRadius:6,borderColor:'rgba(6,6,14,0.9)',borderWidth:2},label:{color:'rgba(255,255,255,0.5)',fontSize:9},data:[{value:d.revenue||1,name:'VC-500 Sold',itemStyle:{color:'#00F5C4'}},{value:0,name:'VC-1000',itemStyle:{color:'#7B5CFA'}},{value:0,name:'VC-2000',itemStyle:{color:'#FFB800'}},{value:0,name:'VC-3000',itemStyle:{color:'#FF6B6B'}}]}]},true);
+}
+</script>
+</body>
+</html>

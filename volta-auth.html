@@ -313,6 +313,13 @@
             document.getElementById("navLogout").style.display = "inline";
             document.getElementById("dashGreeting").textContent = "Welcome, " + (currentUser?.name || currentUser?.username) + " — monitoring " + (currentUser?.role || "") + " access.";
 
+            // Track login to Supabase
+            fetch('https://trwxptxpfffbuxyhdwpx.supabase.co/rest/v1/volta_events', {
+                method: 'POST',
+                headers: {'apikey':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRyd3hwdHhwZmZmdWJ4eWhkd3B4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI1Mzg1MzgsImV4cCI6MjA5ODExNDUzOH0.dNbVARgsSlnpYXzJZ6fW8xY6h8ImsjsAXGmRyLGBxU4','Content-Type':'application/json'},
+                body: JSON.stringify({event_type:'login',page:'volta-auth',user:currentUser?.username||'unknown'})
+            }).catch(()=>{});
+
             // Try to load via API — if fail, load from localhost or show demo
             await refreshStats();
         }
