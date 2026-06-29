@@ -166,5 +166,94 @@
       "created": "2026-06-26T10:59:21.240Z",
       "notes": []
     }
+  ],
+  [
+    "mqzbq2ztk1c",
+    {
+      "id": "mqzbq2ztk1c",
+      "task": "Step 1: Remove all 'open source', 'MIT License', 'free', 'no paywalls', 'no royalties', 'sublicense' language from meta tags, hero, and body",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-29T14:39:19.721Z",
+      "notes": [
+        {
+          "at": "2026-06-29T14:39:44.750Z",
+          "text": "Removed open source / MIT / free from meta tags, title, hero buttons, and intro text"
+        }
+      ]
+    }
+  ],
+  [
+    "mqzbq2zture",
+    {
+      "id": "mqzbq2zture",
+      "task": "Step 2: Remove the entire 'Open Source' section (id=open-source) — MIT License card, Contribute card, and professional support card",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-29T14:39:19.721Z",
+      "notes": []
+    }
+  ],
+  [
+    "mqzbq2ztoqq",
+    {
+      "id": "mqzbq2ztoqq",
+      "task": "Step 3: Remove the 'Set your API key' block with DeepSeek/Gemini/Claude/Anthropic and $0.14/M tokens pricing",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-29T14:39:19.721Z",
+      "notes": []
+    }
+  ],
+  [
+    "mqzbq2zt35y",
+    {
+      "id": "mqzbq2zt35y",
+      "task": "Step 4: Remove model names from Multi-Model AI Engine feature card — replace with generic 'multi-provider' language",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-29T14:39:19.721Z",
+      "notes": []
+    }
+  ],
+  [
+    "mqzbq2ztz6f",
+    {
+      "id": "mqzbq2ztz6f",
+      "task": "Step 5: Remove model names from the 'Built With' footer section",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-29T14:39:19.721Z",
+      "notes": []
+    }
+  ],
+  [
+    "mqzbq2ztmx4",
+    {
+      "id": "mqzbq2ztmx4",
+      "task": "Step 6: Retitle hero and install sections to present Volta as a Ntronix product terminal that users download and install",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-29T14:39:19.721Z",
+      "notes": []
+    }
+  ],
+  [
+    "mqzbq2zt1d5",
+    {
+      "id": "mqzbq2zt1d5",
+      "task": "Step 7: Commit and push",
+      "status": "in_progress",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-29T14:39:19.721Z",
+      "notes": []
+    }
   ]
 ]
