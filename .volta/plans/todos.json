@@ -249,10 +249,70 @@
     {
       "id": "mqzbq2zt1d5",
       "task": "Step 7: Commit and push",
-      "status": "in_progress",
+      "status": "done",
       "priority": "high",
       "category": "plan",
       "created": "2026-06-29T14:39:19.721Z",
+      "notes": []
+    }
+  ],
+  [
+    "mqzbvj2f8ae",
+    {
+      "id": "mqzbvj2f8ae",
+      "task": "Step 1: Replace the 3 install cards (Windows, Linux/macOS, Manual) with 3 big download cards — Windows .exe, Linux .tar.gz, macOS .dmg — each with large OS icon, version badge, and Download button",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-29T14:43:33.831Z",
+      "notes": []
+    }
+  ],
+  [
+    "mqzbvj2fgun",
+    {
+      "id": "mqzbvj2fgun",
+      "task": "Step 2: Remove the Prerequisites card (Node.js + Git) — users don't need it for the custom package",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-29T14:43:33.831Z",
+      "notes": []
+    }
+  ],
+  [
+    "mqzbvj2f508",
+    {
+      "id": "mqzbvj2f508",
+      "task": "Step 3: Remove the 'Built With' footer section and GitHub link from the very bottom — private repo should not be linked",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-29T14:43:33.831Z",
+      "notes": []
+    }
+  ],
+  [
+    "mqzbvj2f9wd",
+    {
+      "id": "mqzbvj2f9wd",
+      "task": "Step 4: Update the hero download link to scroll to new download section",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-29T14:43:33.831Z",
+      "notes": []
+    }
+  ],
+  [
+    "mqzbvj2fco5",
+    {
+      "id": "mqzbvj2fco5",
+      "task": "Step 5: Commit and push",
+      "status": "in_progress",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-29T14:43:33.831Z",
       "notes": []
     }
   ]
