@@ -290,18 +290,26 @@ async function fetchSB(endpoint){try{const r=await fetch(SB_URL+endpoint,{header
 
 async function refreshAll(){
 const d=getD();
-// Try to get live data from Supabase
+window._vtSess=0;
+window._vtLogins=[];
+window._vtActions=[];
 try{
-const [usersRes,eventsRes,sessRes]=await Promise.all([
+const [usersRes,eventsRes,sessRes,activityRes,loginsRes]=await Promise.all([
 fetch(SB_URL+'/rest/v1/users?select=id,created_at&is_active=eq.true',{headers:{apikey:SB_KEY}}),
-fetch(SB_URL+'/rest/v1/volta_events?select=event_type&order=created_at.desc&limit=1000',{headers:{apikey:SB_KEY}}),
-fetch(SB_URL+'/rest/v1/volta_sessions?select=id&is_active=eq.true',{headers:{apikey:SB_KEY}})
+fetch(SB_URL+'/rest/v1/volta_events?select=event_type,created_at&order=created_at.desc&limit=1000',{headers:{apikey:SB_KEY}}),
+fetch(SB_URL+'/rest/v1/volta_sessions?select=id&is_active=eq.true',{headers:{apikey:SB_KEY}}),
+fetch(SB_URL+'/rest/v1/activity_log?select=id,tool,detail,created_at,user_id&order=created_at.desc&limit=200',{headers:{apikey:SB_KEY}}),
+fetch(SB_URL+'/rest/v1/volta_events?select=id,event_type,email,user_id,created_at&event_type=eq.desktop_login&order=created_at.desc&limit=200',{headers:{apikey:SB_KEY}})
 ]);
 if(usersRes.ok){const u=await usersRes.json();d.users=u.length;d.new30=u.filter(x=>new Date(x.created_at)>new Date(Date.now()-30*86400000)).length;}
-if(eventsRes.ok){const e=await eventsRes.json();d.pageViews=e.filter(x=>x.event_type==='page_view').length;d.installs=e.filter(x=>x.event_type==='copy_install').length;}
-if(sessRes.ok){const s=await sessRes.json();window._vtSess=s.length;}
+if(eventsRes.ok){const e=await eventsRes.json();d.pageViews=e.filter(x=>x.event_type==='page_view').length;d.installs=e.filter(x=>x.event_type==='copy_install').length;window._vtLogins=e.filter(x=>x.event_type==='desktop_login');d.logins=window._vtLogins.length;}
+if(sessRes.ok){const s=await sessRes.json();window._vtSess=s.length;d.totalSess=s.length;}
+if(activityRes.ok){const a=await activityRes.json();window._vtActions=a.slice(0,50);d.tools=new Set(a.map(x=>x.tool)).size;}
+if(loginsRes.ok){const l=await loginsRes.json();window._vtLogins=l;d.logins=l.length;}
 }catch(e){}
 setD(d);renderAll(d);
+// Render events table in Volta Intelligence tab
+renderVoltaEvents();
 }
 
 function renderAll(d){
@@ -319,7 +327,7 @@ document.getElementById('rvMonth').textContent=(d.revMonth||0).toLocaleString();
 document.getElementById('rvAvg').textContent=d.units>0?Math.round(d.revenue/d.units).toLocaleString():'—';
 document.getElementById('rvProj').textContent=((d.revMonth||0)*12).toLocaleString();
 
-document.getElementById('vtViews').textContent=d.pageViews;
+document.getElementById('vtViews').textContent=Math.max(d.pageViews,d.installs);
 document.getElementById('vtInstalls').textContent=d.installs;
 document.getElementById('vtSess').textContent=window._vtSess||0;
 document.getElementById('vtTotalSess').textContent=d.totalSess||0;
@@ -334,6 +342,18 @@ document.getElementById('p3000').textContent=d.p3000||0;
 document.getElementById('notesField').value=d.notes||'';
 document.getElementById('notesTime').textContent=localStorage.getItem('ntronix_notes_time')||'—';
 renderMS(d);updateCharts(d);
+renderVoltaEvents();
+}
+
+function renderVoltaEvents(){
+const tbody=document.getElementById('eventsTable');
+if(window._vtActions&&window._vtActions.length>0){
+tbody.innerHTML=window._vtActions.map(a=>'<tr><td class="text-mono" style="font-size:0.7rem;color:rgba(255,255,255,0.3)">'+(a.created_at?new Date(a.created_at).toLocaleString():'—')+'</td><td><span class="badge bg-b">'+a.tool+'</span></td><td style="font-size:0.8rem;color:rgba(255,255,255,0.5)">'+(a.detail?a.detail.slice(0,60):'—')+'</td></tr>').join('');
+}else if(window._vtLogins&&window._vtLogins.length>0){
+tbody.innerHTML=window._vtLogins.map(l=>'<tr><td class="text-mono" style="font-size:0.7rem;color:rgba(255,255,255,0.3)">'+(l.created_at?new Date(l.created_at).toLocaleString():'—')+'</td><td><span class="badge bg-g">login</span></td><td style="font-size:0.8rem;color:rgba(255,255,255,0.5)">'+(l.email||'—')+'</td></tr>').join('');
+}else{
+tbody.innerHTML='<tr><td colspan="3" style="text-align:center;padding:2rem;color:rgba(255,255,255,0.15)">No desktop activity yet. Use the Volta desktop app to generate data.</td></tr>';
+}
 }
 
 function renderMS(d){

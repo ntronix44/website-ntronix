@@ -315,5 +315,197 @@
       "created": "2026-06-29T14:43:33.831Z",
       "notes": []
     }
+  ],
+  [
+    "mr0pip98wfy",
+    {
+      "id": "mr0pip98wfy",
+      "task": "Step 1: Remove Supabase anon key from dashboard.html — replace with env-var hint and graceful degradation",
+      "status": "in_progress",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-30T13:53:16.124Z",
+      "notes": []
+    }
+  ],
+  [
+    "mr0pip98nzz",
+    {
+      "id": "mr0pip98nzz",
+      "task": "Step 2: Remove Supabase anon key from volta-auth.html — replace with env-var hint",
+      "status": "pending",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-30T13:53:16.124Z",
+      "notes": []
+    }
+  ],
+  [
+    "mr0pip98sdt",
+    {
+      "id": "mr0pip98sdt",
+      "task": "Step 3: Remove Supabase anon key from volta-download.html — replace with env-var hint",
+      "status": "pending",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-30T13:53:16.124Z",
+      "notes": []
+    }
+  ],
+  [
+    "mr0pip98xu7",
+    {
+      "id": "mr0pip98xu7",
+      "task": "Step 4: Remove Google Analytics placeholder G-XXXXXXXXXX from index.html",
+      "status": "pending",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-30T13:53:16.124Z",
+      "notes": []
+    }
+  ],
+  [
+    "mr0pip981ui",
+    {
+      "id": "mr0pip981ui",
+      "task": "Step 5: Update .gitignore to prevent secrets from being committed",
+      "status": "pending",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-30T13:53:16.124Z",
+      "notes": []
+    }
+  ],
+  [
+    "mr0pip98hpt",
+    {
+      "id": "mr0pip98hpt",
+      "task": "Step 6: Update sitemap.xml to include all pages",
+      "status": "pending",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-30T13:53:16.124Z",
+      "notes": []
+    }
+  ],
+  [
+    "mr0pip98pq7",
+    {
+      "id": "mr0pip98pq7",
+      "task": "Step 7: Report completed security fixes",
+      "status": "pending",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-30T13:53:16.124Z",
+      "notes": []
+    }
+  ],
+  [
+    "mr0qa79cy79",
+    {
+      "id": "mr0qa79cy79",
+      "task": "Step 1: Update all SEO meta tags (description, keywords, og:title, title tag) — remove 'inverter' focus, replace with 'intelligent powerwall, portable power station, smart switches, Volta AI engineer'",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-30T14:14:39.168Z",
+      "notes": []
+    }
+  ],
+  [
+    "mr0qa79c94d",
+    {
+      "id": "mr0qa79c94d",
+      "task": "Step 2: Update Hero section — remove 'inverter' language, reposition as powerwall/power station company. Fix the stats cards (remove first-sale price reference)",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-30T14:14:39.168Z",
+      "notes": []
+    }
+  ],
+  [
+    "mr0qa79c91y",
+    {
+      "id": "mr0qa79c91y",
+      "task": "Step 3: Update 'Why We Exist' section — reposition to cover full product ecosystem (powerwall, switches, Volta AI), not just inverters",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-30T14:14:39.168Z",
+      "notes": []
+    }
+  ],
+  [
+    "mr0qa79cnz0",
+    {
+      "id": "mr0qa79cnz0",
+      "task": "Step 4: Update Products section — add smart switches product card, reposition language from inverters to power stations/powerwalls",
+      "status": "in_progress",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-30T14:14:39.168Z",
+      "notes": []
+    }
+  ],
+  [
+    "mr0qa79c9lh",
+    {
+      "id": "mr0qa79c9lh",
+      "task": "Step 5: Update About section — reposition Ntronix as an intelligent energy platform company (powerwalls + switches + AI engineer)",
+      "status": "pending",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-30T14:14:39.168Z",
+      "notes": []
+    }
+  ],
+  [
+    "mr0qa79cvo2",
+    {
+      "id": "mr0qa79cvo2",
+      "task": "Step 6: Update Traction/Investor section — remove the 'first sale price UGX 400,000' stat. Keep deployment stat but generic",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-30T14:14:39.168Z",
+      "notes": []
+    }
+  ],
+  [
+    "mr0qa79cd87",
+    {
+      "id": "mr0qa79cd87",
+      "task": "Step 7: Update the Founder's Dashboard (FS) — remove revenue/sale price display, keep units sold without price",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-30T14:14:39.168Z",
+      "notes": []
+    }
+  ],
+  [
+    "mr0qa79cxx8",
+    {
+      "id": "mr0qa79cxx8",
+      "task": "Step 8: Update footer and remaining sections for consistent messaging",
+      "status": "in_progress",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-30T14:14:39.168Z",
+      "notes": []
+    }
+  ],
+  [
+    "mr0qa79cn7d",
+    {
+      "id": "mr0qa79cn7d",
+      "task": "Step 9: Verify all changes are consistent and save",
+      "status": "pending",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-06-30T14:14:39.168Z",
+      "notes": []
+    }
   ]
 ]
