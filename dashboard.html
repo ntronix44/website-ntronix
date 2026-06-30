@@ -260,7 +260,7 @@ tr:hover td{background:rgba(255,255,255,0.02)}
 const AK='ntronix_dash_auth';
 const DK='ntronix_dash_data';
 const SB_URL='https://trwxptxpfffbuxyhdwpx.supabase.co';
-const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRyd3hwdHhwZmZmdWJ4eWhkd3B4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI1Mzg1MzgsImV4cCI6MjA5ODExNDUzOH0.dNbVARgsSlnpYXzJZ6fW8xY6h8ImsjsAXGmRyLGBxU4';
+const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRyd3hwdHhwZmZmYnV4eWhkd3B4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI1Mzg1MzgsImV4cCI6MjA5ODExNDUzOH0.dNBVaRGSSLNpYXZjz6fW8XY6H8imsjsAxgmRylgbXU4';
 async function sha(m){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(m));return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('');}
 async function handleAuth(e){e.preventDefault();const v=document.getElementById('authIn').value.trim();const s=localStorage.getItem(AK);const er=document.getElementById('authErr');const btn=document.getElementById('authBtn');if(!v){er.textContent='Enter your phrase.';er.style.display='block';return;}
 if(!s){if(v.length<12){er.textContent='Minimum 12 characters.';er.style.display='block';return;}localStorage.setItem(AK,await sha(v));btn.textContent='Access Granted';setTimeout(unlock,400);}
