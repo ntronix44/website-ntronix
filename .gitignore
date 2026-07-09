@@ -7,3 +7,6 @@ Thumbs.db
 .idea/
 .vscode/
 *.iml
+
+# APK binaries — too large for git (169+ MB), served directly from Netlify
+*.apk
