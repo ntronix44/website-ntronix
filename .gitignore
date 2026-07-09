@@ -1,3 +1,11 @@
-node_modules/
-.env
-.embedder/
+# APK files too large for GitHub — upload directly to Netlify
+*.apk
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.iml
