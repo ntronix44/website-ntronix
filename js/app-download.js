@@ -8,7 +8,9 @@
 (function () {
   'use strict';
 
-  const APK_PATH = '/Ntronix-App-v1.0.0.apk';
+  // GitHub Releases direct download — no redirect, triggers save-as
+  // URL: https://github.com/ntronix44/website-ntronix/releases/download/v1.0.0/Ntronix-App-v1.0.0.apk
+  const APK_PATH = 'https://github.com/ntronix44/website-ntronix/releases/download/v1.0.0/Ntronix-App-v1.0.0.apk';
   const APK_VERSION = '1.0.0';
   const APK_FILENAME = 'Ntronix-App-v1.0.0.apk';
 
