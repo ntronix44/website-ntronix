@@ -611,5 +611,89 @@
         }
       ]
     }
+  ],
+  [
+    "mrdcy0oo1fu",
+    {
+      "id": "mrdcy0oo1fu",
+      "task": "Step 1: Add a GitHub release workflow/tag convention for APK releases (tag prefix `apk-v`)",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-07-09T10:22:16.056Z",
+      "notes": []
+    }
+  ],
+  [
+    "mrdcy0ooea3",
+    {
+      "id": "mrdcy0ooea3",
+      "task": "Step 2: Create `js/app-download.js` — fetches latest APK release from GitHub API using PAT, displays version + download link + changelog",
+      "status": "in_progress",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-07-09T10:22:16.056Z",
+      "notes": []
+    }
+  ],
+  [
+    "mrdcy0ooss7",
+    {
+      "id": "mrdcy0ooss7",
+      "task": "Step 3: Update `index.html` — replace static APK link with dynamic one that falls back to the static APK if GitHub fetch fails",
+      "status": "pending",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-07-09T10:22:16.056Z",
+      "notes": []
+    }
+  ],
+  [
+    "mrdcy0ooy01",
+    {
+      "id": "mrdcy0ooy01",
+      "task": "Step 4: Add version badge and release date display on the download section",
+      "status": "pending",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-07-09T10:22:16.056Z",
+      "notes": []
+    }
+  ],
+  [
+    "mrdcy0oop1u",
+    {
+      "id": "mrdcy0oop1u",
+      "task": "Step 5: Update the APK download page/volta-download.html similarly if needed",
+      "status": "pending",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-07-09T10:22:16.056Z",
+      "notes": []
+    }
+  ],
+  [
+    "mrdd13zkobf",
+    {
+      "id": "mrdd13zkobf",
+      "task": "Wire apk-download.js into index.html — both APK download sections (HES section + Get the App section)",
+      "status": "done",
+      "priority": "high",
+      "category": "feature",
+      "created": "2026-07-09T10:24:40.304Z",
+      "notes": []
+    }
+  ],
+  [
+    "mrdd13zoxc3",
+    {
+      "id": "mrdd13zoxc3",
+      "task": "Update volta-download.html for smart APK download",
+      "status": "done",
+      "priority": "medium",
+      "category": "feature",
+      "created": "2026-07-09T10:24:40.308Z",
+      "notes": []
+    }
   ]
 ]

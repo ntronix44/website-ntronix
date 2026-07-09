@@ -10,3 +10,5 @@ Thumbs.db
 
 # APK binaries — too large for git (169+ MB), served directly from Netlify
 *.apk
+*.txt
+.volta/
