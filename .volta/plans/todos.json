@@ -695,5 +695,53 @@
       "created": "2026-07-09T10:24:40.308Z",
       "notes": []
     }
+  ],
+  [
+    "mrde88z9o1u",
+    {
+      "id": "mrde88z9o1u",
+      "task": "Step 1: Install git-filter-repo to surgically remove the APK from git history",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-07-09T10:58:12.981Z",
+      "notes": []
+    }
+  ],
+  [
+    "mrde88z9cqe",
+    {
+      "id": "mrde88z9cqe",
+      "task": "Step 2: Use git filter-repo to purge Ntronix-App-v1.0.0.apk from ALL commits in history",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-07-09T10:58:12.981Z",
+      "notes": []
+    }
+  ],
+  [
+    "mrde88z97i0",
+    {
+      "id": "mrde88z97i0",
+      "task": "Step 3: Verify the APK is gone from every commit in history",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-07-09T10:58:12.981Z",
+      "notes": []
+    }
+  ],
+  [
+    "mrde88z9b2h",
+    {
+      "id": "mrde88z9b2h",
+      "task": "Step 4: Force push the cleaned history to remote",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-07-09T10:58:12.981Z",
+      "notes": []
+    }
   ]
 ]
