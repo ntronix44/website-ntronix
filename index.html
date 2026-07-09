@@ -828,6 +828,87 @@
             }
         }
         
+        /* ========== App Store / Download Badges ========== */
+        .store-badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+            justify-content: center;
+        }
+        .store-badge-row.left {
+            justify-content: flex-start;
+        }
+        .store-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.55rem 1.1rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+        .store-badge i {
+            font-size: 1.3rem;
+        }
+        .store-badge .badge-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.2;
+        }
+        .store-badge .badge-text .small {
+            font-size: 0.6rem;
+            font-weight: 400;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .store-badge.playstore {
+            background: #000;
+            color: #fff;
+            border-color: rgba(255,255,255,0.12);
+        }
+        .store-badge.playstore:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        .store-badge.appstore {
+            background: #000;
+            color: #fff;
+            border-color: rgba(255,255,255,0.12);
+        }
+        .store-badge.appstore:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        .store-badge.apk-download {
+            background: rgba(0,245,196,0.1);
+            color: #00F5C4;
+            border-color: rgba(0,245,196,0.25);
+        }
+        .store-badge.apk-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,245,196,0.15);
+            background: rgba(0,245,196,0.18);
+        }
+        .store-badge.dark-bg.playstore {
+            background: #1a1a2e;
+            border-color: rgba(255,255,255,0.08);
+        }
+        .store-badge.dark-bg.appstore {
+            background: #1a1a2e;
+            border-color: rgba(255,255,255,0.08);
+        }
+        .store-badge.dark-bg.playstore:hover,
+        .store-badge.dark-bg.appstore:hover {
+            background: #000;
+        }
+        
         /* ========== Home Energy Solution Section ========== */
         .hes-section {
             position: relative;
@@ -2050,6 +2131,34 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Download app row below the flex items -->
+                    <div class="mt-10 text-center reveal stagger-4">
+                        <p class="text-white/40 text-sm mb-4">Download the Ntronix companion app</p>
+                        <div class="store-badge-row" style="justify-content: center;">
+                            <a href="#" class="store-badge playstore" target="_blank" rel="noopener">
+                                <i class="ri-google-play-fill"></i>
+                                <span class="badge-text">
+                                    <span class="small">GET IT ON</span>
+                                    Google Play
+                                </span>
+                            </a>
+                            <a href="#" class="store-badge appstore" target="_blank" rel="noopener">
+                                <i class="ri-apple-fill"></i>
+                                <span class="badge-text">
+                                    <span class="small">DOWNLOAD ON</span>
+                                    App Store
+                                </span>
+                            </a>
+                            <a href="#" class="store-badge apk-download" target="_blank" rel="noopener">
+                                <i class="ri-download-2-line"></i>
+                                <span class="badge-text">
+                                    <span class="small">DIRECT</span>
+                                    APK Download
+                                </span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2238,6 +2347,35 @@
                                 <span class="text-sm">Load</span>
                             </div>
                         </div>
+                    </div>
+                </div>
+                
+                <!-- Download app CTA -->
+                <div class="mt-16 text-center reveal stagger-3">
+                    <h3 class="text-2xl sm:text-3xl font-bold mb-3">Get the App</h3>
+                    <p class="text-white/50 mb-6">Available now on Android, iOS, or direct APK download</p>
+                    <div class="store-badge-row dark-bg" style="justify-content: center;">
+                        <a href="#" class="store-badge playstore" target="_blank" rel="noopener">
+                            <i class="ri-google-play-fill"></i>
+                            <span class="badge-text">
+                                <span class="small">GET IT ON</span>
+                                Google Play
+                            </span>
+                        </a>
+                        <a href="#" class="store-badge appstore" target="_blank" rel="noopener">
+                            <i class="ri-apple-fill"></i>
+                            <span class="badge-text">
+                                <span class="small">DOWNLOAD ON</span>
+                                App Store
+                            </span>
+                        </a>
+                        <a href="#" class="store-badge apk-download" target="_blank" rel="noopener">
+                            <i class="ri-download-2-line"></i>
+                            <span class="badge-text">
+                                <span class="small">DIRECT</span>
+                                APK Download
+                            </span>
+                        </a>
                     </div>
                 </div>
             </div>

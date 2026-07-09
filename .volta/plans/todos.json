@@ -507,5 +507,41 @@
       "created": "2026-06-30T14:14:39.168Z",
       "notes": []
     }
+  ],
+  [
+    "mrd7gtqojqd",
+    {
+      "id": "mrd7gtqojqd",
+      "task": "Step 1: Add CSS styles for store download buttons (store-badge, store-badge-row) in the HES section style block",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-07-09T07:48:55.824Z",
+      "notes": []
+    }
+  ],
+  [
+    "mrd7gtqo4dt",
+    {
+      "id": "mrd7gtqo4dt",
+      "task": "Step 2: Add download/CTA row below the powerwall glass card in the Home Energy Solution section",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-07-09T07:48:55.824Z",
+      "notes": []
+    }
+  ],
+  [
+    "mrd7gtqoudc",
+    {
+      "id": "mrd7gtqoudc",
+      "task": "Step 3: Add download/CTA row at the bottom of the Mobile App (#app) section",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-07-09T07:48:55.824Z",
+      "notes": []
+    }
   ]
 ]
