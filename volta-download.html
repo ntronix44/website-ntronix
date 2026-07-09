@@ -100,8 +100,8 @@
             designed for STM32, ESP32, power electronics, and IoT.
         </p>
         <div class="flex flex-wrap gap-3 justify-center mt-8">
-            <a href="#capabilities" class="btn-primary"><i class="ri-flashlight-line"></i> Explore Features</a>
-            <a href="#download" class="btn-outline"><i class="ri-download-2-line"></i> Download Volta</a>
+            <a href="#download" class="btn-primary"><i class="ri-download-2-line"></i> Direct Download APK</a>
+            <a href="#capabilities" class="btn-outline"><i class="ri-flashlight-line"></i> Explore Features</a>
         </div>
     </div>
 </section>
@@ -326,10 +326,34 @@
 <section id="download" class="max-w-5xl mx-auto px-6 py-16">
     <div class="text-center mb-12">
         <div class="badge badge-teal mb-4">Download</div>
-        <h2 class="text-3xl md:text-4xl font-display font-bold text-white">Download Volta AI Terminal</h2>
-        <p class="text-gray-500 mt-3 max-w-xl mx-auto">Choose your platform. Download the custom Ntronix terminal package &mdash; ready to run.</p>
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-white">
+            <span class="text-accent-teal">Ntronix App</span> &mdash; Download
+        </h2>
+        <p class="text-gray-500 mt-3 max-w-xl mx-auto">Get the Ntronix Android app to monitor your Volta Powerwall. Desktop terminal builds coming soon.</p>
     </div>
 
+    <!-- ─── Ntronix App (Android) — Direct Download ────────────────────── -->
+    <div class="max-w-4xl mx-auto mb-12">
+        <div class="card text-center p-10 md:p-12" style="border-color: rgba(0,245,196,0.25); background: linear-gradient(135deg, rgba(0,245,196,0.05) 0%, rgba(0,245,196,0.02) 100%);">
+            <div class="w-24 h-24 mx-auto flex items-center justify-center rounded-2xl bg-accent-teal/10 text-accent-teal text-6xl mb-5 ring-2 ring-accent-teal/20">
+                <i class="ri-smartphone-line"></i>
+            </div>
+            <div class="badge badge-teal mb-4"><i class="ri-flashlight-fill text-xs"></i> Direct Download</div>
+            <h3 class="text-white font-bold text-2xl mb-1">Ntronix App for Android</h3>
+            <p class="text-gray-400 text-sm mb-3">Monitor your Volta Powerwall &mdash; BLE, MQTT, real-time telemetry</p>
+            <span class="inline-block px-2 py-0.5 rounded-full bg-dark-surface/60 text-gray-400 text-xs mb-6">v1.0.0 &mdash; ~169 MB</span>
+            <br>
+            <a href="https://github.com/ntronix44/ntronOS/releases/download/app-v1.0.0/app-release.apk"
+               class="btn-primary inline-flex items-center gap-2 px-8 py-4 text-base font-bold"
+               download="Ntronix-App-v1.0.0.apk"
+               onclick="trackDownload('android-app')">
+                <i class="ri-download-2-line text-xl"></i> Direct Download
+            </a>
+            <p class="text-gray-500 text-xs mt-4">APK downloads directly &mdash; enable "Install from unknown sources" on your device.</p>
+        </div>
+    </div>
+
+    <!-- ─── Platform Downloads ─────────────────────────────────────────── -->
     <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
         <!-- Windows -->
         <div class="card text-center p-8 hover:border-accent-teal/30 transition-all duration-300">
@@ -338,9 +362,9 @@
             </div>
             <h3 class="text-white font-bold text-xl mb-1">Windows</h3>
             <p class="text-gray-500 text-sm mb-2">10, 11 — 64-bit</p>
-            <span class="inline-block px-2 py-0.5 rounded-full bg-dark-surface/60 text-gray-400 text-xs mb-5">v1.0.0</span>
+            <span class="inline-block px-2 py-0.5 rounded-full bg-dark-surface/60 text-gray-400 text-xs mb-5">Coming soon</span>
             <br>
-            <a href="#" class="btn-primary inline-flex items-center gap-2 px-6 py-3 text-sm" onclick="trackDownload('windows')">
+            <a href="#" class="btn-outline inline-flex items-center gap-2 px-6 py-3 text-sm opacity-50 pointer-events-none" onclick="trackDownload('windows')">
                 <i class="ri-download-2-line"></i> Download .exe
             </a>
         </div>
@@ -352,9 +376,9 @@
             </div>
             <h3 class="text-white font-bold text-xl mb-1">Linux</h3>
             <p class="text-gray-500 text-sm mb-2">x86_64, aarch64</p>
-            <span class="inline-block px-2 py-0.5 rounded-full bg-dark-surface/60 text-gray-400 text-xs mb-5">v1.0.0</span>
+            <span class="inline-block px-2 py-0.5 rounded-full bg-dark-surface/60 text-gray-400 text-xs mb-5">Coming soon</span>
             <br>
-            <a href="#" class="btn-primary inline-flex items-center gap-2 px-6 py-3 text-sm" onclick="trackDownload('linux')">
+            <a href="#" class="btn-outline inline-flex items-center gap-2 px-6 py-3 text-sm opacity-50 pointer-events-none" onclick="trackDownload('linux')">
                 <i class="ri-download-2-line"></i> Download .tar.gz
             </a>
         </div>
@@ -366,9 +390,9 @@
             </div>
             <h3 class="text-white font-bold text-xl mb-1">macOS</h3>
             <p class="text-gray-500 text-sm mb-2">12+ — Intel &amp; Apple Silicon</p>
-            <span class="inline-block px-2 py-0.5 rounded-full bg-dark-surface/60 text-gray-400 text-xs mb-5">v1.0.0</span>
+            <span class="inline-block px-2 py-0.5 rounded-full bg-dark-surface/60 text-gray-400 text-xs mb-5">Coming soon</span>
             <br>
-            <a href="#" class="btn-primary inline-flex items-center gap-2 px-6 py-3 text-sm" onclick="trackDownload('macos')">
+            <a href="#" class="btn-outline inline-flex items-center gap-2 px-6 py-3 text-sm opacity-50 pointer-events-none" onclick="trackDownload('macos')">
                 <i class="ri-download-2-line"></i> Download .dmg
             </a>
         </div>
