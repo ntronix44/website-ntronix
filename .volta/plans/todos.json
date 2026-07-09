@@ -543,5 +543,53 @@
       "created": "2026-07-09T07:48:55.824Z",
       "notes": []
     }
+  ],
+  [
+    "mrd8nti5u3b",
+    {
+      "id": "mrd8nti5u3b",
+      "task": "Step 1: Push the 2 pending commits to GitHub (origin/main)",
+      "status": "pending",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-07-09T08:22:21.725Z",
+      "notes": []
+    }
+  ],
+  [
+    "mrd8nti5n82",
+    {
+      "id": "mrd8nti5n82",
+      "task": "Step 2: Check the release APK file size and confirm it exists",
+      "status": "pending",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-07-09T08:22:21.725Z",
+      "notes": []
+    }
+  ],
+  [
+    "mrd8nti5f89",
+    {
+      "id": "mrd8nti5f89",
+      "task": "Step 3: Create a new git tag (e.g. v1.0.0) and push it to GitHub",
+      "status": "pending",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-07-09T08:22:21.725Z",
+      "notes": []
+    }
+  ],
+  [
+    "mrd8nti5ra4",
+    {
+      "id": "mrd8nti5ra4",
+      "task": "Step 4: Create the GitHub Release using gh CLI, attaching the APK as a release asset",
+      "status": "pending",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-07-09T08:22:21.725Z",
+      "notes": []
+    }
   ]
 ]
