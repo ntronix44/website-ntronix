@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- APK Download - direct static file, no secrets exposed -->\r\n    <script src="js/app-download.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -341,14 +342,19 @@
             <div class="badge badge-teal mb-4"><i class="ri-flashlight-fill text-xs"></i> Direct Download</div>
             <h3 class="text-white font-bold text-2xl mb-1">Ntronix App for Android</h3>
             <p class="text-gray-400 text-sm mb-3">Monitor your Volta Powerwall &mdash; BLE, MQTT, real-time telemetry</p>
-            <span class="inline-block px-2 py-0.5 rounded-full bg-dark-surface/60 text-gray-400 text-xs mb-6">v1.0.0 &mdash; ~169 MB</span>
+            <span class="inline-block px-2 py-0.5 rounded-full bg-dark-surface/60 text-gray-400 text-xs mb-6">v<span data-apk="version">1.0.0</span> &mdash; <span data-apk="size">~169 MB</span></span>
             <br>
             <a href="Ntronix-App-v1.0.0.apk"
-               class="btn-primary inline-flex items-center gap-2 px-8 py-4 text-base font-bold"
+               class="store-badge apk-download btn-primary inline-flex items-center gap-2 px-8 py-4 text-base font-bold"
                download="Ntronix-App-v1.0.0.apk"
-               onclick="trackDownload('android-app');"
-               id="apk-download-link">
-                <i class="ri-download-2-line text-xl"></i> Direct Download
+               onclick="trackDownload('android-app');">
+                <i class="ri-download-2-line text-xl"></i>
+                <span data-apk="dynamic" style="display:none">
+                    <span data-apk="version">v1.0.0</span>
+                    <span data-apk="date" style="font-size:0.65rem;opacity:0.7;display:block"></span>
+                </span>
+                <span data-apk="fallback">Direct Download</span>
+                <span data-apk="loading" style="display:none">Loading...</span>
             </a>
             <p class="text-gray-500 text-xs mt-4">APK downloads directly &mdash; enable "Install from unknown sources" on your device.</p>
         </div>
