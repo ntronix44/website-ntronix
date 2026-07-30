@@ -743,5 +743,53 @@
       "created": "2026-07-09T10:58:12.981Z",
       "notes": []
     }
+  ],
+  [
+    "ms7p56y1loq",
+    {
+      "id": "ms7p56y1loq",
+      "task": "Step 1: Fix HES section in index.html — replace Unsplash photo background with dark translucent overlay so stars show through the phone mockup area",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-07-30T15:56:51.439Z",
+      "notes": []
+    }
+  ],
+  [
+    "ms7p56y7g25",
+    {
+      "id": "ms7p56y7g25",
+      "task": "Step 2: Add starfield canvas, CSS, and JS to Ntronix-Product-Catalog.html",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-07-30T15:56:51.439Z",
+      "notes": []
+    }
+  ],
+  [
+    "ms7p56y73nd",
+    {
+      "id": "ms7p56y73nd",
+      "task": "Step 3: Add starfield canvas, CSS, and JS to volta-download.html",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-07-30T15:56:51.439Z",
+      "notes": []
+    }
+  ],
+  [
+    "ms7p56y7e5n",
+    {
+      "id": "ms7p56y7e5n",
+      "task": "Step 4: Add starfield canvas, CSS, and JS to dashboard.html",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-07-30T15:56:51.439Z",
+      "notes": []
+    }
   ]
 ]
