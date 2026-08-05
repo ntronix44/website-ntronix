@@ -1,9 +1,9 @@
-Ôªø<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ntronix ‚Äî Founder's Dashboard</title>
+<title>Ntronix ó Founder's Dashboard</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
@@ -90,9 +90,9 @@ tr:hover td{background:rgba(255,255,255,0.02)}
 
 <div id="auth">
 <div class="auth-box">
-<div class="lock">üîê</div>
+<div class="lock">??</div>
 <h1>Founder's Dashboard</h1>
-<p>Ntronix business intelligence ‚Äî secured with SHA-256</p>
+<p>Ntronix business intelligence ó secured with SHA-256</p>
 <form onsubmit="handleAuth(event)">
 <input type="password" id="authIn" placeholder="Enter secret phrase" autocomplete="off">
 <button class="auth-btn" id="authBtn" type="submit">Unlock Dashboard</button>
@@ -103,7 +103,7 @@ tr:hover td{background:rgba(255,255,255,0.02)}
 </div>
 </div>
 
-<div id="dash" style="display:none;height:100vh;flex-direction:column;">
+<div id="dash" style="display:none;height:100vh;flex-direction:column;position:relative;z-index:10;">
 <div style="display:flex;flex:1;overflow:hidden;">
 <nav class="sidebar">
 <div class="brand">NTRONIX <small>Founder Access</small></div>
@@ -136,14 +136,14 @@ tr:hover td{background:rgba(255,255,255,0.02)}
 <div class="tab active" id="t-overview">
 <p style="color:rgba(255,255,255,0.25);margin-bottom:1.25rem;font-size:0.85rem">All metrics auto-fetch from Supabase when available.</p>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0.75rem;margin-bottom:1.5rem">
-<div class="card" style="text-align:center"><div class="stat-v" id="ovUsers">‚Äî</div><div class="stat-l">Total Users</div><div class="stat-sub">across all platforms</div></div>
-<div class="card" style="text-align:center"><div class="stat-v" id="ovNew30">‚Äî</div><div class="stat-l">New (30 days)</div><div class="stat-sub">signups this month</div></div>
-<div class="card" style="text-align:center"><div class="stat-v" id="ovRevenue">‚Äî</div><div class="stat-l">Revenue (UGX)</div><div class="stat-sub">lifetime total</div></div>
-<div class="card" style="text-align:center"><div class="stat-v" id="ovUnits">‚Äî</div><div class="stat-l">Units Sold</div><div class="stat-sub">hardware deployed</div></div>
-<div class="card" style="text-align:center"><div class="stat-v" id="ovIssues">‚Äî</div><div class="stat-l">Field Issues</div><div class="stat-sub" style="color:rgba(0,245,196,0.4)">zero since Dec 2025</div></div>
-<div class="card" style="text-align:center"><div class="stat-v" id="ovDays">‚Äî</div><div class="stat-l">Days in Field</div><div class="stat-sub">since first deployment</div></div>
-<div class="card" style="text-align:center"><div class="stat-v" id="ovPageViews">‚Äî</div><div class="stat-l">Page Views</div><div class="stat-sub">volta download page</div></div>
-<div class="card" style="text-align:center"><div class="stat-v" id="ovInstalls">‚Äî</div><div class="stat-l">Downloads</div><div class="stat-sub">install commands copied</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="ovUsers">ó</div><div class="stat-l">Total Users</div><div class="stat-sub">across all platforms</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="ovNew30">ó</div><div class="stat-l">New (30 days)</div><div class="stat-sub">signups this month</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="ovRevenue">ó</div><div class="stat-l">Revenue (UGX)</div><div class="stat-sub">lifetime total</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="ovUnits">ó</div><div class="stat-l">Units Sold</div><div class="stat-sub">hardware deployed</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="ovIssues">ó</div><div class="stat-l">Field Issues</div><div class="stat-sub" style="color:rgba(0,245,196,0.4)">zero since Dec 2025</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="ovDays">ó</div><div class="stat-l">Days in Field</div><div class="stat-sub">since first deployment</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="ovPageViews">ó</div><div class="stat-l">Page Views</div><div class="stat-sub">volta download page</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="ovInstalls">ó</div><div class="stat-l">Downloads</div><div class="stat-sub">install commands copied</div></div>
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem">
 <div class="card"><h3 style="font-size:0.7rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem">User Growth</h3><div id="chartGrowth" style="height:180px"></div></div>
@@ -155,24 +155,24 @@ tr:hover td{background:rgba(255,255,255,0.02)}
 <div class="tab" id="t-users">
 <p style="color:rgba(255,255,255,0.25);margin-bottom:1rem;font-size:0.85rem">User acquisition across website, mobile app, and Volta desktop.</p>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.75rem;margin-bottom:1.5rem">
-<div class="card" style="text-align:center"><div class="stat-v" id="ugWeb">‚Äî</div><div class="stat-l">Website Visitors</div></div>
-<div class="card" style="text-align:center"><div class="stat-v" id="ugApp">‚Äî</div><div class="stat-l">App Registrations</div></div>
-<div class="card" style="text-align:center"><div class="stat-v" id="ugVolta">‚Äî</div><div class="stat-l">Volta CLI Users</div></div>
-<div class="card" style="text-align:center"><div class="stat-v" id="ugActive">‚Äî</div><div class="stat-l">Active Today</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="ugWeb">ó</div><div class="stat-l">Website Visitors</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="ugApp">ó</div><div class="stat-l">App Registrations</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="ugVolta">ó</div><div class="stat-l">Volta CLI Users</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="ugActive">ó</div><div class="stat-l">Active Today</div></div>
 </div>
 <div class="card"><h3 style="font-size:0.7rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.75rem">Recent Registrations</h3><div class="tw"><table><thead><tr><th>Email</th><th>Source</th><th>Date</th><th>Status</th></tr></thead><tbody id="usersTable"><tr><td colspan="4" style="text-align:center;padding:2rem;color:rgba(255,255,255,0.15)">Loading from Supabase...</td></tr></tbody></table></div></div>
 </div>
 
 <!-- VOLTA -->
 <div class="tab" id="t-volta">
-<p style="color:rgba(255,255,255,0.25);margin-bottom:1rem;font-size:0.85rem">Volta AI Engineer ‚Äî downloads, sessions, and real-time usage.</p>
+<p style="color:rgba(255,255,255,0.25);margin-bottom:1rem;font-size:0.85rem">Volta AI Engineer ó downloads, sessions, and real-time usage.</p>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.75rem;margin-bottom:1.5rem">
-<div class="card" style="text-align:center"><div class="stat-v" id="vtViews">‚Äî</div><div class="stat-l">Page Views</div></div>
-<div class="card" style="text-align:center"><div class="stat-v" id="vtInstalls">‚Äî</div><div class="stat-l">Downloads</div></div>
-<div class="card" style="text-align:center"><div class="stat-v" id="vtSess">‚Äî</div><div class="stat-l">Active Sessions</div></div>
-<div class="card" style="text-align:center"><div class="stat-v" id="vtTotalSess">‚Äî</div><div class="stat-l">Total Sessions</div></div>
-<div class="card" style="text-align:center"><div class="stat-v" id="vtLogins">‚Äî</div><div class="stat-l">Logins</div></div>
-<div class="card" style="text-align:center"><div class="stat-v" id="vtTools">‚Äî</div><div class="stat-l">Tools Used</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="vtViews">ó</div><div class="stat-l">Page Views</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="vtInstalls">ó</div><div class="stat-l">Downloads</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="vtSess">ó</div><div class="stat-l">Active Sessions</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="vtTotalSess">ó</div><div class="stat-l">Total Sessions</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="vtLogins">ó</div><div class="stat-l">Logins</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="vtTools">ó</div><div class="stat-l">Tools Used</div></div>
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem">
 <div class="card"><h3 style="font-size:0.7rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem">Downloads Over Time</h3><div id="chartDownloads" style="height:160px"></div></div>
@@ -185,10 +185,10 @@ tr:hover td{background:rgba(255,255,255,0.02)}
 <div class="tab" id="t-revenue">
 <p style="color:rgba(255,255,255,0.25);margin-bottom:1rem;font-size:0.85rem">Revenue tracking, product split, and projections.</p>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.75rem;margin-bottom:1.5rem">
-<div class="card" style="text-align:center"><div class="stat-v" id="rvTotal">‚Äî</div><div class="stat-l">Total Revenue</div></div>
-<div class="card" style="text-align:center"><div class="stat-v" id="rvMonth">‚Äî</div><div class="stat-l">This Month</div></div>
-<div class="card" style="text-align:center"><div class="stat-v" id="rvAvg">‚Äî</div><div class="stat-l">Avg / Unit</div></div>
-<div class="card" style="text-align:center"><div class="stat-v" id="rvProj">‚Äî</div><div class="stat-l">Annual Projection</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="rvTotal">ó</div><div class="stat-l">Total Revenue</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="rvMonth">ó</div><div class="stat-l">This Month</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="rvAvg">ó</div><div class="stat-l">Avg / Unit</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="rvProj">ó</div><div class="stat-l">Annual Projection</div></div>
 </div>
 <div style="display:grid;grid-template-columns:2fr 1fr;gap:1rem;margin-bottom:1.5rem">
 <div class="card"><h3 style="font-size:0.7rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem">Monthly Revenue</h3><div id="chartRevMonthly" style="height:200px"></div></div>
@@ -223,7 +223,7 @@ tr:hover td{background:rgba(255,255,255,0.02)}
 <div class="card" style="text-align:center"><div class="stat-v" id="spOpen">0</div><div class="stat-l">Open Issues</div></div>
 <div class="card" style="text-align:center"><div class="stat-v" id="spResolved">0</div><div class="stat-l">Resolved</div></div>
 <div class="card" style="text-align:center"><div class="stat-v" id="spSLA">100%</div><div class="stat-l">SLA Rate</div></div>
-<div class="card" style="text-align:center"><div class="stat-v" id="spSat">‚Äî</div><div class="stat-l">Satisfaction</div></div>
+<div class="card" style="text-align:center"><div class="stat-v" id="spSat">ó</div><div class="stat-l">Satisfaction</div></div>
 </div>
 <div class="card"><h3 style="font-size:0.7rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.75rem">Contact Channels</h3>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0.75rem">
@@ -239,11 +239,11 @@ tr:hover td{background:rgba(255,255,255,0.02)}
 <div class="card" style="margin-bottom:1rem;border-color:rgba(0,245,196,0.2)">
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem">
 <div><h3 style="font-size:0.8rem;font-weight:600;color:#fff;margin-bottom:0.75rem">Company Snapshot</h3>
-<table style="font-size:0.85rem"><tr><td style="color:rgba(255,255,255,0.3);width:120px">Founded</td><td>2024 ‚Äî Kampala, Uganda</td></tr>
+<table style="font-size:0.85rem"><tr><td style="color:rgba(255,255,255,0.3);width:120px">Founded</td><td>2024 ó Kampala, Uganda</td></tr>
 <tr><td style="color:rgba(255,255,255,0.3)">Founder</td><td>Ankunda Nelson</td></tr>
 <tr><td style="color:rgba(255,255,255,0.3)">Product</td><td>Smart solar inverters & powerwalls</td></tr>
-<tr><td style="color:rgba(255,255,255,0.3)">IP</td><td>100% owned ‚Äî full stack</td></tr>
-<tr><td style="color:rgba(255,255,255,0.3)">Field Status</td><td style="color:#00F5C4">First unit Dec 2025 ‚Äî zero issues</td></tr>
+<tr><td style="color:rgba(255,255,255,0.3)">IP</td><td>100% owned ó full stack</td></tr>
+<tr><td style="color:rgba(255,255,255,0.3)">Field Status</td><td style="color:#00F5C4">First unit Dec 2025 ó zero issues</td></tr>
 </table></div>
 <div><h3 style="font-size:0.8rem;font-weight:600;color:#fff;margin-bottom:0.75rem">Ask</h3>
 <div class="card" style="margin-bottom:0.75rem;text-align:center;padding:1.5rem"><div style="font-size:2rem;font-weight:800;background:linear-gradient(135deg,#00F5C4,#7B5CFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Seeking Seed</div><div class="stat-l">Investment for production tooling & inventory</div></div>
@@ -259,13 +259,13 @@ tr:hover td{background:rgba(255,255,255,0.02)}
 
 <!-- NOTES -->
 <div class="tab" id="t-notes">
-<p style="color:rgba(255,255,255,0.25);margin-bottom:1rem;font-size:0.85rem">Private notes ‚Äî saved to your browser only.</p>
+<p style="color:rgba(255,255,255,0.25);margin-bottom:1rem;font-size:0.85rem">Private notes ó saved to your browser only.</p>
 <div class="card">
 <textarea class="inp" id="notesField" placeholder="Investor thoughts, meeting notes, product ideas..."></textarea>
 <div style="margin-top:0.75rem;display:flex;align-items:center;gap:0.75rem">
 <button class="sbtn sbtn-p" onclick="saveNotes()"><i class="ri-save-line"></i> Save Notes</button>
 <span id="notesSaved" style="display:none;color:#00F5C4;font-size:0.8rem">Saved</span>
-<span style="font-size:0.7rem;color:rgba(255,255,255,0.15);margin-left:auto">Last saved: <span id="notesTime">‚Äî</span></span>
+<span style="font-size:0.7rem;color:rgba(255,255,255,0.15);margin-left:auto">Last saved: <span id="notesTime">ó</span></span>
 </div>
 </div>
 </div>
@@ -286,17 +286,17 @@ function defData(){return{
 users:47,new30:8,revenue:400000,units:1,issues:0,days:207,pageViews:142,installs:23,
 growth:[1,1,1,2,2,3,5,8,12,18,29,47],mRev:[0,0,0,0,0,0,0,0,0,0,0,400000],
 p500:1,p1000:0,p2000:0,p3000:0,revMonth:0,
-notes:'Seeking seed investment. First unit deployed December 2025 ‚Äî zero issues in 6+ months.\n\nProduct is proven. Need capital for production tooling, inventory, and team expansion.',
+notes:'Seeking seed investment. First unit deployed December 2025 ó zero issues in 6+ months.\n\nProduct is proven. Need capital for production tooling, inventory, and team expansion.',
 milestones:[
-{text:'Ntronix founded ‚Äî Kampala, Uganda',date:'Jan 2024',done:true},
+{text:'Ntronix founded ó Kampala, Uganda',date:'Jan 2024',done:true},
 {text:'First 1kW MPPT prototype tested',date:'Q3 2024',done:true},
-{text:'Innovation award ‚Äî Kampala',date:'2024',done:true},
+{text:'Innovation award ó Kampala',date:'2024',done:true},
 {text:'First unit sold to Agaba Peter',date:'Dec 4, 2025',done:true},
-{text:'Zero field issues ‚Äî 6+ months running',date:'Jun 2026',done:true},
+{text:'Zero field issues ó 6+ months running',date:'Jun 2026',done:true},
 {text:'Second prototype in progress',date:'2026',done:false},
 {text:'Seed round close',date:'Target: Q3 2026',done:false},
 {text:'100 units produced',date:'Target: Q1 2027',done:false},
-{text:'Regional distribution ‚Äî Kenya, Tanzania, Rwanda',date:'Target: 2027',done:false}
+{text:'Regional distribution ó Kenya, Tanzania, Rwanda',date:'Target: 2027',done:false}
 ]};}
 function getD(){const r=localStorage.getItem(DK);return r?JSON.parse(r):defData();}
 function setD(d){localStorage.setItem(DK,JSON.stringify(d));}
@@ -339,7 +339,7 @@ document.getElementById('ovInstalls').textContent=d.installs;
 
 document.getElementById('rvTotal').textContent=d.revenue.toLocaleString();
 document.getElementById('rvMonth').textContent=(d.revMonth||0).toLocaleString();
-document.getElementById('rvAvg').textContent=d.units>0?Math.round(d.revenue/d.units).toLocaleString():'‚Äî';
+document.getElementById('rvAvg').textContent=d.units>0?Math.round(d.revenue/d.units).toLocaleString():'ó';
 document.getElementById('rvProj').textContent=((d.revMonth||0)*12).toLocaleString();
 
 document.getElementById('vtViews').textContent=Math.max(d.pageViews,d.installs);
@@ -355,7 +355,7 @@ document.getElementById('p2000').textContent=d.p2000||0;
 document.getElementById('p3000').textContent=d.p3000||0;
 
 document.getElementById('notesField').value=d.notes||'';
-document.getElementById('notesTime').textContent=localStorage.getItem('ntronix_notes_time')||'‚Äî';
+document.getElementById('notesTime').textContent=localStorage.getItem('ntronix_notes_time')||'ó';
 renderMS(d);updateCharts(d);
 renderVoltaEvents();
 }
@@ -363,9 +363,9 @@ renderVoltaEvents();
 function renderVoltaEvents(){
 const tbody=document.getElementById('eventsTable');
 if(window._vtActions&&window._vtActions.length>0){
-tbody.innerHTML=window._vtActions.map(a=>'<tr><td class="text-mono" style="font-size:0.7rem;color:rgba(255,255,255,0.3)">'+(a.created_at?new Date(a.created_at).toLocaleString():'‚Äî')+'</td><td><span class="badge bg-b">'+a.tool+'</span></td><td style="font-size:0.8rem;color:rgba(255,255,255,0.5)">'+(a.detail?a.detail.slice(0,60):'‚Äî')+'</td></tr>').join('');
+tbody.innerHTML=window._vtActions.map(a=>'<tr><td class="text-mono" style="font-size:0.7rem;color:rgba(255,255,255,0.3)">'+(a.created_at?new Date(a.created_at).toLocaleString():'ó')+'</td><td><span class="badge bg-b">'+a.tool+'</span></td><td style="font-size:0.8rem;color:rgba(255,255,255,0.5)">'+(a.detail?a.detail.slice(0,60):'ó')+'</td></tr>').join('');
 }else if(window._vtLogins&&window._vtLogins.length>0){
-tbody.innerHTML=window._vtLogins.map(l=>'<tr><td class="text-mono" style="font-size:0.7rem;color:rgba(255,255,255,0.3)">'+(l.created_at?new Date(l.created_at).toLocaleString():'‚Äî')+'</td><td><span class="badge bg-g">login</span></td><td style="font-size:0.8rem;color:rgba(255,255,255,0.5)">'+(l.email||'‚Äî')+'</td></tr>').join('');
+tbody.innerHTML=window._vtLogins.map(l=>'<tr><td class="text-mono" style="font-size:0.7rem;color:rgba(255,255,255,0.3)">'+(l.created_at?new Date(l.created_at).toLocaleString():'ó')+'</td><td><span class="badge bg-g">login</span></td><td style="font-size:0.8rem;color:rgba(255,255,255,0.5)">'+(l.email||'ó')+'</td></tr>').join('');
 }else{
 tbody.innerHTML='<tr><td colspan="3" style="text-align:center;padding:2rem;color:rgba(255,255,255,0.15)">No desktop activity yet. Use the Volta desktop app to generate data.</td></tr>';
 }
