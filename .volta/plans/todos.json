@@ -791,5 +791,51 @@
       "created": "2026-07-30T15:56:51.439Z",
       "notes": []
     }
+  ],
+  [
+    "msgc5yw2n2i",
+    {
+      "id": "msgc5yw2n2i",
+      "task": "Step 1: Add z-10 to the main content wrapper in volta-download.html so it sits above the starfield canvas (z-index:1)",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-08-05T17:03:28.226Z",
+      "notes": []
+    }
+  ],
+  [
+    "msgc5yw2n1k",
+    {
+      "id": "msgc5yw2n1k",
+      "task": "Step 2: Add z-10 to the #dash container and its children in dashboard.html so the dashboard UI renders above the starfield canvas",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-08-05T17:03:28.226Z",
+      "notes": [
+        {
+          "at": "2026-08-05T17:08:02.298Z",
+          "text": "Added position:relative;z-index:10 to #dash div style"
+        }
+      ]
+    }
+  ],
+  [
+    "msgc5yw2ivq",
+    {
+      "id": "msgc5yw2ivq",
+      "task": "Step 3: Verify both files have consistent z-index treatment matching index.html's pattern",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-08-05T17:03:28.226Z",
+      "notes": [
+        {
+          "at": "2026-08-05T17:08:02.301Z",
+          "text": "Both pages now match index.html's z-10 pattern. Also fixed product catalog."
+        }
+      ]
+    }
   ]
 ]
