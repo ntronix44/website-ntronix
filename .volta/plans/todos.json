@@ -837,5 +837,80 @@
         }
       ]
     }
+  ],
+  [
+    "msj0u8yv5e3",
+    {
+      "id": "msj0u8yv5e3",
+      "task": "Step 1: Find the built APK in ntronOS Flutter project build output and confirm version",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-08-07T14:09:44.167Z",
+      "notes": [
+        {
+          "at": "2026-08-07T14:09:58.927Z",
+          "text": "app-release.apk found, version 1.0.0+1"
+        }
+      ]
+    }
+  ],
+  [
+    "msj0u8yv3wh",
+    {
+      "id": "msj0u8yv3wh",
+      "task": "Step 2: Remove old APK (Ntronix-App-v1.0.0.apk) from Website directory",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-08-07T14:09:44.167Z",
+      "notes": []
+    }
+  ],
+  [
+    "msj0u8yvnyp",
+    {
+      "id": "msj0u8yvnyp",
+      "task": "Step 3: Copy fresh APK from Flutter build output to Website directory",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-08-07T14:09:44.167Z",
+      "notes": [
+        {
+          "at": "2026-08-07T14:10:35.878Z",
+          "text": "APK copied, 162.3 MB"
+        }
+      ]
+    }
+  ],
+  [
+    "msj0u8yvaay",
+    {
+      "id": "msj0u8yvaay",
+      "task": "Step 4: Update volta-download.html and any other page referencing the APK filename",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-08-07T14:09:44.167Z",
+      "notes": [
+        {
+          "at": "2026-08-07T14:10:45.081Z",
+          "text": "Size ~169→~162 MB, all links still v1.0.0"
+        }
+      ]
+    }
+  ],
+  [
+    "msj0u8yvysz",
+    {
+      "id": "msj0u8yvysz",
+      "task": "Step 5: Git commit to make live",
+      "status": "pending",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-08-07T14:09:44.167Z",
+      "notes": []
+    }
   ]
 ]
