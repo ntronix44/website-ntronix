@@ -9,10 +9,10 @@
   'use strict';
 
   // GitHub Releases direct download — no redirect, triggers save-as
-  // URL: https://github.com/ntronix44/website-ntronix/releases/download/v1.0.0/Ntronix-App-v1.0.0.apk
-  const APK_PATH = 'https://github.com/ntronix44/website-ntronix/releases/download/v1.0.0/Ntronix-App-v1.0.0.apk';
-  const APK_VERSION = '1.0.0';
-  const APK_FILENAME = 'Ntronix-App-v1.0.0.apk';
+  // URL: https://github.com/ntronix44/website-ntronix/releases/download/v1.1.0/Ntronix-App-v1.1.0.apk
+  const APK_PATH = 'https://github.com/ntronix44/website-ntronix/releases/download/v1.1.0/Ntronix-App-v1.1.0.apk';
+  const APK_VERSION = '1.1.0';
+  const APK_FILENAME = 'Ntronix-App-v1.1.0.apk';
 
   function updateAllLinks() {
     const links = document.querySelectorAll('.apk-download');

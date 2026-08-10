@@ -906,10 +906,87 @@
     {
       "id": "msj0u8yvysz",
       "task": "Step 5: Git commit to make live",
-      "status": "pending",
+      "status": "done",
       "priority": "high",
       "category": "plan",
       "created": "2026-08-07T14:09:44.167Z",
+      "notes": [
+        {
+          "at": "2026-08-07T14:11:29.822Z",
+          "text": "Committed & pushed — Netlify will auto-deploy"
+        }
+      ]
+    }
+  ],
+  [
+    "msnfzo24hax",
+    {
+      "id": "msnfzo24hax",
+      "task": "Step 1: Delete obsolete Ntronix-App-v1.0.0.apk from website root",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-08-10T16:24:55.948Z",
+      "notes": []
+    }
+  ],
+  [
+    "msnfzo2498i",
+    {
+      "id": "msnfzo2498i",
+      "task": "Step 2: Copy app-release.apk from ntronOS build as Ntronix-App-v1.1.0.apk into website root",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-08-10T16:24:55.948Z",
+      "notes": []
+    }
+  ],
+  [
+    "msnfzo24np2",
+    {
+      "id": "msnfzo24np2",
+      "task": "Step 3: Update js/app-download.js — APK_PATH, APK_VERSION, APK_FILENAME from v1.0.0 to v1.1.0",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-08-10T16:24:55.948Z",
+      "notes": []
+    }
+  ],
+  [
+    "msnfzo24jg2",
+    {
+      "id": "msnfzo24jg2",
+      "task": "Step 4: Update index.html — GitHub release download URLs from v1.0.0 to v1.1.0 (2 occurrences)",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-08-10T16:24:55.948Z",
+      "notes": []
+    }
+  ],
+  [
+    "msnfzo24xls",
+    {
+      "id": "msnfzo24xls",
+      "task": "Step 5: Update volta-download.html — GitHub release URL from v1.0.0 to v1.1.0",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-08-10T16:24:55.948Z",
+      "notes": []
+    }
+  ],
+  [
+    "msnfzo24vno",
+    {
+      "id": "msnfzo24vno",
+      "task": "Step 6: Git add all, commit with conventional message, push to trigger Netlify deploy",
+      "status": "pending",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-08-10T16:24:55.948Z",
       "notes": []
     }
   ]
