@@ -8,8 +8,8 @@ apk-v<major>.<minor>.<patch>
 
 Examples:
 - `apk-v1.0.0` — Initial release
-- `apk-v1.1.0` — Feature update
-- `apk-v1.1.1` — Bugfix
+- `apk-v1.2.0` — Feature update
+- `apk-v1.2.1` — Bugfix
 - `apk-v2.0.0` — Major rewrite
 
 ## GitHub Release Asset
