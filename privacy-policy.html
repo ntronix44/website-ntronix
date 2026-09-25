@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -16,32 +16,46 @@
 <body>
   <a href="index.html" class="back">&larr; Back to Ntronix</a>
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: August 2026</p>
+  <p class="updated">Last updated: September 25, 2026</p>
 
-  <p>This policy explains what information the Ntronix Volta website collects and how it's used. Ntronix ("we", "us") is based in Kampala, Uganda.</p>
+  <p>Ntronix ("we", "us") is based in Kampala, Uganda. This policy covers the Ntronix Volta website and Volta AI Engineer applications, including the account service, command-line and desktop clients, and Visual Studio Code extension.</p>
 
   <h2>Information We Collect</h2>
-  <p>We use Google Analytics to understand how visitors use this site (pages viewed, general location, device type). This is aggregated, standard web analytics data.</p>
-  <p>Our contact form does not submit data to a Ntronix server. When you click "Send Message," it opens your own email application with the message pre-filled, and you choose to send it. We only receive what you actually send us by email.</p>
-  <p>If you contact us by WhatsApp, phone, or email directly, we receive whatever information you share with us in that conversation (name, phone number, email address, and the content of your message).</p>
+  <h3>Website and contact information</h3>
+  <p>We use Google Analytics to understand website visits, such as pages viewed, general location, and device type. The website contact form opens your email application; it does not submit the message to a Ntronix server. If you contact us by email, phone, or WhatsApp, we receive the information and message you choose to share.</p>
+
+  <h3>Account and sign-in information</h3>
+  <p>When you create or use a Volta account, we process your email address, account identifier, and device or session identifiers needed to authenticate your installation. The browser-based account page uses session cookies to maintain a signed-in session. Email/password authentication is handled by Supabase Auth; Ntronix does not store raw passwords in the Volta account tables. If you choose Google sign-in, Google provides the basic profile and email information shown on its consent screen for account sign-in. We do not receive your Google password.</p>
+
+  <h3>Usage and AI requests</h3>
+  <p>To provide the service and enforce usage allowances, we process account or installation identifiers, token and AI-action usage totals, request-routing details such as provider or model, and plan or entitlement information.</p>
+  <p>When you ask Volta for help, your prompt and relevant editor context are sent to the Volta account API and the AI provider selected in the extension. If you have selected text, that selection may be included; otherwise, the extension may include up to the first 12,000 characters of the active editor document. The entire workspace is not automatically uploaded. Do not include passwords, API keys, or confidential code unless you are authorized to share it.</p>
+
+  <h3>Optional cloud conversation history</h3>
+  <p>Cloud history sync is optional. In the VS Code extension, if enabled, Volta stores visible conversation prompts and replies for syncing. This cloud history is not end-to-end encrypted. Active-editor context automatically added to model requests, project files, and tool results are not separately stored as cloud history. Turning sync off deletes the synced conversation copies.</p>
 
   <h2>How We Use Information</h2>
   <ul>
-    <li>To respond to inquiries about products, partnerships, or investment</li>
-    <li>To understand overall site traffic and improve the website</li>
-    <li>To provide customer support for Ntronix products</li>
+    <li>To create and secure accounts and authenticate devices</li>
+    <li>To answer AI requests, measure usage, and administer account plans</li>
+    <li>To provide optional cloud conversation sync when you enable it</li>
+    <li>To respond to support requests and improve our products and website</li>
+    <li>To protect the service, prevent abuse, and meet legal obligations</li>
   </ul>
-  <p>We do not sell your personal information to third parties.</p>
+  <p>We do not sell personal information.</p>
 
-  <h2>Third-Party Services</h2>
-  <p>This site uses Google Analytics and is hosted on Netlify; both may process technical data (such as IP address) as part of providing their service. Their own privacy policies govern that processing.</p>
+  <h2>Service Providers</h2>
+  <p>Supabase provides authentication and account data services, and Render hosts the Volta account API. The AI provider selected in Volta (DeepSeek by default, or another configured provider such as Anthropic, Gemini, or OpenRouter) processes AI requests. Netlify hosts this website, and Google Analytics measures website traffic. These providers process information under their own terms and privacy practices.</p>
 
-  <h2>Your Choices</h2>
-  <p>You can decline Google Analytics tracking using your browser's Do Not Track or ad-blocking settings. You can choose what to share with us via email, phone, or WhatsApp.</p>
+  <h2>Retention and Your Choices</h2>
+  <p>We retain account, device, and usage information as needed to operate accounts, administer usage, and protect the service. Synced conversations remain until you delete them or turn off cloud history sync, which deletes the synced copies. You can use Volta without enabling cloud history. To ask about or request deletion of account information, contact us using the address below.</p>
+  <p>When using the extension, you choose what to ask Volta and can select the text to provide as context. If no text is selected, the extension may include the active file excerpt described above.</p>
+
+  <h2>Security</h2>
+  <p>Hosted account traffic uses HTTPS. The VS Code extension stores session credentials in VS Code SecretStorage and uses a short-lived authorization code with PKCE during sign-in. No online service can guarantee absolute security.</p>
 
   <h2>Contact Us</h2>
-  <p>Questions about this policy can be sent to <a href="mailto:ntronixsmartcity@gmail.com">ntronixsmartcity@gmail.com</a>.</p>
-
-  <p class="updated">This is a general-purpose policy and should be reviewed by a lawyer familiar with Ugandan data protection law before being treated as a complete legal document.</p>
+  <p>For privacy questions or requests, email <a href="mailto:ntronixsmartcity@gmail.com">ntronixsmartcity@gmail.com</a>.</p>
+  <p class="updated">This policy describes current product behavior and is not legal advice. It should be reviewed by a lawyer familiar with applicable Ugandan data-protection requirements.</p>
 </body>
 </html>
