@@ -29,22 +29,22 @@
     <link rel="canonical" href="https://ntronixvolta.netlify.app">
     
     <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Ntronix Volta  Intelligent Energy Technology.">
-    <meta property="og:description" content="Uganda's first locally designed intelligent powerwall and portable power station. AI assistant, Bluetooth, WiFi, and mobile app — engineered and built from scratch in Kampala. Four models from 500W to 3,000W.">
+    <meta property="og:title" content="Ntronix Volta | Intelligent Energy Technology">
+    <meta property="og:description" content="Uganda's first locally designed intelligent powerwall and portable power station. AI assistant, Bluetooth, WiFi, and mobile app. Engineered and built from scratch in Kampala. Four models from 500W to 3,000W.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ntronixvolta.netlify.app">
     <meta property="og:image" content="https://ntronixvolta.netlify.app/company-logo.png">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Ntronix Volta  Intelligent Energy Technology.">
-    <meta name="twitter:description" content="Uganda's first locally designed intelligent powerwall and portable power station. AI assistant, Bluetooth, WiFi, and mobile app — engineered and built from scratch in Kampala. Four models from 500W to 3,000W.">
+    <meta name="twitter:title" content="Ntronix Volta | Intelligent Energy Technology">
+    <meta name="twitter:description" content="Uganda's first locally designed intelligent powerwall and portable power station. AI assistant, Bluetooth, WiFi, and mobile app. Engineered and built from scratch in Kampala. Four models from 500W to 3,000W.">
     <meta name="twitter:image" content="https://ntronixvolta.netlify.app/company-logo.png">
     
     <!-- Favicon -->
     <link rel="icon" href="company-logo.png" type="image/png">
     
-    <title>Ntronix Volta — Intelligent Powerwalls, Portable Power Stations &amp; Smart Switches | Engineered in Uganda</title>
+    <title>Ntronix Volta | Intelligent Powerwalls, Portable Power Stations &amp; Smart Switches | Engineered in Uganda</title>
     
     <!-- Preload Critical Resources -->
     <link rel="preload" href="https://cdn.tailwindcss.com/3.4.16" as="script">
@@ -77,7 +77,7 @@
                     colors: {
                         accent: {
                             teal: '#00F5C4',
-                            purple: '#7B5CFA',
+                            slate: '#5F7880',
                             coral: '#FF6B6B',
                         },
                         dark: {
@@ -153,7 +153,7 @@
         /* ========== CSS Custom Properties ========== */
         :root {
             --teal: #00F5C4;
-            --purple: #7B5CFA;
+            --slate-accent: #5F7880;
             --coral: #FF6B6B;
             --dark-base: #0a0a1a;
             --dark-card: #0f0f24;
@@ -218,10 +218,10 @@
             z-index: 0;
             pointer-events: none;
             background:
-                radial-gradient(ellipse 60% 50% at 20% 30%, rgba(123,92,250,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 50% at 20% 30%, rgba(95,120,128,0.06) 0%, transparent 60%),
                 radial-gradient(ellipse 50% 60% at 80% 20%, rgba(0,245,196,0.04) 0%, transparent 55%),
                 radial-gradient(ellipse 55% 45% at 60% 80%, rgba(255,107,107,0.04) 0%, transparent 55%),
-                radial-gradient(ellipse 40% 40% at 40% 60%, rgba(123,92,250,0.03) 0%, transparent 50%);
+                radial-gradient(ellipse 40% 40% at 40% 60%, rgba(95,120,128,0.03) 0%, transparent 50%);
             background-size: 200% 200%;
             animation: meshMove 20s ease infinite;
         }
@@ -245,10 +245,10 @@
             animation: orbDrift1 25s ease-in-out infinite;
         }
         
-        .orb-purple {
+        .orb-slate {
             width: 350px;
             height: 350px;
-            background: rgba(123,92,250,0.1);
+            background: rgba(95,120,128,0.1);
             top: 50%;
             right: 5%;
             animation: orbDrift2 30s ease-in-out infinite;
@@ -315,7 +315,7 @@
             left: 0;
             right: 0;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(0,245,196,0.4), rgba(123,92,250,0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(0,245,196,0.4), rgba(95,120,128,0.4), transparent);
             background-size: 200% 100%;
             animation: shimmer 3s ease-in-out infinite;
         }
@@ -328,10 +328,10 @@
         .card:hover {
             transform: translateY(-6px);
             border-color: rgba(255,255,255,0.25);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 30px rgba(123,92,250,0.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 30px rgba(95,120,128,0.05);
         }
         
-        /* ========== Buttons — Pill Shaped ========== */
+        /* ========== Buttons, Pill Shaped ========== */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -348,7 +348,7 @@
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, var(--teal), var(--purple));
+            background: var(--teal);
             color: #0a0a1a;
             box-shadow: 0 4px 20px rgba(0,245,196,0.25);
         }
@@ -398,7 +398,7 @@
         
         /* ========== Hero Gradient Background ========== */
         .gradient-bg {
-            background: linear-gradient(135deg, #7B5CFA, #00F5C4, #FF6B6B, #7B5CFA);
+            background: linear-gradient(135deg, #5F7880, #00F5C4, #FF6B6B, #5F7880);
             background-size: 400% 400%;
             animation: meshMove 15s ease infinite;
         }
@@ -496,7 +496,7 @@
             width: 64px;
             height: 64px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--teal), var(--purple));
+            background: var(--teal);
             box-shadow: 0 4px 20px rgba(0,245,196,0.3);
             display: flex;
             align-items: center;
@@ -553,7 +553,7 @@
         }
         
         .stats-number {
-            background: linear-gradient(135deg, var(--teal), var(--purple));
+            background: var(--teal);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-size: 3rem;
@@ -1337,7 +1337,7 @@
 
 <body class="font-body" style="background:#0a0a1a; color:rgba(255,255,255,0.75)">
 
-    <!-- Starfield Canvas — deep space, twinkling stars & occasional shooting stars -->
+    <!-- Starfield Canvas, deep space, twinkling stars & occasional shooting stars -->
     <canvas id="starfield-canvas" aria-hidden="true"></canvas>
 
     <!-- 
@@ -1349,7 +1349,7 @@
         - High contrast mode support
         - Reduced motion media query support
     -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 text-white px-4 py-2 rounded-lg z-50" style="background:#7B5CFA">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 text-white px-4 py-2 rounded-lg z-50" style="background:#5F7880">
         Skip to main content
     </a>
     
@@ -1363,10 +1363,10 @@
                     <i class="ri-close-line text-lg" aria-hidden="true"></i>
                 </div>
             </button>
-            <img src="ntronix_CEO.JPG" alt="Ankunda Nelson — Founder &amp; CEO of Ntronix" class="rounded-2xl shadow-2xl w-full h-auto object-cover">
+            <img src="ntronix_CEO.JPG" alt="Ankunda Nelson, Founder &amp; CEO of Ntronix" class="rounded-2xl shadow-2xl w-full h-auto object-cover">
             <div class="text-center mt-4">
                 <p class="text-white font-semibold text-lg">Ankunda Nelson</p>
-                <p class="text-white/60 text-sm">Founder &amp; CEO — Ntronix Volta</p>
+                <p class="text-white/60 text-sm">Founder &amp; CEO, Ntronix Volta</p>
             </div>
         </div>
     </div>
@@ -1421,7 +1421,7 @@
     <!-- Floating Orbs for depth -->
     <div class="mesh-bg" aria-hidden="true"></div>
     <div class="floating-orb orb-teal" aria-hidden="true"></div>
-    <div class="floating-orb orb-purple" aria-hidden="true"></div>
+    <div class="floating-orb orb-slate" aria-hidden="true"></div>
     <div class="floating-orb orb-coral" aria-hidden="true"></div>
     
     <!-- 
@@ -1454,9 +1454,10 @@
             <div class="flex items-center gap-3" id="mobileMenuTitle">
                 <!-- Company Logo -->
                 <img src="company-logo.png" alt="Ntronix Logo" class="h-10 w-auto">
-                <span class="text-2xl brand-name text-white">
-                    NTRONIX
-                </span>
+                <div class="flex flex-col leading-none">
+                    <span class="text-2xl brand-name text-white">NTRONIX</span>
+                    <span class="mt-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-accent-teal">VOLTA BY NTRONIX</span>
+                </div>
             </div>
             
             <button id="closeMenu" 
@@ -1470,6 +1471,9 @@
         <nav class="flex flex-col gap-2">
             <a href="#products" class="mobile-menu-link py-4 text-lg font-medium text-white/70 hover:text-accent-teal transition-colors">
                 Products
+            </a>
+            <a href="volta-download.html" class="mobile-menu-link py-4 text-lg font-medium text-white/70 hover:text-accent-teal transition-colors">
+                Volta AI
             </a>
             <a href="#technology" class="mobile-menu-link py-4 text-lg font-medium text-white/70 hover:text-accent-teal transition-colors">
                 Technology
@@ -1512,14 +1516,16 @@
                 <!-- Logo -->
                 <div class="flex items-center gap-3">
                     <img src="company-logo.png" alt="Ntronix Logo" class="h-10 w-auto">
-                    <span class="text-2xl brand-name text-white">
-                        NTRONIX
-                    </span>
+                    <div class="flex flex-col leading-none">
+                        <span class="text-2xl brand-name text-white">NTRONIX</span>
+                        <span class="mt-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-accent-teal">VOLTA BY NTRONIX</span>
+                    </div>
                 </div>
                 
                 <!-- Desktop Navigation -->
                 <div class="hidden lg:flex items-center gap-8">
                     <a href="#products" class="nav-link active">Products</a>
+                    <a href="volta-download.html" class="nav-link">Volta AI</a>
                     <a href="#technology" class="nav-link">Technology</a>
                     <a href="#app" class="nav-link">Mobile App</a>
                     <a href="#about" class="nav-link">About</a>
@@ -1586,7 +1592,7 @@
                         <!-- Badge -->
                         <div class="inline-flex items-center gap-2 px-4 py-2 bg-accent-teal/15 backdrop-blur-sm rounded-full text-sm font-semibold text-white border border-accent-teal/30">
                             <span class="w-2 h-2 rounded-full bg-accent-teal animate-pulse"></span>
-                            <span>Engineered in Uganda — Built for Africa</span>
+                            <span>Engineered in Uganda, Built for Africa</span>
                         </div>
                         
                         <!-- Heading -->
@@ -1599,7 +1605,7 @@
                         
                         <!-- Description -->
                         <p class="text-xl text-white/90 max-w-2xl">
-                            Ntronix develops intelligent energy storage, power conversion and connected energy systems from Uganda. Integrated Technology Platform. End-to-end engineered — circuit boards, firmware, mobile app, Volta AI engineer, and smart switches — developed by the Ntronix engineering team. Designed to scale across African and global markets.
+                            Ntronix develops intelligent energy storage, power conversion and connected energy systems from Uganda. Integrated Technology Platform. Engineered end to end: circuit boards, firmware, mobile app, Volta AI engineer, and smart switches. Developed by the Ntronix engineering team. Designed to scale across African and global markets.
                         </p>
                         
                         <!-- CTA Buttons -->
@@ -1634,17 +1640,17 @@
                     
                     <!-- Hero Image -->
                     <div class="relative reveal stagger-2">
-                        <div class="absolute -inset-4 bg-gradient-to-r from-accent-teal/30 to-accent-purple/30 rounded-2xl blur-xl" aria-hidden="true"></div>
+                        <div class="absolute -inset-4 bg-gradient-to-r from-accent-teal/30 to-accent-slate/30 rounded-2xl blur-xl" aria-hidden="true"></div>
                         
                         <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&h=600&fit=crop" 
-                             alt="Solar panel array — Ntronix Volta smart energy systems" 
+                             alt="Solar panel array, Ntronix Volta smart energy systems"
                              class="relative rounded-2xl shadow-2xl w-full h-auto object-cover"
                              loading="eager">
                         
                         <!-- Floating Info Card -->
                         <div class="absolute -bottom-6 -left-6 glass rounded-2xl p-6 shadow-xl max-w-xs">
                             <div class="flex items-start gap-3">
-                                <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-accent-teal to-accent-purple flex items-center justify-center flex-shrink-0">
+                                <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-accent-teal to-accent-slate flex items-center justify-center flex-shrink-0">
                                     <i class="ri-flashlight-line text-white text-xl" aria-hidden="true"></i>
                                 </div>
                                 <div>
@@ -1670,7 +1676,7 @@
             <div class="container mx-auto px-6">
                 <!-- Section Header -->
                 <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="inline-block px-4 py-2 rounded-full text-sm font-medium mb-4" style="background:rgba(123,92,250,0.15);color:#7B5CFA;border:1px solid rgba(123,92,250,0.2)">
+                    <span class="inline-block px-4 py-2 rounded-full text-sm font-medium mb-4" style="background:rgba(95,120,128,0.15);color:#5F7880;border:1px solid rgba(95,120,128,0.2)">
                         <i class="ri-error-warning-line mr-2" aria-hidden="true"></i>
                         WHY WE EXIST
                     </span>
@@ -1702,19 +1708,19 @@
                         
                         <h3 class="text-2xl font-bold mb-4">Imported Technology</h3>
                         <p class="text-white/60">
-                            Every power station, powerwall, and energy system sold in East Africa is imported — at 2x-3x the cost, designed for foreign conditions, with zero local repair capability. When it breaks, you buy another import. Billions of shillings leave the continent every year.
+                            Every power station, powerwall, and energy system sold in East Africa is imported at 2x to 3x the cost, designed for foreign conditions, with zero local repair capability. When it breaks, you buy another import. Billions of shillings leave the continent every year.
                         </p>
                     </div>
                     
                     <!-- Card 3 -->
                     <div class="card p-6 sm:p-8 reveal stagger-3">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-purple/15 to-accent-teal/15 flex items-center justify-center mb-6">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-slate/15 to-accent-teal/15 flex items-center justify-center mb-6">
                             <i class="ri-cpu-line text-accent-teal text-3xl" aria-hidden="true"></i>
                         </div>
                         
                         <h3 class="text-2xl font-bold mb-4">Zero Local Innovation</h3>
                         <p class="text-white/60">
-                            There is virtually no indigenous smart energy manufacturing in all of East Africa. No Bluetooth. No app. No AI. No smart switches. No Volta AI engineer. Existing products are black boxes with no intelligence. Africa needs energy technology designed around its realities — and we are building it.
+                            There is virtually no indigenous smart energy manufacturing in all of East Africa. No Bluetooth. No app. No AI. No smart switches. No Volta AI engineer. Existing products are black boxes with no intelligence. Africa needs energy technology designed around its realities. We are building it.
                         </p>
                     </div>
                 </div>
@@ -1744,7 +1750,7 @@
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <h2 class="text-4xl lg:text-5xl font-bold mb-6 reveal stagger-1">The Volta Energy Platform</h2>
                     <p class="text-xl text-white/60 reveal stagger-2">
-                        An integrated ecosystem of intelligent energy systems — from 500W to 3,000W, designed and built in Uganda. Also featuring the Volta AI engineer terminal for developers.
+                        An integrated ecosystem of intelligent energy systems, from 500W to 3,000W, designed and built in Uganda. Also featuring the Volta AI engineer terminal for developers.
                     </p>
                 </div>
                 
@@ -1753,10 +1759,10 @@
                     <!-- VC-500 -->
                     <article class="product-card card" data-category="volta">
                         <div class="relative">
-                            <span class="product-badge bg-gradient-to-r from-accent-purple to-accent-purple/80 text-white">
+                            <span class="product-badge bg-gradient-to-r from-accent-slate to-accent-slate/80 text-white">
                                 VOLTA SERIES
                             </span>
-                            <div class="w-full h-56 bg-gradient-to-br from-accent-purple/80 to-accent-purple/40 flex flex-col items-center justify-center">
+                            <div class="w-full h-56 bg-gradient-to-br from-accent-slate/80 to-accent-slate/40 flex flex-col items-center justify-center">
                                 <i class="ri-battery-charge-line text-white/30 text-7xl mb-2" aria-hidden="true"></i>
                                 <span class="text-white font-bold text-xl">VC-500</span>
                             </div>
@@ -1846,7 +1852,7 @@
                             <span class="product-badge bg-gradient-to-r from-accent-teal to-accent-teal/80 text-dark-base">
                                 HOME
                             </span>
-                            <div class="w-full h-56 bg-gradient-to-br from-accent-teal/50 to-accent-purple/30 flex flex-col items-center justify-center">
+                            <div class="w-full h-56 bg-gradient-to-br from-accent-teal/50 to-accent-slate/30 flex flex-col items-center justify-center">
                                 <i class="ri-battery-charge-line text-white/30 text-7xl mb-2" aria-hidden="true"></i>
                                 <span class="text-white font-bold text-xl">VC-2000</span>
                             </div>
@@ -1891,7 +1897,7 @@
                             <span class="product-badge bg-gradient-to-r from-accent-coral to-accent-coral/80 text-white">
                                 FLAGSHIP
                             </span>
-                            <div class="w-full h-56 bg-gradient-to-br from-accent-coral/50 to-accent-purple/30 flex flex-col items-center justify-center">
+                            <div class="w-full h-56 bg-gradient-to-br from-accent-coral/50 to-accent-slate/30 flex flex-col items-center justify-center">
                                 <i class="ri-battery-charge-line text-white/30 text-7xl mb-2" aria-hidden="true"></i>
                                 <span class="text-white font-bold text-xl">VC-3000</span>
                             </div>
@@ -1982,7 +1988,7 @@
             <div class="hes-warm-glow" aria-hidden="true"></div>
             
             <div class="container mx-auto px-6 relative z-10">
-                <!-- Section header text — positioned top-left like the reference -->
+                <!-- Section header text, positioned top-left like the reference -->
                 <div class="mb-10 lg:mb-16 reveal stagger-1">
                     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3">Home Energy Solution</h2>
                     <p class="text-base sm:text-lg text-white/50 max-w-xl">
@@ -1998,7 +2004,7 @@
                                 <!-- Powerwall image -->
                                 <div class="flex-shrink-0">
                                     <img src="powerwall.png" 
-                                         alt="Ntronix Volta Powerwall — Smart Energy Storage System" 
+                                         alt="Ntronix Volta Powerwall, Smart Energy Storage System"
                                          class="h-56 sm:h-72 lg:h-80 w-auto object-contain"
                                          style="filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));"
                                          loading="lazy">
@@ -2017,7 +2023,7 @@
                                     <div class="grid grid-cols-2 gap-3">
                                         <div class="spec-chip">
                                             <div class="spec-chip-label">Capacity</div>
-                                            <div class="spec-chip-val">500W–3kW</div>
+                                            <div class="spec-chip-val">500W to 3kW</div>
                                         </div>
                                         <div class="spec-chip">
                                             <div class="spec-chip-label">Solar Input</div>
@@ -2040,7 +2046,7 @@
                     <div class="mt-6 text-center sm:text-left">
                         <p class="text-white/40 text-xs mb-3">Download the Ntronix companion app</p>
                         <div class="store-badge-row left">
-                            <!-- Direct APK Download — dynamically fetched from GitHub releases -->
+                            <!-- Direct APK Download, dynamically fetched from GitHub releases -->
                             <a href="https://github.com/ntronix44/website-ntronix/releases/download/v1.2.0/Ntronix-App-v1.2.0.apk"
                                class="store-badge apk-download"
                                download="Ntronix-App-v1.2.0.apk">
@@ -2207,7 +2213,7 @@
                 <!-- App Features Grid -->
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
                     <div class="card p-6 sm:p-8 text-center">
-                        <div class="w-16 h-16 mx-auto flex items-center justify-center bg-gradient-to-br from-accent-purple/15 to-accent-teal/15 rounded-2xl mb-6">
+                        <div class="w-16 h-16 mx-auto flex items-center justify-center bg-gradient-to-br from-accent-slate/15 to-accent-teal/15 rounded-2xl mb-6">
                             <i class="ri-bluetooth-line text-3xl text-accent-teal" aria-hidden="true"></i>
                         </div>
                         <h3 class="text-2xl font-bold mb-4">Smart Device Control</h3>
@@ -2234,12 +2240,12 @@
                     </div>
                     
                     <div class="card p-6 sm:p-8 text-center">
-                        <div class="w-16 h-16 mx-auto flex items-center justify-center bg-gradient-to-br from-accent-purple/15 to-accent-teal/15 rounded-2xl mb-6">
+                        <div class="w-16 h-16 mx-auto flex items-center justify-center bg-gradient-to-br from-accent-slate/15 to-accent-teal/15 rounded-2xl mb-6">
                             <i class="ri-robot-2-line text-3xl text-accent-teal" aria-hidden="true"></i>
                         </div>
                         <h3 class="text-2xl font-bold mb-4">Volta AI Assistant</h3>
                         <p class="text-white/60 mb-6">
-                             Your built-in AI assistant. Just tell Volta what you need — "turn on AC", "set a 2-hour timer", or "how's my battery?"
+                             Your built-in AI assistant. Tell Volta what you need, for example, "turn on AC", "set a 2-hour timer", or "how's my battery?"
                         </p>
                         <ul class="text-left space-y-3 mb-6">
                             <li class="flex items-center gap-3">
@@ -2261,7 +2267,7 @@
                     </div>
                     
                     <div class="card p-6 sm:p-8 text-center">
-                        <div class="w-16 h-16 mx-auto flex items-center justify-center bg-gradient-to-br from-accent-purple/15 to-accent-teal/15 rounded-2xl mb-6">
+                        <div class="w-16 h-16 mx-auto flex items-center justify-center bg-gradient-to-br from-accent-slate/15 to-accent-teal/15 rounded-2xl mb-6">
                             <i class="ri-bar-chart-box-line text-3xl text-accent-teal" aria-hidden="true"></i>
                         </div>
                         <h3 class="text-2xl font-bold mb-4">Energy Analytics</h3>
@@ -2302,7 +2308,7 @@
                                 <div>
                                     <h4 class="text-xl font-bold mb-2">Smart Automation</h4>
                                     <p class="text-white/60 mb-3">
-                                         Set automatic rules that respond to your energy needs. Turn on outputs at specific times, protect your battery, or react to solar and grid changes — all hands-free.
+                                         Set automatic rules that respond to your energy needs. Turn on outputs at specific times, protect your battery, or react to solar and grid changes. All hands-free.
                                     </p>
                                     <div class="bg-white/5 rounded-xl p-4">
                                         <div class="grid grid-cols-3 gap-3">
@@ -2330,7 +2336,7 @@
                                 <div>
                                     <h4 class="text-xl font-bold mb-2">Hand Gesture Control</h4>
                                     <p class="text-white/60 mb-3">
-                                        Use hand gestures through your phone camera to control your powerwall — no touching needed. Turn AC on with a fist-to-palm, toggle DC with a peace sign, and more.
+                                        Use hand gestures through your phone camera to control your powerwall without touching it. Turn AC on with a fist-to-palm, toggle DC with a peace sign, and more.
                                     </p>
                                     <div class="grid grid-cols-3 gap-3">
                                         <div class="bg-white/5 rounded-lg p-3 text-center">
@@ -2366,7 +2372,7 @@
                                 <span class="text-sm">Battery</span>
                             </div>
                             <div class="flex items-center gap-2">
-                                <div class="w-3 h-3 rounded-full bg-purple-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-accent-slate"></div>
                                 <span class="text-sm">Load</span>
                             </div>
                         </div>
@@ -2378,7 +2384,7 @@
                     <h3 class="text-2xl sm:text-3xl font-bold mb-3">Get the App</h3>
                     <p class="text-white/50 mb-6">Available now on Android, iOS, or direct APK download</p>
                     <div class="store-badge-row dark-bg" style="justify-content: center;">
-                        <!-- Direct APK Download — dynamically fetched from GitHub releases -->
+                        <!-- Direct APK Download, dynamically fetched from GitHub releases -->
                         <a href="https://github.com/ntronix44/website-ntronix/releases/download/v1.2.0/Ntronix-App-v1.2.0.apk"
                            class="store-badge apk-download"
                            download="Ntronix-App-v1.2.0.apk">
@@ -2426,7 +2432,7 @@
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <h2 class="text-4xl lg:text-5xl font-bold mb-6 reveal stagger-1">Engineering &amp; Technology</h2>
                     <p class="text-xl text-white/60 reveal stagger-2">
-                        Purpose-built hardware and software working together — intelligent power stations, smart switches, Volta AI, and a full energy ecosystem for homes and businesses.
+                        Purpose-built hardware and software working together: intelligent power stations, smart switches, Volta AI, and a full energy ecosystem for homes and businesses.
                     </p>
                 </div>
                 
@@ -2439,7 +2445,7 @@
                             </span>
                             <h3 class="text-3xl font-bold mb-4">Purpose-Built Hardware</h3>
                             <p class="text-white/60 text-lg">
-                                Each Volta powerwall uses dedicated processors for connectivity, solar charging, and AC generation — designed to work together seamlessly. The result is reliable, efficient power conversion with intelligent monitoring and protection built in at every level.
+                                Each Volta powerwall uses dedicated processors for connectivity, solar charging, and AC generation. These components are designed to work together seamlessly. The result is reliable, efficient power conversion with intelligent monitoring and protection built in at every level.
                             </p>
                         </div>
                         
@@ -2489,7 +2495,7 @@
                             <i class="ri-cpu-line text-accent-teal text-xl" aria-hidden="true"></i>
                         </div>
                         <h4 class="text-xl font-bold mb-3">Pure Sine Wave Output</h4>
-                        <p class="text-white/60">Clean, stable AC power safe for sensitive electronics — laptops, medical devices, and appliances.</p>
+                        <p class="text-white/60">Clean, stable AC power safe for sensitive electronics, including laptops, medical devices, and appliances.</p>
                     </div>
                     
                     <div class="card p-6 text-center">
@@ -2505,7 +2511,7 @@
                             <i class="ri-flashlight-line text-accent-teal text-xl" aria-hidden="true"></i>
                         </div>
                         <h4 class="text-xl font-bold mb-3">UPS Bypass Mode</h4>
-                        <p class="text-white/60">Instant switchover keeps your devices running when the grid drops — available on the VC-3000.</p>
+                        <p class="text-white/60">On the VC-3000, instant switchover keeps your devices running when the grid drops.</p>
                     </div>
                     
                     <div class="card p-6 text-center">
@@ -2582,7 +2588,7 @@
                             </div>
                             <div>
                                 <h4 class="text-lg font-bold mb-1">Proven Product, Not Just an Idea</h4>
-                                <p class="text-white/40">We have a paying customer and a working product in the field. This isn't a pitch deck — it's real hardware generating real revenue.</p>
+                                <p class="text-white/40">We have a paying customer and a working product in the field. This isn't a pitch deck. It's real hardware generating real revenue.</p>
                             </div>
                         </div>
                         
@@ -2602,7 +2608,7 @@
                             </div>
                             <div>
                                 <h4 class="text-lg font-bold mb-1">End-to-End Technology Ownership</h4>
-                                <p class="text-white/40">Ntronix develops and integrates its core technology across every layer — hardware, firmware, mobile app, AI, cloud. across hardware, firmware, software, connectivity and AI.</p>
+                                <p class="text-white/40">Ntronix develops and integrates its core technology across hardware, firmware, mobile app, software, connectivity, cloud, and AI.</p>
                             </div>
                         </div>
                     </div>
@@ -2621,12 +2627,12 @@
                                 "The Ntronix powerwall has been reliable in everyday operation. It continues to provide dependable everyday power. I can control everything from my phone. Being able to monitor and control the system from my phone makes a huge difference."
                             </blockquote>
                             <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-accent-teal to-accent-purple flex items-center justify-center text-white font-bold text-lg">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-br from-accent-teal to-accent-slate flex items-center justify-center text-white font-bold text-lg">
                                     AP
                                 </div>
                                 <div>
                                     <div class="font-bold text-white">Agaba Peter</div>
-                                    <div class="text-white/40 text-sm">Ntronix Customer — December 2025</div>
+                                    <div class="text-white/40 text-sm">Ntronix Customer, December 2025</div>
                                 </div>
                             </div>
                         </div>
@@ -2657,17 +2663,17 @@
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
                     <!-- Founder Image -->
                     <div class="relative reveal stagger-1">
-                        <div class="absolute -top-6 -left-6 w-24 h-24 rounded-2xl bg-gradient-to-br from-accent-teal to-accent-purple -z-10"></div>
+                        <div class="absolute -top-6 -left-6 w-24 h-24 rounded-2xl bg-gradient-to-br from-accent-teal to-accent-slate -z-10"></div>
                         
                         <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop" 
-                             alt="Ntronix team — Kampala, Uganda" 
+                             alt="Ntronix team, Kampala, Uganda"
                              class="rounded-2xl shadow-2xl w-full h-auto object-cover"
                              loading="lazy">
                         
                         <!-- Location Badge -->
                         <div class="absolute bottom-6 right-6 glass rounded-2xl p-5 shadow-xl max-w-xs">
                             <div class="flex items-start gap-3">
-                                <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-accent-teal to-accent-purple flex items-center justify-center flex-shrink-0">
+                                <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-accent-teal to-accent-slate flex items-center justify-center flex-shrink-0">
                                     <i class="ri-medal-line text-white text-xl" aria-hidden="true"></i>
                                 </div>
                                 <div>
@@ -2682,19 +2688,19 @@
                     <div class="space-y-8">
                         <h2 class="text-4xl lg:text-5xl font-bold reveal stagger-2">About Ntronix</h2>
                         <p class="text-xl text-white/60 reveal stagger-3">
-                            Ntronix is an African energy technology company developing intelligent energy storage, power conversion, connected systems and AI-powered tools — designed and built in Uganda for African and global markets.
+                            Ntronix is an African energy technology company developing intelligent energy storage, power conversion, connected systems, and AI-powered tools. These systems are designed and built in Uganda for African and global markets.
                         </p>
                         
                         <div class="space-y-6">
                             <!-- Founder -->
                             <div class="flex gap-5 items-start reveal stagger-1">
                                 <img src="ntronix_CEO.JPG" 
-                                     alt="Ankunda Nelson — Founder &amp; CEO" 
+                                     alt="Ankunda Nelson, Founder &amp; CEO"
                                      class="w-16 h-16 flex-shrink-0 rounded-xl object-cover shadow-md cursor-pointer hover:ring-2 hover:ring-primary-400 hover:scale-105 transition-all"
                                      onclick="document.getElementById('ceoModal').classList.remove('hidden')"
                                      title="Click to view full photo">
                                 <div>
-                                    <h4 class="text-2xl font-bold mb-2">Ankunda Nelson — Founder &amp; CEO</h4>
+                                    <h4 class="text-2xl font-bold mb-2">Ankunda Nelson, Founder &amp; CEO</h4>
                                     <p class="text-white/60">
                                         A Ugandan engineer, educator, and embedded systems and power electronics specialist. Nelson leads product development across embedded systems, power electronics and intelligent energy technology. His work focuses on integrating hardware, firmware and software into scalable energy products.
                                     </p>
@@ -2709,7 +2715,7 @@
                                 <div>
                                     <h4 class="text-2xl font-bold mb-2">Full-Stack Hardware Company</h4>
                                     <p class="text-white/60">
-                                        We design and manufacture the entire ecosystem: intelligent power stations and powerwalls, wireless smart switches, the Volta AI engineer terminal, and the companion mobile app — all engineered in-house with no outsourced modules.
+                                        We design and manufacture the entire ecosystem: intelligent power stations and powerwalls, wireless smart switches, the Volta AI engineer terminal, and the companion mobile app. The full stack is engineered in-house with no outsourced modules.
                                     </p>
                                 </div>
                             </div>
@@ -2754,7 +2760,7 @@
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <h2 class="text-4xl lg:text-5xl font-bold mb-6 reveal stagger-1">Get in Touch</h2>
                     <p class="text-xl text-white/60 reveal stagger-2">
-                        Whether you want to buy a powerwall, invest in Ntronix, distribute our products, or just learn more — we want to hear from you.
+                        Whether you want to buy a powerwall, invest in Ntronix, distribute our products, or just learn more. We want to hear from you.
                     </p>
                 </div>
                 
@@ -2949,7 +2955,7 @@
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto bg-dark-card border border-white/5 rounded-2xl p-8 md:p-12 text-center relative overflow-hidden" style="box-shadow:0 0 20px rgba(0,245,196,0.15);">
                     <div class="absolute -top-20 -right-20 w-40 h-40 bg-accent-teal/5 rounded-full blur-3xl"></div>
-                    <div class="absolute -bottom-20 -left-20 w-40 h-40 bg-accent-purple/5 rounded-full blur-3xl"></div>
+                    <div class="absolute -bottom-20 -left-20 w-40 h-40 bg-accent-slate/5 rounded-full blur-3xl"></div>
                     
                     <div class="relative">
                         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-teal/10 border border-accent-teal/20 text-accent-teal text-sm mb-6">
@@ -2963,7 +2969,7 @@
                         
                         <p class="text-gray-400 max-w-2xl mx-auto mb-8">
                             An intelligent engineering agent that runs in your terminal. Reads and edits firmware code, searches datasheets, 
-                            runs builds, flashes MCUs, and debugs crashes — all through natural language. Built by Ntronix for STM32, ESP32, 
+                            runs builds, flashes MCUs, and debugs crashes using natural language. Built by Ntronix for STM32, ESP32,
                             nRF52, RP2040, AVR, and power electronics development.
                         </p>
                         
@@ -2976,7 +2982,7 @@
                             <div class="bg-dark-surface/50 rounded-xl p-4 border border-white/5">
                                 <i class="ri-flashlight-line text-accent-teal text-xl"></i>
                                 <p class="text-white text-sm font-semibold mt-2">Power Electronics</p>
-                                <p class="text-gray-500 text-xs mt-1">Power stations, powerwalls, smart switches — MISRA-compliant</p>
+                                <p class="text-gray-500 text-xs mt-1">Power stations, powerwalls, smart switches. MISRA-compliant code</p>
                             </div>
                             <div class="bg-dark-surface/50 rounded-xl p-4 border border-white/5">
                                 <i class="ri-smartphone-line text-accent-teal text-xl"></i>
@@ -3018,27 +3024,9 @@
                         <span class="text-2xl brand-name">NTRONIX</span>
                     </div>
                     <p class="text-white/40 mb-6">
-                        Ugandan technology company building intelligent powerwalls, portable power stations, smart switches, and the Volta AI engineer terminal. Embedded systems, power electronics, and IoT — all engineered in Kampala.
+                        Ugandan technology company building intelligent powerwalls, portable power stations, smart switches, and the Volta AI engineer terminal. Embedded systems, power electronics, and IoT. All engineered in Kampala.
                     </p>
                     
-                    <!-- Social Links -->
-                    <div class="flex items-center gap-3">
-                        <a href="https://www.youtube.com/@ankundanelsoninnovator7493" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-red-600 transition-colors social-icon" aria-label="YouTube">
-                            <i class="ri-youtube-fill" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://www.facebook.com/ankunda.nelson.3" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-600 transition-colors social-icon" aria-label="Facebook">
-                            <i class="ri-facebook-fill" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://www.instagram.com/ntronix_smart" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-pink-600 transition-colors social-icon" aria-label="Instagram">
-                            <i class="ri-instagram-fill" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://x.com/InnovatorN5663" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors social-icon" aria-label="X (Twitter)">
-                            <i class="ri-twitter-x-fill" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/ankunda-nelson-innovator-703368346" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-700 transition-colors social-icon" aria-label="LinkedIn">
-                            <i class="ri-linkedin-fill" aria-hidden="true"></i>
-                        </a>
-                    </div>
                 </div>
                 
                 <!-- Products -->
@@ -3160,7 +3148,7 @@
             animationDuration: 600,
             chartColors: {
                 primary: '#00F5C4',
-                secondary: '#7B5CFA',
+                secondary: '#5F7880',
                 success: '#00F5C4',
                 warning: '#FF6B6B',
                 danger: '#FF6B6B'
@@ -3460,7 +3448,7 @@
                 
                 window.location.href = mailtoLink;
                 
-                this.showMessage('Opening your email app — send the message to reach us directly.', 'success');
+                this.showMessage('Opening your email app. Send the message to reach us directly.', 'success');
                 this.form.reset();
             },
             
@@ -3816,7 +3804,7 @@
                 
                 messageEl.innerHTML = `
                     <div class="${sender === 'user' 
-                        ? 'text-white' + ' bg-accent-purple' 
+                        ? 'text-white' + ' bg-accent-slate'
                         : 'bg-white/10'} rounded-lg p-3 max-w-xs shadow-sm">
                         <p class="${sender === 'user' ? '' : 'text-white'} text-sm">
                             ${this.escapeHtml(message)}
@@ -4206,7 +4194,7 @@
 
         
     </script>
-    <!-- Starfield Animation — twinkling stars + shooting stars -->
+    <!-- Starfield Animation, twinkling stars + shooting stars -->
     <script>
         (function() {
             const canvas = document.getElementById('starfield-canvas');
@@ -4369,7 +4357,7 @@
             // respect reduced-motion preference
             const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
             if (mq.matches) {
-                // still draw static stars — no animation loop
+                // still draw static stars, no animation loop
                 resize();
                 initStars();
                 ctx.fillStyle = '#050510';
