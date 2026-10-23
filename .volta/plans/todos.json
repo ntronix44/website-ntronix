@@ -983,11 +983,112 @@
     {
       "id": "msnfzo24vno",
       "task": "Step 6: Git add all, commit with conventional message, push to trigger Netlify deploy",
-      "status": "pending",
+      "status": "done",
       "priority": "high",
       "category": "plan",
       "created": "2026-08-10T16:24:55.948Z",
       "notes": []
+    }
+  ],
+  [
+    "msni7m2zd6k",
+    {
+      "id": "msni7m2zd6k",
+      "task": "Step 1: Stash current working changes (todos.json) in website repo to get a clean working tree",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-08-10T17:27:05.867Z",
+      "notes": []
+    }
+  ],
+  [
+    "msni7m2zcqe",
+    {
+      "id": "msni7m2zcqe",
+      "task": "Step 2: Fetch remote tags so local repo knows about v1.1.0 already on GitHub",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-08-10T17:27:05.867Z",
+      "notes": []
+    }
+  ],
+  [
+    "msni7m2zj6f",
+    {
+      "id": "msni7m2zj6f",
+      "task": "Step 3: Copy the new APK (~162 MB) from ntronOS build output to website root, renaming to Ntronix-App-v1.2.0.apk",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-08-10T17:27:05.867Z",
+      "notes": []
+    }
+  ],
+  [
+    "msni7m2zt4n",
+    {
+      "id": "msni7m2zt4n",
+      "task": "Step 4: Update volta-download.html — change all v1.1.0 references (download URL, version badge, fallback text) to v1.2.0",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-08-10T17:27:05.867Z",
+      "notes": []
+    }
+  ],
+  [
+    "msni7m2z7li",
+    {
+      "id": "msni7m2z7li",
+      "task": "Step 5: Update js/app-download.js — bump APK_VERSION, APK_PATH, APK_FILENAME to v1.2.0",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-08-10T17:27:05.867Z",
+      "notes": []
+    }
+  ],
+  [
+    "msni7m2zxs6",
+    {
+      "id": "msni7m2zxs6",
+      "task": "Step 6: Git commit all changes with conventional commit message for v1.2.0 release",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-08-10T17:27:05.867Z",
+      "notes": []
+    }
+  ],
+  [
+    "msni7m2zlbx",
+    {
+      "id": "msni7m2zlbx",
+      "task": "Step 7: Create and push v1.2.0 git tag to origin",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-08-10T17:27:05.867Z",
+      "notes": []
+    }
+  ],
+  [
+    "msni7m2zksn",
+    {
+      "id": "msni7m2zksn",
+      "task": "Step 8: Create GitHub Release v1.2.0 with the APK attached via GitHub API/CLI",
+      "status": "done",
+      "priority": "high",
+      "category": "plan",
+      "created": "2026-08-10T17:27:05.867Z",
+      "notes": [
+        {
+          "at": "2026-08-10T17:31:32.567Z",
+          "text": "Release created: https://github.com/ntronix44/website-ntronix/releases/tag/v1.2.0 — APK 162MB attached, SHA256 verified"
+        }
+      ]
     }
   ]
 ]

@@ -12,3 +12,6 @@ Thumbs.db
 *.apk
 *.txt
 .volta/
+*.exe
+.embedder/
+.volta/
